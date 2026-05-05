@@ -1,0 +1,15 @@
+# AI Coding Guidelines
+1. STRICT VANILLA: No React, Vue, Tailwind, or Bootstrap. Pure HTML/CSS/JS.
+2. CSS METHODOLOGY: Strict BEM (`.block__element--modifier`). Separate blocks into `css/blocks/`. No deep nesting.
+3. DESIGN MATH: 
+   - Typography: Major Third scale (1.250). Use `clamp()` for fluid responsive headings.
+   - Spacing: Strict 8-point rhythm (8, 16, 24, 32, 48, 64, 128px). Use CSS variables.
+   - Vertical Spacing: Unidirectional only. Push elements down using `margin-bottom`. Never mix top and bottom margins.
+4. LAYOUT: 12-column CSS Grid (`gap: var(--space-32)`). Mobile-first (4 cols mobile, 8 tablet, 12 desktop).
+5. CONVERSION UX: 
+   - Never use ghost buttons (outline only) for primary CTAs (`.button--primary`).
+   - Strictly ONE `<h1>` per page. Sequential heading order only.
+6. DARK MODE: Enforce 60-30-10 color rule. Include `@media (prefers-color-scheme: dark)` to invert variables.
+7. A11Y & PERFORMANCE: 
+   - All `<img>` tags need explicit `width`/`height` or `aspect-ratio` (prevents CLS), and `loading="lazy"` (if below fold).
+   - Global `:focus-visible` ring required for keyboard navigation. Form error/success states required.

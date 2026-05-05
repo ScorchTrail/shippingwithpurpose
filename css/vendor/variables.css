@@ -1,0 +1,28 @@
+:root {
+  --color-surface: #f5f3ef;
+  --color-primary: #1b1f2a;
+  --color-accent: #ff6a3d;
+
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-h6: clamp(1.25rem, 1.16rem + 0.45vw, 1.4rem);
+  --text-h5: clamp(1.563rem, 1.43rem + 0.66vw, 1.75rem);
+  --text-h4: clamp(1.953rem, 1.76rem + 0.96vw, 2.188rem);
+  --text-h3: clamp(2.441rem, 2.15rem + 1.45vw, 2.734rem);
+  --text-h2: clamp(3.052rem, 2.62rem + 2.16vw, 3.418rem);
+  --text-h1: clamp(3.815rem, 3.19rem + 3.12vw, 4.272rem);
+
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-128: 128px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #1b1f2a;
+    --color-primary: #f5f3ef;
+  }
+}
