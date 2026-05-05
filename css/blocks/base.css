@@ -1,0 +1,66 @@
+/* ============================================================ TOKENS */
+:root {
+  --navy:        #1a365d;
+  --navy-dark:   #0f2340;
+  --navy-mid:    #2a4a7f;
+  --kraft:       #b98e5a;
+  --kraft-dark:  #8B6914;
+  --kraft-light: #f6d89a;
+  --white:       #ffffff;
+  --off-white:   #f8f6f2;
+  --light-bg:    #f0f4f8;
+  --charcoal:    #2d3748;
+  --body-text:   #4a5568;
+  --muted:       #718096;
+  --border:      #e2e8f0;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --shadow-sm:   0 2px 12px rgba(0,0,0,0.05);
+  --shadow-md:   0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,0.12);
+}
+
+/* ============================================================ RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--charcoal); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
+::-webkit-scrollbar-thumb { background: #c0c0cc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--kraft); }
+
+/* ============================================================ TYPE HELPERS */
+.font-display { font-family: 'Quantico', sans-serif; }
+.gradient-text { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.kraft-gradient-text { background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* ============================================================ SECTION TAG */
+.section-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(185,142,90,0.12); border: 1px solid rgba(185,142,90,0.35); color: var(--kraft-dark); font-family: 'Quantico', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 13px; border-radius: 100px; }
+
+/* ============================================================ BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Quantico', sans-serif; font-weight: 800; border-radius: var(--radius-md); border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; text-decoration: none; white-space: nowrap; }
+.btn--navy { background: var(--navy); color: #fff; padding: 14px 28px; font-size: 1rem; box-shadow: 0 4px 20px rgba(26,54,93,0.25); }
+.btn--navy:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,54,93,0.35); }
+.btn--navy-sm { background: var(--navy); color: #fff; padding: 11px 22px; font-size: 0.875rem; box-shadow: 0 4px 16px rgba(26,54,93,0.2); }
+.btn--navy-sm:hover { background: var(--navy-mid); transform: translateY(-1px); }
+.btn--kraft { background: var(--kraft); color: #fff; padding: 12px 24px; font-size: 0.9rem; }
+.btn--kraft:hover { background: var(--kraft-dark); transform: translateY(-1px); }
+.btn--outline-navy { background: #fff; color: var(--navy); padding: 13px 26px; font-size: 0.95rem; border: 2px solid var(--navy); }
+.btn--outline-navy:hover { background: var(--light-bg); }
+.btn--ghost { background: rgba(0,0,0,0.02); color: #444; padding: 14px 24px; font-size: 1rem; font-weight: 700; border: 1px solid rgba(0,0,0,0.12); }
+.btn--ghost:hover { background: rgba(0,0,0,0.05); }
+
+/* ============================================================ LAYOUT */
+.container    { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.container-md { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
+.container-sm { max-width: 768px;  margin: 0 auto; padding: 0 24px; }
+
+/* ============================================================ FADE-IN */
+.fade-section { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-section.visible { opacity: 1; transform: translateY(0); }
+

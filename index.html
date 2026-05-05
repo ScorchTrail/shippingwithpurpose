@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- =========================================================
      SHIPPING WITH PURPOSE — index.html (HOME)
-     Copy-paste ready. Link swp.css + swp.js below.
+    Copy-paste ready. Link css/main.css + js/app.js below.
      ========================================================= -->
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quantico:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="swp.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
@@ -27,23 +27,23 @@
       </div>
     </a>
     <div class="nav__links">
-      <a href="index.html"     class="nav__link active">Home</a>
+      <a href="index.html"     class="nav__link nav__link--active">Home</a>
       <a href="services.html"  class="nav__link">Services</a>
       <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
       <a href="contact.html"   class="nav__link">Contact &amp; About</a>
     </div>
     <div class="nav__cta-desktop">
       <a href="tel:+1-XXX-XXX-XXXX" class="nav__phone">(XXX) XXX-XXXX</a>
-      <a href="mailboxes.html" class="btn btn-navy-sm">Rent a Mailbox</a>
+      <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
     </div>
     <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
   </div>
   <div class="nav__mobile" id="mobile-menu">
-    <a href="index.html"     class="nav__mobile-link active">Home</a>
+    <a href="index.html"     class="nav__mobile-link nav__mobile-link--active">Home</a>
     <a href="services.html"  class="nav__mobile-link">Services</a>
     <a href="mailboxes.html" class="nav__mobile-link">Mailbox Rentals</a>
     <a href="contact.html"   class="nav__mobile-link">Contact &amp; About</a>
-    <a href="mailboxes.html" class="btn btn-navy nav__mobile-cta">Rent a Mailbox</a>
+    <a href="mailboxes.html" class="btn btn--navy nav__mobile-cta">Rent a Mailbox</a>
   </div>
 </nav>
 
@@ -67,8 +67,8 @@
         <h1>Your neighborhood<br/><span class="kraft-gradient-text">shipping home.</span></h1>
         <p class="hero__body">A place where regulars come to chat, packages get handled with care, and everyone is treated like family. Full-service shipping, printing, and private mailboxes — all in one cozy spot.</p>
         <div class="hero__actions">
-          <a href="mailboxes.html" class="btn btn-navy">Get a Mailbox Quote &nbsp;→</a>
-          <a href="tel:+1-XXX-XXX-XXXX" class="btn btn-ghost">📞 Call Us Now</a>
+          <a href="mailboxes.html" class="btn btn--navy">Get a Mailbox Quote &nbsp;→</a>
+          <a href="tel:+1-XXX-XXX-XXXX" class="btn btn--ghost">📞 Call Us Now</a>
         </div>
         <div class="hero__trust">
           <div class="hero__trust-item"><span class="hero__trust-icon">🔒</span> Secure &amp; Private</div>
@@ -138,7 +138,7 @@
         <div class="service-card__body"><div class="service-card__title">Mailbox Rentals</div><p class="service-card__desc">A real street address for your personal or business mail — not a P.O. Box.</p></div>
       </div>
     </div>
-    <div class="services-preview__footer"><a href="services.html" class="btn btn-outline-navy">View All Services &nbsp;→</a></div>
+    <div class="services-preview__footer"><a href="services.html" class="btn btn--outline-navy">View All Services &nbsp;→</a></div>
   </div>
 </section>
 
@@ -157,7 +157,7 @@
             <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> Optional mail notification add-on</li>
             <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> 3, 6, or 12-month plans available</li>
           </ul>
-          <a href="mailboxes.html" class="btn btn-navy">See Pricing &amp; Rent Now &nbsp;→</a>
+          <a href="mailboxes.html" class="btn btn--navy">See Pricing &amp; Rent Now &nbsp;→</a>
         </div>
         <div class="mailbox-cta__image"><img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=700&q=80" alt="Private mailboxes" /></div>
       </div>
@@ -183,7 +183,7 @@
       <div class="drop-zone__icon">📤</div>
       <div class="drop-zone__title">Drag &amp; drop your label here</div>
       <p class="drop-zone__sub">or click to browse files &nbsp;·&nbsp; PDF, PNG, JPG accepted</p>
-      <span class="btn btn-navy-sm drop-zone__fake-btn">Select File</span>
+      <span class="btn btn--navy-sm drop-zone__fake-btn">Select File</span>
       <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg" class="hidden-file-input" />
     </div>
     <div class="security-note">
@@ -224,7 +224,7 @@
       <div class="review-card"><div class="review-card__quote">"</div><div class="review-card__stars">⭐⭐⭐⭐⭐</div><p class="review-card__text">Fast, affordable, and the staff actually know your name. I've shipped with FedEx, UPS, and USPS all from here. Never had an issue.</p><div class="review-card__footer"><span class="review-card__name">Robert K.</span><span class="review-card__time">1 month ago</span></div></div>
       <div class="review-card"><div class="review-card__quote">"</div><div class="review-card__stars">⭐⭐⭐⭐⭐</div><p class="review-card__text">My business mailbox has been here for 3 years. Real street address, packages always secure. Couldn't be happier with the service.</p><div class="review-card__footer"><span class="review-card__name">Sandra L.</span><span class="review-card__time">3 weeks ago</span></div></div>
     </div>
-    <div class="testimonials__footer"><a href="https://www.google.com/search?q=Shipping+with+Purpose+reviews" target="_blank" rel="noopener" class="btn btn-outline-navy">⭐ See All Google Reviews</a></div>
+    <div class="testimonials__footer"><a href="https://www.google.com/search?q=Shipping+with+Purpose+reviews" target="_blank" rel="noopener" class="btn btn--outline-navy">⭐ See All Google Reviews</a></div>
   </div>
 </section>
 
@@ -236,7 +236,7 @@
       <h2 class="community__heading font-display">A local shop with a<br/><span class="community-kraft-light">big heart.</span></h2>
       <p class="community__body">Under new ownership, Shipping with Purpose is a return to what a neighborhood store should feel like — a place where you're greeted by name, your time is respected, and service always comes before profit.</p>
       <p class="community__sub">We're your private, local alternative to the big-box stores. Come for the shipping — stay for the conversation.</p>
-      <a href="contact.html" class="btn btn-kraft">Meet Us &nbsp;→</a>
+      <a href="contact.html" class="btn btn--kraft">Meet Us &nbsp;→</a>
     </div>
     <div>
       <a href="tel:+1-XXX-XXX-XXXX" class="info-card"><div class="info-card__icon">📞</div><div><span class="info-card__title">(XXX) XXX-XXXX</span><span class="info-card__sub">Tap to call — phone first, always</span></div></a>
@@ -258,6 +258,6 @@
   </div>
 </footer>
 
-<script src="swp.js" defer></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

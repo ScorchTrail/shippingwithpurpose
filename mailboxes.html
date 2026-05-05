@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- =========================================================
      SHIPPING WITH PURPOSE — mailboxes.html
-     Interactive quote calculator powered by swp.js
+    Interactive quote calculator powered by js/app.js
      ========================================================= -->
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quantico:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="swp.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
@@ -23,21 +23,21 @@
     <div class="nav__links">
       <a href="index.html"     class="nav__link">Home</a>
       <a href="services.html"  class="nav__link">Services</a>
-      <a href="mailboxes.html" class="nav__link active">Mailbox Rentals</a>
+      <a href="mailboxes.html" class="nav__link nav__link--active">Mailbox Rentals</a>
       <a href="contact.html"   class="nav__link">Contact &amp; About</a>
     </div>
     <div class="nav__cta-desktop">
       <a href="tel:+1-XXX-XXX-XXXX" class="nav__phone">(XXX) XXX-XXXX</a>
-      <a href="contact.html" class="btn btn-navy-sm">Reserve a Box</a>
+      <a href="contact.html" class="btn btn--navy-sm">Reserve a Box</a>
     </div>
     <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
   </div>
   <div class="nav__mobile" id="mobile-menu">
     <a href="index.html"     class="nav__mobile-link">Home</a>
     <a href="services.html"  class="nav__mobile-link">Services</a>
-    <a href="mailboxes.html" class="nav__mobile-link active">Mailbox Rentals</a>
+    <a href="mailboxes.html" class="nav__mobile-link nav__mobile-link--active">Mailbox Rentals</a>
     <a href="contact.html"   class="nav__mobile-link">Contact &amp; About</a>
-    <a href="contact.html"   class="btn btn-navy nav__mobile-cta">Reserve a Box</a>
+    <a href="contact.html"   class="btn btn--navy nav__mobile-cta">Reserve a Box</a>
   </div>
 </nav>
 
@@ -71,8 +71,8 @@
       </div>
     </div>
     <div class="mailbox-banner-actions">
-      <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="btn btn-navy-sm">⬇ Download Form 1583</a>
-      <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="btn btn-outline-navy mailbox-fill-btn">↗ Fill Online</a>
+      <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="btn btn--navy-sm">⬇ Download Form 1583</a>
+      <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="btn btn--outline-navy mailbox-fill-btn">↗ Fill Online</a>
     </div>
   </div>
 </div>
@@ -115,7 +115,7 @@
               <div class="size-btn__desc">Perfect for individuals receiving minimal mail.</div>
               <div class="size-btn__selected">✓ Selected</div>
             </button>
-            <button class="size-btn active" data-size="Personal">
+            <button class="size-btn size-btn--active" data-size="Personal">
               <div class="size-btn__name">Personal</div>
               <div class="size-btn__desc">Great for individuals with moderate mail volume.</div>
               <div class="size-btn__selected">✓ Selected</div>
@@ -137,7 +137,7 @@
         <div>
           <div class="quote-label">Rental Term</div>
           <div class="term-row">
-            <button class="term-btn active" data-term="3-Month">
+            <button class="term-btn term-btn--active" data-term="3-Month">
               <div class="term-btn__name">3-Month</div>
             </button>
             <button class="term-btn" data-term="6-Month">
@@ -181,7 +181,7 @@
           <div class="quote-card__item"><span class="quote-card__check">✓</span> All carriers accepted</div>
           <div class="quote-card__item"><span class="quote-card__check">✓</span> USPS Form 1583 Required</div>
         </div>
-        <a href="contact.html" class="btn btn-navy quote-cta">Reserve Your Box &nbsp;→</a>
+        <a href="contact.html" class="btn btn--navy quote-cta">Reserve Your Box &nbsp;→</a>
       </div>
     </div>
 
@@ -221,6 +221,6 @@
   </div>
 </footer>
 
-<script src="swp.js" defer></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>
