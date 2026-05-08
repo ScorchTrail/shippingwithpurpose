@@ -22,7 +22,7 @@
     hamburger.textContent = menuOpen ? '✕' : '☰';
   });
 
-  document.querySelectorAll('.nav__mobile-link, .nav__mobile-cta').forEach(el => {
+  document.querySelectorAll('.nav__menu-link, .nav__menu-cta').forEach((el) => {
     el.addEventListener('click', () => {
       menuOpen = false;
       mobileMenu.classList.remove('open');
@@ -38,16 +38,19 @@
   const sections = document.querySelectorAll('.fade-section');
   if (!sections.length) return;
 
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
 
-  sections.forEach(el => obs.observe(el));
+  sections.forEach((el) => obs.observe(el));
 })();
 
 /* ============================================================
@@ -118,13 +121,13 @@
    ============================================================ */
 (function initQuote() {
   const PRICING = {
-    Mini:      { '3-Month': 57,  '6-Month': 108, '12-Month': 204 },
-    Personal:  { '3-Month': 72,  '6-Month': 138, '12-Month': 252 },
-    Business:  { '3-Month': 78,  '6-Month': 150, '12-Month': 276 },
+    Mini: { '3-Month': 57, '6-Month': 108, '12-Month': 204 },
+    Personal: { '3-Month': 72, '6-Month': 138, '12-Month': 252 },
+    Business: { '3-Month': 78, '6-Month': 150, '12-Month': 276 },
     Corporate: { '3-Month': 123, '6-Month': 236, '12-Month': 432 },
   };
   const NOTIF = { '3-Month': 3, '6-Month': 6, '12-Month': 12 };
-  
+
   const quoteSection = document.getElementById('quote-calculator');
   if (!quoteSection) return;
 
@@ -153,17 +156,20 @@
       'USPS Form 1583 Required',
     ];
     const list = document.getElementById('q-items');
-    list.innerHTML = items.map(i =>
-      `<div class="quote-card__item"><span class="quote-card__check">✓</span> ${escHtml(i)}</div>`
-    ).join('');
+    list.innerHTML = items
+      .map(
+        (i) =>
+          `<div class="quote-card__item"><span class="quote-card__check">✓</span> ${escHtml(i)}</div>`
+      )
+      .join('');
 
     // Update size buttons
-    document.querySelectorAll('.size-btn').forEach(btn => {
+    document.querySelectorAll('.size-btn').forEach((btn) => {
       btn.classList.toggle('size-btn--active', btn.dataset.size === selectedSize);
     });
 
     // Update term buttons
-    document.querySelectorAll('.term-btn').forEach(btn => {
+    document.querySelectorAll('.term-btn').forEach((btn) => {
       btn.classList.toggle('term-btn--active', btn.dataset.term === selectedTerm);
     });
 
@@ -177,7 +183,7 @@
   }
 
   // Attach size button events
-  document.querySelectorAll('.size-btn').forEach(btn => {
+  document.querySelectorAll('.size-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       selectedSize = btn.dataset.size;
       updateQuote();
@@ -185,7 +191,7 @@
   });
 
   // Attach term button events
-  document.querySelectorAll('.term-btn').forEach(btn => {
+  document.querySelectorAll('.term-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       selectedTerm = btn.dataset.term;
       updateQuote();
@@ -208,12 +214,12 @@
    FAQ ACCORDION (contact.html)
    ============================================================ */
 (function initFAQ() {
-  document.querySelectorAll('.faq-btn').forEach(btn => {
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
       // Close all
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-item.open').forEach((el) => el.classList.remove('open'));
       // Toggle current
       if (!isOpen) item.classList.add('open');
     });

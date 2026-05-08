@@ -1,196 +1,368 @@
-<!DOCTYPE html>
-<!-- =========================================================
-     SHIPPING WITH PURPOSE — services.html
-     ========================================================= -->
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services — Shipping with Purpose</title>
-  <meta name="description" content="Shipping, printing, notary, fax, scanning, mailbox rentals. USPS, UPS, FedEx, DHL authorized." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quantico:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
-
-<!-- ===== NAV ===== -->
-<nav class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="index.html" class="nav__brand"><div class="nav__brand-icon">📦</div><div><div class="nav__brand-name">Shipping with Purpose</div><div class="nav__brand-sub">Shipping Center</div></div></a>
-    <div class="nav__links">
-      <a href="index.html"     class="nav__link">Home</a>
-      <a href="services.html"  class="nav__link nav__link--active">Services</a>
-      <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
-      <a href="contact.html"   class="nav__link">Contact &amp; About</a>
-    </div>
-    <div class="nav__cta-desktop">
-      <a href="tel:+1-XXX-XXX-XXXX" class="nav__phone">(XXX) XXX-XXXX</a>
-      <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
-    </div>
-    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
-  </div>
-  <div class="nav__mobile" id="mobile-menu">
-    <a href="index.html"     class="nav__mobile-link">Home</a>
-    <a href="services.html"  class="nav__mobile-link nav__mobile-link--active">Services</a>
-    <a href="mailboxes.html" class="nav__mobile-link">Mailbox Rentals</a>
-    <a href="contact.html"   class="nav__mobile-link">Contact &amp; About</a>
-    <a href="mailboxes.html" class="btn btn--navy nav__mobile-cta">Rent a Mailbox</a>
-  </div>
-</nav>
-
-<!-- ===== INFO BAR ===== -->
-<div class="info-bar page-offset-bar">
-  <div class="info-bar__item"><span>📞</span><a href="tel:+1-XXX-XXX-XXXX">(XXX) XXX-XXXX</a></div>
-  <div class="info-bar__sep"></div>
-  <div class="info-bar__item"><span class="info-bar__icon-warm">🕐</span> Mon–Fri 8:30AM–6:30PM &nbsp;·&nbsp; Sat 9AM–4PM</div>
-  <div class="info-bar__sep"></div>
-  <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__directions">📍 Get Directions</a>
-</div>
-
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero fade-section">
-  <div class="page-hero__orb"></div>
-  <div class="page-hero__inner">
-    <div class="page-hero__badge"><span class="section-tag">Full-Service Center</span></div>
-    <h1 class="font-display gradient-text">Our Services</h1>
-    <p>Everything you need — shipping, printing, and more — under one roof.</p>
-  </div>
-</section>
-
-<!-- ===== SHIPPING CARRIERS ===== -->
-<section class="carriers-section fade-section">
-  <div class="container">
-    <div class="carriers-section__header">
-      <span class="section-tag">Authorized Carriers</span>
-      <h2 class="carriers-section__heading font-display gradient-text">We ship with all major carriers</h2>
-      <p class="services-intro-text">We compare rates across carriers so you always get the best deal for your shipment.</p>
-    </div>
-
-    <div class="carriers-section__hero-img">
-      <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80" alt="Shipping packages" />
-      <div class="carriers-section__hero-overlay"></div>
-      <div class="carriers-section__hero-text">
-        <h3>Drop it off.<br/>We handle the rest.</h3>
-        <p>Compare rates instantly in-store.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services — Shipping with Purpose</title>
+    <meta
+      name="description"
+      content="Shipping, printing, notary, fax, scanning, mailbox rentals. USPS, UPS, FedEx, DHL authorized."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__brand"
+          ><div class="nav__brand-icon">◻</div>
+          <div>
+            <div class="nav__brand-name">Shipping with Purpose</div>
+            <div class="nav__brand-sub">Shipping Center</div>
+          </div></a
+        >
+        <div class="nav__links">
+          <a href="index.html" class="nav__link">Home</a>
+          <a href="services.html" class="nav__link nav__link--active">Services</a>
+          <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
+          <a href="contact.html" class="nav__link">Contact &amp; About</a>
+        </div>
+        <div class="nav__cta">
+          <a href="tel:+16029604882" class="nav__phone">(602) 960-4882</a>
+          <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      <div class="nav__menu" id="mobile-menu">
+        <a href="index.html" class="nav__menu-link">Home</a>
+        <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
+        <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
+        <a href="contact.html" class="nav__menu-link">Contact &amp; About</a>
+        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
+    </nav>
+    <div class="info-bar info-bar--offset">
+      <div class="info-bar__item">
+        <span>☎</span><a href="tel:+16029604882">(602) 960-4882</a>
+      </div>
+      <div class="info-bar__item">
+        <span class="info-bar__icon">◷</span> Mon-Fri: 8:30 AM - 6:30 PM &nbsp;·&nbsp; Sat: 9:00 AM - 4:00 PM
+      </div>
+      <a
+        href="https://maps.google.com/?q=Shipping+with+Purpose"
+        target="_blank"
+        rel="noopener"
+        class="info-bar__action"
+        >⊕ Get Directions</a
+      >
     </div>
+    <section class="page-hero fade-section">
+      <div class="page-hero__inner">
+        <div class="page-hero__badge"><span class="section-tag">Full-Service Center</span></div>
+        <h1 class="font-display gradient-text">Our Services</h1>
+        <p>Everything you need — shipping, printing, and more — under one roof.</p>
+      </div>
+    </section>
+    <section class="carriers-section fade-section">
+      <div class="container">
+        <div class="carriers-section__header">
+          <span class="section-tag">Authorized Carriers</span>
+          <h2 class="carriers-section__heading font-display gradient-text">
+            We ship with all major carriers
+          </h2>
+          <p class="services-intro-text">
+            We compare rates across carriers so you always get the best deal for your shipment.
+          </p>
+        </div>
 
-    <div class="carrier-detail-grid">
-      <div class="carrier-detail-card">
-        <div class="carrier-detail-card__header hero-carrier-usps"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png" alt="USPS" /></div>
-        <div class="carrier-detail-card__body">
-          <div class="carrier-detail-row"><span class="font-display carrier-detail-title">USPS</span><span class="carrier-tag">Most Affordable</span></div>
-          <div class="carrier-detail-sub">United States Postal Service</div>
-          <p class="carrier-detail-desc">Priority Mail, First-Class, Flat Rate, Media Mail, and more.</p>
+        <div class="carriers-section__hero-img">
+          <img
+            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80"
+            alt="Shipping packages"
+          />
+          <div class="carriers-section__hero-text">
+            <h3>Drop it off.<br />We handle the rest.</h3>
+            <p>Compare rates instantly in-store.</p>
+          </div>
+        </div>
+
+        <div class="carrier-detail-grid">
+          <div class="carrier-detail-card">
+            <div class="carrier-detail-card__header hero-carrier-usps">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png"
+                alt="USPS"
+              />
+            </div>
+            <div class="carrier-detail-card__body">
+              <div class="carrier-detail-row">
+                <span class="font-display carrier-detail-title">USPS</span
+                ><span class="carrier-tag">Most Affordable</span>
+              </div>
+              <div class="carrier-detail-sub">United States Postal Service</div>
+              <p class="carrier-detail-desc">
+                Priority Mail, First-Class, Flat Rate, Media Mail, and more.
+              </p>
+            </div>
+          </div>
+          <div class="carrier-detail-card">
+            <div class="carrier-detail-card__header hero-carrier-ups">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png"
+                alt="UPS"
+              />
+            </div>
+            <div class="carrier-detail-card__body">
+              <div class="carrier-detail-row">
+                <span class="font-display carrier-detail-title">UPS</span
+                ><span class="carrier-tag">Best for Ground</span>
+              </div>
+              <div class="carrier-detail-sub">United Parcel Service</div>
+              <p class="carrier-detail-desc">
+                Ground, 2-Day, Next Day Air, and international shipping.
+              </p>
+            </div>
+          </div>
+          <div class="carrier-detail-card">
+            <div class="carrier-detail-card__header hero-carrier-fedex">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png"
+                alt="FedEx"
+              />
+            </div>
+            <div class="carrier-detail-card__body">
+              <div class="carrier-detail-row">
+                <span class="font-display carrier-detail-title">FedEx</span
+                ><span class="carrier-tag">Overnight Expert</span>
+              </div>
+              <div class="carrier-detail-sub">Federal Express</div>
+              <p class="carrier-detail-desc">
+                Ground, Express, Overnight, and international options.
+              </p>
+            </div>
+          </div>
+          <div class="carrier-detail-card">
+            <div class="carrier-detail-card__header hero-carrier-dhl">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png"
+                alt="DHL"
+              />
+            </div>
+            <div class="carrier-detail-card__body">
+              <div class="carrier-detail-row">
+                <span class="font-display carrier-detail-title">DHL</span
+                ><span class="carrier-tag">Best International</span>
+              </div>
+              <div class="carrier-detail-sub">DHL Express</div>
+              <p class="carrier-detail-desc">
+                Express international shipping to 220+ countries worldwide.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="carrier-detail-card">
-        <div class="carrier-detail-card__header hero-carrier-ups"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png" alt="UPS" /></div>
-        <div class="carrier-detail-card__body">
-          <div class="carrier-detail-row"><span class="font-display carrier-detail-title">UPS</span><span class="carrier-tag">Best for Ground</span></div>
-          <div class="carrier-detail-sub">United Parcel Service</div>
-          <p class="carrier-detail-desc">Ground, 2-Day, Next Day Air, and international shipping.</p>
+    </section>
+    <section class="services-grid-section fade-section">
+      <div class="container">
+        <div class="services-grid-auto">
+          <div class="svc-card svc-card--kraft">
+            <div class="svc-card__header">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                alt="Printing"
+              />
+              <div class="svc-card__label">
+                <div class="svc-card__label-icon">▣</div>
+                <span class="svc-card__label-title">Printing Services</span>
+              </div>
+            </div>
+            <div class="svc-card__body">
+              <p class="svc-card__desc">
+                Professional printing from single pages to full projects.
+              </p>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">B&amp;W Printing</div>
+                  <div class="svc-item__detail">
+                    Crisp, fast monochrome printing for documents and forms
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Color Printing</div>
+                  <div class="svc-item__detail">
+                    Vivid full-color output for flyers, brochures, and presentations
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Photo Printing</div>
+                  <div class="svc-item__detail">High-quality photo prints in multiple sizes</div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Binding &amp; Finishing</div>
+                  <div class="svc-item__detail">
+                    Comb, spiral, or saddle-stitch binding available
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-card svc-card--green">
+            <div class="svc-card__header">
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80"
+                alt="Business Services"
+              />
+              <div class="svc-card__label">
+                <div class="svc-card__label-icon">▤</div>
+                <span class="svc-card__label-title">Business Services</span>
+              </div>
+            </div>
+            <div class="svc-card__body">
+              <p class="svc-card__desc">
+                Professional services to keep your business running smoothly.
+              </p>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-green"></div>
+                <div>
+                  <div class="svc-item__name">Fax Services</div>
+                  <div class="svc-item__detail">
+                    Send and receive faxes locally and internationally
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-green"></div>
+                <div>
+                  <div class="svc-item__name">Notary Public</div>
+                  <div class="svc-item__detail">Certified notary on-site — walk-ins welcome</div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-green"></div>
+                <div>
+                  <div class="svc-item__name">Scanning</div>
+                  <div class="svc-item__detail">
+                    High-resolution document scanning to PDF or JPEG
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-green"></div>
+                <div>
+                  <div class="svc-item__name">Copies</div>
+                  <div class="svc-item__detail">
+                    Fast black &amp; white or color copies at great rates
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-card svc-card--kraft">
+            <div class="svc-card__header">
+              <img
+                src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80"
+                alt="Mailbox and Supplies"
+              />
+              <div class="svc-card__label">
+                <div class="svc-card__label-icon">✉</div>
+                <span class="svc-card__label-title">Mailbox &amp; Supplies</span>
+              </div>
+            </div>
+            <div class="svc-card__body">
+              <p class="svc-card__desc">Everyday essentials — conveniently available in-store.</p>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Mailbox Rentals</div>
+                  <div class="svc-item__detail">
+                    Private street address mailboxes — monthly or annual plans
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">USPS Stamps</div>
+                  <div class="svc-item__detail">
+                    Individual stamps and full books available for purchase
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Packing Supplies</div>
+                  <div class="svc-item__detail">
+                    Boxes, tape, bubble wrap, foam peanuts, and more
+                  </div>
+                </div>
+              </div>
+              <div class="svc-item">
+                <div class="svc-item__dot svc-dot-kraft"></div>
+                <div>
+                  <div class="svc-item__name">Packaging Assistance</div>
+                  <div class="svc-item__detail">
+                    We'll help pack your items securely for safe transit
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="services-cta-box">
+          <div class="services-cta-box__label">Have a question?</div>
+          <h3>Not sure what you need?</h3>
+          <p>Walk in or send us a message — we're happy to help.</p>
+          <a href="contact.html" class="btn btn--navy">Contact Us &nbsp;→</a>
         </div>
       </div>
-      <div class="carrier-detail-card">
-        <div class="carrier-detail-card__header hero-carrier-fedex"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png" alt="FedEx" /></div>
-        <div class="carrier-detail-card__body">
-          <div class="carrier-detail-row"><span class="font-display carrier-detail-title">FedEx</span><span class="carrier-tag">Overnight Expert</span></div>
-          <div class="carrier-detail-sub">Federal Express</div>
-          <p class="carrier-detail-desc">Ground, Express, Overnight, and international options.</p>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__brand">
+              <div class="footer__brand-icon">◻</div>
+              <span class="footer__brand-name">Shipping with Purpose</span>
+            </div>
+            <p class="footer__tagline">
+              Under new ownership — committed to faster, friendlier service and community first.
+            </p>
+          </div>
+          <div>
+            <div class="footer__col-heading">Navigation</div>
+            <a href="index.html" class="footer__link">Home</a
+            ><a href="services.html" class="footer__link">Services</a
+            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
+            ><a href="contact.html" class="footer__link">Contact &amp; About</a>
+          </div>
+          <div>
+            <div class="footer__col-heading">Hours</div>
+            <div class="footer__hours">
+              Mon-Fri: 8:30 AM - 6:30 PM<br />Sat: 9:00 AM - 4:00 PM<br />Sun: Closed
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
+          ><span class="footer__local">Locally owned &amp; operated ♥</span>
         </div>
       </div>
-      <div class="carrier-detail-card">
-        <div class="carrier-detail-card__header hero-carrier-dhl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png" alt="DHL" /></div>
-        <div class="carrier-detail-card__body">
-          <div class="carrier-detail-row"><span class="font-display carrier-detail-title">DHL</span><span class="carrier-tag">Best International</span></div>
-          <div class="carrier-detail-sub">DHL Express</div>
-          <p class="carrier-detail-desc">Express international shipping to 220+ countries worldwide.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- ===== SERVICES GRID ===== -->
-<section class="services-grid-section fade-section">
-  <div class="container">
-    <div class="services-grid-auto">
-
-      <!-- Printing -->
-      <div class="svc-card svc-card--kraft">
-        <div class="svc-card__header">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Printing" />
-          <div class="svc-card__overlay svc-overlay-kraft"></div>
-          <div class="svc-card__label"><div class="svc-card__label-icon">🖨️</div><span class="svc-card__label-title">Printing Services</span></div>
-        </div>
-        <div class="svc-card__body">
-          <p class="svc-card__desc">Professional printing from single pages to full projects.</p>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">B&amp;W Printing</div><div class="svc-item__detail">Crisp, fast monochrome printing for documents and forms</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Color Printing</div><div class="svc-item__detail">Vivid full-color output for flyers, brochures, and presentations</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Photo Printing</div><div class="svc-item__detail">High-quality photo prints in multiple sizes</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Binding &amp; Finishing</div><div class="svc-item__detail">Comb, spiral, or saddle-stitch binding available</div></div></div>
-        </div>
-      </div>
-
-      <!-- Business Services -->
-      <div class="svc-card svc-card--green">
-        <div class="svc-card__header">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Business Services" />
-          <div class="svc-card__overlay svc-overlay-green"></div>
-          <div class="svc-card__label"><div class="svc-card__label-icon">📄</div><span class="svc-card__label-title">Business Services</span></div>
-        </div>
-        <div class="svc-card__body">
-          <p class="svc-card__desc">Professional services to keep your business running smoothly.</p>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-green"></div><div><div class="svc-item__name">Fax Services</div><div class="svc-item__detail">Send and receive faxes locally and internationally</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-green"></div><div><div class="svc-item__name">Notary Public</div><div class="svc-item__detail">Certified notary on-site — walk-ins welcome</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-green"></div><div><div class="svc-item__name">Scanning</div><div class="svc-item__detail">High-resolution document scanning to PDF or JPEG</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-green"></div><div><div class="svc-item__name">Copies</div><div class="svc-item__detail">Fast black &amp; white or color copies at great rates</div></div></div>
-        </div>
-      </div>
-
-      <!-- Mailbox & Supplies -->
-      <div class="svc-card svc-card--kraft">
-        <div class="svc-card__header">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="Mailbox and Supplies" />
-          <div class="svc-card__overlay svc-overlay-kraft"></div>
-          <div class="svc-card__label"><div class="svc-card__label-icon">📬</div><span class="svc-card__label-title">Mailbox &amp; Supplies</span></div>
-        </div>
-        <div class="svc-card__body">
-          <p class="svc-card__desc">Everyday essentials — conveniently available in-store.</p>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Mailbox Rentals</div><div class="svc-item__detail">Private street address mailboxes — monthly or annual plans</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">USPS Stamps</div><div class="svc-item__detail">Individual stamps and full books available for purchase</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Packing Supplies</div><div class="svc-item__detail">Boxes, tape, bubble wrap, foam peanuts, and more</div></div></div>
-          <div class="svc-item"><div class="svc-item__dot svc-dot-kraft"></div><div><div class="svc-item__name">Packaging Assistance</div><div class="svc-item__detail">We'll help pack your items securely for safe transit</div></div></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="services-cta-box">
-      <div class="services-cta-box__label">Have a question?</div>
-      <h3>Not sure what you need?</h3>
-      <p>Walk in or send us a message — we're happy to help.</p>
-      <a href="contact.html" class="btn btn--navy">Contact Us &nbsp;→</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div><div class="footer__brand"><div class="footer__brand-icon">📦</div><span class="footer__brand-name">Shipping with Purpose</span></div><p class="footer__tagline">Under new ownership — committed to faster, friendlier service and community first.</p></div>
-      <div><div class="footer__col-heading">Navigation</div><a href="index.html" class="footer__link">Home</a><a href="services.html" class="footer__link">Services</a><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a><a href="contact.html" class="footer__link">Contact &amp; About</a></div>
-      <div><div class="footer__col-heading">Hours</div><div class="footer__hours">Mon – Fri: 8:30 AM – 6:30 PM<br/>Saturday: 9:00 AM – 4:00 PM<br/>Sunday: Closed</div></div>
-    </div>
-    <div class="footer__bottom"><span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span><span class="footer__local">Locally owned &amp; operated ♥</span></div>
-  </div>
-</footer>
-
-<script src="js/app.js" defer></script>
-</body>
+    <script src="js/app.js" defer></script>
+  </body>
 </html>

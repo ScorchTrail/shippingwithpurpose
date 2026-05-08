@@ -1,263 +1,553 @@
-<!DOCTYPE html>
-<!-- =========================================================
-     SHIPPING WITH PURPOSE — index.html (HOME)
-    Copy-paste ready. Link css/main.css + js/app.js below.
-     ========================================================= -->
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shipping with Purpose — Your Neighborhood Shipping Center</title>
-  <meta name="description" content="Locally owned shipping center. USPS, UPS, FedEx, DHL, mailbox rentals, printing, notary and more." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quantico:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
-
-<!-- ===== NAV ===== -->
-<nav class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="index.html" class="nav__brand">
-      <div class="nav__brand-icon">📦</div>
-      <div>
-        <div class="nav__brand-name">Shipping with Purpose</div>
-        <div class="nav__brand-sub">Shipping Center</div>
-      </div>
-    </a>
-    <div class="nav__links">
-      <a href="index.html"     class="nav__link nav__link--active">Home</a>
-      <a href="services.html"  class="nav__link">Services</a>
-      <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
-      <a href="contact.html"   class="nav__link">Contact &amp; About</a>
-    </div>
-    <div class="nav__cta-desktop">
-      <a href="tel:+1-XXX-XXX-XXXX" class="nav__phone">(XXX) XXX-XXXX</a>
-      <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
-    </div>
-    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
-  </div>
-  <div class="nav__mobile" id="mobile-menu">
-    <a href="index.html"     class="nav__mobile-link nav__mobile-link--active">Home</a>
-    <a href="services.html"  class="nav__mobile-link">Services</a>
-    <a href="mailboxes.html" class="nav__mobile-link">Mailbox Rentals</a>
-    <a href="contact.html"   class="nav__mobile-link">Contact &amp; About</a>
-    <a href="mailboxes.html" class="btn btn--navy nav__mobile-cta">Rent a Mailbox</a>
-  </div>
-</nav>
-
-<!-- ===== INFO BAR ===== -->
-<div class="info-bar page-offset-bar">
-  <div class="info-bar__item"><span>📞</span><a href="tel:+1-XXX-XXX-XXXX">(XXX) XXX-XXXX</a></div>
-  <div class="info-bar__sep"></div>
-  <div class="info-bar__item"><span class="info-bar__icon-warm">🕐</span> Mon–Fri 8:30AM–6:30PM &nbsp;·&nbsp; Sat 9AM–4PM &nbsp;·&nbsp; Sun Closed</div>
-  <div class="info-bar__sep"></div>
-  <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__directions">📍 Get Directions</a>
-</div>
-
-<!-- ===== HERO ===== -->
-<section class="hero fade-section">
-  <div class="hero__orb-kraft"></div>
-  <div class="hero__orb-navy"></div>
-  <div class="hero__inner">
-    <div class="hero__grid">
-      <div>
-        <div class="hero__badge">❤️ Under New Ownership · Serving Our Community</div>
-        <h1>Your neighborhood<br/><span class="kraft-gradient-text">shipping home.</span></h1>
-        <p class="hero__body">A place where regulars come to chat, packages get handled with care, and everyone is treated like family. Full-service shipping, printing, and private mailboxes — all in one cozy spot.</p>
-        <div class="hero__actions">
-          <a href="mailboxes.html" class="btn btn--navy">Get a Mailbox Quote &nbsp;→</a>
-          <a href="tel:+1-XXX-XXX-XXXX" class="btn btn--ghost">📞 Call Us Now</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping with Purpose — Your Neighborhood Shipping Center</title>
+    <meta
+      name="description"
+      content="Locally owned shipping center. USPS, UPS, FedEx, DHL, mailbox rentals, printing, notary and more."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__brand">
+          <img src="./assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
+          <div>
+            <div class="nav__brand-name">Shipping with Purpose</div>
+            <div class="nav__brand-sub">Shipping Center</div>
+          </div>
+        </a>
+        <div class="nav__links">
+          <a href="index.html" class="nav__link nav__link--active">Home</a>
+          <a href="services.html" class="nav__link">Services</a>
+          <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
+          <a href="contact.html" class="nav__link">Contact &amp; About</a>
         </div>
-        <div class="hero__trust">
-          <div class="hero__trust-item"><span class="hero__trust-icon">🔒</span> Secure &amp; Private</div>
-          <div class="hero__trust-item"><span class="hero__trust-icon">👥</span> Community First</div>
-          <div class="hero__trust-item"><span class="hero__trust-icon">📍</span> Locally Owned</div>
+        <div class="nav__cta">
+          <a href="tel:+16029604882" class="nav__phone">(602) 960-4882</a>
+          <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
         </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      <div class="nav__menu" id="mobile-menu">
+        <a href="index.html" class="nav__menu-link nav__menu-link--active">Home</a>
+        <a href="services.html" class="nav__menu-link">Services</a>
+        <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
+        <a href="contact.html" class="nav__menu-link">Contact &amp; About</a>
+        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
-      <div class="hero__visual">
-        <div class="hero__image-wrap">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80" alt="Friendly shipping center counter" />
-          <div class="hero__image-overlay"></div>
-          <div class="hero__new-owner-badge">✦ New Ownership</div>
-          <div class="hero__hours-chip">
-            <strong>Open Today</strong>
-            <span>Mon–Fri 8:30AM – 6:30PM</span>
+    </nav>
+    <div class="info-bar info-bar--offset">
+      <div class="info-bar__item">
+        <span>☎</span><a href="tel:+16029604882">(602) 960-4882</a>
+      </div>
+      <div class="info-bar__item">
+        <span class="info-bar__icon">◷</span> Mon-Fri: 8:30 AM - 6:30 PM &nbsp;·&nbsp; Sat: 9:00 AM - 4:00 PM
+        &nbsp;·&nbsp; Sun: Closed
+      </div>
+      <a
+        href="https://maps.google.com/?q=Shipping+with+Purpose"
+        target="_blank"
+        rel="noopener"
+        class="info-bar__action"
+        >⊕ Get Directions</a
+      >
+    </div>
+    <section class="hero fade-section">
+      <div class="hero__inner">
+        <div class="hero__grid">
+          <div>
+            <div class="hero__badge">♡ Under New Ownership · Serving Our Community</div>
+            <h1>Your neighborhood<br /><span class="kraft-gradient-text">shipping home.</span></h1>
+            <p class="hero__body">
+              A place where regulars come to chat, packages get handled with care, and everyone is
+              treated like family. Full-service shipping, printing, and private mailboxes — all in
+              one cozy spot.
+            </p>
+            <div class="hero__actions">
+              <a href="mailboxes.html" class="btn btn--navy">Get a Mailbox Quote &nbsp;→</a>
+              <a href="tel:+16029604882" class="btn btn--ghost">☎ Call Us Now</a>
+            </div>
+            <div class="hero__trust">
+              <div class="hero__trust-item">
+                <span class="hero__trust-icon">⊡</span> Secure &amp; Private
+              </div>
+              <div class="hero__trust-item">
+                <span class="hero__trust-icon">◎</span> Community First
+              </div>
+              <div class="hero__trust-item">
+                <span class="hero__trust-icon">⊕</span> Locally Owned
+              </div>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80"
+                alt="Friendly shipping center counter"
+              />
+              <div class="hero__new-owner-badge">✧ New Ownership</div>
+              <div class="hero__hours-chip">
+                <strong>Open Today</strong>
+                <span>Mon-Fri: 8:30 AM - 6:30 PM</span>
+              </div>
+            </div>
+            <div class="hero__carriers-card">
+              <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
+              <div class="hero__carriers-row">
+                <div class="hero__carrier-tile hero-carrier-usps">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png"
+                    alt="USPS"
+                  />
+                </div>
+                <div class="hero__carrier-tile hero-carrier-ups">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png"
+                    alt="UPS"
+                  />
+                </div>
+                <div class="hero__carrier-tile hero-carrier-fedex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png"
+                    alt="FedEx"
+                  />
+                </div>
+                <div class="hero__carrier-tile hero-carrier-dhl">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png"
+                    alt="DHL"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero__carriers-card">
-          <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
-          <div class="hero__carriers-row">
-            <div class="hero__carrier-tile hero-carrier-usps"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png" alt="USPS" /></div>
-            <div class="hero__carrier-tile hero-carrier-ups"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png" alt="UPS" /></div>
-            <div class="hero__carrier-tile hero-carrier-fedex"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png" alt="FedEx" /></div>
-            <div class="hero__carrier-tile hero-carrier-dhl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png" alt="DHL" /></div>
-          </div>
+      </div>
+    </section>
+    <div class="trust-bar fade-section">
+      <div class="trust-bar__inner">
+        <div class="trust-bar__item">
+          <span class="trust-bar__dot"></span> USPS Authorized Shipping Outlet
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__dot"></span> UPS Authorized Shipping Provider
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__dot"></span> FedEx Authorized Drop-off
+        </div>
+        <div class="trust-bar__item"><span class="trust-bar__dot"></span> DHL Express Shipping</div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__dot"></span> Notary Public On-Site
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__dot"></span> Private Mailbox Rentals
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== TRUST BAR ===== -->
-<div class="trust-bar fade-section">
-  <div class="trust-bar__inner">
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> USPS Authorized Shipping Outlet</div>
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> UPS Authorized Shipping Provider</div>
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> FedEx Authorized Drop-off</div>
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> DHL Express Shipping</div>
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> Notary Public On-Site</div>
-    <div class="trust-bar__item"><span class="trust-bar__dot"></span> Private Mailbox Rentals</div>
-  </div>
-</div>
-
-<!-- ===== SERVICES PREVIEW ===== -->
-<section class="services-preview fade-section">
-  <div class="container">
-    <div class="services-preview__header">
-      <span class="section-tag">What We Offer</span>
-      <h2 class="services-preview__heading font-display gradient-text">All the services you need,<br/>in one friendly stop.</h2>
-      <p class="services-preview__sub">From packages to paperwork — we've got you covered, with a smile.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card service-card--navy">
-        <div class="service-card__image"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=80" alt="Shipping" /><div class="service-card__overlay service-overlay-shipping"></div><div class="service-card__icon">📦</div></div>
-        <div class="service-card__body"><div class="service-card__title">Shipping</div><p class="service-card__desc">Ship with USPS, UPS, FedEx, or DHL. We compare rates and handle everything.</p></div>
+    <section class="services-preview fade-section">
+      <div class="container">
+        <div class="services-preview__header">
+          <span class="section-tag">What We Offer</span>
+          <h2 class="services-preview__heading font-display gradient-text">
+            All the services you need,<br />in one friendly stop.
+          </h2>
+          <p class="services-preview__sub">
+            From packages to paperwork — we've got you covered, with a smile.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card service-card--navy">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=80"
+                alt="Shipping"
+              />
+              <div class="service-card__icon">◻</div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Shipping</div>
+              <p class="service-card__desc">
+                Ship with USPS, UPS, FedEx, or DHL. We compare rates and handle everything.
+              </p>
+            </div>
+          </div>
+          <div class="service-card service-card--kraft">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                alt="Printing"
+              />
+              <div class="service-card__icon">▣</div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Printing</div>
+              <p class="service-card__desc">
+                Color &amp; B&amp;W printing, photo prints, binding — same-day for most jobs.
+              </p>
+            </div>
+          </div>
+          <div class="service-card service-card--green">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80"
+                alt="Business Services"
+              />
+              <div class="service-card__icon">▤</div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Business Services</div>
+              <p class="service-card__desc">
+                Fax, notary, scanning — everything you need to handle your paperwork.
+              </p>
+            </div>
+          </div>
+          <div class="service-card service-card--kraft">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80"
+                alt="Mailbox Rentals"
+              />
+              <div class="service-card__icon">✉</div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Mailbox Rentals</div>
+              <p class="service-card__desc">
+                A real street address for your personal or business mail — not a P.O. Box.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="services-preview__footer">
+          <a href="services.html" class="btn btn--outline-navy">View All Services &nbsp;→</a>
+        </div>
       </div>
-      <div class="service-card service-card--kraft">
-        <div class="service-card__image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Printing" /><div class="service-card__overlay service-overlay-printing"></div><div class="service-card__icon">🖨️</div></div>
-        <div class="service-card__body"><div class="service-card__title">Printing</div><p class="service-card__desc">Color &amp; B&amp;W printing, photo prints, binding — same-day for most jobs.</p></div>
+    </section>
+    <section class="mailbox-cta fade-section">
+      <div class="container-md">
+        <div class="mailbox-cta__card">
+          <div class="mailbox-cta__top">
+            <div>
+              <div class="mailbox-cta__header-row">
+                <div class="mailbox-cta__icon-box">✉</div>
+                <span class="section-tag">Most Popular Service</span>
+              </div>
+              <h2 class="mailbox-cta__heading font-display">
+                Get a real street address.<br /><span class="kraft-gradient-text"
+                  >Not a P.O. Box.</span
+                >
+              </h2>
+              <p class="mailbox-cta__body">
+                A private mailbox with a real street address — perfect for small businesses, remote
+                workers, and anyone who values their privacy.
+              </p>
+              <ul class="mailbox-cta__perks">
+                <li class="mailbox-cta__perk">
+                  <span class="mailbox-cta__perk-check">✓</span> Real street address — not a P.O.
+                  Box
+                </li>
+                <li class="mailbox-cta__perk">
+                  <span class="mailbox-cta__perk-check">✓</span> Accept packages from all carriers
+                </li>
+                <li class="mailbox-cta__perk">
+                  <span class="mailbox-cta__perk-check">✓</span> Optional mail notification add-on
+                </li>
+                <li class="mailbox-cta__perk">
+                  <span class="mailbox-cta__perk-check">✓</span> 3, 6, or 12-month plans available
+                </li>
+              </ul>
+              <a href="mailboxes.html" class="btn btn--navy">See Pricing &amp; Rent Now &nbsp;→</a>
+            </div>
+            <div class="mailbox-cta__image">
+              <img
+                src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=700&q=80"
+                alt="Private mailboxes"
+              />
+            </div>
+          </div>
+          <div class="mailbox-cta__pricing">
+            <div class="price-tile">
+              <span class="price-tile__label">Mini Box</span
+              ><span class="price-tile__value kraft-gradient-text font-display">From $57</span
+              ><span class="price-tile__period">/ 3 months</span>
+            </div>
+            <div class="price-tile">
+              <span class="price-tile__label">Personal Box</span
+              ><span class="price-tile__value kraft-gradient-text font-display">From $72</span
+              ><span class="price-tile__period">/ 3 months</span>
+            </div>
+            <div class="price-tile">
+              <span class="price-tile__label">Business Box</span
+              ><span class="price-tile__value kraft-gradient-text font-display">From $78</span
+              ><span class="price-tile__period">/ 3 months</span>
+            </div>
+            <div class="price-tile">
+              <span class="price-tile__label">Corporate Box</span
+              ><span class="price-tile__value kraft-gradient-text font-display">From $123</span
+              ><span class="price-tile__period">/ 3 months</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card service-card--green">
-        <div class="service-card__image"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="Business Services" /><div class="service-card__overlay service-overlay-business"></div><div class="service-card__icon">📄</div></div>
-        <div class="service-card__body"><div class="service-card__title">Business Services</div><p class="service-card__desc">Fax, notary, scanning — everything you need to handle your paperwork.</p></div>
+    </section>
+    <section class="label-upload fade-section">
+      <div class="container-sm">
+        <div class="label-upload__header">
+          <span class="section-tag u-tag-16">▣ Quick Print Portal</span>
+          <h2 class="label-upload__heading font-display">
+            Upload your shipping label.<br />We'll print it for you.
+          </h2>
+          <p class="label-upload__sub">
+            Got a pre-paid return label? Skip the email hassle. Drop your PDF here and we'll have it
+            ready when you walk in.
+          </p>
+        </div>
+        <div class="drop-zone" id="drop-zone">
+          <div class="drop-zone__icon">⇧</div>
+          <div class="drop-zone__title">Drag &amp; drop your label here</div>
+          <p class="drop-zone__sub">
+            or click to browse files &nbsp;·&nbsp; PDF, PNG, JPG accepted
+          </p>
+          <span class="btn btn--navy-sm drop-zone__fake-btn">Select File</span>
+          <input
+            type="file"
+            id="file-input"
+            accept=".pdf,.png,.jpg,.jpeg"
+            class="hidden-file-input"
+          />
+        </div>
+        <div class="security-note">
+          <span class="security-note__icon">⊡</span>
+          <p>
+            <strong class="u-text-navy">Your privacy is protected.</strong> No sensitive data is
+            stored on this website. All uploads are encrypted and handled directly at our secure
+            store counter.
+          </p>
+        </div>
       </div>
-      <div class="service-card service-card--kraft">
-        <div class="service-card__image"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Mailbox Rentals" /><div class="service-card__overlay service-overlay-printing"></div><div class="service-card__icon">📬</div></div>
-        <div class="service-card__body"><div class="service-card__title">Mailbox Rentals</div><p class="service-card__desc">A real street address for your personal or business mail — not a P.O. Box.</p></div>
+    </section>
+    <section class="dropoff-grid fade-section">
+      <div class="container">
+        <div class="dropoff-grid__header">
+          <span class="section-tag u-tag-16">◻ Authorized Drop-Offs &amp; Shipping</span>
+          <h2 class="dropoff-grid__heading font-display">
+            Ship with any carrier, all in one stop.
+          </h2>
+          <p class="dropoff-grid__sub">
+            We compare rates so you always get the best deal. Just bring your package and we'll
+            handle the rest.
+          </p>
+        </div>
+        <div class="carrier-grid">
+          <div class="carrier-card">
+            <div class="carrier-card__header carrier-header-usps">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png"
+                alt="USPS"
+              />
+            </div>
+            <div class="carrier-card__body">
+              <div class="carrier-card__name">USPS</div>
+              <p class="carrier-card__desc">Priority, First-Class, Express &amp; flat-rate boxes</p>
+            </div>
+          </div>
+          <div class="carrier-card">
+            <div class="carrier-card__header carrier-header-ups">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png"
+                alt="UPS"
+              />
+            </div>
+            <div class="carrier-card__body">
+              <div class="carrier-card__name">UPS</div>
+              <p class="carrier-card__desc">Ground, 2-Day, Next Day Air &amp; returns</p>
+            </div>
+          </div>
+          <div class="carrier-card">
+            <div class="carrier-card__header carrier-header-fedex">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png"
+                alt="FedEx"
+              />
+            </div>
+            <div class="carrier-card__body">
+              <div class="carrier-card__name">FedEx</div>
+              <p class="carrier-card__desc">Overnight, Home Delivery &amp; authorized drop-off</p>
+            </div>
+          </div>
+          <div class="carrier-card">
+            <div class="carrier-card__header carrier-header-dhl">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png"
+                alt="DHL"
+              />
+            </div>
+            <div class="carrier-card__body">
+              <div class="carrier-card__name">DHL</div>
+              <p class="carrier-card__desc">International express worldwide shipping</p>
+            </div>
+          </div>
+        </div>
+        <div class="packing-note">
+          <span class="packing-note__icon">☺</span>
+          <p>
+            <strong class="u-text-navy">Need a box or some tape for your return?</strong> We've got
+            you covered! We'll pack and tape your package securely for a small service fee. No more
+            hunting down supplies.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="services-preview__footer"><a href="services.html" class="btn btn--outline-navy">View All Services &nbsp;→</a></div>
-  </div>
-</section>
-
-<!-- ===== MAILBOX CTA ===== -->
-<section class="mailbox-cta fade-section">
-  <div class="container-md">
-    <div class="mailbox-cta__card">
-      <div class="mailbox-cta__top">
+    </section>
+    <section class="testimonials fade-section">
+      <div class="container">
+        <div class="testimonials__header">
+          <div class="testimonials__stars">☆☆☆☆☆</div>
+          <h2 class="testimonials__heading font-display">Loved by our community.</h2>
+          <p class="testimonials__sub">
+            Don't take our word for it — here's what our regulars say.
+          </p>
+        </div>
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">☆☆☆☆☆</div>
+            <p class="review-card__text">
+              This place has been my go-to for years. The new owner is so warm and helpful — feels
+              just like the old days but even better. Always go the extra mile!
+            </p>
+            <div class="review-card__footer">
+              <span class="review-card__name">Maria T.</span
+              ><span class="review-card__time">2 weeks ago</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">☆☆☆☆☆</div>
+            <p class="review-card__text">
+              Fast, affordable, and the staff actually know your name. I've shipped with FedEx, UPS,
+              and USPS all from here. Never had an issue.
+            </p>
+            <div class="review-card__footer">
+              <span class="review-card__name">Robert K.</span
+              ><span class="review-card__time">1 month ago</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">☆☆☆☆☆</div>
+            <p class="review-card__text">
+              My business mailbox has been here for 3 years. Real street address, packages always
+              secure. Couldn't be happier with the service.
+            </p>
+            <div class="review-card__footer">
+              <span class="review-card__name">Sandra L.</span
+              ><span class="review-card__time">3 weeks ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials__footer">
+          <a
+            href="https://www.google.com/search?q=Shipping+with+Purpose+reviews"
+            target="_blank"
+            rel="noopener"
+            class="btn btn--outline-navy"
+            >☆ See All Google Reviews</a
+          >
+        </div>
+      </div>
+    </section>
+    <section class="community fade-section">
+      <div class="community__grid">
         <div>
-          <div class="mailbox-cta__header-row"><div class="mailbox-cta__icon-box">📬</div><span class="section-tag">Most Popular Service</span></div>
-          <h2 class="mailbox-cta__heading font-display">Get a real street address.<br/><span class="kraft-gradient-text">Not a P.O. Box.</span></h2>
-          <p class="mailbox-cta__body">A private mailbox with a real street address — perfect for small businesses, remote workers, and anyone who values their privacy.</p>
-          <ul class="mailbox-cta__perks">
-            <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> Real street address — not a P.O. Box</li>
-            <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> Accept packages from all carriers</li>
-            <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> Optional mail notification add-on</li>
-            <li class="mailbox-cta__perk"><span class="mailbox-cta__perk-check">✓</span> 3, 6, or 12-month plans available</li>
-          </ul>
-          <a href="mailboxes.html" class="btn btn--navy">See Pricing &amp; Rent Now &nbsp;→</a>
+          <div class="community__badge">♡ Our Community Story</div>
+          <h2 class="community__heading font-display">
+            A local shop with a<br /><span class="community-kraft-light">big heart.</span>
+          </h2>
+          <p class="community__body">
+            Under new ownership, Shipping with Purpose is a return to what a neighborhood store
+            should feel like — a place where you're greeted by name, your time is respected, and
+            service always comes before profit.
+          </p>
+          <p class="community__sub">
+            We're your private, local alternative to the big-box stores. Come for the shipping —
+            stay for the conversation.
+          </p>
+          <a href="contact.html" class="btn btn--kraft">Meet Us &nbsp;→</a>
         </div>
-        <div class="mailbox-cta__image"><img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=700&q=80" alt="Private mailboxes" /></div>
+        <div>
+          <a href="tel:+16029604882" class="info-card"
+            ><div class="info-card__icon">☎</div>
+            <div>
+              <span class="info-card__title">(602) 960-4882</span
+              ><span class="info-card__sub">Tap to call — phone first, always</span>
+            </div></a
+          >
+          <div class="info-card community-hours-card">
+            <div class="info-card__icon community-hours-icon">◷</div>
+            <div>
+              <span class="info-card__title">Store Hours</span>
+              <div class="community-hours-text">
+                Mon-Fri: 8:30 AM - 6:30 PM<br />Sat: 9:00 AM - 4:00 PM<br /><span
+                  class="community-hours-closed"
+                  >Sun: Closed</span
+                >
+              </div>
+            </div>
+          </div>
+          <a
+            href="https://maps.google.com/?q=Shipping+with+Purpose"
+            target="_blank"
+            rel="noopener"
+            class="info-card"
+            ><div class="info-card__icon community-map-icon">⊕</div>
+            <div>
+              <span class="info-card__title">Get Directions</span
+              ><span class="info-card__sub">Open in Google Maps →</span>
+            </div></a
+          >
+        </div>
       </div>
-      <div class="mailbox-cta__pricing">
-        <div class="price-tile"><span class="price-tile__label">Mini Box</span><span class="price-tile__value kraft-gradient-text font-display">From $57</span><span class="price-tile__period">/ 3 months</span></div>
-        <div class="price-tile"><span class="price-tile__label">Personal Box</span><span class="price-tile__value kraft-gradient-text font-display">From $72</span><span class="price-tile__period">/ 3 months</span></div>
-        <div class="price-tile"><span class="price-tile__label">Business Box</span><span class="price-tile__value kraft-gradient-text font-display">From $78</span><span class="price-tile__period">/ 3 months</span></div>
-        <div class="price-tile"><span class="price-tile__label">Corporate Box</span><span class="price-tile__value kraft-gradient-text font-display">From $123</span><span class="price-tile__period">/ 3 months</span></div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__brand">
+              <div class="footer__brand-icon">◻</div>
+              <span class="footer__brand-name">Shipping with Purpose</span>
+            </div>
+            <p class="footer__tagline">
+              Under new ownership — committed to faster, friendlier service and community first.
+            </p>
+          </div>
+          <div>
+            <div class="footer__col-heading">Navigation</div>
+            <a href="index.html" class="footer__link">Home</a
+            ><a href="services.html" class="footer__link">Services</a
+            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
+            ><a href="contact.html" class="footer__link">Contact &amp; About</a>
+          </div>
+          <div>
+            <div class="footer__col-heading">Hours</div>
+            <div class="footer__hours">
+              Mon-Fri: 8:30 AM - 6:30 PM<br />Sat: 9:00 AM - 4:00 PM<br />Sun: Closed
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
+          ><span class="footer__local">Locally owned &amp; operated ♥</span>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- ===== LABEL UPLOAD ===== -->
-<section class="label-upload fade-section">
-  <div class="container-sm">
-    <div class="label-upload__header">
-      <span class="section-tag u-tag-16">🖨️ Quick Print Portal</span>
-      <h2 class="label-upload__heading font-display">Upload your shipping label.<br/>We'll print it for you.</h2>
-      <p class="label-upload__sub">Got a pre-paid return label? Skip the email hassle. Drop your PDF here and we'll have it ready when you walk in.</p>
-    </div>
-    <div class="drop-zone" id="drop-zone">
-      <div class="drop-zone__icon">📤</div>
-      <div class="drop-zone__title">Drag &amp; drop your label here</div>
-      <p class="drop-zone__sub">or click to browse files &nbsp;·&nbsp; PDF, PNG, JPG accepted</p>
-      <span class="btn btn--navy-sm drop-zone__fake-btn">Select File</span>
-      <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg" class="hidden-file-input" />
-    </div>
-    <div class="security-note">
-      <span class="security-note__icon">🔒</span>
-      <p><strong class="u-text-navy">Your privacy is protected.</strong> No sensitive data is stored on this website. All uploads are encrypted and handled directly at our secure store counter.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DROP-OFF CARRIER GRID ===== -->
-<section class="dropoff-grid fade-section">
-  <div class="container">
-    <div class="dropoff-grid__header">
-      <span class="section-tag u-tag-16">📦 Authorized Drop-Offs &amp; Shipping</span>
-      <h2 class="dropoff-grid__heading font-display">Ship with any carrier, all in one stop.</h2>
-      <p class="dropoff-grid__sub">We compare rates so you always get the best deal. Just bring your package and we'll handle the rest.</p>
-    </div>
-    <div class="carrier-grid">
-      <div class="carrier-card"><div class="carrier-card__header carrier-header-usps"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png" alt="USPS" /></div><div class="carrier-card__body"><div class="carrier-card__name">USPS</div><p class="carrier-card__desc">Priority, First-Class, Express &amp; flat-rate boxes</p></div></div>
-      <div class="carrier-card"><div class="carrier-card__header carrier-header-ups"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png" alt="UPS" /></div><div class="carrier-card__body"><div class="carrier-card__name">UPS</div><p class="carrier-card__desc">Ground, 2-Day, Next Day Air &amp; returns</p></div></div>
-      <div class="carrier-card"><div class="carrier-card__header carrier-header-fedex"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png" alt="FedEx" /></div><div class="carrier-card__body"><div class="carrier-card__name">FedEx</div><p class="carrier-card__desc">Overnight, Home Delivery &amp; authorized drop-off</p></div></div>
-      <div class="carrier-card"><div class="carrier-card__header carrier-header-dhl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png" alt="DHL" /></div><div class="carrier-card__body"><div class="carrier-card__name">DHL</div><p class="carrier-card__desc">International express worldwide shipping</p></div></div>
-    </div>
-    <div class="packing-note"><span class="packing-note__icon">😊</span><p><strong class="u-text-navy">Need a box or some tape for your return?</strong> We've got you covered! We'll pack and tape your package securely for a small service fee. No more hunting down supplies.</p></div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials fade-section">
-  <div class="container">
-    <div class="testimonials__header">
-      <div class="testimonials__stars">⭐⭐⭐⭐⭐</div>
-      <h2 class="testimonials__heading font-display">Loved by our community.</h2>
-      <p class="testimonials__sub">Don't take our word for it — here's what our regulars say.</p>
-    </div>
-    <div class="review-grid">
-      <div class="review-card"><div class="review-card__quote">"</div><div class="review-card__stars">⭐⭐⭐⭐⭐</div><p class="review-card__text">This place has been my go-to for years. The new owner is so warm and helpful — feels just like the old days but even better. Always go the extra mile!</p><div class="review-card__footer"><span class="review-card__name">Maria T.</span><span class="review-card__time">2 weeks ago</span></div></div>
-      <div class="review-card"><div class="review-card__quote">"</div><div class="review-card__stars">⭐⭐⭐⭐⭐</div><p class="review-card__text">Fast, affordable, and the staff actually know your name. I've shipped with FedEx, UPS, and USPS all from here. Never had an issue.</p><div class="review-card__footer"><span class="review-card__name">Robert K.</span><span class="review-card__time">1 month ago</span></div></div>
-      <div class="review-card"><div class="review-card__quote">"</div><div class="review-card__stars">⭐⭐⭐⭐⭐</div><p class="review-card__text">My business mailbox has been here for 3 years. Real street address, packages always secure. Couldn't be happier with the service.</p><div class="review-card__footer"><span class="review-card__name">Sandra L.</span><span class="review-card__time">3 weeks ago</span></div></div>
-    </div>
-    <div class="testimonials__footer"><a href="https://www.google.com/search?q=Shipping+with+Purpose+reviews" target="_blank" rel="noopener" class="btn btn--outline-navy">⭐ See All Google Reviews</a></div>
-  </div>
-</section>
-
-<!-- ===== COMMUNITY ===== -->
-<section class="community fade-section">
-  <div class="community__grid">
-    <div>
-      <div class="community__badge">❤️ Our Community Story</div>
-      <h2 class="community__heading font-display">A local shop with a<br/><span class="community-kraft-light">big heart.</span></h2>
-      <p class="community__body">Under new ownership, Shipping with Purpose is a return to what a neighborhood store should feel like — a place where you're greeted by name, your time is respected, and service always comes before profit.</p>
-      <p class="community__sub">We're your private, local alternative to the big-box stores. Come for the shipping — stay for the conversation.</p>
-      <a href="contact.html" class="btn btn--kraft">Meet Us &nbsp;→</a>
-    </div>
-    <div>
-      <a href="tel:+1-XXX-XXX-XXXX" class="info-card"><div class="info-card__icon">📞</div><div><span class="info-card__title">(XXX) XXX-XXXX</span><span class="info-card__sub">Tap to call — phone first, always</span></div></a>
-      <div class="info-card community-hours-card"><div class="info-card__icon community-hours-icon">🕐</div><div><span class="info-card__title">Store Hours</span><div class="community-hours-text">Mon – Fri: 8:30 AM – 6:30 PM<br/>Saturday: 9:00 AM – 4:00 PM<br/><span class="community-hours-closed">Sunday: Closed</span></div></div></div>
-      <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-card"><div class="info-card__icon community-map-icon">📍</div><div><span class="info-card__title">Get Directions</span><span class="info-card__sub">Open in Google Maps →</span></div></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div><div class="footer__brand"><div class="footer__brand-icon">📦</div><span class="footer__brand-name">Shipping with Purpose</span></div><p class="footer__tagline">Under new ownership — committed to faster, friendlier service and community first.</p></div>
-      <div><div class="footer__col-heading">Navigation</div><a href="index.html" class="footer__link">Home</a><a href="services.html" class="footer__link">Services</a><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a><a href="contact.html" class="footer__link">Contact &amp; About</a></div>
-      <div><div class="footer__col-heading">Hours</div><div class="footer__hours">Mon – Fri: 8:30 AM – 6:30 PM<br/>Saturday: 9:00 AM – 4:00 PM<br/>Sunday: Closed</div></div>
-    </div>
-    <div class="footer__bottom"><span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span><span class="footer__local">Locally owned &amp; operated ♥</span></div>
-  </div>
-</footer>
-
-<script src="js/app.js" defer></script>
-</body>
+    <script src="js/app.js" defer></script>
+  </body>
 </html>
