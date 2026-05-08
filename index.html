@@ -32,7 +32,6 @@
           <a href="contact.html" class="nav__link">Contact &amp; About</a>
         </div>
         <div class="nav__cta">
-          <a href="tel:+16029604882" class="nav__phone">(602) 960-4882</a>
           <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
         </div>
         <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
@@ -49,7 +48,7 @@
         <span>☎</span><a href="tel:+16029604882">(602) 960-4882</a>
       </div>
       <div class="info-bar__item">
-        <span class="info-bar__icon">◷</span> Mon-Fri: 8:30 AM - 6:30 PM &nbsp;·&nbsp; Sat: 9:00 AM - 4:00 PM
+        <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
         &nbsp;·&nbsp; Sun: Closed
       </div>
       <a
@@ -96,7 +95,7 @@
               <div class="hero__new-owner-badge">✧ New Ownership</div>
               <div class="hero__hours-chip">
                 <strong>Open Today</strong>
-                <span>Mon-Fri: 8:30 AM - 6:30 PM</span>
+                <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
               </div>
             </div>
             <div class="hero__carriers-card">
@@ -104,25 +103,25 @@
               <div class="hero__carriers-row">
                 <div class="hero__carrier-tile hero-carrier-usps">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png"
+                    src="./assets/icons/usps-logo.svg"
                     alt="USPS"
                   />
                 </div>
                 <div class="hero__carrier-tile hero-carrier-ups">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
                     alt="UPS"
                   />
                 </div>
                 <div class="hero__carrier-tile hero-carrier-fedex">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
                     alt="FedEx"
                   />
                 </div>
                 <div class="hero__carrier-tile hero-carrier-dhl">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png"
+                    src="./assets/icons/dhl-logo.svg"
                     alt="DHL"
                   />
                 </div>
@@ -132,26 +131,6 @@
         </div>
       </div>
     </section>
-    <div class="trust-bar fade-section">
-      <div class="trust-bar__inner">
-        <div class="trust-bar__item">
-          <span class="trust-bar__dot"></span> USPS Authorized Shipping Outlet
-        </div>
-        <div class="trust-bar__item">
-          <span class="trust-bar__dot"></span> UPS Authorized Shipping Provider
-        </div>
-        <div class="trust-bar__item">
-          <span class="trust-bar__dot"></span> FedEx Authorized Drop-off
-        </div>
-        <div class="trust-bar__item"><span class="trust-bar__dot"></span> DHL Express Shipping</div>
-        <div class="trust-bar__item">
-          <span class="trust-bar__dot"></span> Notary Public On-Site
-        </div>
-        <div class="trust-bar__item">
-          <span class="trust-bar__dot"></span> Private Mailbox Rentals
-        </div>
-      </div>
-    </div>
     <section class="services-preview fade-section">
       <div class="container">
         <div class="services-preview__header">
@@ -231,70 +210,81 @@
       </div>
     </section>
     <section class="mailbox-cta fade-section">
-      <div class="container-md">
-        <div class="mailbox-cta__card">
-          <div class="mailbox-cta__top">
-            <div>
-              <div class="mailbox-cta__header-row">
-                <div class="mailbox-cta__icon-box">✉</div>
-                <span class="section-tag">Most Popular Service</span>
-              </div>
-              <h2 class="mailbox-cta__heading font-display">
-                Get a real street address.<br /><span class="kraft-gradient-text"
-                  >Not a P.O. Box.</span
-                >
-              </h2>
-              <p class="mailbox-cta__body">
-                A private mailbox with a real street address — perfect for small businesses, remote
-                workers, and anyone who values their privacy.
-              </p>
-              <ul class="mailbox-cta__perks">
-                <li class="mailbox-cta__perk">
-                  <span class="mailbox-cta__perk-check">✓</span> Real street address — not a P.O.
-                  Box
-                </li>
-                <li class="mailbox-cta__perk">
-                  <span class="mailbox-cta__perk-check">✓</span> Accept packages from all carriers
-                </li>
-                <li class="mailbox-cta__perk">
-                  <span class="mailbox-cta__perk-check">✓</span> Optional mail notification add-on
-                </li>
-                <li class="mailbox-cta__perk">
-                  <span class="mailbox-cta__perk-check">✓</span> 3, 6, or 12-month plans available
-                </li>
-              </ul>
-              <a href="mailboxes.html" class="btn btn--navy">See Pricing &amp; Rent Now &nbsp;→</a>
-            </div>
-            <div class="mailbox-cta__image">
-              <img
-                src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=700&q=80"
-                alt="Private mailboxes"
-              />
-            </div>
+      <div class="mailbox-bento">
+
+        <!-- HERO TILE (navy, spans 2 cols × 2 rows) -->
+        <div class="mb-tile mb-tile--hero">
+          <div class="mb-hero__top">
+            <div class="mb-hero__icon-box">✉</div>
+            <span class="mb-hero__badge">Most Popular Service</span>
           </div>
-          <div class="mailbox-cta__pricing">
-            <div class="price-tile">
-              <span class="price-tile__label">Mini Box</span
-              ><span class="price-tile__value kraft-gradient-text font-display">From $57</span
-              ><span class="price-tile__period">/ 3 months</span>
-            </div>
-            <div class="price-tile">
-              <span class="price-tile__label">Personal Box</span
-              ><span class="price-tile__value kraft-gradient-text font-display">From $72</span
-              ><span class="price-tile__period">/ 3 months</span>
-            </div>
-            <div class="price-tile">
-              <span class="price-tile__label">Business Box</span
-              ><span class="price-tile__value kraft-gradient-text font-display">From $78</span
-              ><span class="price-tile__period">/ 3 months</span>
-            </div>
-            <div class="price-tile">
-              <span class="price-tile__label">Corporate Box</span
-              ><span class="price-tile__value kraft-gradient-text font-display">From $123</span
-              ><span class="price-tile__period">/ 3 months</span>
-            </div>
+          <h2 class="mb-hero__heading font-display">
+            Get a real street address.<br />
+            <span class="kraft-gradient-text">Not a P.O.&nbsp;Box.</span>
+          </h2>
+          <p class="mb-hero__body">
+            A private mailbox with a real street address — perfect for small businesses,
+            remote workers, and anyone who values their privacy.
+          </p>
+          <a href="mailboxes.html" class="btn btn--kraft mb-hero__cta">
+            See Pricing &amp; Rent Now &nbsp;→
+          </a>
+        </div>
+
+        <!-- PHOTO TILE (spans 2 cols, row 1) -->
+        <div class="mb-tile mb-tile--photo">
+          <img
+            src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=900&q=80"
+            alt="Private mailboxes"
+          />
+        </div>
+
+        <!-- PRICE TILE A -->
+        <div class="mb-tile mb-tile--price mb-tile--pa">
+          <span class="mb-price__label">Mini Box</span>
+          <span class="mb-price__value kraft-gradient-text font-display">$57</span>
+          <span class="mb-price__period">from / 3 months</span>
+        </div>
+
+        <!-- PRICE TILE B -->
+        <div class="mb-tile mb-tile--price mb-tile--pb">
+          <span class="mb-price__label">Personal</span>
+          <span class="mb-price__value kraft-gradient-text font-display">$72</span>
+          <span class="mb-price__period">from / 3 months</span>
+        </div>
+
+        <!-- FEATURE TILE: All Carriers -->
+        <div class="mb-tile mb-tile--feat mb-tile--feat-a">
+          <div class="mb-feat__icon">📦</div>
+          <div>
+            <div class="mb-feat__title">All Carriers</div>
+            <div class="mb-feat__sub">USPS · UPS · FedEx · DHL</div>
           </div>
         </div>
+
+        <!-- FEATURE TILE: 24h Access -->
+        <div class="mb-tile mb-tile--feat mb-tile--feat-b">
+          <div class="mb-feat__icon">🔑</div>
+          <div>
+            <div class="mb-feat__title">24-Hour Access</div>
+            <div class="mb-feat__sub">Your key, your schedule</div>
+          </div>
+        </div>
+
+        <!-- PRICE TILE C -->
+        <div class="mb-tile mb-tile--price mb-tile--pc">
+          <span class="mb-price__label">Business</span>
+          <span class="mb-price__value kraft-gradient-text font-display">$78</span>
+          <span class="mb-price__period">from / 3 months</span>
+        </div>
+
+        <!-- PRICE TILE D -->
+        <div class="mb-tile mb-tile--price mb-tile--pd">
+          <span class="mb-price__label">Corporate</span>
+          <span class="mb-price__value kraft-gradient-text font-display">$123</span>
+          <span class="mb-price__period">from / 3 months</span>
+        </div>
+
       </div>
     </section>
     <section class="label-upload fade-section">
@@ -336,62 +326,73 @@
     <section class="dropoff-grid fade-section">
       <div class="container">
         <div class="dropoff-grid__header">
-          <span class="section-tag u-tag-16">◻ Authorized Drop-Offs &amp; Shipping</span>
+          <span class="section-tag u-tag-16">◻ Authorized Drop-Offs &amp; Label Services</span>
           <h2 class="dropoff-grid__heading font-display">
-            Ship with any carrier, all in one stop.
+            Drop off with any carrier. <span class="kraft-gradient-text">We create the label.</span>
           </h2>
           <p class="dropoff-grid__sub">
-            We compare rates so you always get the best deal. Just bring your package and we'll
-            handle the rest.
+            We are an authorized drop-off location for all major carriers. We print and create
+            shipment labels for USPS, UPS, and FedEx — walk in with your package and we handle
+            the rest. DHL drop-offs accepted; labels must be pre-created by the sender.
           </p>
         </div>
         <div class="carrier-grid">
           <div class="carrier-card">
             <div class="carrier-card__header carrier-header-usps">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/US-PostalService-Logo.svg/320px-US-PostalService-Logo.svg.png"
-                alt="USPS"
-              />
+              <img src="./assets/icons/usps-logo.svg" alt="USPS" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">USPS</div>
               <p class="carrier-card__desc">Priority, First-Class, Express &amp; flat-rate boxes</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--label">Label Creation</span>
+                <span class="carrier-badge carrier-badge--drop">Drop-Off</span>
+              </div>
             </div>
           </div>
           <div class="carrier-card">
             <div class="carrier-card__header carrier-header-ups">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/220px-UPS_Logo_Shield_2017.svg.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
                 alt="UPS"
               />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">UPS</div>
               <p class="carrier-card__desc">Ground, 2-Day, Next Day Air &amp; returns</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--label">Label Creation</span>
+                <span class="carrier-badge carrier-badge--drop">Drop-Off</span>
+              </div>
             </div>
           </div>
           <div class="carrier-card">
             <div class="carrier-card__header carrier-header-fedex">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/FedEx_Corporation_-_2016_Logo.svg/320px-FedEx_Corporation_-_2016_Logo.svg.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
                 alt="FedEx"
               />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">FedEx</div>
-              <p class="carrier-card__desc">Overnight, Home Delivery &amp; authorized drop-off</p>
+              <p class="carrier-card__desc">Overnight, Home Delivery &amp; Express services</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--label">Label Creation</span>
+                <span class="carrier-badge carrier-badge--drop">Drop-Off</span>
+              </div>
             </div>
           </div>
-          <div class="carrier-card">
+          <div class="carrier-card carrier-card--droponly">
             <div class="carrier-card__header carrier-header-dhl">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/DHL_Logo.svg/320px-DHL_Logo.svg.png"
-                alt="DHL"
-              />
+              <img src="./assets/icons/dhl-logo.svg" alt="DHL" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">DHL</div>
-              <p class="carrier-card__desc">International express worldwide shipping</p>
+              <p class="carrier-card__desc">International express &amp; worldwide shipping</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--drop">Drop-Off Only</span>
+                <span class="carrier-badge carrier-badge--note">Pre-labeled required</span>
+              </div>
             </div>
           </div>
         </div>
@@ -408,7 +409,7 @@
     <section class="testimonials fade-section">
       <div class="container">
         <div class="testimonials__header">
-          <div class="testimonials__stars">☆☆☆☆☆</div>
+          <div class="testimonials__stars">★★★★★</div>
           <h2 class="testimonials__heading font-display">Loved by our community.</h2>
           <p class="testimonials__sub">
             Don't take our word for it — here's what our regulars say.
@@ -416,49 +417,67 @@
         </div>
         <div class="review-grid">
           <div class="review-card">
-            <div class="review-card__quote">"</div>
-            <div class="review-card__stars">☆☆☆☆☆</div>
+            <div class="review-card__top">
+              <div class="review-card__avatar">MT</div>
+              <div>
+                <div class="review-card__name">Maria T.</div>
+                <div class="review-card__meta">Phoenix, AZ</div>
+              </div>
+              <span class="review-card__source">Yelp</span>
+            </div>
+            <div class="review-card__rating-row">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="review-card__time">2 weeks ago</span>
+            </div>
             <p class="review-card__text">
               This place has been my go-to for years. The new owner is so warm and helpful — feels
               just like the old days but even better. Always go the extra mile!
             </p>
-            <div class="review-card__footer">
-              <span class="review-card__name">Maria T.</span
-              ><span class="review-card__time">2 weeks ago</span>
-            </div>
           </div>
           <div class="review-card">
-            <div class="review-card__quote">"</div>
-            <div class="review-card__stars">☆☆☆☆☆</div>
+            <div class="review-card__top">
+              <div class="review-card__avatar">RK</div>
+              <div>
+                <div class="review-card__name">Robert K.</div>
+                <div class="review-card__meta">Small Business Owner</div>
+              </div>
+              <span class="review-card__source">Yelp</span>
+            </div>
+            <div class="review-card__rating-row">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="review-card__time">1 month ago</span>
+            </div>
             <p class="review-card__text">
               Fast, affordable, and the staff actually know your name. I've shipped with FedEx, UPS,
               and USPS all from here. Never had an issue.
             </p>
-            <div class="review-card__footer">
-              <span class="review-card__name">Robert K.</span
-              ><span class="review-card__time">1 month ago</span>
-            </div>
           </div>
           <div class="review-card">
-            <div class="review-card__quote">"</div>
-            <div class="review-card__stars">☆☆☆☆☆</div>
+            <div class="review-card__top">
+              <div class="review-card__avatar">SL</div>
+              <div>
+                <div class="review-card__name">Sandra L.</div>
+                <div class="review-card__meta">Verified Mailbox Customer</div>
+              </div>
+              <span class="review-card__source">Yelp</span>
+            </div>
+            <div class="review-card__rating-row">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <span class="review-card__time">3 weeks ago</span>
+            </div>
             <p class="review-card__text">
               My business mailbox has been here for 3 years. Real street address, packages always
               secure. Couldn't be happier with the service.
             </p>
-            <div class="review-card__footer">
-              <span class="review-card__name">Sandra L.</span
-              ><span class="review-card__time">3 weeks ago</span>
-            </div>
           </div>
         </div>
         <div class="testimonials__footer">
           <a
-            href="https://www.google.com/search?q=Shipping+with+Purpose+reviews"
+            href="https://www.yelp.com/search?find_desc=Shipping+with+Purpose&find_loc=Phoenix%2C+AZ"
             target="_blank"
             rel="noopener"
             class="btn btn--outline-navy"
-            >☆ See All Google Reviews</a
+            >Read More on Yelp</a
           >
         </div>
       </div>
@@ -494,7 +513,7 @@
             <div>
               <span class="info-card__title">Store Hours</span>
               <div class="community-hours-text">
-                Mon-Fri: 8:30 AM - 6:30 PM<br />Sat: 9:00 AM - 4:00 PM<br /><span
+                Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br /><span
                   class="community-hours-closed"
                   >Sun: Closed</span
                 >
@@ -537,7 +556,7 @@
           <div>
             <div class="footer__col-heading">Hours</div>
             <div class="footer__hours">
-              Mon-Fri: 8:30 AM - 6:30 PM<br />Sat: 9:00 AM - 4:00 PM<br />Sun: Closed
+              Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed
             </div>
           </div>
         </div>
