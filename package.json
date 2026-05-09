@@ -1,0 +1,18 @@
+{
+  "name": "srt-swp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shipping With Purpose website with live reviews backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}

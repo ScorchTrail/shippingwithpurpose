@@ -54,16 +54,21 @@
 })();
 
 /* ============================================================
-   LABEL UPLOAD DROP ZONE (index.html)
+   PRINT PORTAL FORM + DROP ZONE (index.html)
    ============================================================ */
-(function initDropZone() {
+(function initPrintPortal() {
+  const form = document.getElementById('print-portal-form');
   const dz = document.getElementById('drop-zone');
-  if (!dz) return;
+  const fileInput = document.getElementById('file-input');
+  const fileList = document.getElementById('uploaded-doc-list');
+  const emptyState = document.getElementById('uploaded-doc-empty');
+  const feedback = document.getElementById('print-portal-feedback');
 
-  dz.addEventListener('click', () => {
-    const inp = document.getElementById('file-input');
-    if (inp) inp.click();
-  });
+  if (!form || !dz || !fileInput || !fileList || !emptyState || !feedback) return;
+
+  const uploadedFiles = [];
+
+  dz.addEventListener('click', () => fileInput.click());
 
   dz.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -75,45 +80,94 @@
   dz.addEventListener('drop', (e) => {
     e.preventDefault();
     dz.classList.remove('dragging');
-    const file = e.dataTransfer.files[0];
-    if (file) showUploadedFile(file);
+    addFiles(e.dataTransfer.files);
   });
 
-  function handleFileSelect(e) {
-    const file = e.target.files[0];
-    if (file) showUploadedFile(file);
-  }
-  window.handleFileSelect = handleFileSelect; // expose for inline onchange
+  fileInput.addEventListener('change', (e) => addFiles(e.target.files));
 
-  function showUploadedFile(file) {
-    dz.classList.add('has-file');
-    dz.innerHTML = `
-      <div class="drop-zone__icon">✅</div>
-      <div class="drop-zone__title">Label ready: ${escHtml(file.name)}</div>
-      <p class="drop-zone__sub">Bring your ID to the counter — we'll print this for you on arrival.</p>
-      <button class="btn btn--ghost drop-zone__reset-btn" id="reset-dz">Upload a different file</button>
-    `;
-    document.getElementById('reset-dz').addEventListener('click', (e) => {
-      e.stopPropagation();
-      resetDropZone();
+  fileList.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-remove-index]');
+    if (!btn) return;
+    const idx = Number(btn.dataset.removeIndex);
+    if (Number.isNaN(idx)) return;
+    uploadedFiles.splice(idx, 1);
+    renderFileList();
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!uploadedFiles.length) {
+      feedback.textContent = 'Please upload at least one document before sending.';
+      feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+      return;
+    }
+
+    const payload = {
+      name: document.getElementById('portal-name')?.value?.trim() || '',
+      phone: document.getElementById('portal-phone')?.value?.trim() || '',
+      printType: document.getElementById('portal-color')?.value || 'Black & White',
+      copies: document.getElementById('portal-copies')?.value || '1',
+      files: uploadedFiles.map((f) => ({
+        name: f.name,
+        sizeBytes: f.size,
+        type: f.type || 'unknown',
+      })),
+    };
+
+    // Placeholder for next phase email service integration.
+    console.log('Print portal payload (email integration pending):', payload);
+
+    feedback.textContent = 'Request captured. Next step is connecting this form to email delivery.';
+    feedback.className = 'print-portal-form__feedback print-portal-form__feedback--success';
+  });
+
+  function addFiles(fileCollection) {
+    if (!fileCollection || !fileCollection.length) return;
+
+    Array.from(fileCollection).forEach((file) => {
+      const exists = uploadedFiles.some(
+        (f) => f.name === file.name && f.size === file.size && f.lastModified === file.lastModified
+      );
+      if (!exists) uploadedFiles.push(file);
     });
+
+    fileInput.value = '';
+    renderFileList();
   }
 
-  function resetDropZone() {
-    dz.classList.remove('has-file', 'dragging');
-    dz.innerHTML = `
-      <div class="drop-zone__icon">📤</div>
-      <div class="drop-zone__title">Drag &amp; drop your label here</div>
-      <p class="drop-zone__sub">or click to browse files &nbsp;·&nbsp; PDF, PNG, JPG accepted</p>
-      <span class="btn btn--navy-sm drop-zone__fake-btn">Select File</span>
-      <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg" class="hidden-file-input" />
-    `;
-    document.getElementById('file-input').addEventListener('change', handleFileSelect);
+  function renderFileList() {
+    if (!uploadedFiles.length) {
+      emptyState.style.display = 'block';
+      fileList.innerHTML = '';
+      dz.classList.remove('has-file');
+      return;
+    }
+
+    dz.classList.add('has-file');
+    emptyState.style.display = 'none';
+    fileList.innerHTML = uploadedFiles
+      .map(
+        (file, index) => `
+        <li class="print-portal-files__item">
+          <div>
+            <div class="print-portal-files__name">${escHtml(file.name)}</div>
+            <div class="print-portal-files__meta">${formatFileSize(file.size)}</div>
+          </div>
+          <button type="button" class="print-portal-files__remove" data-remove-index="${index}">
+            Remove
+          </button>
+        </li>
+      `
+      )
+      .join('');
   }
 
-  // Hook initial file input
-  const initInp = document.getElementById('file-input');
-  if (initInp) initInp.addEventListener('change', handleFileSelect);
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  }
 })();
 
 /* ============================================================
@@ -226,8 +280,133 @@
   });
 })();
 
-/* ============================================================
-   CONTACT FORM (contact.html)
+/* ============================================================   LIVE REVIEWS GALLERY (index.html)
+   ============================================================ */
+(function initLiveReviews() {
+  const gallery = document.getElementById('reviews-gallery');
+  const track = document.getElementById('reviews-track');
+  if (!gallery || !track) return;
+
+  fetch('/api/reviews', { headers: { Accept: 'application/json' } })
+    .then((res) => {
+      if (!res.ok) throw new Error('Failed to fetch reviews');
+      return res.json();
+    })
+    .then((data) => {
+      const reviews = Array.isArray(data?.reviews) ? data.reviews : [];
+      if (!reviews.length) {
+        track.innerHTML = fallbackReviewMarkup('No live reviews available yet.');
+        return;
+      }
+
+      const baseReviews = reviews.slice(0, 12);
+      const loopReviews = baseReviews.concat(baseReviews);
+      track.innerHTML = loopReviews.map((review) => reviewCardMarkup(review)).join('');
+      startAutoScroll();
+    })
+    .catch(() => {
+      track.innerHTML = fallbackReviewMarkup('Unable to load reviews right now.');
+    });
+
+  function startAutoScroll() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let rafId = null;
+    let paused = false;
+    const speed = 0.35;
+
+    const animate = () => {
+      if (!paused) {
+        gallery.scrollLeft += speed;
+        const loopPoint = track.scrollWidth / 2;
+        if (gallery.scrollLeft >= loopPoint) {
+          gallery.scrollLeft = 0;
+        }
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+
+    gallery.addEventListener('mouseenter', () => {
+      paused = true;
+    });
+    gallery.addEventListener('mouseleave', () => {
+      paused = false;
+    });
+    gallery.addEventListener('focusin', () => {
+      paused = true;
+    });
+    gallery.addEventListener('focusout', () => {
+      paused = false;
+    });
+
+    rafId = requestAnimationFrame(animate);
+
+    window.addEventListener(
+      'beforeunload',
+      () => {
+        if (rafId) cancelAnimationFrame(rafId);
+      },
+      { once: true }
+    );
+  }
+
+  function fallbackReviewMarkup(message) {
+    return `
+      <article class="review-card review-card--placeholder">
+        <div class="review-card__top">
+          <div class="review-card__avatar">i</div>
+          <div class="review-card__identity">
+            <div class="review-card__name">Live Reviews</div>
+            <div class="review-card__meta">Google &amp; Yelp</div>
+          </div>
+        </div>
+        <p class="review-card__text">${escHtml(message)}</p>
+      </article>
+    `;
+  }
+
+  function renderStars(rating) {
+    const starPath = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+    return Array.from({ length: 5 }, (_, i) => {
+      const mod = i < rating ? 'full' : 'empty';
+      return `<svg class="star-svg star-svg--${mod}" viewBox="0 0 24 24" aria-hidden="true"><path d="${starPath}"/></svg>`;
+    }).join('');
+  }
+
+  function reviewCardMarkup(review) {
+    const name = review?.authorName || 'Guest';
+    const initials = name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join('');
+
+    const rating = Math.max(1, Math.min(5, Number(review?.rating) || 5));
+    const stars = renderStars(rating);
+    const source = review?.source === 'google' ? 'Google' : 'Yelp';
+
+    return `
+      <article class="review-card" role="article">
+        <div class="review-card__top">
+          <div class="review-card__avatar">${escHtml(initials || 'G')}</div>
+          <div class="review-card__identity">
+            <div class="review-card__name">${escHtml(name)}</div>
+            <div class="review-card__meta">${escHtml(review?.relativeTime || 'Recent review')}</div>
+          </div>
+          <span class="review-card__source">${escHtml(source)}</span>
+        </div>
+        <div class="review-card__rating-row">
+          <div class="review-card__stars" aria-label="${rating} out of 5 stars">${stars}</div>
+          <span class="review-card__time">${escHtml(review?.publishedAt || '')}</span>
+        </div>
+        <p class="review-card__text">${escHtml(review?.text || '')}</p>
+      </article>
+    `;
+  }
+})();
+
+/* ============================================================   CONTACT FORM (contact.html)
    ============================================================ */
 (function initContactForm() {
   const form = document.getElementById('contact-form');

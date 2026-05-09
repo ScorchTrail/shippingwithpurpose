@@ -24,12 +24,9 @@
   --space-16: 16px;
   --space-24: 24px;
   --space-32: 32px;
-  --space-40: 40px;
   --space-48: 48px;
-  --space-56: 56px;
   --space-64: 64px;
-  --space-80: 80px;
-  --space-88: 88px;
+  --space-128: 128px;
 }
 
 /* ============================================================ RESET */
@@ -73,6 +70,13 @@ button {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--kraft);
+}
+
+/* ============================================================ FOCUS VISIBLE */
+:focus-visible {
+  outline: 3px solid var(--kraft);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ============================================================ TYPE HELPERS */

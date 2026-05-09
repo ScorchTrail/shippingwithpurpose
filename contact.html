@@ -20,7 +20,7 @@
     <nav class="nav" id="nav">
         <a href="index.html" class="nav__brand"
           ><div class="nav__brand-icon">◻</div>
-          <div>
+          <div class="nav__brand-text">
             <div class="nav__brand-name">Shipping with Purpose</div>
             <div class="nav__brand-sub">Shipping Center</div>
           </div></a
@@ -93,7 +93,7 @@
             </div>
             <div class="owner-badge-float">♡ Community First</div>
           </div>
-          <div>
+          <section class="contact-owner__content">
             <span class="section-tag contact-owner__tag">Meet the Owner</span>
             <h2 class="font-display gradient-text contact-owner__title">
               A fresh start for<br />your neighborhood.
@@ -119,7 +119,7 @@
                 serving you, your family, and your business for years to come.
               </p>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
@@ -137,7 +137,7 @@
 
         <div class="contact-card">
           <div class="about-owner__grid contact-split-grid">
-            <div>
+            <div class="contact-benefits">
               <div class="contact-benefits-title">What's included:</div>
               <div class="contact-benefits-list">
                 <div class="contact-benefit-item">Real street address</div>
@@ -150,6 +150,7 @@
                   src="https://images.unsplash.com/photo-1618044733300-9472054094ee?w=400&q=80"
                   alt="Mailboxes"
                   class="contact-benefits-image"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -219,6 +220,7 @@
                 <select class="form-input">
                   <option>Black &amp; White</option>
                   <option>Color</option>
+                  <option>Photo Copy</option>
                 </select>
               </div>
               <div class="form-group">
@@ -283,7 +285,7 @@
           <h2 class="font-display gradient-text faq-section__title">Common questions</h2>
         </div>
 
-        <div class="faq-item">
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">What do I need to rent a mailbox?</span>
             <div class="faq-chevron">▼</div>
@@ -297,8 +299,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question"
               >Can I receive packages from any carrier with a mailbox rental?</span
@@ -313,8 +315,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">How will I know when I have mail or a package?</span>
             <div class="faq-chevron">▼</div>
@@ -327,8 +329,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">What shipping carriers do you work with?</span>
             <div class="faq-chevron">▼</div>
@@ -341,8 +343,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">Do you offer same-day printing?</span>
             <div class="faq-chevron">▼</div>
@@ -356,8 +358,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">Is a Notary Public available without an appointment?</span>
             <div class="faq-chevron">▼</div>
@@ -370,8 +372,8 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
+        </article>
+        <article class="faq-item">
           <button class="faq-btn">
             <span class="faq-question">Can I use my mailbox address for my business?</span>
             <div class="faq-chevron">▼</div>
@@ -384,38 +386,46 @@
               </p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
     <footer class="footer">
       <div class="container">
         <div class="footer__grid">
-          <div>
+          <section class="footer__col">
             <div class="footer__brand">
               <div class="footer__brand-icon">◻</div>
               <span class="footer__brand-name">Shipping with Purpose</span>
             </div>
             <p class="footer__tagline">
-              Under new ownership — committed to faster, friendlier service and community first.
+              Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
             </p>
-          </div>
-          <div>
-            <div class="footer__col-heading">Navigation</div>
+            <a href="tel:+16029604882" class="footer__link footer__link--contact">☎ (602) 960-4882</a>
+            <a
+              href="https://maps.google.com/?q=Shipping+with+Purpose"
+              target="_blank"
+              rel="noopener"
+              class="footer__link footer__link--contact"
+              >⊕ Get Directions</a
+            >
+          </section>
+          <section class="footer__col">
+            <h3 class="footer__col-heading">Quick Links</h3>
             <a href="index.html" class="footer__link">Home</a
             ><a href="services.html" class="footer__link">Services</a
             ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
             ><a href="contact.html" class="footer__link">Contact &amp; About</a>
-          </div>
-          <div>
-            <div class="footer__col-heading">Hours</div>
+          </section>
+          <section class="footer__col">
+            <h3 class="footer__col-heading">Hours</h3>
             <div class="footer__hours">
               Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed
             </div>
-          </div>
+          </section>
         </div>
         <div class="footer__bottom">
           <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
-          ><span class="footer__local">Locally owned &amp; operated ♥</span>
+          ><span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
         </div>
       </div>
     </footer>
