@@ -14,12 +14,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="public/css/main.css" />
   </head>
   <body>
     <nav class="nav" id="nav">
         <a href="index.html" class="nav__brand">
-          <img src="./assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
+          <img src="public/assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
           <div class="nav__brand-text">
             <div class="nav__brand-name">Shipping with Purpose</div>
             <div class="nav__brand-sub">Shipping Center</div>
@@ -27,20 +27,20 @@
         </a>
         <div class="nav__links">
           <a href="index.html" class="nav__link nav__link--active">Home</a>
-          <a href="services.html" class="nav__link">Services</a>
-          <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
-          <a href="contact.html" class="nav__link">Contact &amp; About</a>
+          <a href="public/services.html" class="nav__link">Services</a>
+          <a href="public/mailboxes.html" class="nav__link">Mailbox Rentals</a>
+          <a href="public/contact.html" class="nav__link">Contact &amp; About</a>
         </div>
         <div class="nav__cta">
-          <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
+          <a href="public/mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
         </div>
         <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link nav__menu-link--active">Home</a>
-        <a href="services.html" class="nav__menu-link">Services</a>
-        <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
-        <a href="contact.html" class="nav__menu-link">Contact &amp; About</a>
-        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        <a href="public/services.html" class="nav__menu-link">Services</a>
+        <a href="public/mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
+        <a href="public/contact.html" class="nav__menu-link">Contact &amp; About</a>
+        <a href="public/mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
     </nav>
     <div class="info-bar info-bar--offset">
@@ -71,7 +71,7 @@
               one cozy spot.
             </p>
             <div class="hero__actions">
-              <a href="mailboxes.html" class="btn btn--navy">Get a Mailbox Quote &nbsp;→</a>
+              <a href="public/mailboxes.html" class="btn btn--navy">Get a Mailbox Quote &nbsp;→</a>
               <a href="tel:+16029604882" class="btn btn--ghost">☎ Call Us Now</a>
             </div>
             <div class="hero__trust">
@@ -103,7 +103,7 @@
               <div class="hero__carriers-row">
                 <div class="hero__carrier-tile hero-carrier-usps">
                   <img
-                    src="./assets/icons/usps-logo.svg"
+                    src="public/assets/icons/usps-logo.svg"
                     alt="USPS"
                     loading="lazy"
                   />
@@ -124,7 +124,7 @@
                 </div>
                 <div class="hero__carrier-tile hero-carrier-dhl">
                   <img
-                    src="./assets/icons/dhl-logo.svg"
+                    src="public/assets/icons/dhl-logo.svg"
                     alt="DHL"
                     loading="lazy"
                   />
@@ -213,7 +213,7 @@
           </div>
         </div>
         <div class="services-preview__footer">
-          <a href="services.html" class="btn btn--outline-navy">View All Services &nbsp;→</a>
+          <a href="public/services.html" class="btn btn--outline-navy">View All Services &nbsp;→</a>
         </div>
       </div>
     </section>
@@ -235,7 +235,7 @@
             A private mailbox with a real street address — perfect for small businesses,
             remote workers, and anyone who values their privacy.
           </p>
-          <a href="mailboxes.html" class="btn btn--kraft mailbox-cta__hero-cta">
+          <a href="public/mailboxes.html" class="btn btn--kraft mailbox-cta__hero-cta">
             See Pricing &amp; Rent Now &nbsp;→
           </a>
         </div>
@@ -299,7 +299,7 @@
       </div>
     </section>
     <section class="print-portal fade-section">
-      <div class="container-md">
+      <div class="container">
         <div class="print-portal__header">
           <span class="section-tag u-tag-16">▣ Print Section</span>
           <h2 class="print-portal__heading font-display">Upload documents for printing.</h2>
@@ -382,7 +382,7 @@
         <div class="carrier-grid">
           <div class="carrier-card">
             <div class="carrier-card__header carrier-header-usps">
-              <img src="./assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
+              <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">USPS</div>
@@ -404,6 +404,10 @@
             <div class="carrier-card__body">
               <div class="carrier-card__name">UPS</div>
               <p class="carrier-card__desc">Ground, 2-Day, Next Day Air, and returns.</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--label">Label Creation</span>
+                <span class="carrier-badge carrier-badge--label">Returns</span>
+              </div>
             </div>
           </div>
           <div class="carrier-card">
@@ -417,11 +421,15 @@
             <div class="carrier-card__body">
               <div class="carrier-card__name">FedEx</div>
               <p class="carrier-card__desc">Overnight, Home Delivery, and Express services.</p>
+              <div class="carrier-card__badges">
+                <span class="carrier-badge carrier-badge--label">Label Creation</span>
+                <span class="carrier-badge carrier-badge--label">QR Print</span>
+              </div>
             </div>
           </div>
           <div class="carrier-card carrier-card--droponly">
             <div class="carrier-card__header carrier-header-dhl">
-              <img src="./assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
+              <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">DHL</div>
@@ -506,9 +514,9 @@
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
             <a href="index.html" class="footer__link">Home</a
-            ><a href="services.html" class="footer__link">Services</a
-            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
-            ><a href="contact.html" class="footer__link">Contact &amp; About</a>
+            ><a href="public/services.html" class="footer__link">Services</a
+            ><a href="public/mailboxes.html" class="footer__link">Mailbox Rentals</a
+            ><a href="public/contact.html" class="footer__link">Contact &amp; About</a>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Hours</h3>
@@ -524,6 +532,6 @@
       </div>
     </footer>
 
-    <script src="js/app.js" defer></script>
+    <script src="public/js/app.js" defer></script>
   </body>
 </html>

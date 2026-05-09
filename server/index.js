@@ -7,13 +7,20 @@ dotenv.config();
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const CACHE_TTL_MS = 10 * 60 * 1000;
+const ROOT_DIR = path.join(__dirname, '..');
+const WEB_ROOT = path.join(__dirname, '..', 'public');
+const ROOT_INDEX = path.join(ROOT_DIR, 'index.html');
 
 let cache = {
   timestamp: 0,
   payload: null,
 };
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(WEB_ROOT));
+
+app.get(['/', '/index.html'], (_req, res) => {
+  res.sendFile(ROOT_INDEX);
+});
 
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, service: 'reviews-api' });
@@ -60,7 +67,7 @@ app.get('/api/reviews', async (_req, res) => {
 });
 
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(ROOT_INDEX);
 });
 
 app.listen(PORT, () => {

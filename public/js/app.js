@@ -265,8 +265,26 @@
 })();
 
 /* ============================================================
-   FAQ ACCORDION (contact.html)
+   PRICING TABLE TOGGLE (mailboxes.html)
    ============================================================ */
+(function initPricingTable() {
+  const trigger = document.getElementById('pricing-table-trigger');
+  const panel = document.getElementById('pricing-table-panel');
+  if (!trigger || !panel) return;
+
+  trigger.addEventListener('click', () => {
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+    trigger.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) {
+      panel.hidden = true;
+    } else {
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+})();
+
+
 (function initFAQ() {
   document.querySelectorAll('.faq-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
