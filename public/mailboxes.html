@@ -212,8 +212,8 @@
             </section>
             <section class="quote-group">
               <div class="quote-label">Add-ons</div>
-              <button class="addon-btn" id="addon-btn">
-                <div class="addon-icon">◯</div>
+              <button class="addon-btn addon-btn--active" id="addon-btn">
+                <div class="addon-icon">✓</div>
                 <div class="addon-flex-1">
                   <div class="addon-row">
                     <span class="addon-title">Mail Notifications</span>
@@ -232,7 +232,7 @@
             <div class="quote-card__config" id="q-config">Personal Box · 3-Month</div>
             <div class="quote-card__price kraft-gradient-text" id="q-price">$72.00</div>
             <div class="quote-card__monthly" id="q-monthly">~$24.00/month</div>
-            <div class="quote-card__notice">△ Tax not included. Pricing includes all fees.</div>
+            <div class="quote-card__notice">Pricing includes all fees.</div>
             <div id="q-items">
               <div class="quote-card__item">
                 <span class="quote-card__check">✓</span> Personal Mailbox
@@ -248,18 +248,22 @@
               </div>
             </div>
             <a href="contact.html" class="btn btn--navy quote-cta">Reserve Your Box &nbsp;→</a>
-            <button class="pricing-table-trigger" id="pricing-table-trigger" aria-expanded="false" aria-controls="pricing-table-panel" type="button">
+            <button class="pricing-table-trigger" id="pricing-table-trigger" aria-expanded="false" type="button">
               <svg class="pricing-table-trigger__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
               <span class="pricing-table-trigger__label">View full pricing breakdown</span>
-              <svg class="pricing-table-trigger__chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
           </div>
         </div>
-        <div class="pricing-table" id="pricing-table-panel" hidden>
+        <!-- PRICING MODAL -->
+        <div class="pricing-modal" id="pricing-modal" aria-modal="true" aria-labelledby="pricing-modal-title">
+          <div class="pricing-modal__overlay"></div>
+          <div class="pricing-modal__content">
+            <button class="pricing-modal__close" aria-label="Close pricing table" type="button">✕</button>
+            <div class="pricing-table">
           <div class="pricing-table__header">
             <div class="pricing-table__header-text">
               <h3 class="pricing-table__title font-display">Full Pricing Breakdown</h3>
-              <p class="pricing-table__subtitle">All prices include mailbox rental. Taxes not included.</p>
+              <p class="pricing-table__subtitle">All prices include mailbox rental.</p>
             </div>
             <div class="pricing-table__legend">
               <span class="pricing-table__legend-item">
@@ -334,9 +338,11 @@
           <div class="pricing-table__footer">
             <p class="pricing-table__note">
               <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              Mail Notification add-on is +$1/month per term. All prices exclude applicable taxes.
+              Mail Notification add-on is +$1/month per term.
             </p>
             <a href="contact.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box &nbsp;→</a>
+          </div>
+            </div>
           </div>
         </div>
       </div>

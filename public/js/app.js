@@ -187,7 +187,31 @@
 
   let selectedSize = 'Personal';
   let selectedTerm = '3-Month';
-  let notifications = false;
+  let notifications = true;
+
+  // Parse URL parameters for pre-selection
+  (function parseUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const boxParam = params.get('box');
+    const termParam = params.get('term');
+
+    // Map box parameter to size name
+    if (boxParam) {
+      const boxMap = { mini: 'Mini', personal: 'Personal', business: 'Business', corporate: 'Corporate' };
+      const mappedSize = boxMap[boxParam.toLowerCase()];
+      if (mappedSize && PRICING[mappedSize]) {
+        selectedSize = mappedSize;
+      }
+    }
+
+    // Map term parameter to term value
+    if (termParam) {
+      const termValue = termParam + '-Month';
+      if (PRICING[selectedSize] && PRICING[selectedSize][termValue]) {
+        selectedTerm = termValue;
+      }
+    }
+  })();
 
   function updateQuote() {
     const base = PRICING[selectedSize][selectedTerm];
@@ -258,6 +282,16 @@
     addonBtn.addEventListener('click', () => {
       notifications = !notifications;
       updateQuote();
+      // Update icon with animation
+      const icon = addonBtn.querySelector('.addon-icon');
+      if (icon) {
+        icon.style.transform = 'scale(0)';
+        setTimeout(() => {
+          icon.textContent = notifications ? '✓' : '◯';
+          icon.style.transform = 'scale(1)';
+          icon.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        }, 100);
+      }
     });
   }
 
@@ -265,21 +299,44 @@
 })();
 
 /* ============================================================
-   PRICING TABLE TOGGLE (mailboxes.html)
+   PRICING MODAL (mailboxes.html)
    ============================================================ */
-(function initPricingTable() {
+(function initPricingModal() {
   const trigger = document.getElementById('pricing-table-trigger');
-  const panel = document.getElementById('pricing-table-panel');
-  if (!trigger || !panel) return;
+  const modal = document.getElementById('pricing-modal');
+  const closeBtn = document.querySelector('.pricing-modal__close');
 
-  trigger.addEventListener('click', () => {
-    const expanded = trigger.getAttribute('aria-expanded') === 'true';
-    trigger.setAttribute('aria-expanded', String(!expanded));
-    if (expanded) {
-      panel.hidden = true;
-    } else {
-      panel.hidden = false;
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if (!trigger || !modal || !closeBtn) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // Open modal on trigger click
+  trigger.addEventListener('click', openModal);
+
+  // Close on close button click
+  closeBtn.addEventListener('click', closeModal);
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  // Close on overlay click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target === modal.querySelector('.pricing-modal__overlay')) {
+      closeModal();
     }
   });
 })();

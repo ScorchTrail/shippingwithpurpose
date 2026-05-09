@@ -1,7 +1,6 @@
 /* ============================================================ HERO */
 .hero {
-  background: linear-gradient(160deg, var(--off-white) 0%, var(--white) 60%, var(--light-bg) 100%);
-  padding: var(--space-64) 24px;
+  padding: 0 24px;
   position: relative;
   overflow: hidden;
   min-height: auto;
@@ -22,8 +21,11 @@
 }
 .hero__grid > * {
   grid-column: span 6;
-  padding: 32px;
+  padding: var(--space-32);
   min-height: clamp(440px, 34vw, 560px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .hero__badge {
   display: inline-flex;
@@ -39,7 +41,8 @@
   text-transform: uppercase;
   padding: 8px 16px;
   border-radius: 100px;
-  margin-bottom: 24px;
+  max-width:
+  max-content;
 }
 .hero h1 {
   font-family: 'Inter', sans-serif;
@@ -47,27 +50,23 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
-  margin-bottom: 24px;
   color: var(--navy);
 }
 .hero__body {
   color: var(--body-text);
   font-size: 1.1rem;
   line-height: 1.68;
-  margin-bottom: 32px;
   max-width: 52ch;
 }
 .hero__actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
 }
 .hero__trust {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  margin-top: auto;
 }
 .hero__trust-item {
   display: flex;
@@ -92,7 +91,7 @@
   box-shadow: var(--shadow-lg);
   position: relative;
   object-fit: cover;
-  min-height: clamp(320px, 30vw, 460px);
+  min-height: clamp(304px, 30vw, 444px);
 }
 .hero__image-wrap img {
   width: 100%;
@@ -174,13 +173,27 @@
 }
 
 /* ============================================================ SERVICES PREVIEW (home) */
+.services-preview,
+.mailbox-cta,
+.print-portal,
+.dropoff-grid,
+.testimonials,
+.community {
+  padding: var(--space-48) 24px;
+}
+
+.services-preview__header,
+.print-portal__header,
+.dropoff-grid__header,
+.testimonials__header {
+  text-align: center;
+}
+
 .services-preview {
-  padding: var(--space-64) 24px;
   background: var(--white);
 }
 .services-preview__header {
-  text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 .services-preview__heading,
 .print-portal__heading,
@@ -212,7 +225,7 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--space-24);
-  margin-bottom: var(--space-48);
+  margin-bottom: var(--space-32);
 }
 .services-grid > * {
   grid-column: span 3;
@@ -228,9 +241,15 @@
     border-color 0.2s,
     transform 0.2s,
     box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
-.service-card:hover {
+.service-card--link:hover {
   transform: translateY(-5px);
+  border-color: rgba(26, 54, 93, 0.3);
+  box-shadow: 0 16px 40px rgba(26, 54, 93, 0.12);
 }
 .service-card--navy:hover {
   border-color: rgba(26, 54, 93, 0.4);
@@ -243,6 +262,9 @@
 .service-card--green:hover {
   border-color: rgba(26, 54, 93, 0.4);
   box-shadow: 0 16px 40px rgba(26, 54, 93, 0.12);
+}
+.service-card--link {
+  cursor: pointer;
 }
 .service-card__image {
   height: 176px;
@@ -287,21 +309,20 @@
   font-size: 0.95rem;
   line-height: 1.7;
 }
-.services-preview__footer {
-  text-align: center;
-}
 
 /* ============================================================ MAILBOX CTA — BENTO */
-.mailbox-cta {
-  padding: var(--space-64) 24px;
-  background: var(--off-white);
-}
 
 /* GRID */
 .mailbox-cta__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 280px 156px 128px;
+  grid-template-rows: repeat(4, 1fr);
+  height: clamp(520px, 50vw, 580px);
+  grid-template-areas:
+    'hero hero img img'
+    'hero hero img img'
+    'hero hero card-a card-b'
+    'tag-a tag-b card-c card-d';
   gap: 16px;
 }
 
@@ -312,35 +333,52 @@
   position: relative;
   border: 1px solid rgba(26, 54, 93, 0.08);
   box-shadow: 0 6px 20px rgba(26, 54, 93, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 /* HERO */
 .mailbox-cta__tile--hero {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
+  grid-area: hero;
   background: linear-gradient(145deg, #15345d 0%, #1a365d 62%, #244d83 100%);
   padding: 36px;
   display: flex;
   flex-direction: column;
   border-color: rgba(255, 255, 255, 0.08);
 }
+.mailbox-cta__tile--hero::before {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 70%);
+  right: -70px;
+  top: -70px;
+  pointer-events: none;
+}
 .mailbox-cta__hero-top {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 24px;
 }
 .mailbox-cta__hero-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
+  transition: background 220ms ease, border-color 220ms ease;
+}
+.mailbox-cta__hero-icon:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
 }
 .mailbox-cta__hero-badge {
   display: inline-block;
@@ -361,23 +399,30 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: #fff;
+  max-width: 16ch;
 }
 .mailbox-cta__hero-body {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 1rem;
-  line-height: 1.72;
+  font-size: 0.98rem;
+  line-height: 1.68;
   flex: 1;
   align-content: center;
 }
 .mailbox-cta__hero-cta {
   align-self: flex-start;
   margin-top: auto;
+  margin-bottom: 12px;
+}
+
+.mailbox-cta__footer{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
 }
 
 /* PHOTO */
 .mailbox-cta__tile--photo {
-  grid-column: 3 / 5;
-  grid-row: 1;
+  grid-area: img;
   padding: 0;
 }
 .mailbox-cta__tile--photo img {
@@ -386,42 +431,117 @@
   object-fit: cover;
   display: block;
   aspect-ratio: 16 / 9;
+  transform: scale(1.02);
+  transition: transform 320ms ease;
+}
+.mailbox-cta__tile--photo:hover img {
+  transform: scale(1.06);
 }
 
 /* PRICE TILES */
 .mailbox-cta__tile--price {
-  background: #fefdfb;
-  border: 1px solid rgba(185, 142, 90, 0.18);
-  padding: 22px 24px;
+  background: #fff;
+  border: 1px solid rgba(26, 54, 93, 0.08);
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 8px;
+  position: relative;
 }
-.mailbox-cta__tile--price-a { grid-column: 3; grid-row: 2; }
-.mailbox-cta__tile--price-b { grid-column: 4; grid-row: 2; }
-.mailbox-cta__tile--price-c { grid-column: 3; grid-row: 3; }
-.mailbox-cta__tile--price-d { grid-column: 4; grid-row: 3; }
+.mailbox-cta__tile--price:hover {
+  transform: translateY(-2px);
+  border-color: rgba(26, 54, 93, 0.15);
+  box-shadow: 0 14px 26px rgba(26, 54, 93, 0.12);
+}
+.mailbox-cta__tile--link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 220ms ease;
+}
+.mailbox-cta__tile--link:hover {
+  transform: translateY(-6px);
+  border-color: var(--kraft-dark);
+  box-shadow: 0 20px 40px rgba(185, 142, 90, 0.2);
+}
+.mailbox-cta__tile--price:hover .mailbox-cta__price-caption {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+.mailbox-cta__price-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--kraft-dark);
+  background: rgba(185, 142, 90, 0.12);
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 0;
+}
+.mailbox-cta__price-tag--popular {
+  background: linear-gradient(135deg, rgba(185, 142, 90, 0.16), rgba(185, 142, 90, 0.08));
+  border: 1px solid rgba(185, 142, 90, 0.25);
+}
+.mailbox-cta__tile--price-a { grid-area: card-a; }
+.mailbox-cta__tile--price-b { grid-area: card-b; }
+.mailbox-cta__tile--price-c { grid-area: card-c; }
+.mailbox-cta__tile--price-d { grid-area: card-d; }
+.mailbox-cta__price-caption {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--navy);
+  font-weight: 500;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(26, 54, 93, 0.08);
+}
+.mailbox-cta__price-disclaimer {
+  font-size: 0.65rem;
+  line-height: 1.3;
+  color: rgba(26, 54, 93, 0.55);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(26, 54, 93, 0.06);
+}
 .mailbox-cta__price-label {
-  color: var(--muted);
-  font-size: 0.75rem;
+  color: var(--navy);
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 .mailbox-cta__price-value {
   font-family: 'Inter', sans-serif;
   font-weight: 900;
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 .mailbox-cta__price-period {
-  color: var(--muted);
-  font-size: 0.78rem;
-  display: block;
+  color: var(--body-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 999px;
+  background: rgba(185, 142, 90, 0.12);
+  border: 1px solid rgba(185, 142, 90, 0.2);
+  padding: 4px 8px;
 }
 
 /* FEATURE TILES */
@@ -430,31 +550,48 @@
   align-items: center;
   gap: 16px;
   padding: 24px;
+  background-clip: padding-box;
+}
+.mailbox-cta__tile--feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(26, 54, 93, 0.11);
 }
 .mailbox-cta__tile--feature-a {
-  grid-column: 1;
-  grid-row: 3;
+  grid-area: tag-a;
   background: #fbf4ea;
   border: 1px solid rgba(185, 142, 90, 0.25);
 }
 .mailbox-cta__tile--feature-b {
-  grid-column: 2;
-  grid-row: 3;
+  grid-area: tag-b;
   background: #eef4fb;
   border: 1px solid rgba(26, 54, 93, 0.16);
 }
 .mailbox-cta__feature-icon {
-  font-size: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 1rem;
   flex-shrink: 0;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.mailbox-cta__tile--feature-a .mailbox-cta__feature-icon {
+  background: rgba(185, 142, 90, 0.2);
+  color: var(--navy);
+}
+.mailbox-cta__tile--feature-b .mailbox-cta__feature-icon {
+  background: rgba(26, 54, 93, 0.14);
+  color: var(--navy);
 }
 .mailbox-cta__feature-title {
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   margin-bottom: 2px;
 }
 .mailbox-cta__feature-sub {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
 }
 .mailbox-cta__tile--feature-a .mailbox-cta__feature-title { color: var(--navy); }
 .mailbox-cta__tile--feature-a .mailbox-cta__feature-sub   { color: var(--body-text); opacity: 0.82; }
@@ -467,6 +604,7 @@
   .mailbox-cta__grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
+    height: auto;
   }
   .mailbox-cta__tile--hero  { grid-column: 1 / 3; grid-row: auto; }
   .mailbox-cta__tile--photo { grid-column: 1 / 3; grid-row: auto; height: 240px; }
@@ -487,19 +625,17 @@
 
 /* ============================================================ PRINT PORTAL */
 .print-portal {
-  padding: var(--space-64) 24px;
   background: var(--light-bg);
 }
 .print-portal__header {
-  text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 8px;
 }
 .print-portal__heading {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .print-portal__sub {
   color: var(--body-text);
@@ -974,11 +1110,9 @@
 /* ============================================================ HOME: EXTRA SECTIONS */
 .dropoff-grid {
   background: linear-gradient(180deg, #ffffff 0%, #f8f6f2 100%);
-  padding: var(--space-64) 24px;
 }
 .dropoff-grid__header {
-  text-align: center;
-  margin-bottom: var(--space-48);
+  margin-bottom: var(--space-16);
 }
 .dropoff-grid__heading {
   font-family: 'Inter', sans-serif;
@@ -1137,10 +1271,8 @@
 
 .testimonials {
   background: var(--off-white);
-  padding: var(--space-64) 24px;
 }
 .testimonials__header {
-  text-align: center;
   margin-bottom: 48px;
 }
 .testimonials__stars {
@@ -1264,7 +1396,6 @@
 .community {
   background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: #fff;
-  padding: var(--space-64) 24px;
 }
 .community__grid {
   max-width: 1104px;
