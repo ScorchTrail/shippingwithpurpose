@@ -7,9 +7,8 @@ dotenv.config();
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const CACHE_TTL_MS = 10 * 60 * 1000;
-const ROOT_DIR = path.join(__dirname, '..');
 const WEB_ROOT = path.join(__dirname, '..', 'public');
-const ROOT_INDEX = path.join(ROOT_DIR, 'index.html');
+const ROOT_INDEX = path.join(WEB_ROOT, 'index.html');
 
 let cache = {
   timestamp: 0,
