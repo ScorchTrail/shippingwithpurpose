@@ -41,7 +41,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: var(--off-white);
   color: var(--charcoal);
   line-height: 1.6;
@@ -81,7 +81,7 @@ button {
 
 /* ============================================================ TYPE HELPERS */
 .font-display {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
@@ -106,7 +106,7 @@ button {
   background: rgba(185, 142, 90, 0.12);
   border: 1px solid rgba(185, 142, 90, 0.35);
   color: var(--kraft-dark);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -120,7 +120,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
   border-radius: var(--radius-md);

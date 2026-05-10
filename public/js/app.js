@@ -374,7 +374,10 @@
         return;
       }
 
-      const baseReviews = reviews.slice(0, 12);
+      const baseReviews = reviews.slice(0, 10);
+      while (baseReviews.length > 0 && baseReviews.length < 3) {
+        baseReviews.push(...baseReviews.slice(0, 3 - baseReviews.length));
+      }
       const loopReviews = baseReviews.concat(baseReviews);
       track.innerHTML = loopReviews.map((review) => reviewCardMarkup(review)).join('');
       startAutoScroll();

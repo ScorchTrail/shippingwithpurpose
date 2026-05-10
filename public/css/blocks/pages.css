@@ -64,7 +64,7 @@
 }
 .service__card-title {
   color: var(--navy);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: clamp(0.72rem, 1.3vw, 1.05rem);
   font-weight: 800;
   margin: 0;
@@ -95,7 +95,7 @@
   text-overflow: ellipsis;
 }
 .service__list-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 10px;
   top: 50%;
@@ -233,7 +233,7 @@
   margin-bottom: 8px;
 }
 .feature-card__title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
   margin-bottom: 8px;
 }
@@ -279,7 +279,7 @@
   padding: 16px;
 }
 .quote-label {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
   margin-bottom: 8px;
 }
@@ -323,7 +323,7 @@
   background: rgba(185, 142, 90, 0.03);
 }
 .size-btn__name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
 }
 .size-btn__desc {
@@ -370,7 +370,7 @@
   padding: 8px;
 }
 .term-btn__name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
 }
 .term-btn__savings {
@@ -403,7 +403,7 @@
   box-shadow: 0 4px 12px rgba(185, 142, 90, 0.3);
 }
 .addon-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
 }
 .addon-badge {
@@ -428,10 +428,10 @@
 .quote-card__config {
   color: var(--navy);
   margin: 8px 0 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .quote-card__price {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 2rem;
   line-height: 1.1;
 }
@@ -483,7 +483,9 @@
   flex-shrink: 0;
   color: rgba(255, 255, 255, 0.75);
   stroke: rgba(255, 255, 255, 0.75);
-  transition: color 220ms ease, stroke 220ms ease;
+  transition:
+    color 220ms ease,
+    stroke 220ms ease;
 }
 .pricing-table-trigger:hover .pricing-table-trigger__icon {
   color: rgba(255, 255, 255, 1);
@@ -649,7 +651,7 @@
 }
 .pricing-table th {
   color: var(--navy);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   background: var(--light-bg);
   font-size: 0.82rem;
@@ -778,7 +780,7 @@
   margin-bottom: 8px;
 }
 .owner-name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
   font-size: 1.15rem;
 }
@@ -800,7 +802,7 @@
   padding: 8px;
 }
 .owner-stat__val {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .owner-stat__label {
   color: var(--muted);
@@ -846,7 +848,6 @@
 }
 .form-label {
   display: block;
-  margin-bottom: 8px;
   color: var(--navy);
   font-size: 0.88rem;
   font-weight: 600;

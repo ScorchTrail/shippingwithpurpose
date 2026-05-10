@@ -1,6 +1,6 @@
 /* ============================================================ HERO */
 .hero {
-  padding: 0 24px;
+  padding: 0 24px var(--space-48) 24px;
   position: relative;
   overflow: hidden;
   min-height: auto;
@@ -34,18 +34,17 @@
   background: rgba(26, 54, 93, 0.08);
   border: 1px solid rgba(26, 54, 93, 0.2);
   color: var(--navy);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 8px 16px;
   border-radius: 100px;
-  max-width:
-  max-content;
+  max-width: max-content;
 }
 .hero h1 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
@@ -107,7 +106,7 @@
   color: #fff;
   border-radius: 100px;
   padding: 8px 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -124,7 +123,7 @@
 }
 .hero__hours-chip strong {
   color: var(--navy);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
   font-size: 0.8rem;
@@ -179,8 +178,12 @@
 .dropoff-grid,
 .testimonials,
 .community {
-  padding: var(--space-48) 24px;
+  padding: 4px 24px var(--space-48) 24px;
 }
+
+.mailbox-cta {
+}
+
 
 .services-preview__header,
 .print-portal__header,
@@ -190,7 +193,10 @@
 }
 
 .services-preview {
-  background: var(--white);
+  background: var(--off-white);
+}
+.mailbox-cta {
+  background: var(--off-white);
 }
 .services-preview__header {
   margin-bottom: 32px;
@@ -210,8 +216,9 @@
   max-width: 56ch;
   margin: 0 auto;
 }
+
 .services-preview__heading {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 800;
   line-height: 1.15;
@@ -298,7 +305,7 @@
   flex: 1;
 }
 .service-card__title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
   font-weight: 800;
   font-size: 1.05rem;
@@ -317,13 +324,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  height: clamp(520px, 50vw, 580px);
+  height: clamp(520px, 50vw, 600px);
   grid-template-areas:
-    'hero hero img img'
-    'hero hero img img'
-    'hero hero card-a card-b'
-    'tag-a tag-b card-c card-d';
-  gap: 16px;
+    "hero hero img img"
+    "hero hero img img"
+    "hero hero card-a card-b"
+    "tag-a tag-b card-c card-d";
+  gap: 24px;
 }
 
 /* BASE TILE */
@@ -333,20 +340,23 @@
   position: relative;
   border: 1px solid rgba(26, 54, 93, 0.08);
   box-shadow: 0 6px 20px rgba(26, 54, 93, 0.06);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 /* HERO */
 .mailbox-cta__tile--hero {
   grid-area: hero;
   background: linear-gradient(145deg, #15345d 0%, #1a365d 62%, #244d83 100%);
-  padding: 36px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   border-color: rgba(255, 255, 255, 0.08);
 }
 .mailbox-cta__tile--hero::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 240px;
   height: 240px;
@@ -374,7 +384,9 @@
   justify-content: center;
   font-size: 1.1rem;
   flex-shrink: 0;
-  transition: background 220ms ease, border-color 220ms ease;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease;
 }
 .mailbox-cta__hero-icon:hover {
   background: rgba(255, 255, 255, 0.18);
@@ -393,20 +405,21 @@
   color: rgba(255, 255, 255, 0.8);
 }
 .mailbox-cta__hero-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: clamp(1.5rem, 2.4vw, 2.2rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: #fff;
   max-width: 16ch;
 }
 .mailbox-cta__hero-body {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.98rem;
-  line-height: 1.68;
+  font-size: 0.99rem;
+  line-height: 1.72;
   flex: 1;
   align-content: center;
+  margin: 16px 0;
 }
 .mailbox-cta__hero-cta {
   align-self: flex-start;
@@ -414,7 +427,7 @@
   margin-bottom: 12px;
 }
 
-.mailbox-cta__footer{
+.mailbox-cta__footer {
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -442,11 +455,10 @@
 .mailbox-cta__tile--price {
   background: #fff;
   border: 1px solid rgba(26, 54, 93, 0.08);
-  padding: 20px 22px;
+  padding: 24px 24px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 8px;
   position: relative;
 }
 .mailbox-cta__tile--price:hover {
@@ -467,7 +479,9 @@
 .mailbox-cta__tile--price:hover .mailbox-cta__price-caption {
   opacity: 1;
   visibility: visible;
-  transition: opacity 220ms ease, visibility 220ms ease;
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease;
 }
 .mailbox-cta__price-tag {
   position: absolute;
@@ -488,18 +502,27 @@
   background: linear-gradient(135deg, rgba(185, 142, 90, 0.16), rgba(185, 142, 90, 0.08));
   border: 1px solid rgba(185, 142, 90, 0.25);
 }
-.mailbox-cta__tile--price-a { grid-area: card-a; }
-.mailbox-cta__tile--price-b { grid-area: card-b; }
-.mailbox-cta__tile--price-c { grid-area: card-c; }
-.mailbox-cta__tile--price-d { grid-area: card-d; }
+.mailbox-cta__tile--price-a {
+  grid-area: card-a;
+}
+.mailbox-cta__tile--price-b {
+  grid-area: card-b;
+}
+.mailbox-cta__tile--price-c {
+  grid-area: card-c;
+}
+.mailbox-cta__tile--price-d {
+  grid-area: card-d;
+}
 .mailbox-cta__price-caption {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   line-height: 1.5;
   color: var(--navy);
   font-weight: 500;
-  margin-top: 4px;
-  padding-top: 8px;
+  margin-top: 6px;
+  padding-top: 10px;
   border-top: 1px solid rgba(26, 54, 93, 0.08);
+  opacity: 0.95;
 }
 .mailbox-cta__price-disclaimer {
   font-size: 0.65rem;
@@ -514,20 +537,20 @@
 }
 .mailbox-cta__price-label {
   color: var(--navy);
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .mailbox-cta__price-value {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 1.95rem;
+  line-height: 1.1;
   display: block;
-  margin-bottom: 0;
+  margin-bottom: 4px;
 }
 .mailbox-cta__price-period {
   color: var(--body-text);
@@ -549,7 +572,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
+  padding: 28px;
   background-clip: padding-box;
 }
 .mailbox-cta__tile--feature:hover {
@@ -558,13 +581,13 @@
 }
 .mailbox-cta__tile--feature-a {
   grid-area: tag-a;
-  background: #fbf4ea;
-  border: 1px solid rgba(185, 142, 90, 0.25);
+  background: var(--off-white);
+  border: 1px solid rgba(26, 54, 93, 0.08);
 }
 .mailbox-cta__tile--feature-b {
   grid-area: tag-b;
-  background: #eef4fb;
-  border: 1px solid rgba(26, 54, 93, 0.16);
+  background: var(--off-white);
+  border: 1px solid rgba(26, 54, 93, 0.08);
 }
 .mailbox-cta__feature-icon {
   width: 34px;
@@ -578,11 +601,11 @@
   justify-content: center;
 }
 .mailbox-cta__tile--feature-a .mailbox-cta__feature-icon {
-  background: rgba(185, 142, 90, 0.2);
+  background: rgba(26, 54, 93, 0.06);
   color: var(--navy);
 }
 .mailbox-cta__tile--feature-b .mailbox-cta__feature-icon {
-  background: rgba(26, 54, 93, 0.14);
+  background: rgba(26, 54, 93, 0.06);
   color: var(--navy);
 }
 .mailbox-cta__feature-title {
@@ -593,11 +616,20 @@
 .mailbox-cta__feature-sub {
   font-size: 0.84rem;
 }
-.mailbox-cta__tile--feature-a .mailbox-cta__feature-title { color: var(--navy); }
-.mailbox-cta__tile--feature-a .mailbox-cta__feature-sub   { color: var(--body-text); opacity: 0.82; }
+.mailbox-cta__tile--feature-a .mailbox-cta__feature-title {
+  color: var(--navy);
+}
+.mailbox-cta__tile--feature-a .mailbox-cta__feature-sub {
+  color: var(--body-text);
+  opacity: 0.82;
+}
 .mailbox-cta__tile--feature-b .mailbox-cta__feature-title,
-.mailbox-cta__tile--feature-b .mailbox-cta__feature-sub   { color: var(--navy); }
-.mailbox-cta__tile--feature-b .mailbox-cta__feature-sub   { opacity: 0.82; }
+.mailbox-cta__tile--feature-b .mailbox-cta__feature-sub {
+  color: var(--navy);
+}
+.mailbox-cta__tile--feature-b .mailbox-cta__feature-sub {
+  opacity: 0.82;
+}
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -605,27 +637,49 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     height: auto;
+    gap: 24px;
   }
-  .mailbox-cta__tile--hero  { grid-column: 1 / 3; grid-row: auto; }
-  .mailbox-cta__tile--photo { grid-column: 1 / 3; grid-row: auto; height: 240px; }
+  .mailbox-cta__tile--hero {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    padding: 32px;
+  }
+  .mailbox-cta__tile--photo {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    height: 240px;
+  }
   .mailbox-cta__tile--price-a,
   .mailbox-cta__tile--price-b,
   .mailbox-cta__tile--price-c,
-  .mailbox-cta__tile--price-d { grid-column: auto; grid-row: auto; }
+  .mailbox-cta__tile--price-d {
+    grid-column: auto;
+    grid-row: auto;
+  }
   .mailbox-cta__tile--feature-a,
-  .mailbox-cta__tile--feature-b { grid-column: auto; grid-row: auto; }
+  .mailbox-cta__tile--feature-b {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 @media (max-width: 560px) {
   .mailbox-cta__grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
-  .mailbox-cta__tile--hero  { grid-column: 1; padding: 24px; }
-  .mailbox-cta__tile--photo { grid-column: 1; height: 200px; }
+  .mailbox-cta__tile--hero {
+    grid-column: 1;
+    padding: 24px;
+  }
+  .mailbox-cta__tile--photo {
+    grid-column: 1;
+    height: 200px;
+  }
 }
 
 /* ============================================================ PRINT PORTAL */
 .print-portal {
-  background: var(--light-bg);
+  background: var(--off-white);
 }
 .print-portal__header {
   margin-bottom: 8px;
@@ -635,7 +689,6 @@
   font-weight: 900;
   color: var(--navy);
   line-height: 1.15;
-  margin-bottom: 8px;
 }
 .print-portal__sub {
   color: var(--body-text);
@@ -645,10 +698,7 @@
 .print-portal__bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    'upload fields'
-    'privacy privacy';
+  grid-template-areas: "upload fields";
   gap: 16px;
 }
 .print-portal__tile {
@@ -670,25 +720,15 @@
   flex-direction: column;
   gap: 16px;
 }
-.print-portal__tile--privacy {
-  grid-area: privacy;
-  background: rgba(26, 54, 93, 0.04);
-  border-color: rgba(26, 54, 93, 0.1);
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 16px 24px;
-}
-.print-portal__privacy-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.print-portal__privacy-text {
+.print-portal__privacy-inline {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.6;
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--body-text);
+  background: rgba(26, 54, 93, 0.04);
+  border: 1px solid rgba(26, 54, 93, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
 }
 .print-portal-form__submit {
   width: 100%;
@@ -741,7 +781,7 @@
   margin-bottom: 16px;
 }
 .drop-zone__title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   color: var(--navy);
   font-size: 1.1rem;
@@ -833,9 +873,8 @@
   .print-portal__bento {
     grid-template-columns: 1fr;
     grid-template-areas:
-      'upload'
-      'fields'
-      'privacy';
+      "upload"
+      "fields";
   }
 }
 
@@ -853,7 +892,7 @@
 
 /* ============================================================ INLINE STYLE REPLACEMENTS */
 .u-tag-16 {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   display: inline-flex;
 }
 .u-text-navy {
@@ -939,7 +978,7 @@
   position: relative;
 }
 .contact-benefits-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   color: var(--navy);
   font-size: 1.1rem;
@@ -1109,13 +1148,13 @@
 
 /* ============================================================ HOME: EXTRA SECTIONS */
 .dropoff-grid {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f6f2 100%);
+  background: var(--off-white);
 }
 .dropoff-grid__header {
   margin-bottom: var(--space-16);
 }
 .dropoff-grid__heading {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--navy);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 900;
@@ -1171,7 +1210,9 @@
   box-shadow: 0 8px 20px rgba(26, 54, 93, 0.06);
   display: flex;
   flex-direction: column;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 .carrier-card:hover {
   transform: translateY(-2px);
@@ -1201,7 +1242,7 @@
   justify-content: space-between;
 }
 .carrier-card__name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   color: var(--navy);
   font-size: 1rem;
