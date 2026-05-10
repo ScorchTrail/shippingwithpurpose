@@ -1,0 +1,62 @@
+/* ============================================================ FORMS (shared controls + success state) */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  color: var(--navy);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: var(--space-8) var(--space-16);
+  background: #fff;
+  color: var(--charcoal);
+  font-size: 0.92rem;
+  font-family: "Inter", sans-serif;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(26, 54, 93, 0.45);
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+}
+
+.form-success {
+  border: 1px solid rgba(185, 142, 90, 0.35);
+  background: rgba(185, 142, 90, 0.12);
+  border-radius: 20px;
+  padding: var(--space-24);
+  text-align: center;
+}
+
+.form-success__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-16);
+}
+
+.form-success__text {
+  color: #666;
+  margin-bottom: var(--space-24);
+}
+
+@media (max-width: 720px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

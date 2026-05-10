@@ -1,0 +1,45 @@
+/* ============================================================ MAILBOX HERO (mailboxes.html) */
+.mailbox-hero__inner {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.mailbox-hero__badge {
+  margin-bottom: var(--space-16);
+}
+
+.mailbox-hero__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--navy);
+  margin-top: 0;
+  margin-bottom: var(--space-8);
+}
+
+.mailbox-hero__sub {
+  color: var(--body-text);
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.7;
+  max-width: 58ch;
+  margin: 0 auto;
+}
+
+.mailbox-hero__quote {
+  margin-top: var(--space-32);
+}
+
+.mailbox-hero-alt {
+  background: linear-gradient(180deg, rgba(26, 54, 93, 0.04) 0%, rgba(26, 54, 93, 0) 100%);
+}
+
+/* Utility: center section tag on mailbox page */
+.mailbox-section-tag-center {
+  width: max-content;
+  margin: 0 auto var(--space-16);
+  display: block;
+  text-align: center;
+}

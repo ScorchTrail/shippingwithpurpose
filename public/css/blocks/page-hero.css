@@ -1,0 +1,35 @@
+/* ============================================================ PAGE HERO (shared across inner pages) */
+.page-hero {
+  padding: 72px var(--space-24) var(--space-64);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero__inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.page-hero__badge {
+  margin-bottom: var(--space-24);
+}
+
+.page-hero__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+  margin-bottom: var(--space-16);
+}
+
+.page-hero__sub {
+  color: var(--body-text);
+  font-size: 1.1rem;
+  line-height: 1.66;
+  max-width: 56ch;
+  margin: 0 auto;
+}

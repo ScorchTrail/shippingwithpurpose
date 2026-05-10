@@ -1,0 +1,231 @@
+/* ============================================================ CONTACT PAGE (contact.html) */
+/* Desktop: 2-col split | Mobile: 1-col */
+
+/* Section wrappers */
+.contact-section-soft {
+  padding: 48px var(--space-24);
+  background: var(--off-white);
+}
+
+.contact-section-white {
+  padding: 48px var(--space-24);
+  background: var(--white);
+}
+
+/* Contact card */
+.contact-card {
+  background: #fff;
+  border: 1px solid rgba(185, 142, 90, 0.25);
+  border-radius: 20px;
+  padding: clamp(var(--space-24), 5vw, 40px);
+  box-shadow: 0 4px 24px rgba(26, 54, 93, 0.07);
+}
+
+/* Split layout */
+.contact-split-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-32);
+  align-items: start;
+}
+
+.contact-split-grid > * {
+  grid-column: span 6;
+}
+
+.contact-visual-wrap {
+  position: relative;
+}
+
+.contact-owner__content {
+  min-width: 0;
+}
+
+.contact-benefits {
+  margin-top: var(--space-24);
+}
+
+.contact-benefits-image-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Benefits */
+.contact-benefits-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 1.1rem;
+  margin-bottom: var(--space-16);
+}
+
+.contact-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
+.contact-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--body-text);
+  font-size: 0.9rem;
+}
+
+.contact-benefits-image {
+  border-radius: 12px;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Headings on the contact/owner section */
+.contact-owner__tag,
+.contact-form__tag,
+.faq-section__tag {
+  margin-bottom: var(--space-16);
+  display: inline-flex;
+}
+
+.contact-owner__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: var(--space-24);
+}
+
+/* Contact form section */
+.contact-form-section {
+  background: var(--off-white);
+  padding: var(--space-64) var(--space-24);
+}
+
+.contact-form__intro {
+  text-align: center;
+  margin-bottom: var(--space-48);
+}
+
+.contact-form__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: var(--space-8);
+}
+
+.contact-form__lead {
+  color: var(--body-text);
+  font-size: 1rem;
+  margin-bottom: var(--space-16);
+}
+
+.contact-form__grid {
+  margin-bottom: var(--space-16);
+}
+
+.contact-form__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.contact-form__submit {
+  width: 100%;
+  justify-content: center;
+  padding: var(--space-16);
+}
+
+.contact-form__file-input {
+  cursor: pointer;
+}
+
+/* FAQ section */
+.faq-section {
+  background: #fff;
+  padding: var(--space-64) var(--space-24);
+}
+
+.faq-section__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.faq-section__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: var(--space-8);
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: var(--space-8);
+  overflow: hidden;
+  background: #fff;
+}
+
+.faq-btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16);
+}
+
+.faq-question {
+  color: var(--navy);
+  font-weight: 600;
+  text-align: left;
+}
+
+.faq-chevron {
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 var(--space-16) var(--space-16);
+  color: var(--body-text);
+}
+
+.faq-answer-inner p {
+  line-height: 1.68;
+}
+
+.faq-item--open .faq-answer {
+  max-height: 220px;
+}
+
+.faq-item--open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .contact-split-grid > * {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 720px) {
+}

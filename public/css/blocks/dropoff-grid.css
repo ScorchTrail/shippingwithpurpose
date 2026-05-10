@@ -1,0 +1,191 @@
+/* ============================================================ DROPOFF GRID (homepage) */
+/* Desktop: 4-col carrier grid | Tablet: 2-col | Mobile: 1-col */
+.dropoff-grid {
+  padding: var(--space-8) var(--space-24) var(--space-48);
+  background: var(--off-white);
+}
+
+.dropoff-grid__header {
+  margin-bottom: var(--space-16);
+}
+
+.dropoff-grid__tag {
+  margin-bottom: var(--space-8);
+  display: inline-flex;
+}
+
+.dropoff-grid__heading {
+  font-family: "Inter", sans-serif;
+  color: var(--navy);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: var(--space-16);
+}
+
+.dropoff-grid__heading-emphasis {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dropoff-grid__sub {
+  color: var(--body-text);
+  font-size: 1.04rem;
+  line-height: 1.66;
+  max-width: 58ch;
+}
+
+/* Carrier grid */
+.carrier-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-bottom: var(--space-24);
+}
+
+.carrier-grid > * {
+  grid-column: span 3;
+}
+
+/* Carrier card */
+.carrier-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.carrier-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(26, 54, 93, 0.1);
+}
+
+.carrier-card--droponly {
+  border-color: rgba(185, 142, 90, 0.35);
+  background: linear-gradient(180deg, #fffdf8 0%, #fdf9f4 100%);
+}
+
+.carrier-card__header {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+}
+
+.carrier-card__header img {
+  max-height: 32px;
+  object-fit: contain;
+}
+
+/* Carrier header colour modifiers */
+.carrier-card__header--usps { background: #333366; }
+.carrier-card__header--ups  { background: #351c15; }
+.carrier-card__header--fedex {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.carrier-card__header--dhl  { background: #f1bd00; }
+
+.carrier-card__body {
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.carrier-card__name {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.carrier-card__desc {
+  color: var(--muted);
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.carrier-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Carrier badges */
+.carrier-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: clamp(0.58rem, 0.9vw, 0.64rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.carrier-badge--label {
+  background: rgba(26, 54, 93, 0.08);
+  color: var(--navy);
+  border: 1px solid rgba(26, 54, 93, 0.15);
+}
+
+.carrier-badge--drop {
+  background: rgba(185, 142, 90, 0.12);
+  color: #6f4b1f;
+  border: 1px solid rgba(185, 142, 90, 0.26);
+}
+
+/* Packing note */
+.packing-note {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(26, 54, 93, 0.12);
+  background: rgba(26, 54, 93, 0.04);
+  padding: var(--space-16);
+  display: flex;
+  gap: var(--space-16);
+  align-items: flex-start;
+}
+
+.packing-note__strong {
+  color: var(--navy);
+}
+
+.packing-note__icon {
+  line-height: 1.2;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .carrier-grid > * {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 720px) {
+  .dropoff-grid {
+    padding: var(--space-48) var(--space-16);
+  }
+
+  .carrier-grid {
+    gap: 12px;
+  }
+
+  .carrier-grid > * {
+    grid-column: span 12;
+  }
+}

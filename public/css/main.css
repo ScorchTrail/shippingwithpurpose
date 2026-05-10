@@ -1,4 +1,31 @@
+/* ─── Base tokens, reset, utilities ─── */
 @import url("blocks/base.css");
-@import url("blocks/shared.css");
-@import url("blocks/home.css");
-@import url("blocks/pages.css");
+
+/* ─── Shared layout (every page) ─── */
+@import url("blocks/nav.css");
+@import url("blocks/info-bar.css");
+@import url("blocks/page-hero.css");
+@import url("blocks/footer.css");
+
+/* ─── Homepage sections ─── */
+@import url("blocks/hero.css");
+@import url("blocks/services-preview.css");
+@import url("blocks/mailbox-cta.css");
+@import url("blocks/print-portal.css");
+@import url("blocks/dropoff-grid.css");
+@import url("blocks/testimonials.css");
+
+/* ─── Mailboxes page ─── */
+@import url("blocks/mailbox-hero.css");
+@import url("blocks/mailbox-features.css");
+@import url("blocks/quote.css");
+@import url("blocks/pricing-modal.css");
+@import url("blocks/pricing-table.css");
+
+/* ─── Services page ─── */
+@import url("blocks/service.css");
+
+/* ─── Contact page ─── */
+@import url("blocks/about-owner.css");
+@import url("blocks/contact.css");
+@import url("blocks/reservation-modal.css");

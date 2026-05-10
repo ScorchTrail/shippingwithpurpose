@@ -18,14 +18,14 @@
 
   hamburger.addEventListener('click', () => {
     menuOpen = !menuOpen;
-    mobileMenu.classList.toggle('open', menuOpen);
+    mobileMenu.classList.toggle('nav__menu--open', menuOpen);
     hamburger.textContent = menuOpen ? '✕' : '☰';
   });
 
   document.querySelectorAll('.nav__menu-link, .nav__menu-cta').forEach((el) => {
     el.addEventListener('click', () => {
       menuOpen = false;
-      mobileMenu.classList.remove('open');
+      mobileMenu.classList.remove('nav__menu--open');
       hamburger.textContent = '☰';
     });
   });
@@ -72,14 +72,14 @@
 
   dz.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dz.classList.add('dragging');
+    dz.classList.add('drop-zone--dragging');
   });
 
-  dz.addEventListener('dragleave', () => dz.classList.remove('dragging'));
+  dz.addEventListener('dragleave', () => dz.classList.remove('drop-zone--dragging'));
 
   dz.addEventListener('drop', (e) => {
     e.preventDefault();
-    dz.classList.remove('dragging');
+    dz.classList.remove('drop-zone--dragging');
     addFiles(e.dataTransfer.files);
   });
 
@@ -140,11 +140,11 @@
     if (!uploadedFiles.length) {
       emptyState.style.display = 'block';
       fileList.innerHTML = '';
-      dz.classList.remove('has-file');
+      dz.classList.remove('drop-zone--has-file');
       return;
     }
 
-    dz.classList.add('has-file');
+    dz.classList.add('drop-zone--has-file');
     emptyState.style.display = 'none';
     fileList.innerHTML = uploadedFiles
       .map(
@@ -442,13 +442,13 @@ function getByPath(source, path) {
   if (!trigger || !modal || !closeBtn) return;
 
   function openModal() {
-    modal.classList.add('open');
+    modal.classList.add('pricing-modal--open');
     trigger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
-    modal.classList.remove('open');
+    modal.classList.remove('pricing-modal--open');
     trigger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
@@ -461,7 +461,7 @@ function getByPath(source, path) {
 
   // Close on ESC key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
+    if (e.key === 'Escape' && modal.classList.contains('pricing-modal--open')) {
       closeModal();
     }
   });
@@ -479,11 +479,11 @@ function getByPath(source, path) {
   document.querySelectorAll('.faq-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
+      const isOpen = item.classList.contains('faq-item--open');
       // Close all
-      document.querySelectorAll('.faq-item.open').forEach((el) => el.classList.remove('open'));
+      document.querySelectorAll('.faq-item.faq-item--open').forEach((el) => el.classList.remove('faq-item--open'));
       // Toggle current
-      if (!isOpen) item.classList.add('open');
+      if (!isOpen) item.classList.add('faq-item--open');
     });
   });
 })();
@@ -659,7 +659,7 @@ function getByPath(source, path) {
       e.preventDefault();
       e.stopPropagation();
     }
-    modal.classList.add('open');
+    modal.classList.add('reservation-modal--open');
     document.body.style.overflow = 'hidden';
     // Focus on first form input for accessibility
     const firstInput = form?.querySelector('input[type="text"]');
@@ -667,7 +667,7 @@ function getByPath(source, path) {
   }
 
   function closeModal() {
-    modal.classList.remove('open');
+    modal.classList.remove('reservation-modal--open');
     document.body.style.overflow = '';
     // Reset form
     if (form) form.reset();
@@ -683,7 +683,7 @@ function getByPath(source, path) {
 
   // ESC key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
+    if (e.key === 'Escape' && modal.classList.contains('reservation-modal--open')) {
       closeModal();
     }
   });
