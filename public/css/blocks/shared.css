@@ -309,34 +309,26 @@
 .service-card,
 .carrier-card,
 .review-card,
-.carrier-detail-card,
-.svc-card,
 .feature-card,
 .quote-selectors,
 .quote-card,
 .pricing-table,
 .contact-card,
-.faq-item,
-.info-card {
+.faq-item {
   border-radius: 20px;
 }
 
 .services-grid,
 .carrier-grid,
 .carrier-detail-grid,
-.review-grid,
-.services-grid-auto,
 .mailbox-features__grid,
 .quote-layout,
 .about-owner__grid,
-.contact-split-grid,
-.community__grid {
+.contact-split-grid {
   align-items: stretch;
 }
 
 .hero__grid,
-.mailbox-cta__top,
-.community__grid,
 .about-owner__grid,
 .contact-split-grid,
 .quote-layout {
@@ -344,8 +336,6 @@
 }
 
 .hero__grid > *:nth-child(1),
-.mailbox-cta__top > *:nth-child(1),
-.community__grid > *:nth-child(1),
 .about-owner__grid > *:nth-child(1),
 .contact-split-grid > *:nth-child(1),
 .quote-layout > *:nth-child(1) {
@@ -353,8 +343,6 @@
 }
 
 .hero__grid > *:nth-child(2),
-.mailbox-cta__top > *:nth-child(2),
-.community__grid > *:nth-child(2),
 .about-owner__grid > *:nth-child(2),
 .contact-split-grid > *:nth-child(2),
 .quote-layout > *:nth-child(2) {
@@ -363,15 +351,13 @@
 
 .services-grid,
 .carrier-grid,
-.carrier-detail-grid,
-.review-grid {
+.carrier-detail-grid {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .services-grid > *,
 .carrier-grid > *,
-.carrier-detail-grid > *,
-.review-grid > * {
+.carrier-detail-grid > * {
   grid-column: span 3;
 }
 
@@ -398,15 +384,11 @@
     display: block;
   }
   .hero__grid,
-  .mailbox-cta__top,
-  .community__grid,
   .about-owner__grid,
   .quote-layout {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
   .hero__grid > *,
-  .mailbox-cta__top > *,
-  .community__grid > *,
   .about-owner__grid > *,
   .quote-layout > * {
     grid-column: span 12;
@@ -414,14 +396,12 @@
   .services-grid,
   .carrier-grid,
   .carrier-detail-grid,
-  .review-grid,
   .mailbox-features__grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
   .services-grid > *,
   .carrier-grid > *,
-  .carrier-detail-grid > *,
-  .review-grid > * {
+  .carrier-detail-grid > * {
     grid-column: span 6;
   }
   .mailbox-features__grid > * {
@@ -455,33 +435,26 @@
   .services-grid,
   .carrier-grid,
   .carrier-detail-grid,
-  .review-grid,
   .mailbox-features__grid,
   .form-grid,
   .size-grid,
-  .term-row,
-  .mailbox-cta__perks {
+  .term-row {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
   .services-grid > *,
   .carrier-grid > *,
   .carrier-detail-grid > *,
-  .review-grid > *,
   .mailbox-features__grid > * {
     grid-column: span 12;
   }
   .form-grid > *,
   .size-grid > *,
-  .term-row > *,
-  .mailbox-cta__perks > * {
+  .term-row > * {
     grid-column: span 12;
   }
   .footer__grid,
   .footer__bottom {
     grid-template-columns: 1fr;
     display: grid;
-  }
-  .form-banner {
-    padding: 16px;
   }
 }

@@ -165,35 +165,6 @@
 }
 
 /* ============================================================ MAILBOX PAGE */
-.form-banner {
-  max-width: 1024px;
-  margin: 0 auto;
-  border: 1px solid rgba(185, 142, 90, 0.28);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.form-banner__icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(185, 142, 90, 0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.form-banner h4 {
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.form-banner p {
-  color: var(--body-text);
-}
-
 .mailbox-features {
   padding: 0 24px var(--space-64) 24px;
 }
