@@ -54,48 +54,120 @@
       >
     </div>
     <section class="page-hero fade-section mailbox-hero-alt">
-      <div class="page-hero__inner">
-        <div class="page-hero__badge"><span class="section-tag">Most Popular</span></div>
-        <h1 class="font-display gradient-text">Mailbox Rentals</h1>
-        <p>Your personal or business address — secure, private, and professional.</p>
-      </div>
-    </section>
-    <div class="fade-section mailbox-banner-wrap">
-      <div class="form-banner">
-        <div class="mailbox-banner-row">
-          <div class="form-banner__icon-box">↯</div>
-          <div class="mailbox-banner-copy">
-            <h4>Make your visit faster!</h4>
-            <p>
-              Download and fill out <strong class="mailbox-banner__emphasis">USPS Form 1583</strong> (required for
-              mailbox rental) before you arrive.
-            </p>
+      <div class="page-hero__inner mailbox-hero__inner">
+        <div class="mailbox-hero__badge"><span class="section-tag" data-mailbox-field="hero.badge">Most Popular</span></div>
+        <h1 class="mailbox-hero__title" data-mailbox-field="hero.title">Mailbox Rentals</h1>
+        <p class="mailbox-hero__sub" data-mailbox-field="hero.subtitle">
+          Your personal or business address - secure, private, and professional.
+        </p>
+        <div class="mailbox-hero__quote">
+          <div class="quote-section quote-section--embedded" id="quote-calculator">
+            <div class="quote-layout">
+              <div class="quote-selectors">
+                <section class="quote-group">
+                  <div class="quote-label" data-mailbox-field="quote.labels.size">Box Size</div>
+                  <div class="size-grid">
+                    <button class="size-btn" data-size="Mini">
+                      <div class="size-btn__name" data-mailbox-plan-name="Mini">Mini</div>
+                      <div class="size-btn__desc" data-mailbox-plan-desc="Mini">Perfect for individuals receiving minimal mail.</div>
+                      <div class="size-btn__selected">✓ Selected</div>
+                    </button>
+                    <button class="size-btn size-btn--active" data-size="Personal">
+                      <div class="size-btn__name" data-mailbox-plan-name="Personal">Personal</div>
+                      <div class="size-btn__desc" data-mailbox-plan-desc="Personal">Great for individuals with moderate mail volume.</div>
+                      <div class="size-btn__selected">✓ Selected</div>
+                    </button>
+                    <button class="size-btn" data-size="Business">
+                      <div class="size-btn__name" data-mailbox-plan-name="Business">Business</div>
+                      <div class="size-btn__desc" data-mailbox-plan-desc="Business">Ideal for small businesses with regular shipments.</div>
+                      <div class="size-btn__selected">✓ Selected</div>
+                    </button>
+                    <button class="size-btn" data-size="Corporate">
+                      <div class="size-btn__name" data-mailbox-plan-name="Corporate">Corporate</div>
+                      <div class="size-btn__desc" data-mailbox-plan-desc="Corporate">Best for high-volume businesses needing extra space.</div>
+                      <div class="size-btn__selected">✓ Selected</div>
+                    </button>
+                  </div>
+                </section>
+                <section class="quote-group">
+                  <div class="quote-label" data-mailbox-field="quote.labels.term">Rental Term</div>
+                  <div class="term-row">
+                    <button class="term-btn term-btn--active" data-term="3-Month">
+                      <div class="term-btn__name">3-Month</div>
+                    </button>
+                    <button class="term-btn" data-term="6-Month">
+                      <div class="term-btn__name">6-Month</div>
+                      <div class="term-btn__savings">Save ~6% vs monthly</div>
+                    </button>
+                    <button class="term-btn" data-term="12-Month">
+                      <div class="term-btn__name">12-Month</div>
+                      <div class="term-btn__savings">Save ~12% vs monthly</div>
+                    </button>
+                  </div>
+                </section>
+                <section class="quote-group">
+                  <div class="quote-label" data-mailbox-field="quote.labels.addons">Add-ons</div>
+                  <button class="addon-btn addon-btn--active" id="addon-btn">
+                    <div class="addon-icon">✓</div>
+                    <div class="quote-addon__content">
+                      <div class="quote-addon__row">
+                        <span class="addon-title" data-mailbox-field="quote.addon.title">Mail Notifications</span>
+                        <span class="addon-badge" id="addon-badge">+$3 (3-Month)</span>
+                      </div>
+                      <div class="addon-desc" data-mailbox-field="quote.addon.description">
+                        Get notified when mail or packages arrive — via email or phone. $1/month added to your rental.
+                      </div>
+                    </div>
+                  </button>
+                </section>
+              </div>
+              <div class="quote-card">
+                <div class="quote-card__label" data-mailbox-field="quote.cardLabel">Your Quote</div>
+                <div class="quote-card__config" id="q-config">Personal Box · 3-Month</div>
+                <div class="quote-card__price quote-card__price--accent" id="q-price">$72.00</div>
+                <div class="quote-card__monthly" id="q-monthly">~$24.00/month</div>
+                <div class="quote-card__notice">Pricing includes all fees.</div>
+                <div id="q-items">
+                  <div class="quote-card__item"><span class="quote-card__check">✓</span> Personal Mailbox</div>
+                  <div class="quote-card__item"><span class="quote-card__check">✓</span> 3-Month Rental — $72.00</div>
+                  <div class="quote-card__item"><span class="quote-card__check">✓</span> All carriers accepted</div>
+                  <div class="quote-card__item"><span class="quote-card__check">✓</span> USPS Form 1583 Required</div>
+                </div>
+                <a href="contact.html" class="btn btn--navy quote-cta" data-mailbox-field="quote.reserveLabel">Reserve Your Box &nbsp;→</a>
+                <button class="pricing-table-trigger" id="pricing-table-trigger" aria-expanded="false" type="button">
+                  <svg
+                    class="pricing-table-trigger__icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                  </svg>
+                  <span class="pricing-table-trigger__label" data-mailbox-field="quote.pricingTriggerLabel">View full pricing breakdown</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="mailbox-banner-actions">
-          <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="btn btn--navy-sm"
-            >⬇ Download Form 1583</a
-          >
-          <a
-            href="https://about.usps.com/forms/ps1583.pdf"
-            target="_blank"
-            rel="noopener"
-            class="btn btn--outline-navy mailbox-fill-btn"
-            >↗ Fill Online</a
-          >
-        </div>
       </div>
-    </div>
+    </section>
     <section class="mailbox-features fade-section">
       <div class="container">
-        <span class="section-tag mailbox-section-tag-center">Why Rent with Us</span>
-        <h2 class="mailbox-features__heading font-display">Everything included with your mailbox.</h2>
+        <span class="section-tag mailbox-section-tag-center">Perks</span>
+        <h2 class="mailbox-features__heading mailbox-features__heading--gradient">Everything included with your mailbox.</h2>
         <div class="mailbox-features__grid">
           <div class="feature-card">
             <div class="feature-card__icon">⌂</div>
-            <div class="feature-card__title">Real Street Address</div>
+            <div class="feature-card__title">Business Address, Not Your Home</div>
             <p class="feature-card__desc">
-              Use our address as your own — perfect for business registration, banking, and professional correspondence.
+              Use our street address for business registration, banking, and professional mail while keeping your home
+              address private.
             </p>
           </div>
           <div class="feature-card">
@@ -121,8 +193,11 @@
           </div>
           <div class="feature-card">
             <div class="feature-card__icon">▦</div>
-            <div class="feature-card__title">Flexible Plans</div>
-            <p class="feature-card__desc">Choose from 3, 6, or 12-month plans. Longer terms save you money.</p>
+            <div class="feature-card__title">No Hidden or Sign-Up Fees</div>
+            <p class="feature-card__desc">
+              Straightforward pricing with clear terms. Choose 3, 6, or 12-month plans with no surprise onboarding
+              charges.
+            </p>
           </div>
           <div class="feature-card">
             <div class="feature-card__icon">◉</div>
@@ -130,212 +205,6 @@
             <p class="feature-card__desc">
               Perfect for LLC registration, business banking, and keeping your home address private.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="quote-section fade-section" id="quote-calculator">
-      <div class="container-md">
-        <div class="quote-section__header">
-          <span class="section-tag quote-section__tag">⊞ Instant Quote</span>
-          <h2 class="quote-section__heading font-display gradient-text">Build your quote</h2>
-          <p class="mailbox-quote-sub">Select a box size and rental term to see your total instantly.</p>
-        </div>
-
-        <div class="quote-layout">
-          <div class="quote-selectors">
-            <section class="quote-group">
-              <div class="quote-label">Box Size</div>
-              <div class="size-grid">
-                <button class="size-btn" data-size="Mini">
-                  <div class="size-btn__name">Mini</div>
-                  <div class="size-btn__desc">Perfect for individuals receiving minimal mail.</div>
-                  <div class="size-btn__selected">✓ Selected</div>
-                </button>
-                <button class="size-btn size-btn--active" data-size="Personal">
-                  <div class="size-btn__name">Personal</div>
-                  <div class="size-btn__desc">Great for individuals with moderate mail volume.</div>
-                  <div class="size-btn__selected">✓ Selected</div>
-                </button>
-                <button class="size-btn" data-size="Business">
-                  <div class="size-btn__name">Business</div>
-                  <div class="size-btn__desc">Ideal for small businesses with regular shipments.</div>
-                  <div class="size-btn__selected">✓ Selected</div>
-                </button>
-                <button class="size-btn" data-size="Corporate">
-                  <div class="size-btn__name">Corporate</div>
-                  <div class="size-btn__desc">Best for high-volume businesses needing extra space.</div>
-                  <div class="size-btn__selected">✓ Selected</div>
-                </button>
-              </div>
-            </section>
-            <section class="quote-group">
-              <div class="quote-label">Rental Term</div>
-              <div class="term-row">
-                <button class="term-btn term-btn--active" data-term="3-Month">
-                  <div class="term-btn__name">3-Month</div>
-                </button>
-                <button class="term-btn" data-term="6-Month">
-                  <div class="term-btn__name">6-Month</div>
-                  <div class="term-btn__savings">Save ~6% vs monthly</div>
-                </button>
-                <button class="term-btn" data-term="12-Month">
-                  <div class="term-btn__name">12-Month</div>
-                  <div class="term-btn__savings">Best value — Save ~11%</div>
-                </button>
-              </div>
-            </section>
-            <section class="quote-group">
-              <div class="quote-label">Add-ons</div>
-              <button class="addon-btn addon-btn--active" id="addon-btn">
-                <div class="addon-icon">✓</div>
-                <div class="addon-flex-1">
-                  <div class="addon-row">
-                    <span class="addon-title">Mail Notifications</span>
-                    <span class="addon-badge" id="addon-badge">+$3 (3-Month)</span>
-                  </div>
-                  <div class="addon-desc">
-                    Get notified when mail or packages arrive — via email or phone. $1/month added to your rental.
-                  </div>
-                </div>
-              </button>
-            </section>
-          </div>
-          <div class="quote-card">
-            <div class="quote-card__label">Your Quote</div>
-            <div class="quote-card__config" id="q-config">Personal Box · 3-Month</div>
-            <div class="quote-card__price kraft-gradient-text" id="q-price">$72.00</div>
-            <div class="quote-card__monthly" id="q-monthly">~$24.00/month</div>
-            <div class="quote-card__notice">Pricing includes all fees.</div>
-            <div id="q-items">
-              <div class="quote-card__item"><span class="quote-card__check">✓</span> Personal Mailbox</div>
-              <div class="quote-card__item"><span class="quote-card__check">✓</span> 3-Month Rental — $72.00</div>
-              <div class="quote-card__item"><span class="quote-card__check">✓</span> All carriers accepted</div>
-              <div class="quote-card__item"><span class="quote-card__check">✓</span> USPS Form 1583 Required</div>
-            </div>
-            <a href="contact.html" class="btn btn--navy quote-cta">Reserve Your Box &nbsp;→</a>
-            <button class="pricing-table-trigger" id="pricing-table-trigger" aria-expanded="false" type="button">
-              <svg
-                class="pricing-table-trigger__icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="16" x2="12" y2="12" />
-                <line x1="12" y1="8" x2="12.01" y2="8" />
-              </svg>
-              <span class="pricing-table-trigger__label">View full pricing breakdown</span>
-            </button>
-          </div>
-        </div>
-        <!-- PRICING MODAL -->
-        <div class="pricing-modal" id="pricing-modal" aria-modal="true" aria-labelledby="pricing-modal-title">
-          <div class="pricing-modal__overlay"></div>
-          <div class="pricing-modal__content">
-            <button class="pricing-modal__close" aria-label="Close pricing table" type="button">✕</button>
-            <div class="pricing-table">
-              <div class="pricing-table__header">
-                <div class="pricing-table__header-text">
-                  <h3 class="pricing-table__title font-display">Full Pricing Breakdown</h3>
-                  <p class="pricing-table__subtitle">All prices include mailbox rental.</p>
-                </div>
-                <div class="pricing-table__legend">
-                  <span class="pricing-table__legend-item">
-                    <span class="pricing-table__legend-dot pricing-table__legend-dot--popular"></span>Most Popular
-                  </span>
-                </div>
-              </div>
-              <div class="pricing-table__scroll">
-                <table>
-                  <thead>
-                    <tr>
-                      <th class="pricing-table__col-box">Box Type</th>
-                      <th class="pricing-table__col-term">
-                        3 Months
-                        <span class="pricing-table__col-sub">total / per month</span>
-                      </th>
-                      <th class="pricing-table__col-term">
-                        6 Months
-                        <span class="pricing-table__col-badge">Save ~6%</span>
-                        <span class="pricing-table__col-sub">total / per month</span>
-                      </th>
-                      <th class="pricing-table__col-term">
-                        12 Months
-                        <span class="pricing-table__col-badge pricing-table__col-badge--best">Best Value</span>
-                        <span class="pricing-table__col-sub">total / per month</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="pricing-table__row-label">
-                        <span class="pricing-table__size-name">Mini</span>
-                        <span class="pricing-table__size-desc">Minimal mail volume</span>
-                      </td>
-                      <td>$57.00 <span class="pricing-table__per-mo">~$19/mo</span></td>
-                      <td>$108.00 <span class="pricing-table__per-mo">~$18/mo</span></td>
-                      <td>$204.00 <span class="pricing-table__per-mo">~$17/mo</span></td>
-                    </tr>
-                    <tr class="pricing-table__row--popular">
-                      <td class="pricing-table__row-label">
-                        <span class="pricing-table__size-name">
-                          Personal
-                          <span class="pricing-table__popular-badge">Popular</span>
-                        </span>
-                        <span class="pricing-table__size-desc">Moderate mail volume</span>
-                      </td>
-                      <td>$72.00 <span class="pricing-table__per-mo">~$24/mo</span></td>
-                      <td>$138.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
-                      <td>$252.00 <span class="pricing-table__per-mo">~$21/mo</span></td>
-                    </tr>
-                    <tr>
-                      <td class="pricing-table__row-label">
-                        <span class="pricing-table__size-name">Business</span>
-                        <span class="pricing-table__size-desc">Small business shipments</span>
-                      </td>
-                      <td>$78.00 <span class="pricing-table__per-mo">~$26/mo</span></td>
-                      <td>$150.00 <span class="pricing-table__per-mo">~$25/mo</span></td>
-                      <td>$276.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
-                    </tr>
-                    <tr>
-                      <td class="pricing-table__row-label">
-                        <span class="pricing-table__size-name">Corporate</span>
-                        <span class="pricing-table__size-desc">High-volume &amp; extra space</span>
-                      </td>
-                      <td>$123.00 <span class="pricing-table__per-mo">~$41/mo</span></td>
-                      <td>$236.00 <span class="pricing-table__per-mo">~$39/mo</span></td>
-                      <td>$432.00 <span class="pricing-table__per-mo">~$36/mo</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pricing-table__footer">
-                <p class="pricing-table__note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    width="14"
-                    height="14"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="16" x2="12" y2="12" />
-                    <line x1="12" y1="8" x2="12.01" y2="8" />
-                  </svg>
-                  Mail Notification add-on is +$1/month per term.
-                </p>
-                <a href="contact.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box &nbsp;→</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -378,6 +247,104 @@
         </div>
       </div>
     </footer>
+
+    <!-- RESERVATION MODAL -->
+    <div class="reservation-modal" id="reservation-modal" aria-modal="true">
+      <div class="reservation-modal__overlay"></div>
+      <div class="reservation-modal__content">
+        <button class="reservation-modal__close" aria-label="Close reservation form" type="button">✕</button>
+
+        <div class="reservation-modal__header">
+          <h2 class="reservation-modal__title" data-bind-reservation-title>Reserve Your Mailbox</h2>
+          <p class="reservation-modal__subtitle" data-bind-reservation-subtitle>Complete your info and we'll get you set up.</p>
+        </div>
+
+        <!-- CUSTOMER INFO FORM -->
+        <form class="reservation-form" id="reservation-form">
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-name-label>Full Name</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              class="reservation-form__input"
+              placeholder="John Smith"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label" data-bind-form-company-label>Company Name</label>
+            <span class="reservation-form__hint" data-bind-form-company-hint>(optional) Business or LLC name</span>
+            <input
+              type="text"
+              name="company"
+              class="reservation-form__input"
+              placeholder="Acme Inc."
+              aria-label="Company name (optional)"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-phone-label>Phone Number</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              class="reservation-form__input"
+              placeholder="(602) 555-1234"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-email-label>Email Address</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              class="reservation-form__input"
+              placeholder="you@example.com"
+              required
+              aria-required="true"
+            />
+          </div>
+        </form>
+
+        <!-- USPS FORM 1583 SECTION -->
+        <div class="reservation-section">
+          <h3 class="reservation-section__heading" data-bind-form1583-heading>USPS Form 1583</h3>
+          <p class="reservation-section__description" data-bind-form1583-description>Required for all private mailbox rentals. You can fill it online or bring a printed copy.</p>
+          <div class="reservation-form1583__actions">
+            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link" data-bind-form1583-fill-online>↗ Fill Online</a>
+            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download data-bind-form1583-download>⬇ Download</a>
+          </div>
+        </div>
+
+        <!-- REQUIREMENTS SECTION -->
+        <div class="reservation-section">
+          <h3 class="reservation-section__heading" data-bind-requirements-heading>What to Bring In</h3>
+          <p class="reservation-section__description" data-bind-requirements-intro>Complete your online form above, then visit us to finish your mailbox rental. You'll need:</p>
+          <ul class="reservation-requirements__list" id="reservation-requirements-list">
+            <!-- Populated by JS from JSON -->
+          </ul>
+        </div>
+
+        <!-- LEGAL TEXT -->
+        <div class="reservation-modal__legal" data-bind-legal-text>Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card.</div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" form="reservation-form" class="reservation-modal__cta" data-bind-reservation-cta>Complete Reservation</button>
+      </div>
+    </div>
 
     <script src="js/app.js" defer></script>
   </body>

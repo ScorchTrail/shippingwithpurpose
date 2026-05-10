@@ -58,7 +58,7 @@
         <div class="hero__grid">
           <header class="hero__content">
             <div class="hero__badge">♡ Under New Ownership · Serving Our Community</div>
-            <h1>Your neighborhood<br /><span class="kraft-gradient-text">shipping home.</span></h1>
+            <h1 class="hero__title">Your neighborhood<br /><span class="hero__title-emphasis">shipping home.</span></h1>
             <p class="hero__body">
               A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
               Full-service shipping, printing, and private mailboxes — all in one cozy spot.
@@ -88,24 +88,24 @@
             <div class="hero__carriers-card">
               <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
               <div class="hero__carriers-row">
-                <div class="hero__carrier-tile hero-carrier-usps">
+                <div class="hero__carrier-tile hero__carrier-tile--usps">
                   <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
                 </div>
-                <div class="hero__carrier-tile hero-carrier-ups">
+                <div class="hero__carrier-tile hero__carrier-tile--ups">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
                     alt="UPS"
                     loading="lazy"
                   />
                 </div>
-                <div class="hero__carrier-tile hero-carrier-fedex">
+                <div class="hero__carrier-tile hero__carrier-tile--fedex">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
                     alt="FedEx"
                     loading="lazy"
                   />
                 </div>
-                <div class="hero__carrier-tile hero-carrier-dhl">
+                <div class="hero__carrier-tile hero__carrier-tile--dhl">
                   <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
                 </div>
               </div>
@@ -118,7 +118,7 @@
       <div class="container">
         <div class="services-preview__header">
           <span class="section-tag">What We Offer</span>
-          <h2 class="services-preview__heading font-display gradient-text">
+          <h2 class="services-preview__heading services-preview__heading--gradient">
             All the services you need,<br />in one friendly stop.
           </h2>
           <p class="services-preview__sub">From packages to paperwork — we've got you covered, with a smile.</p>
@@ -191,23 +191,28 @@
     </section>
     <section class="mailbox-cta fade-section">
       <div class="container">
+        <div class="mailbox-cta__header">
+          <span class="section-tag mailbox-cta__tag">Private Mailboxes</span>
+          <h2 class="mailbox-cta__section-title">Plans built for personal and business mail.</h2>
+          <p class="mailbox-cta__section-sub">Compare pricing, choose the right box size, and reserve in minutes.</p>
+        </div>
         <div class="mailbox-cta__grid">
           <!-- HERO TILE (navy, spans 2 cols × 2 rows) -->
           <div class="mailbox-cta__tile mailbox-cta__tile--hero">
             <div class="mailbox-cta__hero-top">
-              <span class="mailbox-cta__hero-badge">Most Popular Service</span>
+              <span class="mailbox-cta__hero-badge" data-mailbox-field="cta.badge">Most Popular Service</span>
             </div>
-            <h1 class="mailbox-cta__hero-heading font-display">
-              Get a real street address.<br />
-              <span class="kraft-gradient-text">Not a P.O.&nbsp;Box.</span>
-            </h1>
-            <p class="mailbox-cta__hero-body">
+            <h2 class="mailbox-cta__hero-heading">
+              <span data-mailbox-field="cta.headingLine1">Get a real street address.</span><br />
+              <span class="mailbox-cta__hero-emphasis" data-mailbox-field="cta.headingEmphasis">Not a P.O.&nbsp;Box.</span>
+            </h2>
+            <p class="mailbox-cta__hero-body" data-mailbox-field="cta.body">
               A private mailbox with a real street address — perfect for small businesses, remote workers, and anyone
               who values their privacy.
             </p>
             <div class="mailbox-cta__footer">
               <a href="public/mailboxes.html" class="btn btn--kraft mailbox-cta__hero-cta">
-                See Pricing &amp; Rent Now &nbsp;→
+                <span data-mailbox-field="cta.buttonLabel">See Pricing &amp; Rent Now &nbsp;→</span>
               </a>
               <button
                 class="pricing-table-trigger"
@@ -246,25 +251,27 @@
           <!-- PRICE TILE A -->
           <a
             href="public/mailboxes.html?box=mini&term=3"
+            data-mailbox-plan="Mini"
             class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-a mailbox-cta__tile--link"
           >
-            <span class="mailbox-cta__price-tag">Budget-Friendly</span>
-            <span class="mailbox-cta__price-label">Mini Box</span>
-            <span class="mailbox-cta__price-value kraft-gradient-text font-display">$57</span>
-            <span class="mailbox-cta__price-caption">Minimal volume, maximum savings</span>
-            <span class="mailbox-cta__price-disclaimer">2026 pricing</span>
+            <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">Budget-Friendly</span>
+            <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Mini Box</span>
+            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price">$57</span>
+            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption">Minimal volume, maximum savings</span>
+            <span class="mailbox-cta__price-disclaimer" data-mailbox-plan-field="disclaimer">2026 pricing</span>
           </a>
 
           <!-- PRICE TILE B -->
           <a
             href="public/mailboxes.html?box=personal&term=3"
+            data-mailbox-plan="Personal"
             class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-b mailbox-cta__tile--link"
           >
-            <span class="mailbox-cta__price-tag mailbox-cta__price-tag--popular">Most Popular</span>
-            <span class="mailbox-cta__price-label">Personal</span>
-            <span class="mailbox-cta__price-value kraft-gradient-text font-display">$72</span>
-            <span class="mailbox-cta__price-caption">Perfect for remote workers & vacations</span>
-            <span class="mailbox-cta__price-disclaimer">2026 pricing</span>
+            <span class="mailbox-cta__price-tag mailbox-cta__price-tag--popular" data-mailbox-plan-field="tag">Most Popular</span>
+            <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Personal</span>
+            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price">$72</span>
+            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption">Perfect for remote workers & vacations</span>
+            <span class="mailbox-cta__price-disclaimer" data-mailbox-plan-field="disclaimer">2026 pricing</span>
           </a>
 
           <!-- FEATURE TILE: 24h Access -->
@@ -288,25 +295,27 @@
           <!-- PRICE TILE C -->
           <a
             href="public/mailboxes.html?box=business&term=3"
+            data-mailbox-plan="Business"
             class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-c mailbox-cta__tile--link"
           >
-            <span class="mailbox-cta__price-tag">10+ Members</span>
-            <span class="mailbox-cta__price-label">Business</span>
-            <span class="mailbox-cta__price-value kraft-gradient-text font-display">$78</span>
-            <span class="mailbox-cta__price-caption">Team-friendly with ample storage</span>
-            <span class="mailbox-cta__price-disclaimer">2026 pricing</span>
+            <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">10+ Members</span>
+            <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Business</span>
+            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price">$78</span>
+            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption">Team-friendly with ample storage</span>
+            <span class="mailbox-cta__price-disclaimer" data-mailbox-plan-field="disclaimer">2026 pricing</span>
           </a>
 
           <!-- PRICE TILE D -->
           <a
             href="public/mailboxes.html?box=corporate&term=3"
+            data-mailbox-plan="Corporate"
             class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-d mailbox-cta__tile--link"
           >
-            <span class="mailbox-cta__price-tag">Max Storage</span>
-            <span class="mailbox-cta__price-label">Corporate</span>
-            <span class="mailbox-cta__price-value kraft-gradient-text font-display">$123</span>
-            <span class="mailbox-cta__price-caption">Enterprise capacity, maximum flexibility</span>
-            <span class="mailbox-cta__price-disclaimer">2026 pricing</span>
+            <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">Max Storage</span>
+            <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Corporate</span>
+            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price">$123</span>
+            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption">Enterprise capacity, maximum flexibility</span>
+            <span class="mailbox-cta__price-disclaimer" data-mailbox-plan-field="disclaimer">2026 pricing</span>
           </a>
         </div>
       </div>
@@ -319,7 +328,7 @@
         <div class="pricing-table">
           <div class="pricing-table__header">
             <div class="pricing-table__header-text">
-              <h3 class="pricing-table__title font-display">Full Pricing Breakdown</h3>
+              <h3 class="pricing-table__title">Full Pricing Breakdown</h3>
               <p class="pricing-table__subtitle">All prices include mailbox rental.</p>
             </div>
             <div class="pricing-table__legend">
@@ -419,8 +428,8 @@
     <section class="print-portal fade-section">
       <div class="container">
         <div class="print-portal__header">
-          <span class="section-tag u-tag-16">▣ Print Section</span>
-          <h2 class="print-portal__heading font-display">Upload documents for printing.</h2>
+          <span class="section-tag print-portal__tag">▣ Print Section</span>
+          <h2 class="print-portal__heading">Upload documents for printing.</h2>
           <p class="print-portal__sub">Send us your print request and files. We handle the rest.</p>
         </div>
         <form id="print-portal-form" class="print-portal-form">
@@ -436,7 +445,7 @@
                   type="file"
                   id="file-input"
                   accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                  class="hidden-file-input"
+                  class="print-portal__file-input"
                   multiple
                 />
               </div>
@@ -468,7 +477,7 @@
               <button type="submit" class="btn btn--navy print-portal-form__submit">Send Print Request &nbsp;→</button>
               <div class="print-portal-form__feedback" id="print-portal-feedback"></div>
               <p class="print-portal__privacy-inline">
-                <strong class="u-text-navy">Privacy protected.</strong> Request details stay secure.
+                <strong class="print-portal__privacy-strong">Privacy protected.</strong> Request details stay secure.
               </p>
             </div>
           </div>
@@ -478,9 +487,9 @@
     <section class="dropoff-grid fade-section">
       <div class="container">
         <div class="dropoff-grid__header">
-          <span class="section-tag u-tag-16">◻ Carrier Drop-Off Hub</span>
-          <h2 class="dropoff-grid__heading font-display">
-            Drop off fast. <span class="kraft-gradient-text">Ship with confidence.</span>
+          <span class="section-tag dropoff-grid__tag">◻ Carrier Drop-Off Hub</span>
+          <h2 class="dropoff-grid__heading">
+            Drop off fast. <span class="dropoff-grid__heading-emphasis">Ship with confidence.</span>
           </h2>
           <p class="dropoff-grid__sub">
             One clean counter for USPS, UPS, FedEx, and DHL. We can create labels for USPS, UPS, and FedEx. DHL is
@@ -489,7 +498,7 @@
         </div>
         <div class="carrier-grid">
           <div class="carrier-card">
-            <div class="carrier-card__header carrier-header-usps">
+            <div class="carrier-card__header carrier-card__header--usps">
               <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
             </div>
             <div class="carrier-card__body">
@@ -502,7 +511,7 @@
             </div>
           </div>
           <div class="carrier-card">
-            <div class="carrier-card__header carrier-header-ups">
+            <div class="carrier-card__header carrier-card__header--ups">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
                 alt="UPS"
@@ -519,7 +528,7 @@
             </div>
           </div>
           <div class="carrier-card">
-            <div class="carrier-card__header carrier-header-fedex">
+            <div class="carrier-card__header carrier-card__header--fedex">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
                 alt="FedEx"
@@ -536,7 +545,7 @@
             </div>
           </div>
           <div class="carrier-card carrier-card--droponly">
-            <div class="carrier-card__header carrier-header-dhl">
+            <div class="carrier-card__header carrier-card__header--dhl">
               <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
             </div>
             <div class="carrier-card__body">
@@ -551,7 +560,7 @@
         <div class="packing-note">
           <span class="packing-note__icon">☺</span>
           <p>
-            <strong class="u-text-navy">Need a box or some tape for your return?</strong> We've got you covered! We'll
+            <strong class="packing-note__strong">Need a box or some tape for your return?</strong> We've got you covered! We'll
             pack and tape your package securely. No more hunting down supplies.
           </p>
         </div>
@@ -560,7 +569,7 @@
     <section class="testimonials fade-section">
       <div class="container">
         <div class="testimonials__header">
-          <span class="section-tag u-tag-16">Customer Reviews</span>
+          <span class="section-tag testimonials__tag">Customer Reviews</span>
           <div class="testimonials__stars" aria-label="5 out of 5 stars">
             <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -578,7 +587,7 @@
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           </div>
-          <h2 class="testimonials__heading font-display">Loved by our community.</h2>
+          <h2 class="testimonials__heading">Loved by our community.</h2>
           <p class="testimonials__sub">Don't take our word for it — here's what our regulars say.</p>
         </div>
         <div class="review-gallery" id="reviews-gallery" aria-live="polite">
@@ -664,6 +673,104 @@
         </div>
       </div>
     </footer>
+
+    <!-- RESERVATION MODAL -->
+    <div class="reservation-modal" id="reservation-modal" aria-modal="true">
+      <div class="reservation-modal__overlay"></div>
+      <div class="reservation-modal__content">
+        <button class="reservation-modal__close" aria-label="Close reservation form" type="button">✕</button>
+
+        <div class="reservation-modal__header">
+          <h2 class="reservation-modal__title" data-bind-reservation-title>Reserve Your Mailbox</h2>
+          <p class="reservation-modal__subtitle" data-bind-reservation-subtitle>Complete your info and we'll get you set up.</p>
+        </div>
+
+        <!-- CUSTOMER INFO FORM -->
+        <form class="reservation-form" id="reservation-form">
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-name-label>Full Name</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              class="reservation-form__input"
+              placeholder="John Smith"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label" data-bind-form-company-label>Company Name</label>
+            <span class="reservation-form__hint" data-bind-form-company-hint>(optional) Business or LLC name</span>
+            <input
+              type="text"
+              name="company"
+              class="reservation-form__input"
+              placeholder="Acme Inc."
+              aria-label="Company name (optional)"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-phone-label>Phone Number</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              class="reservation-form__input"
+              placeholder="(602) 555-1234"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="reservation-form__group">
+            <label class="reservation-form__label">
+              <span data-bind-form-email-label>Email Address</span>
+              <span class="reservation-form__required">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              class="reservation-form__input"
+              placeholder="you@example.com"
+              required
+              aria-required="true"
+            />
+          </div>
+        </form>
+
+        <!-- USPS FORM 1583 SECTION -->
+        <div class="reservation-section">
+          <h3 class="reservation-section__heading" data-bind-form1583-heading>USPS Form 1583</h3>
+          <p class="reservation-section__description" data-bind-form1583-description>Required for all private mailbox rentals. You can fill it online or bring a printed copy.</p>
+          <div class="reservation-form1583__actions">
+            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link" data-bind-form1583-fill-online>↗ Fill Online</a>
+            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download data-bind-form1583-download>⬇ Download</a>
+          </div>
+        </div>
+
+        <!-- REQUIREMENTS SECTION -->
+        <div class="reservation-section">
+          <h3 class="reservation-section__heading" data-bind-requirements-heading>What to Bring In</h3>
+          <p class="reservation-section__description" data-bind-requirements-intro>Complete your online form above, then visit us to finish your mailbox rental. You'll need:</p>
+          <ul class="reservation-requirements__list" id="reservation-requirements-list">
+            <!-- Populated by JS from JSON -->
+          </ul>
+        </div>
+
+        <!-- LEGAL TEXT -->
+        <div class="reservation-modal__legal" data-bind-legal-text>Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card.</div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" form="reservation-form" class="reservation-modal__cta" data-bind-reservation-cta>Complete Reservation</button>
+      </div>
+    </div>
 
     <script src="public/js/app.js" defer></script>
   </body>

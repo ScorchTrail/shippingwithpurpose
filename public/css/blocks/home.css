@@ -43,13 +43,19 @@
   border-radius: 100px;
   max-width: max-content;
 }
-.hero h1 {
+.hero__title {
   font-family: "Inter", sans-serif;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--navy);
+}
+.hero__title-emphasis {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .hero__body {
   color: var(--body-text);
@@ -178,10 +184,7 @@
 .dropoff-grid,
 .testimonials,
 .community {
-  padding: 4px 24px var(--space-48) 24px;
-}
-
-.mailbox-cta {
+  padding: var(--space-8) 24px var(--space-48) 24px;
 }
 
 
@@ -198,22 +201,46 @@
 .mailbox-cta {
   background: var(--off-white);
 }
+.mailbox-cta__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.mailbox-cta__tag {
+  margin-bottom: 10px;
+}
+.mailbox-cta__section-title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 900;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.mailbox-cta__section-sub {
+  color: var(--body-text);
+}
 .services-preview__header {
   margin-bottom: 32px;
 }
 .services-preview__heading,
+.mailbox-cta__section-title,
 .print-portal__heading,
 .dropoff-grid__heading,
 .testimonials__heading {
-  letter-spacing: -0.02em;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-wrap: balance;
 }
 .services-preview__sub,
+.mailbox-cta__section-sub,
 .print-portal__sub,
 .dropoff-grid__sub,
 .testimonials__sub {
-  font-size: 1.05rem;
-  line-height: 1.72;
-  max-width: 56ch;
+  font-size: 1.04rem;
+  line-height: 1.66;
+  max-width: 58ch;
   margin: 0 auto;
 }
 
@@ -224,6 +251,12 @@
   line-height: 1.15;
   letter-spacing: -0.04em;
   margin: 16px 0;
+}
+.services-preview__heading--gradient {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .services-preview__sub {
   color: var(--body-text);
@@ -413,6 +446,12 @@
   color: #fff;
   max-width: 16ch;
 }
+.mailbox-cta__hero-emphasis {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .mailbox-cta__hero-body {
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.99rem;
@@ -552,6 +591,12 @@
   display: block;
   margin-bottom: 4px;
 }
+.mailbox-cta__price-value--accent {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .mailbox-cta__price-period {
   color: var(--body-text);
   font-size: 0.75rem;
@@ -666,6 +711,12 @@
   .mailbox-cta__grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  .mailbox-cta__header {
+    margin-bottom: 20px;
+  }
+  .mailbox-cta__section-title {
+    font-size: clamp(1.55rem, 7vw, 2rem);
   }
   .mailbox-cta__tile--hero {
     grid-column: 1;
@@ -882,7 +933,7 @@
 .drop-zone__fake-btn {
   pointer-events: none;
 }
-.hidden-file-input {
+.print-portal__file-input {
   display: none;
 }
 .drop-zone__reset-btn {
@@ -890,12 +941,15 @@
   border-radius: 8px;
 }
 
-/* ============================================================ INLINE STYLE REPLACEMENTS */
-.u-tag-16 {
+/* ============================================================ BLOCK HELPERS */
+.print-portal__tag,
+.dropoff-grid__tag,
+.testimonials__tag {
   margin-bottom: 8px;
   display: inline-flex;
 }
-.u-text-navy {
+.print-portal__privacy-strong,
+.packing-note__strong {
   color: var(--navy);
 }
 
@@ -945,9 +999,6 @@
 }
 .contact-form__file-input {
   cursor: pointer;
-}
-.mailbox-banner__emphasis {
-  color: var(--navy);
 }
 
 .contact-section-soft {
@@ -1004,31 +1055,31 @@
   object-fit: cover;
 }
 
-.hero-carrier-usps {
+.hero__carrier-tile--usps {
   background: #333366;
 }
-.hero-carrier-ups {
+.hero__carrier-tile--ups {
   background: #351c15;
 }
-.hero-carrier-fedex {
+.hero__carrier-tile--fedex {
   background: #fff;
   border: 1px solid #e2e8f0;
 }
-.hero-carrier-dhl {
+.hero__carrier-tile--dhl {
   background: #f1bd00;
 }
 
-.carrier-header-usps {
+.carrier-card__header--usps {
   background: #333366;
 }
-.carrier-header-ups {
+.carrier-card__header--ups {
   background: #351c15;
 }
-.carrier-header-fedex {
+.carrier-card__header--fedex {
   background: #fff;
   border-bottom: 1px solid var(--border);
 }
-.carrier-header-dhl {
+.carrier-card__header--dhl {
   background: #f1bd00;
 }
 
@@ -1095,8 +1146,55 @@
   background: var(--navy);
 }
 
-.mailbox-hero-alt {
-  background: linear-gradient(160deg, #fff8f5 0%, var(--white) 60%, var(--light-bg) 100%);
+.mailbox-hero__inner {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.mailbox-hero__badge {
+  margin-bottom: var(--space-16);
+}
+.mailbox-hero__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--navy);
+  margin-top: 0;
+  margin-bottom: var(--space-8);
+}
+.mailbox-hero__sub {
+  color: var(--body-text);
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.7;
+  max-width: 58ch;
+  margin: 0 auto;
+}
+.mailbox-hero__quote {
+  margin-top: var(--space-4);
+}
+.quote-section--embedded {
+  padding: 0;
+}
+.quote-section--embedded .quote-section__header {
+  margin-bottom: 16px;
+}
+.quote-section--embedded .quote-layout {
+  margin-bottom: 0;
+}
+.quote-section__heading--gradient,
+.mailbox-features__heading--gradient {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.quote-card__price--accent {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .mailbox-banner-wrap {
   padding: 24px 24px 8px;
@@ -1116,18 +1214,30 @@
   padding: 8px 16px;
 }
 .mailbox-section-tag-center {
+  width: max-content;
+  margin: 0 auto;
   display: block;
   text-align: center;
   margin-bottom: 16px;
+}
+.mailbox-features {
+  padding: var(--space-48) 24px;
+  background: var(--off-white);
+}
+.mailbox-features__heading {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--navy);
+  margin-bottom: 24px;
 }
 .mailbox-quote-sub {
   color: #666;
   font-size: 0.95rem;
 }
-.addon-flex-1 {
+.quote-addon__content {
   flex: 1;
 }
-.addon-row {
+.quote-addon__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1161,6 +1271,12 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
+}
+.dropoff-grid__heading-emphasis {
+  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .dropoff-grid__sub {
   color: var(--body-text);
@@ -1196,18 +1312,17 @@
 .carrier-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--space-16);
   margin-bottom: var(--space-24);
 }
 .carrier-grid > * {
   grid-column: span 3;
 }
 .carrier-card {
-  border: 1px solid rgba(26, 54, 93, 0.1);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 8px 20px rgba(26, 54, 93, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   transition:
@@ -1221,6 +1336,34 @@
 .carrier-card--droponly {
   border-color: rgba(185, 142, 90, 0.35);
   background: linear-gradient(180deg, #fffdf8 0%, #fdf9f4 100%);
+}
+
+.hero__carrier-tile--usps {
+  background: #333366;
+}
+.hero__carrier-tile--ups {
+  background: #351c15;
+}
+.hero__carrier-tile--fedex {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+.hero__carrier-tile--dhl {
+  background: #f1bd00;
+}
+
+.carrier-card__header--usps {
+  background: #333366;
+}
+.carrier-card__header--ups {
+  background: #351c15;
+}
+.carrier-card__header--fedex {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.carrier-card__header--dhl {
+  background: #f1bd00;
 }
 .carrier-card__header {
   height: 104px;

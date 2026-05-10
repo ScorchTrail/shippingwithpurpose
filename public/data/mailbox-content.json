@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "badge": "Most Popular",
+    "title": "Mailbox Rentals",
+    "subtitle": "Your personal or business address - secure, private, and professional."
+  },
+  "cta": {
+    "badge": "Most Popular Service",
+    "headingLine1": "Get a real street address.",
+    "headingEmphasis": "Not a P.O. Box.",
+    "body": "A private mailbox with a real street address - perfect for small businesses, remote workers, and anyone who values their privacy.",
+    "buttonLabel": "See Pricing & Rent Now ->"
+  },
+  "quote": {
+    "defaultSize": "Personal",
+    "defaultTerm": "3-Month",
+    "cardLabel": "Your Quote",
+    "reserveLabel": "Reserve Your Box ->",
+    "pricingTriggerLabel": "View full pricing breakdown",
+    "labels": {
+      "size": "Box Size",
+      "term": "Rental Term",
+      "addons": "Add-ons"
+    },
+    "addon": {
+      "title": "Mail Notifications",
+      "description": "Get notified when mail or packages arrive - via email or phone. $1/month added to your rental.",
+      "pricePerMonth": 1
+    }
+  },
+  "plans": {
+    "Mini": {
+      "tag": "Budget-Friendly",
+      "label": "Mini Box",
+      "caption": "Minimal volume, maximum savings",
+      "disclaimer": "2026 pricing",
+      "description": "Perfect for individuals receiving minimal mail.",
+      "pricing": {
+        "3-Month": 57,
+        "6-Month": 108,
+        "12-Month": 204
+      }
+    },
+    "Personal": {
+      "tag": "Most Popular",
+      "label": "Personal",
+      "caption": "Perfect for remote workers & vacations",
+      "disclaimer": "2026 pricing",
+      "description": "Great for individuals with moderate mail volume.",
+      "pricing": {
+        "3-Month": 72,
+        "6-Month": 138,
+        "12-Month": 252
+      }
+    },
+    "Business": {
+      "tag": "10+ Members",
+      "label": "Business",
+      "caption": "Team-friendly with ample storage",
+      "disclaimer": "2026 pricing",
+      "description": "Ideal for small businesses with regular shipments.",
+      "pricing": {
+        "3-Month": 78,
+        "6-Month": 150,
+        "12-Month": 276
+      }
+    },
+    "Corporate": {
+      "tag": "Max Storage",
+      "label": "Corporate",
+      "caption": "Enterprise capacity, maximum flexibility",
+      "disclaimer": "2026 pricing",
+      "description": "Best for high-volume businesses needing extra space.",
+      "pricing": {
+        "3-Month": 123,
+        "6-Month": 236,
+        "12-Month": 432
+      }
+    }
+  },
+  "reservation": {
+    "title": "Reserve Your Mailbox",
+    "subtitle": "Complete your info and we'll get you set up.",
+    "formLabels": {
+      "name": "Full Name",
+      "company": "Company Name",
+      "companyHint": "(optional) Business or LLC name",
+      "phone": "Phone Number",
+      "email": "Email Address"
+    },
+    "form1583": {
+      "heading": "USPS Form 1583",
+      "description": "Required for all private mailbox rentals. You can fill it online or bring a printed copy.",
+      "fillOnline": "↗ Fill Online",
+      "download": "⬇ Download Form",
+      "downloadUrl": "https://about.usps.com/forms/ps1583.pdf"
+    },
+    "requirements": {
+      "heading": "What to Bring In",
+      "intro": "Complete your online form above, then visit us to finish your mailbox rental. You'll need:",
+      "items": [
+        "Valid Photo ID (Driver's License, Passport, State ID)",
+        "Second ID (Utility bill, Bank statement, Insurance card)",
+        "Signed USPS Form 1583",
+        "Payment for your chosen plan"
+      ]
+    },
+    "cta": "Complete Reservation",
+    "legalText": "Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card."
+  }
+}
