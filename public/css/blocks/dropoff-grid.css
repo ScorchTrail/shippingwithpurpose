@@ -43,6 +43,7 @@
 .carrier-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 32px;
   margin-bottom: var(--space-24);
 }
 
@@ -182,7 +183,7 @@
   }
 
   .carrier-grid {
-    gap: 12px;
+    gap: var(--space-16);
   }
 
   .carrier-grid > * {

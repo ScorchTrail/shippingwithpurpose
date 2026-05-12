@@ -1,17 +1,19 @@
 /* ============================================================ PRINT PORTAL (homepage) */
 /* Desktop: 2-col bento | Mobile: 1-col */
 .print-portal {
-  padding: var(--space-8) var(--space-24) var(--space-48);
+  padding: 32px;
   background: var(--off-white);
 }
 
 .print-portal__header {
   text-align: center;
-  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: 32px;
 }
 
 .print-portal__tag {
-  margin-bottom: var(--space-8);
   display: inline-flex;
 }
 
@@ -23,7 +25,6 @@
   letter-spacing: -0.03em;
   text-wrap: balance;
   color: var(--navy);
-  margin-bottom: var(--space-8);
 }
 
 .print-portal__sub {
@@ -39,7 +40,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "upload fields";
-  gap: var(--space-16);
+  gap: var(--space-32);
 }
 
 .print-portal__tile {
@@ -62,6 +63,125 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+}
+
+.print-portal__field-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: var(--space-16);
+}
+
+.print-portal__field {
+  margin-bottom: 0;
+}
+
+.print-portal__copies-input::-webkit-outer-spin-button,
+.print-portal__copies-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.print-portal__copies-input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.print-portal__print-type-group {
+  margin-bottom: 0;
+}
+
+.print-portal__print-types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.print-portal__print-type-option {
+  position: relative;
+  margin: 0;
+}
+
+.print-portal__print-type-option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.print-portal__print-type-option span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  min-height: 64px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(26, 54, 93, 0.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  color: var(--navy);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.print-portal__print-type-option span strong {
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.print-portal__print-type-option span small {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.print-portal__print-type-option:hover span {
+  border-color: rgba(26, 54, 93, 0.35);
+  background: rgba(26, 54, 93, 0.06);
+  transform: translateY(-1px);
+}
+
+.print-portal__print-type-option input:focus-visible + span {
+  outline: 3px solid rgba(185, 142, 90, 0.28);
+  outline-offset: 1px;
+}
+
+.print-portal__print-type-option input:checked + span {
+  border-color: var(--navy);
+  background: linear-gradient(180deg, rgba(26, 54, 93, 0.14) 0%, rgba(26, 54, 93, 0.07) 100%);
+  box-shadow: 0 6px 18px rgba(26, 54, 93, 0.14);
+}
+
+.print-portal__print-type-option input:checked + span small {
+  color: #314967;
+}
+
+.print-portal__instructions-group {
+  border: 1px solid rgba(26, 54, 93, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  background: rgba(26, 54, 93, 0.03);
+  margin-bottom: 0;
+}
+
+.print-portal__instructions {
+  min-height: 116px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.print-portal__instructions-help {
+  margin: var(--space-8) 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .print-portal__privacy-inline {
@@ -91,48 +211,81 @@
 
 /* Upload drop-zone */
 .drop-zone {
-  border: 2px dashed rgba(26, 54, 93, 0.25);
-  border-radius: 0;
+  border: 2px dashed rgba(26, 54, 93, 0.28);
+  border-radius: var(--radius-md);
   padding: var(--space-48) var(--space-24);
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s;
-  background: #fff;
+  transition:
+    border-color 0.24s ease,
+    background 0.24s ease,
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(26, 54, 93, 0.04) 0%, rgba(26, 54, 93, 0) 46%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   flex: 1;
+  min-height: 292px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-16);
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
 }
 
 .drop-zone:hover,
 .drop-zone--dragging {
   border-color: var(--navy);
-  background: rgba(26, 54, 93, 0.03);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(26, 54, 93, 0.08) 0%, rgba(26, 54, 93, 0) 48%),
+    linear-gradient(180deg, #ffffff 0%, #eff5ff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(26, 54, 93, 0.11);
 }
 
 .drop-zone--has-file {
   border-color: var(--kraft);
-  background: rgba(185, 142, 90, 0.04);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(185, 142, 90, 0.12) 0%, rgba(185, 142, 90, 0) 52%),
+    linear-gradient(180deg, #fffefb 0%, #fbf5ec 100%);
+  box-shadow: 0 10px 24px rgba(185, 142, 90, 0.14);
 }
 
 .drop-zone__icon {
   font-size: 3rem;
-  margin-bottom: var(--space-16);
+  line-height: 1;
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 54, 93, 0.08);
+  color: var(--navy);
+  border: 1px solid rgba(26, 54, 93, 0.16);
 }
 
 .drop-zone__title {
   font-family: "Inter", sans-serif;
   font-weight: 800;
   color: var(--navy);
-  font-size: 1.1rem;
-  margin-bottom: var(--space-8);
+  font-size: 1.16rem;
+  letter-spacing: -0.01em;
 }
 
 .drop-zone__sub {
   color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: var(--space-16);
+  font-size: 0.92rem;
+  max-width: 34ch;
+  margin: 0 auto;
+  line-height: 1.55;
 }
 
 .drop-zone__fake-btn {
   pointer-events: none;
+  margin-top: var(--space-8);
 }
 
 /* File list */
@@ -146,7 +299,6 @@
   font-size: 0.86rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: var(--space-8);
 }
 
 .print-portal-files__empty {
@@ -168,7 +320,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-16);
+  gap: 32px;
   background: #fff;
   border: 1px solid rgba(26, 54, 93, 0.12);
   border-radius: var(--radius-sm);
@@ -237,6 +389,34 @@
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 720px) {
+  .print-portal__tile--fields {
+    padding: var(--space-24);
+  }
+
+  .print-portal__field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .print-portal__print-types {
+    grid-template-columns: 1fr;
+  }
+
+  .print-portal__instructions {
+    min-height: 96px;
+  }
+
+  .drop-zone {
+    padding: var(--space-32) var(--space-16);
+    min-height: 248px;
+    gap: var(--space-8);
+  }
+
+  .drop-zone__icon {
+    width: 72px;
+    height: 72px;
+    font-size: 2.5rem;
+  }
+
   .print-portal__bento {
     grid-template-columns: 1fr;
     grid-template-areas:

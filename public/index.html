@@ -458,21 +458,53 @@
 
             <!-- TILE: Form fields (right) -->
             <div class="print-portal__tile print-portal__tile--fields">
-              <div class="form-group">
-                <label class="form-label" for="portal-name">Name</label>
-                <input id="portal-name" type="text" class="form-input" placeholder="John Doe" required />
+              <div class="print-portal__field-grid">
+                <div class="form-group print-portal__field print-portal__field--name">
+                  <label class="form-label" for="portal-name">Name</label>
+                  <input id="portal-name" type="text" class="form-input" placeholder="John Doe" required />
+                </div>
+                <div class="form-group print-portal__field print-portal__field--copies">
+                  <label class="form-label" for="portal-copies">Number of Copies</label>
+                  <input id="portal-copies" type="number" min="1" value="1" class="form-input print-portal__copies-input" required />
+                </div>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="portal-color">Print Type</label>
-                <select id="portal-color" class="form-input" required>
-                  <option value="Black &amp; White" selected>Black &amp; White</option>
-                  <option value="Color">Color</option>
-                  <option value="Photo Copy">Photo Copy</option>
-                </select>
+
+              <div class="form-group print-portal__print-type-group">
+                <label class="form-label">Print Type</label>
+                <div class="print-portal__print-types" role="radiogroup" aria-label="Print Type">
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Black &amp; White" checked />
+                    <span>
+                      <strong>Black &amp; White</strong>
+                      <small>Fastest turnaround</small>
+                    </span>
+                  </label>
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Color" />
+                    <span>
+                      <strong>Color</strong>
+                      <small>Vibrant documents</small>
+                    </span>
+                  </label>
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Photo Copy" />
+                    <span>
+                      <strong>Photo Copy</strong>
+                      <small>High quality image prints</small>
+                    </span>
+                  </label>
+                </div>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="portal-copies">Number of Copies</label>
-                <input id="portal-copies" type="number" min="1" value="1" class="form-input" required />
+
+              <div class="form-group print-portal__instructions-group">
+                <label class="form-label" for="portal-instructions">Print Instructions (Optional)</label>
+                <textarea
+                  id="portal-instructions"
+                  class="form-input print-portal__instructions"
+                  rows="4"
+                  placeholder="Example: Print only page 1, double-sided, staple top-left, black and white."
+                ></textarea>
+                <p class="print-portal__instructions-help">Add any page ranges, color preference, or finishing notes.</p>
               </div>
               <button type="submit" class="btn btn--navy print-portal-form__submit">Send Print Request &nbsp;→</button>
               <div class="print-portal-form__feedback" id="print-portal-feedback"></div>

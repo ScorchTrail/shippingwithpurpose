@@ -1,7 +1,7 @@
 /* ============================================================ SERVICES PREVIEW (homepage) */
 /* Desktop: 4-col grid (span-3 each) | Tablet: span-6 each | Mobile: span-12 each */
 .services-preview {
-  padding: var(--space-8) var(--space-24) var(--space-48);
+  padding: 32px;
   background: var(--off-white);
 }
 

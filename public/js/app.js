@@ -103,11 +103,15 @@
       return;
     }
 
+    const selectedPrintType =
+      document.querySelector('input[name="portal-print-type"]:checked')?.value || 'Black & White';
+
     const payload = {
       name: document.getElementById('portal-name')?.value?.trim() || '',
       phone: document.getElementById('portal-phone')?.value?.trim() || '',
-      printType: document.getElementById('portal-color')?.value || 'Black & White',
+      printType: selectedPrintType,
       copies: document.getElementById('portal-copies')?.value || '1',
+      instructions: document.getElementById('portal-instructions')?.value?.trim() || '',
       files: uploadedFiles.map((f) => ({
         name: f.name,
         sizeBytes: f.size,
