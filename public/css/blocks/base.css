@@ -92,7 +92,7 @@ a {
   text-decoration: none;
 }
 button {
-  font-family: inherit;
+  font-family: "Inter", sans-serif;
   cursor: pointer;
 }
 ::-webkit-scrollbar {
@@ -295,7 +295,7 @@ button {
 
 /* Section Title */
 .section-title {
-  font-family: "Quantico", "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: var(--fs-h2-fluid);
   font-weight: 800;
   line-height: 1.1;
