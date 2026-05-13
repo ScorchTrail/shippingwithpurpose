@@ -181,8 +181,9 @@
 .pricing-table__per-mo {
   display: block;
   color: var(--muted);
-  font-size: 0.78rem;
-  margin-top: 2px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 .pricing-table__footer {
@@ -269,4 +270,55 @@
   text-transform: uppercase;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.92);
+}
+
+/* ============================================================
+   CRO PRICING STRATEGY: Scaled Typography & Strategic Highlighting
+   ============================================================ */
+
+/* 1. Base Price Styling (Calmed down to Navy, scaled down in size) */
+.pricing-table__price-total {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem; /* Significantly reduced size */
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  display: block;
+}
+
+/* 2. The Per-Month Subtitle (Slightly larger for readability) */
+.pricing-table__price-monthly {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  display: block;
+  margin-top: 4px;
+}
+
+/* 3. The CRO Highlight Trick: Only Popular row gets gold */
+.pricing-table__row--popular .pricing-table__price-total {
+  color: var(--kraft);
+}
+
+/* Backward Compatibility: Scale down legacy price classes */
+.mailbox-cta__price-value {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  display: block;
+  color: var(--navy);
+}
+
+.mailbox-cta__price-value--accent {
+  color: var(--navy);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+.pricing-table__row--popular .mailbox-cta__price-value--accent {
+  color: var(--kraft);
 }

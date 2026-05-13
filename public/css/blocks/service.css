@@ -1,7 +1,7 @@
 /* ============================================================ SERVICE (services.html) */
 /* Desktop: 4-col grid | Tablet: 2-col | Mobile: 1-col */
 .service {
-  padding: 32px;
+  padding: var(--section-pad-y) var(--section-pad-x);
 }
 
 .service__header {
@@ -212,11 +212,10 @@
   color: var(--navy);
 }
 
-/* Mobile Swipe Indicator */
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
   .service {
-    padding: var(--space-48) var(--space-24);
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   .service__header {
@@ -237,7 +236,7 @@
 
 @media (max-width: 768px) {
   .service {
-    padding: 48px var(--space-16);
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   .service__grid {

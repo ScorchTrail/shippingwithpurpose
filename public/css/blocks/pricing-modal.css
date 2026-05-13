@@ -77,3 +77,9 @@
 .pricing-modal__close:active {
   transform: scale(0.95);
 }
+
+.pricing-modal__close .icon-img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}

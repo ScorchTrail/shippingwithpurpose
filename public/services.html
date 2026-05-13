@@ -19,40 +19,54 @@
   <body>
     <header class="site-header">
       <nav class="nav" id="nav">
-      <a href="../index.html" class="nav__brand">
-        <img src="assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
-        <div class="nav__brand-text">
-          <div class="nav__brand-name">Shipping with Purpose</div>
-          <div class="nav__brand-sub">Shipping Center</div>
+        <a href="../index.html" class="nav__brand">
+          <img src="assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
+          <div class="nav__brand-text">
+            <div class="nav__brand-name">Shipping with Purpose</div>
+            <div class="nav__brand-sub">Shipping Center</div>
+          </div>
+        </a>
+        <div class="nav__links">
+          <a href="../index.html" class="nav__link">Home</a>
+          <a href="mailboxes.html" class="nav__link">Mailbox</a>
+          <a href="print.html" class="nav__link">Print</a>
+          <a href="services.html" class="nav__link nav__link--active">Services</a>
         </div>
-      </a>
-      <div class="nav__links">
-        <a href="../index.html" class="nav__link">Home</a>
-        <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
-        <a href="print.html" class="nav__link">Print</a>
-        <a href="services.html" class="nav__link nav__link--active">Services</a>
-      </div>
-      <div class="nav__cta">
-        <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
-      </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
-      <div class="nav__menu" id="mobile-menu">
-        <a href="../index.html" class="nav__menu-link">Home</a>
-        <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
-        <a href="print.html" class="nav__menu-link">Print</a>
-        <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
-        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
-      </div>
+        <div class="nav__cta">
+          <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <img src="assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" />
+        </button>
+        <div class="nav__menu" id="mobile-menu">
+          <a href="../index.html" class="nav__menu-link">Home</a>
+          <a href="mailboxes.html" class="nav__menu-link">Mailbox</a>
+          <a href="print.html" class="nav__menu-link">Print</a>
+          <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
+          <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        </div>
       </nav>
       <div class="info-bar">
-      <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
-      <div class="info-bar__item">
-        <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
-        <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
-      </div>
-      <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
-        >⊕ Get Directions</a
-      >
+        <div class="info-bar__item">
+          <img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a
+            href="tel:+16029604882"
+            >(602) 960-4882</a
+          >
+        </div>
+        <div class="info-bar__item">
+          <span class="info-bar__icon"
+            ><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert"
+          /></span>
+          Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
+          <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
+        </div>
+        <a
+          href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ"
+          target="_blank"
+          rel="noopener"
+          class="info-bar__action"
+          ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
+        >
       </div>
     </header>
     <section class="service fade-section">
@@ -194,13 +208,11 @@
 
         <!-- Desktop: span 10 / Tablet: span 8 / Mobile: span 4 -->
         <div class="supplies-banner">
-          <span class="service__supplies-icon" aria-hidden="true">🛍</span>
           <p class="service__supplies-text">
-            <strong class="service__supplies-strong">Need supplies?</strong> We carry boxes, stamps, tape, envelopes, bubble wrap, and more — available
-            in store.
+            <strong class="service__supplies-strong">Need supplies?</strong> We carry boxes, stamps, tape, envelopes,
+            bubble wrap, and more — available in store.
           </p>
         </div>
-
       </div>
     </section>
     <section class="faq-section fade-section">
@@ -213,7 +225,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">What do I need to rent a mailbox?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -227,7 +239,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">Can I receive packages from any carrier with a mailbox rental?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -241,7 +253,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">How will I know when I have mail or a package?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -255,7 +267,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">What shipping carriers do you work with?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -269,7 +281,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">Do you offer same-day printing?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -283,7 +295,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">Is a Notary Public available without an appointment?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -297,7 +309,7 @@
         <article class="faq-item">
           <button class="faq-item__btn">
             <span class="faq-question">Can I use my mailbox address for my business?</span>
-            <div class="faq-chevron">▼</div>
+            <div class="faq-chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
@@ -315,36 +327,45 @@
         <div class="footer__grid">
           <section class="footer__col">
             <div class="footer__brand">
-              <div class="footer__brand-icon">◻</div>
+              <div class="footer__brand-icon"><img src="assets/icons/swp-logo.svg" alt="" class="icon-img icon-img--lg" /></div>
               <span class="footer__brand-name">Shipping with Purpose</span>
             </div>
             <p class="footer__tagline">
               Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
             </p>
-            <a href="tel:+16029604882" class="footer__link footer__link--contact">☎ (602) 960-4882</a>
-            <a
-              href="https://maps.google.com/?q=Shipping+with+Purpose"
-              target="_blank"
-              rel="noopener"
-              class="footer__link footer__link--contact"
-              >⊕ Get Directions</a
-            >
+            <div class="footer__contact-row">
+              <img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" />
+              <a href="tel:+16029604882" class="footer__link footer__link--contact">(602) 960-4882</a>
+            </div>
+            <div class="footer__contact-row">
+              <img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" />
+              <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="footer__link footer__link--contact">10105 E Via Linda Ste 103, Scottsdale, AZ</a>
+            </div>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
-            <a href="../index.html" class="footer__link">Home</a>
-            <a href="services.html" class="footer__link">Services</a>
-            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
-            <a href="print.html" class="footer__link">Print</a>
+            <ul class="footer__list">
+              <li class="footer__list-item"><a href="../index.html" class="footer__link">Home</a></li>
+              <li class="footer__list-item"><a href="services.html" class="footer__link">Services</a></li>
+              <li class="footer__list-item"><a href="mailboxes.html" class="footer__link">Mailbox</a></li>
+              <li class="footer__list-item"><a href="print.html" class="footer__link">Print</a></li>
+            </ul>
           </section>
-          <section class="footer__col">
+          <section class="footer__col footer__col--hours">
             <h3 class="footer__col-heading">Hours</h3>
-            <div class="footer__hours">Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed</div>
+            <div class="footer__hours">
+              <div>Mon-Fri: 9:00 AM - 5:00 PM</div>
+              <div>Sat: 9:00 AM - 2:30 PM</div>
+              <div>Sun: Closed</div>
+            </div>
           </section>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
-          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+          <span class="footer__copy">© <span id="footer-year">2026</span> Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Scottsdale, AZ.</span>
+          <a href="https://srttrail.dev" class="footer__agency" aria-label="Website designed by SRTtrail" target="_blank" rel="noopener">
+            <img src="assets/icons/srtlogo-kraft.svg" alt="SRT Agency Logo" class="footer__agency-logo" width="32" height="32" />
+          </a>
         </div>
       </div>
     </footer>

@@ -16,19 +16,35 @@
 
   let menuOpen = false;
 
+  const iconEl = hamburger.querySelector('img');
+  const menuIconSrc = iconEl
+    ? (iconEl.getAttribute('src') || '').replace('close.svg', 'menu.svg')
+    : '';
+  const closeIconSrc = iconEl
+    ? (iconEl.getAttribute('src') || '').replace('menu.svg', 'close.svg')
+    : '';
+
+  const syncMenuUi = () => {
+    mobileMenu.classList.toggle('nav__menu--open', menuOpen);
+    hamburger.setAttribute('aria-expanded', String(menuOpen));
+    if (iconEl) {
+      iconEl.setAttribute('src', menuOpen ? closeIconSrc : menuIconSrc);
+    }
+  };
+
   hamburger.addEventListener('click', () => {
     menuOpen = !menuOpen;
-    mobileMenu.classList.toggle('nav__menu--open', menuOpen);
-    hamburger.textContent = menuOpen ? '✕' : '☰';
+    syncMenuUi();
   });
 
   document.querySelectorAll('.nav__menu-link, .nav__menu-cta').forEach((el) => {
     el.addEventListener('click', () => {
       menuOpen = false;
-      mobileMenu.classList.remove('nav__menu--open');
-      hamburger.textContent = '☰';
+      syncMenuUi();
     });
   });
+
+  syncMenuUi();
 })();
 
 /* ============================================================
@@ -865,3 +881,13 @@ function escHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 }
+
+/* ============================================================
+   UTILITY: Update footer year dynamically
+   ============================================================ */
+(function updateFooterYear() {
+  const footerYearEl = document.getElementById('footer-year');
+  if (footerYearEl) {
+    footerYearEl.textContent = new Date().getFullYear();
+  }
+})();

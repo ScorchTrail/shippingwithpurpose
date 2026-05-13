@@ -79,6 +79,12 @@
   transform: scale(0.95);
 }
 
+.reservation-modal__close .icon-img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
 .reservation-modal__header {
   margin-bottom: var(--space-24);
   text-align: center;

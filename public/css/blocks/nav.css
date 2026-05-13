@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background: var(--white);
   box-shadow: 0 8px 24px rgba(26, 54, 93, 0.08);
 }
 
@@ -20,6 +21,7 @@
   gap: var(--space-16);
   min-height: 64px;
   padding: 0 max(24px, calc((100vw - 1280px) / 2));
+  /* Removed sticky positioning; handled by .site-header */
 }
 
 .nav__brand {
@@ -118,6 +120,10 @@
   font-size: 1.5rem;
   padding: var(--space-8);
   cursor: pointer;
+}
+
+.nav__hamburger .icon-img {
+  vertical-align: middle;
 }
 
 .nav__menu {

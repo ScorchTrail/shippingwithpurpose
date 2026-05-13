@@ -28,30 +28,30 @@
       </a>
       <div class="nav__links">
         <a href="../index.html" class="nav__link">Home</a>
-        <a href="mailboxes.html" class="nav__link nav__link--active">Mailbox Rentals</a>
+        <a href="mailboxes.html" class="nav__link nav__link--active">Mailbox</a>
         <a href="print.html" class="nav__link">Print</a>
         <a href="services.html" class="nav__link">Services</a>
       </div>
       <div class="nav__cta">
         <a href="mailboxes.html" class="btn btn--navy-sm">Reserve a Box</a>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><img src="assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" /></button>
       <div class="nav__menu" id="mobile-menu">
         <a href="../index.html" class="nav__menu-link">Home</a>
-        <a href="mailboxes.html" class="nav__menu-link nav__menu-link--active">Mailbox Rentals</a>
+        <a href="mailboxes.html" class="nav__menu-link nav__menu-link--active">Mailbox</a>
         <a href="print.html" class="nav__menu-link">Print</a>
         <a href="services.html" class="nav__menu-link">Services</a>
         <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
       </nav>
       <div class="info-bar">
-      <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
+      <div class="info-bar__item"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
       <div class="info-bar__item">
-        <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
+        <span class="info-bar__icon"><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
         <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
       </div>
-      <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
-        >⊕ Get Directions</a
+      <a href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ" target="_blank" rel="noopener" class="info-bar__action"
+        ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
       >
       </div>
     </header>
@@ -137,7 +137,7 @@
                   <div class="quote-card__item"><span class="quote-card__check">✓</span> USPS Form 1583 Required</div>
                 </div>
                 <div class="quote-card__footer">
-                  <a href="mailboxes.html" class="btn btn--navy quote-cta" data-mailbox-field="quote.reserveLabel">Reserve Your Box &nbsp;→</a>
+                  <a href="mailboxes.html" class="btn btn--navy quote-cta" data-mailbox-field="quote.reserveLabel">Reserve Your Box</a>
 
                   <button
                     class="quote__pricing-trigger quote__pricing-trigger--icon"
@@ -172,7 +172,7 @@
     <div class="pricing-modal" id="pricing-modal" aria-modal="true" aria-labelledby="pricing-modal-title">
       <div class="pricing-modal__overlay"></div>
       <div class="pricing-modal__content">
-        <button class="pricing-modal__close" aria-label="Close pricing table" type="button">✕</button>
+        <button class="pricing-modal__close" aria-label="Close pricing table" type="button"><img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
         <div class="pricing-table">
           <div class="pricing-table__header">
             <div class="pricing-table__header-text">
@@ -185,20 +185,9 @@
               <thead>
                 <tr>
                   <th class="pricing-table__col-box">Box Type</th>
-                  <th class="pricing-table__col-term">
-                    3 Months
-                    <span class="pricing-table__col-sub">total / per month</span>
-                  </th>
-                  <th class="pricing-table__col-term">
-                    6 Months
-                    <span class="pricing-table__col-badge">Save ~6%</span>
-                    <span class="pricing-table__col-sub">total / per month</span>
-                  </th>
-                  <th class="pricing-table__col-term">
-                    12 Months
-                    <span class="pricing-table__col-badge pricing-table__col-badge--best">Best Value</span>
-                    <span class="pricing-table__col-sub">total / per month</span>
-                  </th>
+                  <th class="pricing-table__col-term">3 Months</th>
+                  <th class="pricing-table__col-term">6 Months</th>
+                  <th class="pricing-table__col-term">12 Months</th>
                 </tr>
               </thead>
               <tbody>
@@ -207,9 +196,9 @@
                     <span class="pricing-table__size-name">Mini</span>
                     <span class="pricing-table__size-desc">Minimal mail volume</span>
                   </td>
-                  <td>$57.00 <span class="pricing-table__per-mo">~$19/mo</span></td>
-                  <td>$109.00 <span class="pricing-table__per-mo">~$18/mo</span></td>
-                  <td>$200.00 <span class="pricing-table__per-mo">~$17/mo</span></td>
+                  <td>$57 <span class="pricing-table__per-mo">~$19/mo</span></td>
+                  <td>$109 <span class="pricing-table__per-mo">~$18/mo</span></td>
+                  <td>$200 <span class="pricing-table__per-mo">~$17/mo</span></td>
                 </tr>
                 <tr class="pricing-table__row--popular">
                   <td class="pricing-table__row-label">
@@ -219,27 +208,27 @@
                     </span>
                     <span class="pricing-table__size-desc">Moderate mail volume</span>
                   </td>
-                  <td>$73.00 <span class="pricing-table__per-mo">~$24/mo</span></td>
-                  <td>$140.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
-                  <td>$250.00 <span class="pricing-table__per-mo">~$21/mo</span></td>
+                  <td>$73 <span class="pricing-table__per-mo">~$24/mo</span></td>
+                  <td>$140 <span class="pricing-table__per-mo">~$23/mo</span></td>
+                  <td>$250 <span class="pricing-table__per-mo">~$21/mo</span></td>
                 </tr>
                 <tr>
                   <td class="pricing-table__row-label">
                     <span class="pricing-table__size-name">Business</span>
                     <span class="pricing-table__size-desc">Small business shipments</span>
                   </td>
-                  <td>$80.00 <span class="pricing-table__per-mo">~$27/mo</span></td>
-                  <td>$152.00 <span class="pricing-table__per-mo">~$25/mo</span></td>
-                  <td>$275.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
+                  <td>$80 <span class="pricing-table__per-mo">~$27/mo</span></td>
+                  <td>$152 <span class="pricing-table__per-mo">~$25/mo</span></td>
+                  <td>$275 <span class="pricing-table__per-mo">~$23/mo</span></td>
                 </tr>
                 <tr>
                   <td class="pricing-table__row-label">
                     <span class="pricing-table__size-name">Corporate</span>
                     <span class="pricing-table__size-desc">High-volume &amp; extra space</span>
                   </td>
-                  <td>$126.00 <span class="pricing-table__per-mo">~$42/mo</span></td>
-                  <td>$240.00 <span class="pricing-table__per-mo">~$40/mo</span></td>
-                  <td>$440.00 <span class="pricing-table__per-mo">~$37/mo</span></td>
+                  <td>$126 <span class="pricing-table__per-mo">~$42/mo</span></td>
+                  <td>$240 <span class="pricing-table__per-mo">~$40/mo</span></td>
+                  <td>$440 <span class="pricing-table__per-mo">~$37/mo</span></td>
                 </tr>
               </tbody>
             </table>
@@ -263,7 +252,7 @@
               </svg>
               Mail Notification add-on is +$1/month per term.
             </p>
-            <a href="mailboxes.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box &nbsp;→</a>
+            <a href="mailboxes.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box</a>
           </div>
         </div>
       </div>
@@ -274,7 +263,7 @@
         <h2 class="mailbox-features__heading mailbox-features__heading--gradient">Everything included with your mailbox.</h2>
         <div class="mailbox-features__grid">
           <div class="feature-card">
-            <div class="feature-card__icon">⌂</div>
+            <div class="feature-card__icon"><img src="assets/icons/home.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Business Address, Not Your Home</div>
             <p class="feature-card__desc">
               Use our street address for business registration, banking, and professional mail while keeping your home
@@ -282,28 +271,28 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon">◻</div>
+            <div class="feature-card__icon"><img src="assets/icons/carrier.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">All Carriers Welcome</div>
             <p class="feature-card__desc">
               Accept packages from USPS, UPS, FedEx, DHL, Amazon, and any other courier service.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon">◯</div>
+            <div class="feature-card__icon"><img src="assets/icons/notification.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Mail Notifications</div>
             <p class="feature-card__desc">
               Get notified by text or email when mail or packages arrive — optional add-on for $1/month.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon">⊡</div>
+            <div class="feature-card__icon"><img src="assets/icons/lock.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Secure &amp; Private</div>
             <p class="feature-card__desc">
               Keep your home address off public records. Your mail is locked and only accessible to you.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon">▦</div>
+            <div class="feature-card__icon"><img src="assets/icons/coins.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">No Hidden or Sign-Up Fees</div>
             <p class="feature-card__desc">
               Straightforward pricing with clear terms. Choose 3, 6, or 12-month plans with no surprise onboarding
@@ -311,7 +300,7 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon">◉</div>
+            <div class="feature-card__icon"><img src="assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Business Ready</div>
             <p class="feature-card__desc">
               Perfect for LLC registration, business banking, and keeping your home address private.
@@ -325,36 +314,45 @@
         <div class="footer__grid">
           <section class="footer__col">
             <div class="footer__brand">
-              <div class="footer__brand-icon">◻</div>
+              <div class="footer__brand-icon"><img src="assets/icons/swp-logo.svg" alt="" class="icon-img icon-img--lg" /></div>
               <span class="footer__brand-name">Shipping with Purpose</span>
             </div>
             <p class="footer__tagline">
               Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
             </p>
-            <a href="tel:+16029604882" class="footer__link footer__link--contact">☎ (602) 960-4882</a>
-            <a
-              href="https://maps.google.com/?q=Shipping+with+Purpose"
-              target="_blank"
-              rel="noopener"
-              class="footer__link footer__link--contact"
-              >⊕ Get Directions</a
-            >
+            <div class="footer__contact-row">
+              <img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" />
+              <a href="tel:+16029604882" class="footer__link footer__link--contact">(602) 960-4882</a>
+            </div>
+            <div class="footer__contact-row">
+              <img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" />
+              <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="footer__link footer__link--contact">10105 E Via Linda Ste 103, Scottsdale, AZ</a>
+            </div>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
-            <a href="../index.html" class="footer__link">Home</a>
-            <a href="services.html" class="footer__link">Services</a>
-            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
-            <a href="print.html" class="footer__link">Print</a>
+            <ul class="footer__list">
+              <li class="footer__list-item"><a href="../index.html" class="footer__link">Home</a></li>
+              <li class="footer__list-item"><a href="services.html" class="footer__link">Services</a></li>
+              <li class="footer__list-item"><a href="mailboxes.html" class="footer__link">Mailbox</a></li>
+              <li class="footer__list-item"><a href="print.html" class="footer__link">Print</a></li>
+            </ul>
           </section>
-          <section class="footer__col">
+          <section class="footer__col footer__col--hours">
             <h3 class="footer__col-heading">Hours</h3>
-            <div class="footer__hours">Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed</div>
+            <div class="footer__hours">
+              <div>Mon-Fri: 9:00 AM - 5:00 PM</div>
+              <div>Sat: 9:00 AM - 2:30 PM</div>
+              <div>Sun: Closed</div>
+            </div>
           </section>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
-          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+          <span class="footer__copy">© <span id="footer-year">2026</span> Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Scottsdale, AZ.</span>
+          <a href="https://srttrail.dev" class="footer__agency" aria-label="Website designed by SRTtrail" target="_blank" rel="noopener">
+            <img src="assets/icons/srtlogo-kraft.svg" alt="SRT Agency Logo" class="footer__agency-logo" width="32" height="32" />
+          </a>
         </div>
       </div>
     </footer>
@@ -363,7 +361,7 @@
     <div class="reservation-modal" id="reservation-modal" aria-modal="true">
       <div class="reservation-modal__overlay"></div>
       <div class="reservation-modal__content">
-        <button class="reservation-modal__close" aria-label="Close reservation form" type="button">✕</button>
+        <button class="reservation-modal__close" aria-label="Close reservation form" type="button"><img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
 
         <div class="reservation-modal__header">
           <h2 class="reservation-modal__title" data-bind-reservation-title>Reserve Your Mailbox</h2>

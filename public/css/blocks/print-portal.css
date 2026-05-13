@@ -1,7 +1,7 @@
 /* ============================================================ PRINT PORTAL (homepage) */
 /* Desktop: 2-col bento | Mobile: 1-col */
 .print-portal {
-  padding: var(--space-32);
+  padding: var(--section-pad-y) var(--section-pad-x);
   background: var(--off-white);
 }
 
@@ -237,6 +237,12 @@
   border: 1px solid rgba(26, 54, 93, 0.16);
 }
 
+.drop-zone__icon .icon-img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
 .drop-zone__title {
   font-family: "Inter", sans-serif;
   font-weight: 800;
@@ -360,7 +366,7 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
   .print-portal {
-    padding: var(--space-32) var(--space-24);
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   .print-portal__field-grid {
@@ -370,7 +376,7 @@
 
 @media (max-width: 768px) {
   .print-portal {
-    padding: var(--space-32) var(--space-16);
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   .print-portal__bento {
