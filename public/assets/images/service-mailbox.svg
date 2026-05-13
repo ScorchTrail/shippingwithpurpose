@@ -1,19 +1,107 @@
-<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgMail" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEF0F8"/>
-      <stop offset="1" stop-color="#FAFBFF"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" rx="28" fill="url(#bgMail)"/>
-  <rect x="132" y="116" width="536" height="250" rx="20" fill="#1A365D"/>
-  <rect x="170" y="160" width="144" height="146" rx="12" fill="#FFFFFF"/>
-  <rect x="328" y="160" width="144" height="146" rx="12" fill="#FFFFFF"/>
-  <rect x="486" y="160" width="144" height="146" rx="12" fill="#FFFFFF"/>
-  <rect x="198" y="194" width="88" height="16" rx="7" fill="#CDD8EA"/>
-  <rect x="356" y="194" width="88" height="16" rx="7" fill="#CDD8EA"/>
-  <rect x="514" y="194" width="88" height="16" rx="7" fill="#CDD8EA"/>
-  <rect x="198" y="224" width="88" height="52" rx="8" fill="#E8EDF7"/>
-  <rect x="356" y="224" width="88" height="52" rx="8" fill="#E8EDF7"/>
-  <rect x="514" y="224" width="88" height="52" rx="8" fill="#E8EDF7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 384" fill="none">
+  <!-- Dark wall background -->
+  <rect width="640" height="384" fill="#1a2d42"/>
+  <rect x="0" y="0" width="640" height="220" fill="#243d58" opacity="0.35"/>
+  <!-- Mailbox wall panel -->
+  <rect x="96" y="44" width="448" height="296" rx="8" fill="#1e3450" stroke="#243d58" stroke-width="2"/>
+  <!-- ROW 1: boxes 101, 102, 103 -->
+  <!-- 101 -->
+  <rect x="112" y="60" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="116" y="64" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <rect x="152" y="88" width="40" height="30" rx="3" fill="#1e3450"/>
+  <circle cx="172" cy="103" r="9" fill="#243d58"/>
+  <circle cx="172" cy="103" r="4.5" fill="#152338"/>
+  <rect x="169" y="103" width="6" height="9" rx="2" fill="#152338"/>
+  <rect x="122" y="69" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="134" y="79" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">101</text>
+  <rect x="122" y="126" width="102" height="8" rx="2" fill="#152338"/>
+  <!-- 102 -->
+  <rect x="256" y="60" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="260" y="64" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <rect x="296" y="88" width="40" height="30" rx="3" fill="#1e3450"/>
+  <circle cx="316" cy="103" r="9" fill="#243d58"/>
+  <circle cx="316" cy="103" r="4.5" fill="#152338"/>
+  <rect x="313" y="103" width="6" height="9" rx="2" fill="#152338"/>
+  <rect x="266" y="69" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="278" y="79" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">102</text>
+  <rect x="266" y="126" width="102" height="8" rx="2" fill="#152338"/>
+  <!-- 103 -->
+  <rect x="400" y="60" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="404" y="64" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <rect x="440" y="88" width="40" height="30" rx="3" fill="#1e3450"/>
+  <circle cx="460" cy="103" r="9" fill="#243d58"/>
+  <circle cx="460" cy="103" r="4.5" fill="#152338"/>
+  <rect x="457" y="103" width="6" height="9" rx="2" fill="#152338"/>
+  <rect x="410" y="69" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="422" y="79" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">103</text>
+  <rect x="410" y="126" width="102" height="8" rx="2" fill="#152338"/>
+  <!-- ROW 2: 201 (OPEN), 202, 203 -->
+  <!-- 201 OPEN -->
+  <rect x="112" y="158" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="116" y="162" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <!-- Open door (ajar perspective) -->
+  <path d="M116 162 L172 166 L172 234 L116 238 Z" fill="#1e3450"/>
+  <rect x="172" y="162" width="64" height="76" fill="#243d58"/>
+  <!-- Envelope inside -->
+  <rect x="180" y="178" width="48" height="34" rx="3" fill="#fff" opacity="0.13"/>
+  <path d="M180 180 L204 194 L228 180" stroke="#fff" stroke-width="1.5" opacity="0.18"/>
+  <!-- Door face -->
+  <path d="M116 162 L172 166 L172 234 L116 238 Z" fill="#2c4a6a" opacity="0.5"/>
+  <rect x="122" y="167" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="134" y="177" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">201</text>
+  <!-- Key in lock -->
+  <circle cx="176" cy="200" r="9" fill="#b98e5a" opacity="0.95"/>
+  <circle cx="176" cy="200" r="4.5" fill="#8a6530"/>
+  <rect x="181" y="197" width="16" height="3.5" rx="1" fill="#b98e5a"/>
+  <rect x="193" y="200" width="4" height="7" rx="1" fill="#b98e5a"/>
+  <!-- 202 -->
+  <rect x="256" y="158" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="260" y="162" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <rect x="296" y="186" width="40" height="30" rx="3" fill="#1e3450"/>
+  <circle cx="316" cy="201" r="9" fill="#243d58"/>
+  <circle cx="316" cy="201" r="4.5" fill="#152338"/>
+  <rect x="313" y="201" width="6" height="9" rx="2" fill="#152338"/>
+  <rect x="266" y="167" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="278" y="177" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">202</text>
+  <rect x="266" y="224" width="102" height="8" rx="2" fill="#152338"/>
+  <!-- 203 -->
+  <rect x="400" y="158" width="128" height="84" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="404" y="162" width="120" height="76" rx="4" fill="#2c4a6a"/>
+  <rect x="440" y="186" width="40" height="30" rx="3" fill="#1e3450"/>
+  <circle cx="460" cy="201" r="9" fill="#243d58"/>
+  <circle cx="460" cy="201" r="4.5" fill="#152338"/>
+  <rect x="457" y="201" width="6" height="9" rx="2" fill="#152338"/>
+  <rect x="410" y="167" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="422" y="177" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">203</text>
+  <rect x="410" y="224" width="102" height="8" rx="2" fill="#152338"/>
+  <!-- ROW 3: 301, 302, 303 (smaller / locker size) -->
+  <!-- 301 -->
+  <rect x="112" y="256" width="128" height="68" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="116" y="260" width="120" height="60" rx="4" fill="#2c4a6a"/>
+  <rect x="152" y="276" width="40" height="24" rx="3" fill="#1e3450"/>
+  <circle cx="172" cy="288" r="7.5" fill="#243d58"/>
+  <circle cx="172" cy="288" r="3.5" fill="#152338"/>
+  <rect x="122" y="264" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="134" y="274" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">301</text>
+  <rect x="122" y="308" width="102" height="6" rx="2" fill="#152338"/>
+  <!-- 302 -->
+  <rect x="256" y="256" width="128" height="68" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="260" y="260" width="120" height="60" rx="4" fill="#2c4a6a"/>
+  <rect x="296" y="276" width="40" height="24" rx="3" fill="#1e3450"/>
+  <circle cx="316" cy="288" r="7.5" fill="#243d58"/>
+  <circle cx="316" cy="288" r="3.5" fill="#152338"/>
+  <rect x="266" y="264" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="278" y="274" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">302</text>
+  <rect x="266" y="308" width="102" height="6" rx="2" fill="#152338"/>
+  <!-- 303 -->
+  <rect x="400" y="256" width="128" height="68" rx="5" fill="#243d58" stroke="#1a2d42" stroke-width="2"/>
+  <rect x="404" y="260" width="120" height="60" rx="4" fill="#2c4a6a"/>
+  <rect x="440" y="276" width="40" height="24" rx="3" fill="#1e3450"/>
+  <circle cx="460" cy="288" r="7.5" fill="#243d58"/>
+  <circle cx="460" cy="288" r="3.5" fill="#152338"/>
+  <rect x="410" y="264" width="24" height="13" rx="3" fill="#b98e5a" opacity="0.85"/>
+  <text x="422" y="274" font-size="7" text-anchor="middle" fill="#1a2d42" font-family="monospace" font-weight="bold">303</text>
+  <rect x="410" y="308" width="102" height="6" rx="2" fill="#152338"/>
+  <!-- Floor base -->
+  <rect x="76" y="340" width="488" height="14" rx="4" fill="#152338" opacity="0.85"/>
 </svg>

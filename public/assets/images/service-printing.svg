@@ -1,16 +1,46 @@
-<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgPrint" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFF7E8"/>
-      <stop offset="1" stop-color="#FFFDF8"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" rx="28" fill="url(#bgPrint)"/>
-  <rect x="176" y="120" width="448" height="124" rx="16" fill="#1A365D"/>
-  <rect x="210" y="160" width="380" height="170" rx="16" fill="#FFFFFF"/>
-  <rect x="242" y="194" width="196" height="18" rx="8" fill="#F1BD00"/>
-  <rect x="242" y="226" width="314" height="14" rx="7" fill="#D8DDE7"/>
-  <rect x="242" y="250" width="276" height="14" rx="7" fill="#D8DDE7"/>
-  <rect x="242" y="274" width="152" height="14" rx="7" fill="#D8DDE7"/>
-  <rect x="278" y="342" width="244" height="24" rx="10" fill="#345D93" fill-opacity="0.2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 384" fill="none">
+  <!-- Cool background -->
+  <rect width="640" height="384" fill="#edf2f7"/>
+  <circle cx="320" cy="200" r="165" fill="#e2eaf5" opacity="0.55"/>
+  <!-- Paper stack (input tray) -->
+  <rect x="213" y="294" width="214" height="10" rx="4" fill="#f0f4f8"/>
+  <rect x="208" y="286" width="224" height="12" rx="5" fill="#fff" stroke="#dde2ea" stroke-width="1.5"/>
+  <!-- Printer body -->
+  <rect x="168" y="198" width="304" height="104" rx="16" fill="#2d3748"/>
+  <!-- Printer top section -->
+  <rect x="188" y="174" width="264" height="40" rx="12" fill="#1a202c"/>
+  <!-- Paper exit slot -->
+  <rect x="210" y="185" width="220" height="10" rx="5" fill="#0f1523"/>
+  <!-- Output papers (back sheet) -->
+  <rect x="228" y="78" width="184" height="118" rx="4" fill="#e8edf5" stroke="#c5cdd8" stroke-width="1"/>
+  <rect x="246" y="98" width="110" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="246" y="110" width="140" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="246" y="122" width="120" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="246" y="134" width="95" height="5" rx="2" fill="#dde2ea"/>
+  <!-- Output paper (front sheet - main document) -->
+  <rect x="220" y="70" width="184" height="122" rx="4" fill="#ffffff" stroke="#c5cdd8" stroke-width="1.5"/>
+  <!-- Document header bar (navy) -->
+  <rect x="220" y="70" width="184" height="26" rx="4" fill="#1a365d"/>
+  <rect x="220" y="86" width="184" height="10" fill="#1a365d"/>
+  <rect x="240" y="79" width="80" height="7" rx="3" fill="#fff" opacity="0.4"/>
+  <!-- Document content lines -->
+  <rect x="232" y="108" width="130" height="5" rx="2" fill="#c5cdd8"/>
+  <rect x="232" y="120" width="152" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="232" y="132" width="110" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="232" y="144" width="140" height="5" rx="2" fill="#dde2ea"/>
+  <rect x="232" y="156" width="125" height="5" rx="2" fill="#dde2ea"/>
+  <!-- Signature line -->
+  <rect x="232" y="178" width="168" height="1.5" fill="#c5cdd8"/>
+  <!-- Printer front panel -->
+  <rect x="184" y="251" width="272" height="44" rx="10" fill="#374151"/>
+  <!-- Progress/scan bar -->
+  <rect x="200" y="267" width="165" height="7" rx="3" fill="#1a202c"/>
+  <rect x="200" y="267" width="100" height="7" rx="3" fill="#3b82f6" opacity="0.6"/>
+  <!-- LED indicators -->
+  <circle cx="400" cy="264" r="8" fill="#1a202c"/>
+  <circle cx="400" cy="264" r="5" fill="#2d3748"/>
+  <circle cx="400" cy="281" r="5" fill="#34d399" opacity="0.9"/>
+  <circle cx="416" cy="281" r="5" fill="#60a5fa" opacity="0.65"/>
+  <!-- Shadow -->
+  <ellipse cx="320" cy="310" rx="152" ry="10" fill="#1a365d" opacity="0.09"/>
 </svg>

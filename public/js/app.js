@@ -63,6 +63,8 @@
   const fileList = document.getElementById('uploaded-doc-list');
   const emptyState = document.getElementById('uploaded-doc-empty');
   const feedback = document.getElementById('print-portal-feedback');
+  const nameInput = document.getElementById('portal-name');
+  const copiesInput = document.getElementById('portal-copies');
 
   if (!form || !dz || !fileInput || !fileList || !emptyState || !feedback) return;
 
@@ -73,14 +75,27 @@
   dz.addEventListener('dragover', (e) => {
     e.preventDefault();
     dz.classList.add('drop-zone--dragging');
+    dz.classList.add('drop-zone--active');
   });
 
-  dz.addEventListener('dragleave', () => dz.classList.remove('drop-zone--dragging'));
+  dz.addEventListener('dragleave', () => {
+    dz.classList.remove('drop-zone--dragging');
+    dz.classList.remove('drop-zone--active');
+  });
 
   dz.addEventListener('drop', (e) => {
     e.preventDefault();
     dz.classList.remove('drop-zone--dragging');
+    dz.classList.remove('drop-zone--active');
     addFiles(e.dataTransfer.files);
+  });
+
+  dz.addEventListener('focus', () => dz.classList.add('drop-zone--active'));
+  dz.addEventListener('blur', () => dz.classList.remove('drop-zone--active'));
+
+  [nameInput, copiesInput].forEach((inputEl) => {
+    if (!inputEl) return;
+    inputEl.addEventListener('input', () => inputEl.classList.remove('form-input--error'));
   });
 
   fileInput.addEventListener('change', (e) => addFiles(e.target.files));
@@ -97,7 +112,25 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const nameValue = nameInput?.value?.trim() || '';
+    const copiesValue = Number(copiesInput?.value || 0);
+
+    if (!nameValue) {
+      nameInput?.classList.add('form-input--error');
+    }
+
+    if (!Number.isFinite(copiesValue) || copiesValue < 1) {
+      copiesInput?.classList.add('form-input--error');
+    }
+
+    if (!nameValue || !Number.isFinite(copiesValue) || copiesValue < 1) {
+      feedback.textContent = 'Please complete all required print details before sending.';
+      feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+      return;
+    }
+
     if (!uploadedFiles.length) {
+      dz.classList.add('drop-zone--active');
       feedback.textContent = 'Please upload at least one document before sending.';
       feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
       return;
@@ -107,10 +140,9 @@
       document.querySelector('input[name="portal-print-type"]:checked')?.value || 'Black & White';
 
     const payload = {
-      name: document.getElementById('portal-name')?.value?.trim() || '',
-      phone: document.getElementById('portal-phone')?.value?.trim() || '',
+      name: nameValue,
       printType: selectedPrintType,
-      copies: document.getElementById('portal-copies')?.value || '1',
+      copies: copiesInput?.value || '1',
       instructions: document.getElementById('portal-instructions')?.value?.trim() || '',
       files: uploadedFiles.map((f) => ({
         name: f.name,
@@ -119,11 +151,9 @@
       })),
     };
 
-    // Placeholder for next phase email service integration.
-    console.log('Print portal payload (email integration pending):', payload);
-
     feedback.textContent = 'Request captured. Next step is connecting this form to email delivery.';
     feedback.className = 'print-portal-form__feedback print-portal-form__feedback--success';
+    dz.classList.remove('drop-zone--active');
   });
 
   function addFiles(fileCollection) {
@@ -384,22 +414,22 @@ function getByPath(source, path) {
         .map((i) => `<div class="quote-card__item"><span class="quote-card__check">✓</span> ${escHtml(i)}</div>`)
         .join('');
 
-      document.querySelectorAll('.size-btn').forEach((btn) => {
-        btn.classList.toggle('size-btn--active', btn.dataset.size === selectedSize);
+      document.querySelectorAll('.quote__size-btn').forEach((btn) => {
+        btn.classList.toggle('quote__size-btn--active', btn.dataset.size === selectedSize);
       });
 
-      document.querySelectorAll('.term-btn').forEach((btn) => {
-        btn.classList.toggle('term-btn--active', btn.dataset.term === selectedTerm);
+      document.querySelectorAll('.quote__term-btn').forEach((btn) => {
+        btn.classList.toggle('quote__term-btn--active', btn.dataset.term === selectedTerm);
       });
 
       const addonBadge = document.getElementById('addon-badge');
       if (addonBadge) addonBadge.textContent = '+$' + NOTIF[selectedTerm] + ' (' + selectedTerm + ')';
 
       const addonBtn = document.getElementById('addon-btn');
-      if (addonBtn) addonBtn.classList.toggle('addon-btn--active', notifications);
+      if (addonBtn) addonBtn.classList.toggle('quote__addon-btn--active', notifications);
     }
 
-    document.querySelectorAll('.size-btn').forEach((btn) => {
+    document.querySelectorAll('.quote__size-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         selectedSize = btn.dataset.size;
         if (!PRICING[selectedSize]?.[selectedTerm]) selectedTerm = '3-Month';
@@ -407,7 +437,7 @@ function getByPath(source, path) {
       });
     });
 
-    document.querySelectorAll('.term-btn').forEach((btn) => {
+    document.querySelectorAll('.quote__term-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         selectedTerm = btn.dataset.term;
         updateQuote();
@@ -419,7 +449,7 @@ function getByPath(source, path) {
       addonBtn.addEventListener('click', () => {
         notifications = !notifications;
         updateQuote();
-        const icon = addonBtn.querySelector('.addon-icon');
+        const icon = addonBtn.querySelector('.quote__addon-icon');
         if (icon) {
           icon.style.transform = 'scale(0)';
           setTimeout(() => {
@@ -480,7 +510,7 @@ function getByPath(source, path) {
 
 
 (function initFAQ() {
-  document.querySelectorAll('.faq-btn').forEach((btn) => {
+  document.querySelectorAll('.faq-item__btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('faq-item--open');
@@ -621,27 +651,6 @@ function getByPath(source, path) {
   }
 })();
 
-/* ============================================================   CONTACT FORM (contact.html)
-   ============================================================ */
-(function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const container = document.getElementById('contact-form-container');
-    if (!container) return;
-    container.innerHTML = `
-      <div class="form-success">
-        <div class="form-success__icon">✅</div>
-        <h3>Message sent!</h3>
-        <p class="form-success__text">We'll get back to you as soon as possible.</p>
-        <button class="btn btn--navy" onclick="location.reload()">Send Another</button>
-      </div>
-    `;
-  });
-})();
-
 /* ============================================================
    RESERVATION MODAL (mailboxes.html + homepage CTA)
    ============================================================ */
@@ -709,8 +718,6 @@ function getByPath(source, path) {
         phone: form.querySelector('input[name="phone"]').value,
         email: form.querySelector('input[name="email"]').value,
       };
-      console.log('Reservation form submitted:', formData);
-      // Placeholder: Next phase will connect to email/backend service
       alert('Thank you! We received your information. Please visit us in person to complete the mailbox setup.');
       closeModal();
     });

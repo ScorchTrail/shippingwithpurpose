@@ -1,18 +1,54 @@
-<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgShip" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEF3FB"/>
-      <stop offset="1" stop-color="#F7F9FD"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" rx="28" fill="url(#bgShip)"/>
-  <rect x="84" y="286" width="632" height="44" rx="12" fill="#DDE6F4"/>
-  <rect x="118" y="222" width="264" height="90" rx="14" fill="#1A365D"/>
-  <rect x="406" y="182" width="236" height="130" rx="14" fill="#345D93"/>
-  <rect x="438" y="214" width="96" height="20" rx="6" fill="#FFFFFF" fill-opacity="0.94"/>
-  <rect x="438" y="246" width="150" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.75"/>
-  <circle cx="210" cy="334" r="26" fill="#5B7DA9"/>
-  <circle cx="554" cy="334" r="26" fill="#5B7DA9"/>
-  <path d="M172 264H326" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-  <path d="M604 254L654 218" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 384" fill="none">
+  <!-- Warm background -->
+  <rect width="640" height="384" fill="#faf0e4"/>
+  <circle cx="500" cy="70" r="150" fill="#f0e4d2" opacity="0.6"/>
+  <circle cx="80" cy="340" r="100" fill="#ede0cc" opacity="0.4"/>
+  <!-- Counter surface -->
+  <rect x="0" y="300" width="640" height="84" fill="#ede0cc"/>
+  <rect x="0" y="298" width="640" height="6" fill="#d4c4aa"/>
+  <!-- BIG BOX body -->
+  <rect x="220" y="145" width="200" height="155" rx="4" fill="#c27a3e"/>
+  <!-- Left shadow strip -->
+  <rect x="220" y="145" width="28" height="155" rx="2" fill="#a8622a" opacity="0.75"/>
+  <!-- Tape strip vertical -->
+  <rect x="309" y="145" width="22" height="155" fill="#d4962e" opacity="0.45"/>
+  <!-- Top flaps -->
+  <path d="M220 145 L320 112 L320 145 Z" fill="#d4962e"/>
+  <path d="M420 145 L320 112 L320 145 Z" fill="#c27a3e" opacity="0.8"/>
+  <!-- Top tape -->
+  <rect x="309" y="112" width="22" height="33" fill="#d4962e" opacity="0.45"/>
+  <!-- Shipping label -->
+  <rect x="250" y="187" width="146" height="84" rx="6" fill="#fff" opacity="0.97"/>
+  <rect x="250" y="187" width="146" height="22" rx="6" fill="#1a365d"/>
+  <rect x="250" y="201" width="146" height="8" fill="#1a365d"/>
+  <text x="323" y="201" font-family="monospace" font-size="8" font-weight="bold" fill="#b98e5a" text-anchor="middle">SHIP TO</text>
+  <rect x="262" y="220" width="88" height="5" rx="2" fill="#b0bac8"/>
+  <rect x="262" y="231" width="112" height="5" rx="2" fill="#cbd5e0"/>
+  <rect x="262" y="242" width="96" height="5" rx="2" fill="#cbd5e0"/>
+  <!-- Barcode -->
+  <g fill="#1a365d">
+    <rect x="262" y="256" width="3" height="12"/><rect x="267" y="256" width="5" height="12"/>
+    <rect x="274" y="256" width="2" height="12"/><rect x="278" y="256" width="4" height="12"/>
+    <rect x="284" y="256" width="6" height="12"/><rect x="292" y="256" width="2" height="12"/>
+    <rect x="296" y="256" width="3" height="12"/><rect x="301" y="256" width="5" height="12"/>
+    <rect x="308" y="256" width="2" height="12"/><rect x="312" y="256" width="4" height="12"/>
+    <rect x="318" y="256" width="3" height="12"/><rect x="323" y="256" width="6" height="12"/>
+    <rect x="331" y="256" width="2" height="12"/><rect x="335" y="256" width="4" height="12"/>
+    <rect x="341" y="256" width="3" height="12"/><rect x="346" y="256" width="5" height="12"/>
+    <rect x="353" y="256" width="2" height="12"/><rect x="357" y="256" width="3" height="12"/>
+    <rect x="362" y="256" width="6" height="12"/><rect x="370" y="256" width="3" height="12"/>
+    <rect x="375" y="256" width="4" height="12"/><rect x="381" y="256" width="2" height="12"/>
+    <rect x="385" y="256" width="5" height="12"/>
+  </g>
+  <!-- Small box left -->
+  <rect x="95" y="238" width="88" height="62" rx="3" fill="#c27a3e" opacity="0.8"/>
+  <rect x="95" y="238" width="88" height="14" rx="3" fill="#d4962e" opacity="0.5"/>
+  <!-- Small box right -->
+  <rect x="462" y="250" width="78" height="50" rx="3" fill="#b07535"/>
+  <rect x="462" y="250" width="78" height="12" rx="3" fill="#c4842e" opacity="0.45"/>
+  <!-- Carrier color chips -->
+  <rect x="178" y="316" width="46" height="15" rx="4" fill="#cc0000" opacity="0.22"/>
+  <rect x="234" y="316" width="46" height="15" rx="4" fill="#3b1f0e" opacity="0.2"/>
+  <rect x="290" y="316" width="46" height="15" rx="4" fill="#4d148c" opacity="0.18"/>
+  <rect x="346" y="316" width="46" height="15" rx="4" fill="#f5c518" opacity="0.32"/>
 </svg>

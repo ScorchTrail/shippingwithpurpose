@@ -1,7 +1,6 @@
 /* ============================================================ HERO (homepage) */
-/* Desktop: 12-col split → left span-6 / right span-6 | Tablet: span-12 | Mobile: span-12 */
 .hero {
-  padding: 0 32px 32px;
+  padding: 32px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -12,33 +11,22 @@
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
-  position: relative;
-}
-
-.hero__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--space-24);
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-32);
   align-items: stretch;
 }
 
-.hero__grid > *:nth-child(1),
-.hero__grid > *:nth-child(2) {
+.hero__content,
+.hero__visual {
   grid-column: span 6;
-}
-
-.hero__grid > * {
-  padding: var(--space-32);
-  min-height: clamp(440px, 34vw, 560px);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  min-height: clamp(440px, 34vw, 560px);
 }
 
 .hero__badge {
@@ -49,22 +37,23 @@
   border: 1px solid rgba(26, 54, 93, 0.2);
   color: var(--navy);
   font-family: "Inter", sans-serif;
-  font-size: 0.78rem;
+  font-size: var(--fs--1);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: var(--space-8) var(--space-16);
   border-radius: 100px;
-  max-width: max-content;
+  width: max-content;
+  margin-bottom: var(--space-24);
 }
 
 .hero__title {
-  font-family: "Inter", sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: var(--fs-h1-fluid);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--navy);
+  margin-bottom: var(--space-24);
 }
 
 .hero__title-emphasis {
@@ -76,15 +65,17 @@
 
 .hero__body {
   color: var(--body-text);
-  font-size: 1.1rem;
-  line-height: 1.68;
+  font-size: var(--fs-body-fluid);
+  line-height: 1.6;
   max-width: 52ch;
+  margin-bottom: var(--space-32);
 }
 
 .hero__actions {
   display: flex;
   gap: var(--space-16);
   flex-wrap: wrap;
+  margin-bottom: var(--space-32);
 }
 
 .hero__trust {
@@ -98,32 +89,36 @@
   align-items: center;
   gap: var(--space-8);
   color: var(--body-text);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
 .hero__trust-icon {
   color: var(--kraft);
+  flex-shrink: 0;
 }
 
 .hero__visual {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  gap: var(--space-32);
 }
 
+
 .hero__image-wrap {
-  border-radius: var(--radius-xl);
+  /* Pushes the image down mathematically to align with the headline */
+  margin-top: var(--space-48);
+  border-radius: var(--space-16);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.1);
   position: relative;
-  object-fit: cover;
 }
 
 .hero__image-wrap img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  aspect-ratio: 4 / 3;
+  /* Replaces height: 80% with a strict, fluid geometric ratio */
+  aspect-ratio: 16 / 10;
 }
 
 .hero__new-owner-badge {
@@ -134,10 +129,8 @@
   color: #fff;
   border-radius: 100px;
   padding: var(--space-8) var(--space-16);
-  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
   box-shadow: 0 4px 16px rgba(185, 142, 90, 0.5);
 }
 
@@ -146,40 +139,38 @@
   bottom: var(--space-16);
   left: var(--space-16);
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
+  border-radius: var(--space-8);
   padding: var(--space-8) var(--space-16);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .hero__hours-chip strong {
   color: var(--navy);
-  font-family: "Inter", sans-serif;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   display: block;
 }
 
 .hero__hours-chip span {
   color: var(--body-text);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
 }
 
 .hero__carriers-card {
   background: #fff;
   border: 1px solid rgba(26, 54, 93, 0.1);
-  border-radius: var(--radius-lg);
+  border-radius: var(--space-16);
   padding: var(--space-16) var(--space-24);
-  box-shadow: var(--shadow-md);
   margin-top: auto;
 }
 
 .hero__carriers-label {
-  color: var(--muted);
-  font-size: 0.72rem;
+  color: var(--body-text);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  margin-bottom: var(--space-16);
 }
 
 .hero__carriers-row {
@@ -191,7 +182,7 @@
 
 .hero__carrier-tile {
   flex: 1 1 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--space-8);
   aspect-ratio: 4 / 2;
   display: flex;
   align-items: center;
@@ -203,7 +194,6 @@
   width: 70%;
   height: 70%;
   object-fit: contain;
-  aspect-ratio: auto;
 }
 
 /* Carrier colour modifiers */
@@ -215,46 +205,52 @@
 }
 .hero__carrier-tile--dhl  { background: #f1bd00; }
 
-/* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 1080px) {
+/* ── RESPONSIVE: STRICT MAX-WIDTH ENGINE ──────────────────────────────────────── */
+@media (max-width: 1024px) {
   .hero {
-    min-height: auto;
-    padding: var(--space-64) var(--space-24);
+    padding: var(--space-64) var(--space-32);
   }
 
-  .hero__grid > *:nth-child(1),
-  .hero__grid > *:nth-child(2) {
+  .hero__content,
+  .hero__visual {
     grid-column: span 12;
-  }
-
-  .hero__grid > * {
     min-height: auto;
-    padding: var(--space-24);
   }
 
-  .hero__image-wrap {
-    min-height: 320px;
+  .hero__image-wrap img {
+    aspect-ratio: 16 / 9;
   }
 }
 
-@media (max-width: 720px) {
+/* Mobile: 4 Columns */
+@media (max-width: 685px) {
   .hero {
-    padding: 48px var(--space-16) 56px;
+    padding: var(--space-48) var(--space-16);
   }
 
   .hero__grid {
-    gap: var(--space-16);
+    gap: var(--space-32);
   }
 
-  .hero__grid > * {
-    padding: var(--space-16);
-  }
-
+  /* 1. Completely hide the image and its floating badges on mobile */
   .hero__image-wrap {
-    min-height: 240px;
+    display: none;
   }
 
+  /* 2. Remove the empty gap since the image is gone */
+  .hero__visual {
+    gap: 0;
+  }
+
+  /* 3. Stack the buttons so they are easy to tap with a thumb */
   .hero__actions {
-    gap: var(--space-8);
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }

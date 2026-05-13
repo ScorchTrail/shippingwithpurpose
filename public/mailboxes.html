@@ -29,31 +29,29 @@
         <a href="index.html" class="nav__link">Home</a>
         <a href="services.html" class="nav__link">Services</a>
         <a href="mailboxes.html" class="nav__link nav__link--active">Mailbox Rentals</a>
-        <a href="contact.html" class="nav__link">Contact &amp; About</a>
       </div>
       <div class="nav__cta">
-        <a href="contact.html" class="btn btn--navy-sm">Reserve a Box</a>
+        <a href="mailboxes.html" class="btn btn--navy-sm">Reserve a Box</a>
       </div>
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link">Home</a>
         <a href="services.html" class="nav__menu-link">Services</a>
         <a href="mailboxes.html" class="nav__menu-link nav__menu-link--active">Mailbox Rentals</a>
-        <a href="contact.html" class="nav__menu-link">Contact &amp; About</a>
-        <a href="contact.html" class="btn btn--navy nav__menu-cta">Reserve a Box</a>
+        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Reserve a Box</a>
       </div>
     </nav>
     <div class="info-bar info-bar--offset">
       <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
       <div class="info-bar__item">
         <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
-        &nbsp;·&nbsp; Sun: Closed
+        <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
       </div>
       <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
         >⊕ Get Directions</a
       >
     </div>
-    <section class="page-hero fade-section mailbox-hero-alt">
+    <section class="page-hero fade-section mailbox-hero mailbox-hero--alt">
       <div class="page-hero__inner mailbox-hero__inner">
         <div class="mailbox-hero__badge"><span class="section-tag" data-mailbox-field="hero.badge">Most Popular</span></div>
         <h1 class="mailbox-hero__title" data-mailbox-field="hero.title">Mailbox Rentals</h1>
@@ -67,54 +65,54 @@
                 <section class="quote-group">
                   <div class="quote-label" data-mailbox-field="quote.labels.size">Box Size</div>
                   <div class="size-grid">
-                    <button class="size-btn" data-size="Mini">
-                      <div class="size-btn__name" data-mailbox-plan-name="Mini">Mini</div>
-                      <div class="size-btn__desc" data-mailbox-plan-desc="Mini">Perfect for individuals receiving minimal mail.</div>
-                      <div class="size-btn__selected">✓ Selected</div>
+                    <button class="quote__size-btn" data-size="Mini">
+                      <div class="quote__size-name" data-mailbox-plan-name="Mini">Mini</div>
+                      <div class="quote__size-desc" data-mailbox-plan-desc="Mini">Perfect for individuals receiving minimal mail.</div>
+                      <div class="quote__size-selected">✓ Selected</div>
                     </button>
-                    <button class="size-btn size-btn--active" data-size="Personal">
-                      <div class="size-btn__name" data-mailbox-plan-name="Personal">Personal</div>
-                      <div class="size-btn__desc" data-mailbox-plan-desc="Personal">Great for individuals with moderate mail volume.</div>
-                      <div class="size-btn__selected">✓ Selected</div>
+                    <button class="quote__size-btn quote__size-btn--active" data-size="Personal">
+                      <div class="quote__size-name" data-mailbox-plan-name="Personal">Personal</div>
+                      <div class="quote__size-desc" data-mailbox-plan-desc="Personal">Great for individuals with moderate mail volume.</div>
+                      <div class="quote__size-selected">✓ Selected</div>
                     </button>
-                    <button class="size-btn" data-size="Business">
-                      <div class="size-btn__name" data-mailbox-plan-name="Business">Business</div>
-                      <div class="size-btn__desc" data-mailbox-plan-desc="Business">Ideal for small businesses with regular shipments.</div>
-                      <div class="size-btn__selected">✓ Selected</div>
+                    <button class="quote__size-btn" data-size="Business">
+                      <div class="quote__size-name" data-mailbox-plan-name="Business">Business</div>
+                      <div class="quote__size-desc" data-mailbox-plan-desc="Business">Ideal for small businesses with regular shipments.</div>
+                      <div class="quote__size-selected">✓ Selected</div>
                     </button>
-                    <button class="size-btn" data-size="Corporate">
-                      <div class="size-btn__name" data-mailbox-plan-name="Corporate">Corporate</div>
-                      <div class="size-btn__desc" data-mailbox-plan-desc="Corporate">Best for high-volume businesses needing extra space.</div>
-                      <div class="size-btn__selected">✓ Selected</div>
+                    <button class="quote__size-btn" data-size="Corporate">
+                      <div class="quote__size-name" data-mailbox-plan-name="Corporate">Corporate</div>
+                      <div class="quote__size-desc" data-mailbox-plan-desc="Corporate">Best for high-volume businesses needing extra space.</div>
+                      <div class="quote__size-selected">✓ Selected</div>
                     </button>
                   </div>
                 </section>
                 <section class="quote-group">
                   <div class="quote-label" data-mailbox-field="quote.labels.term">Rental Term</div>
                   <div class="term-row">
-                    <button class="term-btn term-btn--active" data-term="3-Month">
-                      <div class="term-btn__name">3-Month</div>
+                    <button class="quote__term-btn quote__term-btn--active" data-term="3-Month">
+                      <div class="quote__term-name">3-Month</div>
                     </button>
-                    <button class="term-btn" data-term="6-Month">
-                      <div class="term-btn__name">6-Month</div>
-                      <div class="term-btn__savings">Save ~6% vs monthly</div>
+                    <button class="quote__term-btn" data-term="6-Month">
+                      <div class="quote__term-name">6-Month</div>
+                      <div class="quote__term-savings">Save ~6% vs monthly</div>
                     </button>
-                    <button class="term-btn" data-term="12-Month">
-                      <div class="term-btn__name">12-Month</div>
-                      <div class="term-btn__savings">Save ~12% vs monthly</div>
+                    <button class="quote__term-btn" data-term="12-Month">
+                      <div class="quote__term-name">12-Month</div>
+                      <div class="quote__term-savings">Save ~12% vs monthly</div>
                     </button>
                   </div>
                 </section>
                 <section class="quote-group">
                   <div class="quote-label" data-mailbox-field="quote.labels.addons">Add-ons</div>
-                  <button class="addon-btn addon-btn--active" id="addon-btn">
-                    <div class="addon-icon">✓</div>
-                    <div class="quote-addon__content">
-                      <div class="quote-addon__row">
-                        <span class="addon-title" data-mailbox-field="quote.addon.title">Mail Notifications</span>
-                        <span class="addon-badge" id="addon-badge">+$3 (3-Month)</span>
+                  <button class="quote__addon-btn quote__addon-btn--active" id="addon-btn">
+                    <div class="quote__addon-icon">✓</div>
+                    <div class="quote__addon-content">
+                      <div class="quote__addon-row">
+                        <span class="quote__addon-title" data-mailbox-field="quote.addon.title">Mail Notifications</span>
+                        <span class="quote__addon-badge" id="addon-badge">+$3 (3-Month)</span>
                       </div>
-                      <div class="addon-desc" data-mailbox-field="quote.addon.description">
+                      <div class="quote__addon-desc" data-mailbox-field="quote.addon.description">
                         Get notified when mail or packages arrive — via email or phone. $1/month added to your rental.
                       </div>
                     </div>
@@ -133,24 +131,32 @@
                   <div class="quote-card__item"><span class="quote-card__check">✓</span> All carriers accepted</div>
                   <div class="quote-card__item"><span class="quote-card__check">✓</span> USPS Form 1583 Required</div>
                 </div>
-                <a href="contact.html" class="btn btn--navy quote-cta" data-mailbox-field="quote.reserveLabel">Reserve Your Box &nbsp;→</a>
-                <button class="pricing-table-trigger" id="pricing-table-trigger" aria-expanded="false" type="button">
-                  <svg
-                    class="pricing-table-trigger__icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                <div class="quote-card__footer">
+                  <a href="contact.html" class="btn btn--navy quote-cta" data-mailbox-field="quote.reserveLabel">Reserve Your Box &nbsp;→</a>
+
+                  <button
+                    class="quote__pricing-trigger quote__pricing-trigger--icon"
+                    id="pricing-table-trigger"
+                    aria-expanded="false"
+                    type="button"
+                    title="View full pricing breakdown"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="16" x2="12" y2="12" />
-                    <line x1="12" y1="8" x2="12.01" y2="8" />
-                  </svg>
-                  <span class="pricing-table-trigger__label" data-mailbox-field="quote.pricingTriggerLabel">View full pricing breakdown</span>
-                </button>
+                    <svg
+                      class="quote__pricing-trigger-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="16" x2="12" y2="12" />
+                      <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -234,7 +240,6 @@
             <a href="index.html" class="footer__link">Home</a
             ><a href="services.html" class="footer__link">Services</a
             ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
-            ><a href="contact.html" class="footer__link">Contact &amp; About</a>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Hours</h3>

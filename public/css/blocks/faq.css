@@ -1,0 +1,79 @@
+/* ============================================================ FAQ SECTION (shared) */
+
+.faq-section__tag {
+  margin-bottom: var(--space-16);
+  display: inline-flex;
+}
+
+.faq-section {
+  background: #fff;
+  padding: 32px;
+}
+
+.faq-section__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.faq-section__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: var(--space-8);
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: var(--space-8);
+  overflow: hidden;
+  background: #fff;
+}
+
+.faq-item__btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16);
+}
+
+.faq-question {
+  color: var(--navy);
+  font-weight: 600;
+  text-align: left;
+}
+
+.faq-chevron {
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 var(--space-16) var(--space-16);
+  color: var(--body-text);
+}
+
+.faq-answer-inner p {
+  line-height: 1.68;
+}
+
+.faq-item--open .faq-answer {
+  max-height: 220px;
+}
+
+.faq-item--open .faq-chevron {
+  transform: rotate(180deg);
+}

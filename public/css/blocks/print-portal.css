@@ -1,7 +1,7 @@
 /* ============================================================ PRINT PORTAL (homepage) */
 /* Desktop: 2-col bento | Mobile: 1-col */
 .print-portal {
-  padding: 32px;
+  padding: var(--space-32);
   background: var(--off-white);
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
-  margin-bottom: 32px;
+  margin-bottom: var(--space-32);
 }
 
 .print-portal__tag {
@@ -19,7 +19,7 @@
 
 .print-portal__heading {
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: var(--fs-h2-fluid);
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -29,8 +29,8 @@
 
 .print-portal__sub {
   color: var(--body-text);
-  font-size: 1.04rem;
-  line-height: 1.66;
+  font-size: var(--fs-body-fluid);
+  line-height: 1.6;
   max-width: 58ch;
   margin: 0 auto;
 }
@@ -39,7 +39,7 @@
 .print-portal__bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "upload fields";
+  align-items: stretch;
   gap: var(--space-32);
 }
 
@@ -49,16 +49,15 @@
   background: #fff;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  height: 100%;
 }
 
 .print-portal__tile--upload {
-  grid-area: upload;
   display: flex;
   flex-direction: column;
 }
 
 .print-portal__tile--fields {
-  grid-area: fields;
   padding: var(--space-32);
   display: flex;
   flex-direction: column;
@@ -68,7 +67,7 @@
 
 .print-portal__field-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-columns: minmax(0, 1fr) 176px;
   gap: var(--space-16);
 }
 
@@ -94,7 +93,7 @@
 .print-portal__print-types {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: var(--space-16);
 }
 
 .print-portal__print-type-option {
@@ -115,9 +114,9 @@
   align-items: flex-start;
   justify-content: center;
   text-align: left;
-  min-height: 64px;
-  padding: 10px 12px;
-  border-radius: 12px;
+  min-height: var(--space-64);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-md);
   border: 1px solid rgba(26, 54, 93, 0.18);
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   color: var(--navy);
@@ -129,7 +128,7 @@
 }
 
 .print-portal__print-type-option span strong {
-  font-size: 0.84rem;
+  font-size: var(--fs--1);
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -137,7 +136,7 @@
 
 .print-portal__print-type-option span small {
   margin-top: 4px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.3;
 }
@@ -172,7 +171,7 @@
 }
 
 .print-portal__instructions {
-  min-height: 116px;
+  min-height: 112px;
   resize: vertical;
   line-height: 1.55;
 }
@@ -180,19 +179,19 @@
 .print-portal__instructions-help {
   margin: var(--space-8) 0 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: var(--fs--1);
   line-height: 1.45;
 }
 
 .print-portal__privacy-inline {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: var(--fs--1);
   line-height: 1.5;
   color: var(--body-text);
   background: rgba(26, 54, 93, 0.04);
   border: 1px solid rgba(26, 54, 93, 0.1);
-  border-radius: 10px;
-  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  padding: var(--space-8) var(--space-16);
 }
 
 .print-portal__privacy-strong {
@@ -225,7 +224,7 @@
     radial-gradient(circle at 10% 10%, rgba(26, 54, 93, 0.04) 0%, rgba(26, 54, 93, 0) 46%),
     linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   flex: 1;
-  min-height: 292px;
+  min-height: 288px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,7 +235,8 @@
 }
 
 .drop-zone:hover,
-.drop-zone--dragging {
+.drop-zone--dragging,
+.drop-zone--active {
   border-color: var(--navy);
   background:
     radial-gradient(circle at 12% 10%, rgba(26, 54, 93, 0.08) 0%, rgba(26, 54, 93, 0) 48%),
@@ -256,8 +256,8 @@
 .drop-zone__icon {
   font-size: 3rem;
   line-height: 1;
-  width: 84px;
-  height: 84px;
+  width: 80px;
+  height: 80px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -271,13 +271,13 @@
   font-family: "Inter", sans-serif;
   font-weight: 800;
   color: var(--navy);
-  font-size: 1.16rem;
+  font-size: var(--fs-1);
   letter-spacing: -0.01em;
 }
 
 .drop-zone__sub {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: var(--fs-ui-fluid);
   max-width: 34ch;
   margin: 0 auto;
   line-height: 1.55;
@@ -296,7 +296,7 @@
 }
 
 .print-portal-files__title {
-  font-size: 0.86rem;
+  font-size: var(--fs--1);
   font-weight: 700;
   color: var(--navy);
 }
@@ -304,7 +304,7 @@
 .print-portal-files__empty {
   margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: var(--fs-ui-fluid);
 }
 
 .print-portal-files__list {
@@ -320,7 +320,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: var(--space-32);
   background: #fff;
   border: 1px solid rgba(26, 54, 93, 0.12);
   border-radius: var(--radius-sm);
@@ -329,14 +329,14 @@
 
 .print-portal-files__name {
   color: var(--navy);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui-fluid);
   font-weight: 600;
   line-height: 1.4;
 }
 
 .print-portal-files__meta {
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
 
 .print-portal-files__remove {
@@ -344,7 +344,7 @@
   background: #fff;
   color: var(--navy);
   border-radius: var(--radius-sm);
-  padding: 6px 10px;
+  padding: var(--space-8) var(--space-16);
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -362,7 +362,7 @@
   color: #fff;
   box-shadow: var(--shadow-sm);
   border: 1px solid transparent;
-  font-size: 1.05rem;
+  font-size: var(--fs-0);
   padding: var(--space-16) var(--space-32);
 }
 
@@ -373,7 +373,7 @@
 }
 
 .print-portal-form__feedback {
-  font-size: 0.88rem;
+  font-size: var(--fs-ui-fluid);
   line-height: 1.5;
   color: var(--body-text);
   min-height: 0;
@@ -388,21 +388,53 @@
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 720px) {
-  .print-portal__tile--fields {
-    padding: var(--space-24);
+@media (max-width: 1024px) {
+  .print-portal {
+    padding: var(--space-32) var(--space-24);
   }
 
   .print-portal__field-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .print-portal__print-types {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .print-portal {
+    padding: var(--space-32) var(--space-16);
   }
 
-  .print-portal__instructions {
-    min-height: 96px;
+  .print-portal__bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+
+  .print-portal__tile--upload {
+    order: 1;
+  }
+
+  .print-portal-files {
+    order: 2;
+  }
+
+  .print-portal__tile--fields {
+    order: 3;
+    padding: var(--space-24);
+  }
+
+  .print-portal-form__submit {
+    order: 4;
+  }
+
+  .print-portal__print-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+
+  .print-portal__print-type-option {
+    flex: 1 1 calc(33.333% - var(--space-8));
+    min-width: 120px;
   }
 
   .drop-zone {
@@ -417,10 +449,7 @@
     font-size: 2.5rem;
   }
 
-  .print-portal__bento {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "upload"
-      "fields";
+  .print-portal__instructions {
+    min-height: 96px;
   }
 }

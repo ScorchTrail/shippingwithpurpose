@@ -43,18 +43,12 @@
 /* Layout */
 .quote-layout {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-32);
+  max-width: 960px;
+  margin: 0 auto var(--space-16);
   align-items: stretch;
-  margin-bottom: var(--space-16);
-}
-
-.quote-layout > *:first-child {
-  grid-column: span 8;
-}
-
-.quote-layout > *:last-child {
-  grid-column: span 4;
+  text-align: left;
 }
 
 /* Selectors panel */
@@ -81,13 +75,15 @@
 }
 
 .quote-label {
-  font-family: "Inter", sans-serif;
-  color: var(--navy);
-  margin-bottom: 10px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  text-align: left;
+  display: block;
+  font-size: 0.75rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  margin-bottom: var(--space-16);
+  opacity: 0.8;
 }
 
 /* Size grid */
@@ -98,9 +94,9 @@
 }
 
 /* Shared button base */
-.size-btn,
-.term-btn,
-.addon-btn {
+.quote__size-btn,
+.quote__term-btn,
+.quote__addon-btn {
   width: 100%;
   border: 1px solid rgba(26, 54, 93, 0.16);
   background: #fff;
@@ -114,24 +110,24 @@
   cursor: pointer;
 }
 
-.size-btn:hover,
-.term-btn:hover,
-.addon-btn:hover {
+.quote__size-btn:hover,
+.quote__term-btn:hover,
+.quote__addon-btn:hover {
   border-color: rgba(26, 54, 93, 0.28);
   box-shadow: 0 10px 18px rgba(26, 54, 93, 0.08);
   transform: translateY(-1px);
 }
 
-.size-btn:focus-visible,
-.term-btn:focus-visible,
-.addon-btn:focus-visible {
+.quote__size-btn:focus-visible,
+.quote__term-btn:focus-visible,
+.quote__addon-btn:focus-visible {
   outline: none;
   border-color: var(--navy);
   box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.16);
 }
 
 /* Active states */
-.size-btn--active {
+.quote__size-btn--active {
   border-color: var(--kraft-dark);
   box-shadow:
     0 0 0 2px rgba(185, 142, 90, 0.2) inset,
@@ -139,7 +135,7 @@
   background: linear-gradient(180deg, rgba(185, 142, 90, 0.08) 0%, rgba(185, 142, 90, 0.03) 100%);
 }
 
-.term-btn--active {
+.quote__term-btn--active {
   border-color: var(--kraft-dark);
   box-shadow:
     0 0 0 2px rgba(185, 142, 90, 0.2) inset,
@@ -147,7 +143,7 @@
   background: linear-gradient(180deg, rgba(185, 142, 90, 0.08) 0%, rgba(185, 142, 90, 0.03) 100%);
 }
 
-.addon-btn--active {
+.quote__addon-btn--active {
   border-color: var(--kraft-dark);
   box-shadow:
     0 0 0 2px rgba(185, 142, 90, 0.2) inset,
@@ -156,25 +152,25 @@
 }
 
 /* Size button */
-.size-btn {
+.quote__size-btn {
   padding: 14px;
 }
 
-.size-btn__name {
+.quote__size-name {
   font-family: "Inter", sans-serif;
   color: var(--navy);
   font-weight: 700;
   font-size: 0.98rem;
 }
 
-.size-btn__desc {
+.quote__size-desc {
   color: var(--muted);
   font-size: 0.8rem;
   line-height: 1.6;
   margin: 6px 0;
 }
 
-.size-btn__selected {
+.quote__size-selected {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -192,7 +188,7 @@
     transform 0.2s ease;
 }
 
-.size-btn--active .size-btn__selected {
+.quote__size-btn--active .quote__size-selected {
   opacity: 1;
   transform: translateY(0);
   animation: badgePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -210,7 +206,7 @@
   gap: 10px;
 }
 
-.term-btn {
+.quote__term-btn {
   padding: 10px 12px;
   min-height: 74px;
   display: flex;
@@ -218,14 +214,14 @@
   justify-content: center;
 }
 
-.term-btn__name {
+.quote__term-name {
   font-family: "Inter", sans-serif;
   color: var(--navy);
   font-weight: 700;
   font-size: 0.92rem;
 }
 
-.term-btn__savings {
+.quote__term-savings {
   color: #6f4b1f;
   font-size: 0.7rem;
   margin-top: 4px;
@@ -237,14 +233,14 @@
 }
 
 /* Add-on button */
-.addon-btn {
+.quote__addon-btn {
   padding: 14px;
   display: flex;
   gap: 10px;
   align-items: flex-start;
 }
 
-.addon-icon {
+.quote__addon-icon {
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
@@ -257,7 +253,7 @@
   border-radius: 50%;
 }
 
-.addon-btn--active .addon-icon {
+.quote__addon-btn--active .quote__addon-icon {
   background: linear-gradient(135deg, var(--kraft-dark), var(--kraft));
   color: #fff;
   border-color: transparent;
@@ -266,20 +262,20 @@
   box-shadow: 0 4px 12px rgba(185, 142, 90, 0.3);
 }
 
-.addon-title {
+.quote__addon-title {
   font-family: "Inter", sans-serif;
   color: var(--navy);
   font-weight: 700;
   font-size: 0.94rem;
 }
 
-.addon-badge {
+.quote__addon-badge {
   color: var(--kraft-dark);
   font-size: 0.74rem;
   font-weight: 700;
 }
 
-.addon-desc {
+.quote__addon-desc {
   color: var(--muted);
   font-size: 0.8rem;
   line-height: 1.6;
@@ -357,11 +353,11 @@
   color: #f0c489;
 }
 
-.quote-addon__content {
+.quote__addon-content {
   flex: 1;
 }
 
-.quote-addon__row {
+.quote__addon-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -369,8 +365,45 @@
 }
 
 .quote-cta {
-  width: 100%;
+  flex: 1;
   justify-content: center;
+  margin: 0;
+}
+
+/* ── QUOTE CARD FOOTER & ICON ── */
+.quote-card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-top: auto;
+  padding-top: var(--space-16);
+}
+
+.quote__pricing-trigger--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.quote__pricing-trigger--icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.quote__pricing-trigger-icon {
+  width: 20px;
+  height: 20px;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
@@ -385,16 +418,18 @@
     grid-template-columns: 1fr;
   }
 
-  .term-btn {
+  .quote__term-btn {
     min-height: 0;
   }
 
   .quote-card__item {
     margin-bottom: var(--space-8);
   }
+}
 
-  .quote-layout > *:first-child,
-  .quote-layout > *:last-child {
-    grid-column: span 12;
+@media (max-width: 1024px) {
+  .quote-layout {
+    grid-template-columns: 1fr;
+    max-width: 600px;
   }
 }

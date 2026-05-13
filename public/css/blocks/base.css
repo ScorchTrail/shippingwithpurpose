@@ -1,5 +1,15 @@
 /* ============================================================ TOKENS */
 :root {
+  --bp-desktop: 1280px;
+  --bp-tablet: 1024px;
+  --bp-mobile: 768px;
+
+  --grid-cols-desktop: 12;
+  --grid-cols-tablet: 8;
+  --grid-cols-mobile: 4;
+  --grid-gap: 32px;
+
+  --space-0: 0;
   --navy: #1a365d;
   --navy-dark: #0f2340;
   --navy-mid: #2a4a7f;
@@ -20,13 +30,39 @@
   --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+  --space-4: 4px;
   --space-8: 8px;
+  --space-12: 12px;
   --space-16: 16px;
   --space-24: 24px;
   --space-32: 32px;
+  --space-40: 40px;
   --space-48: 48px;
+  --space-56: 56px;
   --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-104: 104px;
+  --space-112: 112px;
   --space-128: 128px;
+
+  --fs--1: 0.8rem;
+  --fs-0: 1rem;
+  --fs-1: 1.25rem;
+  --fs-2: 1.563rem;
+  --fs-3: 1.953rem;
+  --fs-4: 2.441rem;
+
+  --fs-body-fluid: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+  --fs-h1-fluid: clamp(2.441rem, 1.8rem + 2.5vw, 4rem);
+  --fs-h2-fluid: clamp(1.953rem, 1.45rem + 1.8vw, 2.8rem);
+  --fs-h3-fluid: clamp(1.563rem, 1.25rem + 1.2vw, 2.2rem);
+  --fs-ui-fluid: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
+
+  --section-pad-y: clamp(32px, 2.2vw, 64px);
+  --section-pad-x: clamp(16px, 2.2vw, 32px);
 }
 
 /* ============================================================ RESET */
@@ -42,6 +78,7 @@ html {
 }
 body {
   font-family: "Inter", sans-serif;
+  font-size: var(--fs-0);
   background: var(--off-white);
   color: var(--charcoal);
   line-height: 1.6;

@@ -197,7 +197,7 @@
 }
 
 /* Trigger button (inside quote card) */
-.pricing-table-trigger {
+.quote__pricing-trigger {
   margin-top: 14px;
   display: flex;
   align-items: center;
@@ -217,18 +217,18 @@
     transform 180ms ease;
 }
 
-.pricing-table-trigger:hover {
+.quote__pricing-trigger:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-1px);
 }
 
-.pricing-table-trigger:focus-visible {
+.quote__pricing-trigger:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.24);
 }
 
-.pricing-table-trigger__icon {
+.quote__pricing-trigger-icon {
   width: var(--space-16);
   height: var(--space-16);
   flex-shrink: 0;
@@ -237,12 +237,12 @@
   transition: color 220ms ease, stroke 220ms ease;
 }
 
-.pricing-table-trigger:hover .pricing-table-trigger__icon {
+.quote__pricing-trigger:hover .quote__pricing-trigger-icon {
   color: rgba(255, 255, 255, 1);
   stroke: rgba(255, 255, 255, 1);
 }
 
-.pricing-table-trigger__label {
+.quote__pricing-trigger-label {
   display: inline;
   font-size: 0.74rem;
   letter-spacing: 0.04em;
