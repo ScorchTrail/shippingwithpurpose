@@ -6,11 +6,11 @@ Professional static-site structure with an Express server and page-specific CSS 
 
 ```text
 srt-swp/
+├─ index.html
 ├─ public/
-│  ├─ index.html
 │  ├─ services.html
 │  ├─ mailboxes.html
-│  ├─ contact.html
+│  ├─ print.html
 │  ├─ assets/
 │  │  ├─ fonts/
 │  │  ├─ icons/
@@ -19,7 +19,7 @@ srt-swp/
 │  │  ├─ main-home.css
 │  │  ├─ main-services.css
 │  │  ├─ main-mailboxes.css
-│  │  ├─ main-contact.css
+│  │  ├─ main-print.css
 │  │  └─ blocks/
 │  └─ js/
 │     ├─ app.js
@@ -34,10 +34,10 @@ srt-swp/
 
 Each HTML page loads only its own main CSS file:
 
-- index.html -> css/main-home.css
-- services.html -> css/main-services.css
-- mailboxes.html -> css/main-mailboxes.css
-- contact.html -> css/main-contact.css
+- / (root index.html) -> public/css/main-home.css
+- public/services.html -> css/main-services.css
+- public/mailboxes.html -> css/main-mailboxes.css
+- public/print.html -> css/main-print.css
 
 Each page entry imports only the required block styles from css/blocks.
 
@@ -80,12 +80,6 @@ Mailbox-focused blocks (main-mailboxes.css):
 Services-focused blocks (main-services.css):
 
 - blocks/service.css
-
-Contact-focused blocks (main-contact.css):
-
-- blocks/about-owner.css
-- blocks/contact.css
-- blocks/forms.css
 
 Maintenance rule:
 
