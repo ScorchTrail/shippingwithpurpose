@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="css/main-mailboxes.css" />
   </head>
   <body>
-    <nav class="nav" id="nav">
+    <header class="site-header">
+      <nav class="nav" id="nav">
       <a href="index.html" class="nav__brand"
         ><div class="nav__brand-icon">◻</div>
         <div class="nav__brand-text">
@@ -27,8 +28,9 @@
       >
       <div class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="services.html" class="nav__link">Services</a>
         <a href="mailboxes.html" class="nav__link nav__link--active">Mailbox Rentals</a>
+        <a href="print.html" class="nav__link">Print</a>
+        <a href="services.html" class="nav__link">Services</a>
       </div>
       <div class="nav__cta">
         <a href="mailboxes.html" class="btn btn--navy-sm">Reserve a Box</a>
@@ -36,12 +38,13 @@
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link">Home</a>
-        <a href="services.html" class="nav__menu-link">Services</a>
         <a href="mailboxes.html" class="nav__menu-link nav__menu-link--active">Mailbox Rentals</a>
-        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Reserve a Box</a>
+        <a href="print.html" class="nav__menu-link">Print</a>
+        <a href="services.html" class="nav__menu-link">Services</a>
+        <a href="contact.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
-    </nav>
-    <div class="info-bar info-bar--offset">
+      </nav>
+      <div class="info-bar">
       <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
       <div class="info-bar__item">
         <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
@@ -50,7 +53,8 @@
       <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
         >⊕ Get Directions</a
       >
-    </div>
+      </div>
+    </header>
     <section class="page-hero fade-section mailbox-hero mailbox-hero--alt">
       <div class="page-hero__inner mailbox-hero__inner">
         <div class="mailbox-hero__badge"><span class="section-tag" data-mailbox-field="hero.badge">Most Popular</span></div>
@@ -68,22 +72,22 @@
                     <button class="quote__size-btn" data-size="Mini">
                       <div class="quote__size-name" data-mailbox-plan-name="Mini">Mini</div>
                       <div class="quote__size-desc" data-mailbox-plan-desc="Mini">Perfect for individuals receiving minimal mail.</div>
-                      <div class="quote__size-selected">✓ Selected</div>
+                      <div class="badge badge--mailbox quote__size-selected">✓ Selected</div>
                     </button>
                     <button class="quote__size-btn quote__size-btn--active" data-size="Personal">
                       <div class="quote__size-name" data-mailbox-plan-name="Personal">Personal</div>
                       <div class="quote__size-desc" data-mailbox-plan-desc="Personal">Great for individuals with moderate mail volume.</div>
-                      <div class="quote__size-selected">✓ Selected</div>
+                      <div class="badge badge--mailbox quote__size-selected">✓ Selected</div>
                     </button>
                     <button class="quote__size-btn" data-size="Business">
                       <div class="quote__size-name" data-mailbox-plan-name="Business">Business</div>
                       <div class="quote__size-desc" data-mailbox-plan-desc="Business">Ideal for small businesses with regular shipments.</div>
-                      <div class="quote__size-selected">✓ Selected</div>
+                      <div class="badge badge--mailbox quote__size-selected">✓ Selected</div>
                     </button>
                     <button class="quote__size-btn" data-size="Corporate">
                       <div class="quote__size-name" data-mailbox-plan-name="Corporate">Corporate</div>
                       <div class="quote__size-desc" data-mailbox-plan-desc="Corporate">Best for high-volume businesses needing extra space.</div>
-                      <div class="quote__size-selected">✓ Selected</div>
+                      <div class="badge badge--mailbox quote__size-selected">✓ Selected</div>
                     </button>
                   </div>
                 </section>
@@ -92,14 +96,15 @@
                   <div class="term-row">
                     <button class="quote__term-btn quote__term-btn--active" data-term="3-Month">
                       <div class="quote__term-name">3-Month</div>
+                      <div class="badge badge--mailbox quote__term-savings quote__term-savings--empty"></div>
                     </button>
                     <button class="quote__term-btn" data-term="6-Month">
                       <div class="quote__term-name">6-Month</div>
-                      <div class="quote__term-savings">Save ~6% vs monthly</div>
+                      <div class="badge badge--mailbox quote__term-savings">Save ~6% vs monthly</div>
                     </button>
                     <button class="quote__term-btn" data-term="12-Month">
                       <div class="quote__term-name">12-Month</div>
-                      <div class="quote__term-savings">Save ~12% vs monthly</div>
+                      <div class="badge badge--mailbox quote__term-savings">Save ~12% vs monthly</div>
                     </button>
                   </div>
                 </section>
@@ -163,6 +168,106 @@
         </div>
       </div>
     </section>
+    <!-- PRICING MODAL -->
+    <div class="pricing-modal" id="pricing-modal" aria-modal="true" aria-labelledby="pricing-modal-title">
+      <div class="pricing-modal__overlay"></div>
+      <div class="pricing-modal__content">
+        <button class="pricing-modal__close" aria-label="Close pricing table" type="button">✕</button>
+        <div class="pricing-table">
+          <div class="pricing-table__header">
+            <div class="pricing-table__header-text">
+              <h3 class="pricing-table__title">Full Pricing Breakdown</h3>
+              <p class="pricing-table__subtitle">All prices include mailbox rental.</p>
+            </div>
+          </div>
+          <div class="pricing-table__scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th class="pricing-table__col-box">Box Type</th>
+                  <th class="pricing-table__col-term">
+                    3 Months
+                    <span class="pricing-table__col-sub">total / per month</span>
+                  </th>
+                  <th class="pricing-table__col-term">
+                    6 Months
+                    <span class="pricing-table__col-badge">Save ~6%</span>
+                    <span class="pricing-table__col-sub">total / per month</span>
+                  </th>
+                  <th class="pricing-table__col-term">
+                    12 Months
+                    <span class="pricing-table__col-badge pricing-table__col-badge--best">Best Value</span>
+                    <span class="pricing-table__col-sub">total / per month</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pricing-table__row-label">
+                    <span class="pricing-table__size-name">Mini</span>
+                    <span class="pricing-table__size-desc">Minimal mail volume</span>
+                  </td>
+                  <td>$57.00 <span class="pricing-table__per-mo">~$19/mo</span></td>
+                  <td>$109.00 <span class="pricing-table__per-mo">~$18/mo</span></td>
+                  <td>$200.00 <span class="pricing-table__per-mo">~$17/mo</span></td>
+                </tr>
+                <tr class="pricing-table__row--popular">
+                  <td class="pricing-table__row-label">
+                    <span class="pricing-table__size-name">
+                      Personal
+                      <span class="pricing-table__popular-badge">Popular</span>
+                    </span>
+                    <span class="pricing-table__size-desc">Moderate mail volume</span>
+                  </td>
+                  <td>$73.00 <span class="pricing-table__per-mo">~$24/mo</span></td>
+                  <td>$140.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
+                  <td>$250.00 <span class="pricing-table__per-mo">~$21/mo</span></td>
+                </tr>
+                <tr>
+                  <td class="pricing-table__row-label">
+                    <span class="pricing-table__size-name">Business</span>
+                    <span class="pricing-table__size-desc">Small business shipments</span>
+                  </td>
+                  <td>$80.00 <span class="pricing-table__per-mo">~$27/mo</span></td>
+                  <td>$152.00 <span class="pricing-table__per-mo">~$25/mo</span></td>
+                  <td>$275.00 <span class="pricing-table__per-mo">~$23/mo</span></td>
+                </tr>
+                <tr>
+                  <td class="pricing-table__row-label">
+                    <span class="pricing-table__size-name">Corporate</span>
+                    <span class="pricing-table__size-desc">High-volume &amp; extra space</span>
+                  </td>
+                  <td>$126.00 <span class="pricing-table__per-mo">~$42/mo</span></td>
+                  <td>$240.00 <span class="pricing-table__per-mo">~$40/mo</span></td>
+                  <td>$440.00 <span class="pricing-table__per-mo">~$37/mo</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pricing-table__footer">
+            <p class="pricing-table__note">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+              Mail Notification add-on is +$1/month per term.
+            </p>
+            <a href="contact.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box &nbsp;→</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="mailbox-features fade-section">
       <div class="container">
         <span class="section-tag mailbox-section-tag-center">Perks</span>
@@ -237,9 +342,10 @@
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
-            <a href="index.html" class="footer__link">Home</a
-            ><a href="services.html" class="footer__link">Services</a
-            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
+            <a href="print.html" class="footer__link">Print</a>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Hours</h3>
@@ -247,8 +353,8 @@
           </section>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
-          ><span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
         </div>
       </div>
     </footer>

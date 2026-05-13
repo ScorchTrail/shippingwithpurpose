@@ -1,6 +1,6 @@
 /* ============================================================ HERO (homepage) */
 .hero {
-  padding: 32px;
+  padding:  0 32px 32px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -44,7 +44,7 @@
   padding: var(--space-8) var(--space-16);
   border-radius: 100px;
   width: max-content;
-  margin-bottom: var(--space-24);
+  margin: 0 0 var(--space-24);
 }
 
 .hero__title {
@@ -207,8 +207,13 @@
 
 /* ── RESPONSIVE: STRICT MAX-WIDTH ENGINE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero {
-    padding: var(--space-64) var(--space-32);
+  .hero__badge {
+    margin: 32px 0 var(--space-16);
+  }
+
+  .hero__content {
+    text-align: center;
+    align-items: center;
   }
 
   .hero__content,
@@ -217,8 +222,8 @@
     min-height: auto;
   }
 
-  .hero__image-wrap img {
-    aspect-ratio: 16 / 9;
+   .hero__image-wrap {
+    display: none;
   }
 }
 

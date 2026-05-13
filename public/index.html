@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="css/main-home.css" />
   </head>
   <body>
-    <nav class="nav" id="nav">
+    <header class="site-header">
+      <nav class="nav" id="nav">
       <a href="index.html" class="nav__brand">
         <img src="assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
         <div class="nav__brand-text">
@@ -27,8 +28,9 @@
       </a>
       <div class="nav__links">
         <a href="index.html" class="nav__link nav__link--active">Home</a>
-        <a href="services.html" class="nav__link">Services</a>
         <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
+        <a href="print.html" class="nav__link">Print</a>
+        <a href="services.html" class="nav__link">Services</a>
       </div>
       <div class="nav__cta">
         <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
@@ -36,12 +38,13 @@
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link nav__menu-link--active">Home</a>
-        <a href="services.html" class="nav__menu-link">Services</a>
         <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
-        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        <a href="print.html" class="nav__menu-link">Print</a>
+        <a href="services.html" class="nav__menu-link">Services</a>
+        <a href="contact.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
-    </nav>
-    <div class="info-bar info-bar--offset">
+      </nav>
+      <div class="info-bar">
       <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
       <div class="info-bar__item">
         <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
@@ -50,7 +53,8 @@
       <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
         >⊕ Get Directions</a
       >
-    </div>
+      </div>
+    </header>
     <section class="hero fade-section">
       <div class="hero__inner">
         <div class="hero__grid">
@@ -168,11 +172,11 @@
     <section class="services-preview fade-section">
       <div class="container">
         <div class="services-preview__header">
-          <span class="section-tag">What We Offer</span>
-          <h2 class="services-preview__heading services-preview__heading--gradient">
-            All the services you need,<br />in one friendly stop.
-          </h2>
-          <p class="services-preview__sub">From packages to paperwork — we've got you covered, with a smile.</p>
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">What We Offer</span>
+              <h2 class="section-title section-title--gradient">All the services you need,<br />in one friendly stop.</h2>
+              <p class="section-desc">From packages to paperwork — we've got you covered, with a smile.</p>
+            </div>
         </div>
         <div class="services-grid">
           <a href="services.html#shipping" class="service-card">
@@ -251,9 +255,11 @@
     <section class="mailbox-cta fade-section">
       <div class="container">
         <div class="mailbox-cta__header">
-          <span class="section-tag mailbox-cta__tag">Private Mailboxes</span>
-          <h2 class="mailbox-cta__section-title">Plans built for personal and business mail.</h2>
-          <p class="mailbox-cta__section-sub">Compare pricing, choose the right box size, and reserve in minutes.</p>
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">Private Mailboxes</span>
+              <h2 class="section-title">Plans built for personal and business mail.</h2>
+              <p class="section-desc">Compare pricing, choose the right box size, and reserve in minutes.</p>
+            </div>
         </div>
         <div class="mailbox-cta__grid">
           <!-- HERO TILE (navy, spans 2 cols × 2 rows) -->
@@ -272,8 +278,8 @@
               who values their privacy.
             </p>
             <ul class="mailbox-cta__hero-features">
-              <li><span class="mailbox-cta__hero-icon">◷</span> 24-Hour Access</li>
-              <li><span class="mailbox-cta__hero-icon">□</span> Secure Locker Service</li>
+              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon">◷</span>24-Hour Access</span></li>
+              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon">□</span>Secure Locker Service</span></li>
             </ul>
             <div class="mailbox-cta__footer">
               <a href="mailboxes.html" class="btn btn--kraft mailbox-cta__hero-cta">
@@ -323,7 +329,7 @@
           >
             <div class="mailbox-cta__price-header">
               <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Mini Box</span>
-              <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">Budget-Friendly</span>
+              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">Budget-Friendly</span>
             </div>
             <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
               >$57</span
@@ -341,7 +347,7 @@
           >
             <div class="mailbox-cta__price-header">
               <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Personal</span>
-              <span class="mailbox-cta__price-tag mailbox-cta__price-tag--popular" data-mailbox-plan-field="tag">Most Popular</span>
+              <span class="badge badge--mailbox mailbox-cta__badge mailbox-cta__badge--popular" data-mailbox-plan-field="tag">Most Popular</span>
             </div>
             <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
               >$72</span
@@ -359,7 +365,7 @@
           >
             <div class="mailbox-cta__price-header">
               <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Business</span>
-              <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">10+ Members</span>
+              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">10+ Members</span>
             </div>
             <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
               >$78</span
@@ -377,7 +383,7 @@
           >
             <div class="mailbox-cta__price-header">
               <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Corporate</span>
-              <span class="mailbox-cta__price-tag" data-mailbox-plan-field="tag">Max Storage</span>
+              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">Max Storage</span>
             </div>
             <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
               >$123</span
@@ -399,11 +405,6 @@
             <div class="pricing-table__header-text">
               <h3 class="pricing-table__title">Full Pricing Breakdown</h3>
               <p class="pricing-table__subtitle">All prices include mailbox rental.</p>
-            </div>
-            <div class="pricing-table__legend">
-              <span class="pricing-table__legend-item">
-                <span class="pricing-table__legend-dot pricing-table__legend-dot--popular"></span>Most Popular
-              </span>
             </div>
           </div>
           <div class="pricing-table__scroll">
@@ -497,9 +498,11 @@
     <section class="print-portal fade-section">
       <div class="container">
         <div class="print-portal__header">
-          <span class="section-tag print-portal__tag">▣ Print Section</span>
-          <h2 class="print-portal__heading">Upload documents for printing.</h2>
-          <p class="print-portal__sub">Send us your print request and files. We handle the rest.</p>
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">▣ Print Section</span>
+              <h2 class="section-title">Upload documents for printing.</h2>
+              <p class="section-desc">Send us your print request and files. We handle the rest.</p>
+            </div>
         </div>
         <form id="print-portal-form" class="print-portal-form">
           <div class="print-portal__bento">
@@ -597,14 +600,11 @@
     <section class="dropoff-grid fade-section">
       <div class="container">
         <div class="dropoff-grid__header">
-          <span class="section-tag dropoff-grid__tag">◻ Carrier Drop-Off Hub</span>
-          <h2 class="dropoff-grid__heading">
-            Drop off fast. <span class="dropoff-grid__heading-emphasis">Ship with confidence.</span>
-          </h2>
-          <p class="dropoff-grid__sub">
-            One clean counter for USPS, UPS, FedEx, and DHL. We can create labels for USPS, UPS, and FedEx. DHL is
-            drop-off only for pre-labeled shipments.
-          </p>
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">◻ Carrier Drop-Off Hub</span>
+              <h2 class="section-title">Drop off fast. <span class="dropoff-grid__heading-emphasis">Ship with confidence.</span></h2>
+              <p class="section-desc">One clean counter for USPS, UPS, FedEx, and DHL. We can create labels for USPS, UPS, and FedEx. DHL is drop-off only for pre-labeled shipments.</p>
+            </div>
         </div>
         <div class="carrier-grid">
           <div class="carrier-card">
@@ -615,8 +615,8 @@
               <div class="carrier-card__name">USPS</div>
               <p class="carrier-card__desc">Priority, First-Class, Express, and flat-rate boxes.</p>
               <div class="carrier-card__badges">
-                <span class="carrier-badge carrier-badge--label">Certified Mail</span>
-                <span class="carrier-badge carrier-badge--label">QR Label Print</span>
+                <span class="badge badge--label">Certified Mail</span>
+                <span class="badge badge--label">QR Label Print</span>
               </div>
             </div>
           </div>
@@ -632,8 +632,8 @@
               <div class="carrier-card__name">UPS</div>
               <p class="carrier-card__desc">Ground, 2-Day, Next Day Air, and returns.</p>
               <div class="carrier-card__badges">
-                <span class="carrier-badge carrier-badge--label">Label Creation</span>
-                <span class="carrier-badge carrier-badge--label">Returns</span>
+                <span class="badge badge--label">Label Creation</span>
+                <span class="badge badge--label">Returns</span>
               </div>
             </div>
           </div>
@@ -649,8 +649,8 @@
               <div class="carrier-card__name">FedEx</div>
               <p class="carrier-card__desc">Overnight, Home Delivery, and Express services.</p>
               <div class="carrier-card__badges">
-                <span class="carrier-badge carrier-badge--label">Label Creation</span>
-                <span class="carrier-badge carrier-badge--label">QR Print</span>
+                <span class="badge badge--label">Label Creation</span>
+                <span class="badge badge--label">QR Print</span>
               </div>
             </div>
           </div>
@@ -662,7 +662,7 @@
               <div class="carrier-card__name">DHL</div>
               <p class="carrier-card__desc">International express drop-off for pre-labeled shipments.</p>
               <div class="carrier-card__badges">
-                <span class="carrier-badge carrier-badge--drop">Drop-Off Only</span>
+                <span class="badge badge--drop">Drop-Off Only</span>
               </div>
             </div>
           </div>
@@ -679,26 +679,28 @@
     <section class="testimonials fade-section">
       <div class="container">
         <div class="testimonials__header">
-          <span class="section-tag testimonials__tag">Customer Reviews</span>
-          <div class="testimonials__stars" aria-label="5 out of 5 stars">
-            <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-          </div>
-          <h2 class="testimonials__heading">Loved by our community.</h2>
-          <p class="testimonials__sub">Don't take our word for it — here's what our regulars say.</p>
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">Customer Reviews</span>
+              <div class="testimonials__stars" aria-label="5 out of 5 stars">
+                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <h2 class="section-title">Loved by our community.</h2>
+              <p class="section-desc">Don't take our word for it — here's what our regulars say.</p>
+            </div>
         </div>
         <div class="review-gallery" id="reviews-gallery" aria-live="polite">
           <div class="review-gallery__track" id="reviews-track">
@@ -767,9 +769,10 @@
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
-            <a href="index.html" class="footer__link">Home</a><a href="services.html" class="footer__link">Services</a
-            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
-                      <a href="mailboxes.html" class="btn btn--kraft pricing-table__cta">Reserve Your Box &nbsp;→</a>
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
+            <a href="print.html" class="footer__link">Print</a>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Hours</h3>
@@ -777,8 +780,8 @@
           </section>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
-          ><span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
         </div>
       </div>
     </footer>

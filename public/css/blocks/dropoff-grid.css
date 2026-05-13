@@ -5,39 +5,6 @@
   background: var(--off-white);
 }
 
-.dropoff-grid__header {
-  margin-bottom: var(--space-16);
-}
-
-.dropoff-grid__tag {
-  margin-bottom: var(--space-8);
-  display: inline-flex;
-}
-
-.dropoff-grid__heading {
-  font-family: "Inter", sans-serif;
-  color: var(--navy);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-  margin-bottom: var(--space-16);
-}
-
-.dropoff-grid__heading-emphasis {
-  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.dropoff-grid__sub {
-  color: var(--body-text);
-  font-size: 1.04rem;
-  line-height: 1.66;
-  max-width: 58ch;
-}
 
 /* Carrier grid */
 .carrier-grid {
@@ -128,28 +95,6 @@
 }
 
 /* Carrier badges */
-.carrier-badge {
-  display: inline-block;
-  border-radius: 999px;
-  padding: 5px 9px;
-  font-size: clamp(0.58rem, 0.9vw, 0.64rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-.carrier-badge--label {
-  background: rgba(26, 54, 93, 0.08);
-  color: var(--navy);
-  border: 1px solid rgba(26, 54, 93, 0.15);
-}
-
-.carrier-badge--drop {
-  background: rgba(185, 142, 90, 0.12);
-  color: #6f4b1f;
-  border: 1px solid rgba(185, 142, 90, 0.26);
-}
 
 /* Packing note */
 .packing-note {

@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="css/main-services.css" />
   </head>
   <body>
-    <nav class="nav" id="nav">
+    <header class="site-header">
+      <nav class="nav" id="nav">
       <a href="index.html" class="nav__brand"
         ><div class="nav__brand-icon">◻</div>
         <div class="nav__brand-text">
@@ -27,8 +28,9 @@
       >
       <div class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="services.html" class="nav__link nav__link--active">Services</a>
         <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
+        <a href="print.html" class="nav__link">Print</a>
+        <a href="services.html" class="nav__link nav__link--active">Services</a>
       </div>
       <div class="nav__cta">
         <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
@@ -36,12 +38,13 @@
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link">Home</a>
-        <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
         <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
-        <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        <a href="print.html" class="nav__menu-link">Print</a>
+        <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
+        <a href="contact.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
-    </nav>
-    <div class="info-bar info-bar--offset">
+      </nav>
+      <div class="info-bar">
       <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
       <div class="info-bar__item">
         <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
@@ -50,7 +53,8 @@
       <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
         >⊕ Get Directions</a
       >
-    </div>
+      </div>
+    </header>
     <section class="service fade-section">
       <div class="container">
         <!-- Desktop: span 8 / Tablet: span 8 / Mobile: span 4 -->
@@ -63,11 +67,11 @@
 
         <!-- Desktop: 4 cards x span 3 / Tablet: 2 cards x span 4 / Mobile: 1 card x span 4 -->
         <div class="service__grid">
-          <article class="service__card">
-            <figure class="service__media">
-              <span class="service__media-icon" aria-hidden="true">📦</span>
+          <article class="detailed-service-card" data-service-card="shipping">
+            <figure class="detailed-service-card__media">
               <img
-                class="service__media-image"
+                class="detailed-service-card__media-image"
+                data-service-field="image"
                 src="assets/images/service-shipping.svg"
                 alt="Shipping counter and package processing illustration"
                 width="640"
@@ -75,20 +79,30 @@
                 loading="lazy"
               />
             </figure>
-            <h2 class="service__card-title">Shipping</h2>
-            <ul class="service__list">
-              <li class="service__list-item">Domestic</li>
-              <li class="service__list-item">International</li>
-              <li class="service__list-item">Pre-paid Labels</li>
-              <li class="service__list-item">Packaging</li>
-            </ul>
+            <div class="detailed-service-card__body">
+              <h3 class="detailed-service-card__title" data-service-field="title">Shipping</h3>
+              <p class="detailed-service-card__desc" data-service-field="description">
+                Compare rates across top carriers and get your packages delivered safely and on time.
+              </p>
+              <ul class="detailed-service-card__list" data-service-field="features">
+                <li class="detailed-service-card__list-item">Domestic &amp; International</li>
+                <li class="detailed-service-card__list-item">Certified Mail</li>
+                <li class="detailed-service-card__list-item">Custom Packaging</li>
+              </ul>
+              <div class="detailed-service-card__footer">
+                <div class="detailed-service-card__pricing">
+                  <span class="detailed-service-card__price-label" data-service-field="price-label">Drop-offs</span>
+                  <span class="detailed-service-card__price" data-service-field="price-value">Free</span>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="service__card">
-            <figure class="service__media">
-              <span class="service__media-icon" aria-hidden="true">🖨</span>
+          <article class="detailed-service-card" data-service-card="printing">
+            <figure class="detailed-service-card__media">
               <img
-                class="service__media-image"
+                class="detailed-service-card__media-image"
+                data-service-field="image"
                 src="assets/images/service-printing.svg"
                 alt="Document printing and finishing services illustration"
                 width="640"
@@ -96,20 +110,30 @@
                 loading="lazy"
               />
             </figure>
-            <h2 class="service__card-title">Printing</h2>
-            <ul class="service__list">
-              <li class="service__list-item">Black &amp; White</li>
-              <li class="service__list-item">Full-Color</li>
-              <li class="service__list-item">Photos</li>
-              <li class="service__list-item">Lamination</li>
-            </ul>
+            <div class="detailed-service-card__body">
+              <h3 class="detailed-service-card__title" data-service-field="title">Printing</h3>
+              <p class="detailed-service-card__desc" data-service-field="description">
+                Fast everyday printing for forms, photos, and documents with clear pickup timelines.
+              </p>
+              <ul class="detailed-service-card__list" data-service-field="features">
+                <li class="detailed-service-card__list-item">Black &amp; White</li>
+                <li class="detailed-service-card__list-item">Full-Color</li>
+                <li class="detailed-service-card__list-item">Lamination</li>
+              </ul>
+              <div class="detailed-service-card__footer">
+                <div class="detailed-service-card__pricing">
+                  <span class="detailed-service-card__price-label" data-service-field="price-label">Starting at</span>
+                  <span class="detailed-service-card__price" data-service-field="price-value">$0.50</span>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="service__card">
-            <figure class="service__media">
-              <span class="service__media-icon" aria-hidden="true">📄</span>
+          <article class="detailed-service-card" data-service-card="business">
+            <figure class="detailed-service-card__media">
               <img
-                class="service__media-image"
+                class="detailed-service-card__media-image"
+                data-service-field="image"
                 src="assets/images/service-business.svg"
                 alt="Business desk with fax, notary, and scan support illustration"
                 width="640"
@@ -117,20 +141,30 @@
                 loading="lazy"
               />
             </figure>
-            <h2 class="service__card-title">Business</h2>
-            <ul class="service__list">
-              <li class="service__list-item">Fax</li>
-              <li class="service__list-item">Notary Public</li>
-              <li class="service__list-item">Scans</li>
-              <li class="service__list-item">Certified Mail</li>
-            </ul>
+            <div class="detailed-service-card__body">
+              <h3 class="detailed-service-card__title" data-service-field="title">Business</h3>
+              <p class="detailed-service-card__desc" data-service-field="description">
+                Essential paperwork services in one stop for small business and everyday admin needs.
+              </p>
+              <ul class="detailed-service-card__list" data-service-field="features">
+                <li class="detailed-service-card__list-item">Fax</li>
+                <li class="detailed-service-card__list-item">Notary Public</li>
+                <li class="detailed-service-card__list-item">Shred</li>
+              </ul>
+              <div class="detailed-service-card__footer">
+                <div class="detailed-service-card__pricing">
+                  <span class="detailed-service-card__price-label" data-service-field="price-label">Notary from</span>
+                  <span class="detailed-service-card__price" data-service-field="price-value">$10</span>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="service__card">
-            <figure class="service__media">
-              <span class="service__media-icon" aria-hidden="true">📬</span>
+          <article class="detailed-service-card" data-service-card="mailbox">
+            <figure class="detailed-service-card__media">
               <img
-                class="service__media-image"
+                class="detailed-service-card__media-image"
+                data-service-field="image"
                 src="assets/images/service-mailbox.svg"
                 alt="Private mailbox wall and mail access illustration"
                 width="640"
@@ -138,18 +172,28 @@
                 loading="lazy"
               />
             </figure>
-            <h2 class="service__card-title">Mailbox Services</h2>
-            <ul class="service__list">
-              <li class="service__list-item">Package Storage</li>
-              <li class="service__list-item">Mail Forwarding</li>
-              <li class="service__list-item">Lockers</li>
-              <li class="service__list-item">Magazine/Newspaper Storage</li>
-            </ul>
+            <div class="detailed-service-card__body">
+              <h3 class="detailed-service-card__title" data-service-field="title">Mailbox Services</h3>
+              <p class="detailed-service-card__desc" data-service-field="description">
+                Get a real street address with secure mail handling and optional forwarding.
+              </p>
+              <ul class="detailed-service-card__list" data-service-field="features">
+                <li class="detailed-service-card__list-item">Package Storage</li>
+                <li class="detailed-service-card__list-item">Mail Forwarding</li>
+                <li class="detailed-service-card__list-item">Magazine/Newspaper Storage</li>
+              </ul>
+              <div class="detailed-service-card__footer">
+                <div class="detailed-service-card__pricing">
+                  <span class="detailed-service-card__price-label" data-service-field="price-label">Plans from</span>
+                  <span class="detailed-service-card__price" data-service-field="price-value">$57</span>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
 
         <!-- Desktop: span 10 / Tablet: span 8 / Mobile: span 4 -->
-        <div class="service__supplies-strip">
+        <div class="supplies-banner">
           <span class="service__supplies-icon" aria-hidden="true">🛍</span>
           <p class="service__supplies-text">
             <strong class="service__supplies-strong">Need supplies?</strong> We carry boxes, stamps, tape, envelopes, bubble wrap, and more — available
@@ -288,9 +332,10 @@
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
-            <a href="index.html" class="footer__link">Home</a
-            ><a href="services.html" class="footer__link">Services</a
-            ><a href="mailboxes.html" class="footer__link">Mailbox Rentals</a
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
+            <a href="print.html" class="footer__link">Print</a>
           </section>
           <section class="footer__col">
             <h3 class="footer__col-heading">Hours</h3>
@@ -298,8 +343,8 @@
           </section>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span
-          ><span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
         </div>
       </div>
     </footer>

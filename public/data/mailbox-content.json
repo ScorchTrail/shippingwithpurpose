@@ -37,8 +37,8 @@
       "description": "Perfect for individuals receiving minimal mail.",
       "pricing": {
         "3-Month": 57,
-        "6-Month": 108,
-        "12-Month": 204
+        "6-Month": 109,
+        "12-Month": 200
       }
     },
     "Personal": {
@@ -48,9 +48,9 @@
       "disclaimer": "2026 pricing",
       "description": "Great for individuals with moderate mail volume.",
       "pricing": {
-        "3-Month": 72,
-        "6-Month": 138,
-        "12-Month": 252
+        "3-Month": 73,
+        "6-Month": 140,
+        "12-Month": 250
       }
     },
     "Business": {
@@ -60,9 +60,9 @@
       "disclaimer": "2026 pricing",
       "description": "Ideal for small businesses with regular shipments.",
       "pricing": {
-        "3-Month": 78,
-        "6-Month": 150,
-        "12-Month": 276
+        "3-Month": 80,
+        "6-Month": 152,
+        "12-Month": 275
       }
     },
     "Corporate": {
@@ -72,9 +72,9 @@
       "disclaimer": "2026 pricing",
       "description": "Best for high-volume businesses needing extra space.",
       "pricing": {
-        "3-Month": 123,
-        "6-Month": 236,
-        "12-Month": 432
+        "3-Month": 126,
+        "6-Month": 240,
+        "12-Month": 440
       }
     }
   },
@@ -107,5 +107,65 @@
     },
     "cta": "Complete Reservation",
     "legalText": "Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card."
+  },
+  "servicesOverview": {
+    "cards": [
+      {
+        "id": "shipping",
+        "title": "Shipping",
+        "image": {
+          "src": "assets/images/service-shipping.svg",
+          "alt": "Shipping counter and package processing illustration"
+        },
+        "description": "Compare rates across top carriers and get your packages delivered safely and on time.",
+        "features": ["Domestic & International", "Certified Mail", "Custom Packaging"],
+        "pricing": {
+          "label": "Drop-offs",
+          "value": "Free"
+        }
+      },
+      {
+        "id": "printing",
+        "title": "Printing",
+        "image": {
+          "src": "assets/images/service-printing.svg",
+          "alt": "Document printing and finishing services illustration"
+        },
+        "description": "Fast everyday printing for forms, photos, and documents with clear pickup timelines.",
+        "features": ["Black & White", "Full-Color", "Lamination"],
+        "pricing": {
+          "label": "Starting at",
+          "value": "$0.50"
+        }
+      },
+      {
+        "id": "business",
+        "title": "Business",
+        "image": {
+          "src": "assets/images/service-business.svg",
+          "alt": "Business desk with fax, notary, and scan support illustration"
+        },
+        "description": "Essential paperwork services in one stop for small business and everyday admin needs.",
+        "features": ["Fax", "Notary Public", "Shred"],
+        "pricing": {
+          "label": "Notary from",
+          "value": "$10"
+        }
+      },
+      {
+        "id": "mailbox",
+        "title": "Mailbox Services",
+        "image": {
+          "src": "assets/images/service-mailbox.svg",
+          "alt": "Private mailbox wall and mail access illustration"
+        },
+        "description": "Get a real street address with secure mail handling and optional forwarding.",
+        "features": ["Package Storage", "Mail Forwarding", "Magazine/Newspaper Storage"],
+        "pricing": {
+          "label": "Plans from",
+          "value": "$57"
+        }
+      }
+    ]
   }
 }

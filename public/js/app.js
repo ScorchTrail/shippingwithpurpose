@@ -268,6 +268,54 @@ const MAILBOX_FALLBACK_CONTENT = {
       pricing: { '3-Month': 123, '6-Month': 236, '12-Month': 432 },
     },
   },
+  servicesOverview: {
+    cards: [
+      {
+        id: 'shipping',
+        title: 'Shipping',
+        image: {
+          src: 'assets/images/service-shipping.svg',
+          alt: 'Shipping counter and package processing illustration',
+        },
+        description: 'Compare rates across top carriers and get your packages delivered safely and on time.',
+        features: ['Domestic & International', 'Certified Mail', 'Custom Packaging'],
+        pricing: { label: 'Drop-offs', value: 'Free' },
+      },
+      {
+        id: 'printing',
+        title: 'Printing',
+        image: {
+          src: 'assets/images/service-printing.svg',
+          alt: 'Document printing and finishing services illustration',
+        },
+        description: 'Fast everyday printing for forms, photos, and documents with clear pickup timelines.',
+        features: ['Black & White', 'Full-Color', 'Lamination'],
+        pricing: { label: 'Starting at', value: '$0.50' },
+      },
+      {
+        id: 'business',
+        title: 'Business',
+        image: {
+          src: 'assets/images/service-business.svg',
+          alt: 'Business desk with fax, notary, and scan support illustration',
+        },
+        description: 'Essential paperwork services in one stop for small business and everyday admin needs.',
+        features: ['Fax', 'Notary Public', 'Shred'],
+        pricing: { label: 'Notary from', value: '$10' },
+      },
+      {
+        id: 'mailbox',
+        title: 'Mailbox Services',
+        image: {
+          src: 'assets/images/service-mailbox.svg',
+          alt: 'Private mailbox wall and mail access illustration',
+        },
+        description: 'Get a real street address with secure mail handling and optional forwarding.',
+        features: ['Package Storage', 'Mail Forwarding', 'Magazine/Newspaper Storage'],
+        pricing: { label: 'Plans from', value: '$57' },
+      },
+    ],
+  },
 };
 
 let mailboxContentPromise = null;
@@ -341,6 +389,45 @@ function getByPath(source, path) {
       const planName = el.dataset.mailboxPlanDesc;
       const plan = content.plans?.[planName];
       if (plan?.description) el.textContent = plan.description;
+    });
+  });
+})();
+
+/* ============================================================
+   SERVICES OVERVIEW CARDS (services.html)
+   ============================================================ */
+(function initServicesOverviewCards() {
+  const cards = document.querySelectorAll('[data-service-card]');
+  if (!cards.length) return;
+
+  loadMailboxContent().then((content) => {
+    const byId = Object.fromEntries((content.servicesOverview?.cards || []).map((card) => [card.id, card]));
+
+    cards.forEach((cardEl) => {
+      const id = cardEl.getAttribute('data-service-card');
+      const cardData = byId[id];
+      if (!cardData) return;
+
+      const titleEl = cardEl.querySelector('[data-service-field="title"]');
+      const imageEl = cardEl.querySelector('[data-service-field="image"]');
+      const descEl = cardEl.querySelector('[data-service-field="description"]');
+      const featuresEl = cardEl.querySelector('[data-service-field="features"]');
+      const priceLabelEl = cardEl.querySelector('[data-service-field="price-label"]');
+      const priceValueEl = cardEl.querySelector('[data-service-field="price-value"]');
+
+      if (titleEl && typeof cardData.title === 'string') titleEl.textContent = cardData.title;
+      if (imageEl && typeof cardData.image?.src === 'string') imageEl.setAttribute('src', cardData.image.src);
+      if (imageEl && typeof cardData.image?.alt === 'string') imageEl.setAttribute('alt', cardData.image.alt);
+      if (descEl && typeof cardData.description === 'string') descEl.textContent = cardData.description;
+
+      if (featuresEl && Array.isArray(cardData.features)) {
+        featuresEl.innerHTML = cardData.features
+          .map((feature) => `<li class="detailed-service-card__list-item">${escHtml(feature)}</li>`)
+          .join('');
+      }
+
+      if (priceLabelEl && typeof cardData.pricing?.label === 'string') priceLabelEl.textContent = cardData.pricing.label;
+      if (priceValueEl && typeof cardData.pricing?.value === 'string') priceValueEl.textContent = cardData.pricing.value;
     });
   });
 })();

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Printing Services - Shipping with Purpose</title>
+    <meta
+      name="description"
+      content="Upload documents for printing with clear, simple instructions and easy pickup at Shipping with Purpose."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main-print.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__brand">
+          <img src="assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
+          <div class="nav__brand-text">
+            <div class="nav__brand-name">Shipping with Purpose</div>
+            <div class="nav__brand-sub">Shipping Center</div>
+          </div>
+        </a>
+        <div class="nav__links">
+          <a href="index.html" class="nav__link">Home</a>
+          <a href="mailboxes.html" class="nav__link">Mailbox Rentals</a>
+          <a href="print.html" class="nav__link nav__link--active">Print</a>
+          <a href="services.html" class="nav__link">Services</a>
+        </div>
+        <div class="nav__cta">
+          <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav__menu" id="mobile-menu">
+          <a href="index.html" class="nav__menu-link">Home</a>
+          <a href="mailboxes.html" class="nav__menu-link">Mailbox Rentals</a>
+          <a href="print.html" class="nav__menu-link nav__menu-link--active">Print</a>
+          <a href="services.html" class="nav__menu-link">Services</a>
+          <a href="contact.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        </div>
+      </nav>
+      <div class="info-bar">
+        <div class="info-bar__item"><span>☎</span><a href="tel:+16029604882">(602) 960-4882</a></div>
+        <div class="info-bar__item">
+          <span class="info-bar__icon">◷</span> Mon-Fri: 9:00 AM - 5:00 PM · Sat: 9:00 AM - 2:30 PM
+          <span class="info-bar__hours-sun"> · Sun: Closed</span>
+        </div>
+        <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
+          >⊕ Get Directions</a
+        >
+      </div>
+    </header>
+
+    <section class="print-portal fade-section">
+      <div class="container">
+        <div class="print-portal__header">
+          <div class="section-header section-header--center">
+            <span class="section-tag tag">▣ Print Section</span>
+            <h2 class="section-title">Upload documents for printing.</h2>
+            <p class="section-desc">Send us your print request and files. We handle the rest.</p>
+          </div>
+        </div>
+        <form id="print-portal-form" class="print-portal-form">
+          <div class="print-portal__bento">
+            <!-- TILE: Upload + Files (left, tall) -->
+            <div class="print-portal__tile print-portal__tile--upload">
+              <div class="drop-zone" id="drop-zone">
+                <div class="drop-zone__icon">⇧</div>
+                <div class="drop-zone__title">Drag &amp; drop documents here</div>
+                <p class="drop-zone__sub">PDF, DOC, DOCX, PNG, JPG accepted</p>
+                <span class="btn btn--navy-sm drop-zone__fake-btn">Select Documents</span>
+                <input
+                  type="file"
+                  id="file-input"
+                  accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                  class="print-portal__file-input"
+                  multiple
+                />
+              </div>
+              <div class="print-portal-files" aria-live="polite">
+                <div class="print-portal-files__title">Uploaded Documents</div>
+                <p class="print-portal-files__empty" id="uploaded-doc-empty">No files uploaded yet.</p>
+                <ul class="print-portal-files__list" id="uploaded-doc-list"></ul>
+              </div>
+            </div>
+
+            <!-- TILE: Form fields (right) -->
+            <div class="print-portal__tile print-portal__tile--fields">
+              <div class="print-portal__field-grid">
+                <div class="form-group print-portal__field print-portal__field--name">
+                  <label class="form-label" for="portal-name">Name</label>
+                  <input id="portal-name" type="text" class="form-input" placeholder="John Doe" required />
+                </div>
+                <div class="form-group print-portal__field print-portal__field--copies">
+                  <label class="form-label" for="portal-copies">Number of Copies</label>
+                  <input
+                    id="portal-copies"
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="form-input print-portal__copies-input"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group print-portal__print-type-group">
+                <label class="form-label">Print Type</label>
+                <div class="print-portal__print-types" role="radiogroup" aria-label="Print Type">
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Black &amp; White" checked />
+                    <span>
+                      <strong>Black &amp; White</strong>
+                      <small>Fastest turnaround</small>
+                    </span>
+                  </label>
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Color" />
+                    <span>
+                      <strong>Color</strong>
+                      <small>Vibrant documents</small>
+                    </span>
+                  </label>
+                  <label class="print-portal__print-type-option">
+                    <input type="radio" name="portal-print-type" value="Photo Copy" />
+                    <span>
+                      <strong>Photo Copy</strong>
+                      <small>High quality image prints</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group print-portal__instructions-group">
+                <label class="form-label" for="portal-instructions">Instructions (Optional)</label>
+                <textarea
+                  id="portal-instructions"
+                  class="form-input print-portal__instructions"
+                  rows="4"
+                  placeholder="Example: Print only page 1, double-sided, staple top-left, black and white."
+                ></textarea>
+                <p class="print-portal__instructions-help">
+                  Add any page ranges, color preference, or finishing notes.
+                </p>
+              </div>
+              <button type="submit" class="btn btn--navy print-portal-form__submit">Send Print Request &nbsp;→</button>
+              <div class="print-portal-form__feedback" id="print-portal-feedback"></div>
+              <p class="print-portal__privacy-inline">
+                <strong class="print-portal__privacy-strong">Privacy protected.</strong> Request details stay secure.
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <section class="footer__col">
+            <div class="footer__brand">
+              <div class="footer__brand-icon">◻</div>
+              <span class="footer__brand-name">Shipping with Purpose</span>
+            </div>
+            <p class="footer__tagline">
+              Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
+            </p>
+            <a href="tel:+16029604882" class="footer__link footer__link--contact">☎ (602) 960-4882</a>
+            <a
+              href="https://maps.google.com/?q=Shipping+with+Purpose"
+              target="_blank"
+              rel="noopener"
+              class="footer__link footer__link--contact"
+              >⊕ Get Directions</a
+            >
+          </section>
+          <section class="footer__col">
+            <h3 class="footer__col-heading">Quick Links</h3>
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="mailboxes.html" class="footer__link">Mailbox Rentals</a>
+            <a href="print.html" class="footer__link">Print</a>
+          </section>
+          <section class="footer__col">
+            <h3 class="footer__col-heading">Hours</h3>
+            <div class="footer__hours">Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed</div>
+          </section>
+        </div>
+        <div class="footer__bottom">
+          <span class="footer__copy">© 2025 Shipping with Purpose. All rights reserved.</span>
+          <span class="footer__local">Locally owned &amp; operated in Phoenix, AZ</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

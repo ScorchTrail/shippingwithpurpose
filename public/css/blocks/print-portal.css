@@ -5,35 +5,6 @@
   background: var(--off-white);
 }
 
-.print-portal__header {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-  margin-bottom: var(--space-32);
-}
-
-.print-portal__tag {
-  display: inline-flex;
-}
-
-.print-portal__heading {
-  font-family: "Inter", sans-serif;
-  font-size: var(--fs-h2-fluid);
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-  color: var(--navy);
-}
-
-.print-portal__sub {
-  color: var(--body-text);
-  font-size: var(--fs-body-fluid);
-  line-height: 1.6;
-  max-width: 58ch;
-  margin: 0 auto;
-}
 
 /* Bento grid */
 .print-portal__bento {
@@ -211,7 +182,7 @@
 /* Upload drop-zone */
 .drop-zone {
   border: 2px dashed rgba(26, 54, 93, 0.28);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md) 0 0;
   padding: var(--space-48) var(--space-24);
   text-align: center;
   cursor: pointer;
@@ -241,7 +212,6 @@
   background:
     radial-gradient(circle at 12% 10%, rgba(26, 54, 93, 0.08) 0%, rgba(26, 54, 93, 0) 48%),
     linear-gradient(180deg, #ffffff 0%, #eff5ff 100%);
-  transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(26, 54, 93, 0.11);
 }
 

@@ -7,4 +7,6 @@
 @import url("blocks/mailbox-hero.css");
 @import url("blocks/mailbox-features.css");
 @import url("blocks/quote.css");
+@import url("blocks/pricing-table.css");
+@import url("blocks/pricing-modal.css");
 @import url("blocks/reservation-modal.css");

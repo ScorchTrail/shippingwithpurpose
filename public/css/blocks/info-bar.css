@@ -1,5 +1,6 @@
 /* ============================================================ INFO BAR */
 .info-bar {
+  position: relative;
   background: var(--navy);
   padding: var(--space-8) var(--space-24);
   display: flex;
@@ -7,13 +8,6 @@
   align-items: center;
   gap: var(--space-24);
   flex-wrap: wrap;
-  position: sticky;
-  top: 60px;
-  z-index: 999;
-}
-
-.info-bar--offset {
-  margin-top: 60px;
 }
 
 .info-bar__item {
@@ -88,12 +82,8 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
   .info-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: var(--space-16);
-    padding: var(--space-16);
+    justify-content: space-between;
+    padding: var(--space-12) var(--space-24);
   }
 
   .info-bar__item {
@@ -111,6 +101,7 @@
     width: 100%;
     justify-content: center;
     text-align: center;
+    margin-top: 8px;
   }
 
   .info-bar__item a {
@@ -131,6 +122,18 @@
 }
 
 @media (max-width: 768px) {
+  .info-bar {
+    justify-content: center;
+    padding: var(--space-12) var(--space-16);
+    gap: var(--space-12);
+  }
+
+  .info-bar__item:first-child,
+  .info-bar__action {
+    width: 100%;
+    justify-content: center;
+  }
+
   .info-bar__icon {
     display: none;
   }
