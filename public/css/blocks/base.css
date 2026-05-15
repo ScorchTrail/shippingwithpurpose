@@ -61,7 +61,7 @@
   --fs-h3-fluid: clamp(1.563rem, 1.25rem + 1.2vw, 2.2rem);
   --fs-ui-fluid: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
 
-  --section-pad-y: clamp(32px, 2.2vw, 64px);
+  --section-pad-y: clamp(24px, 1.8vw, 48px);
   --section-pad-x: clamp(16px, 2.2vw, 32px);
 }
 
@@ -87,6 +87,10 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   touch-action: pan-y pinch-zoom;
+}
+
+section {
+  background: var(--off-white);
 }
 img {
   max-width: 100%;
@@ -207,6 +211,12 @@ main > * {
   padding-bottom: var(--section-pad-y) !important;
 }
 
+.services-preview + .mailbox-cta,
+.mailbox-cta + .print-portal,
+.page-hero + .print-portal {
+  padding-top: clamp(16px, 1.2vw, 24px);
+}
+
 /* ============================================================ BUTTONS */
 .btn {
   display: inline-flex;
@@ -283,18 +293,13 @@ main > * {
 /* ============================================================ LAYOUT */
 .container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 .container-md {
   max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
+
 .container-sm {
   max-width: 768px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 
 /* ============================================================ FADE-IN */

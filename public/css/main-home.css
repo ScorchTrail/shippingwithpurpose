@@ -6,10 +6,9 @@
 @import url("blocks/forms.css");
 @import url("blocks/hero.css");
 @import url("blocks/services-preview.css");
-@import url("blocks/mailbox-cta.css");
-@import url("blocks/print-portal.css");
-@import url("blocks/dropoff-grid.css");
+@import url("blocks/mailbox-preview.css");
+@import url("blocks/print.css");
+@import url("blocks/dropoff.css");
 @import url("blocks/testimonials.css");
-@import url("blocks/pricing-modal.css");
-@import url("blocks/pricing-table.css");
-@import url("blocks/reservation-modal.css");
+@import url("blocks/pricing.css");
+@import url("blocks/reservation.css");

@@ -241,7 +241,7 @@ const MAILBOX_FALLBACK_CONTENT = {
     defaultSize: 'Personal',
     defaultTerm: '3-Month',
     cardLabel: 'Your Quote',
-    reserveLabel: 'Reserve Your Box ->',
+    reserveLabel: 'Reserve Your Box',
     pricingTriggerLabel: 'View full pricing breakdown',
     labels: { size: 'Box Size', term: 'Rental Term', addons: 'Add-ons' },
     addon: {
@@ -705,7 +705,7 @@ function getByPath(source, path) {
           <div class="review-card__avatar">i</div>
           <div class="review-card__identity">
             <div class="review-card__name">Live Reviews</div>
-            <div class="review-card__meta">Google &amp; Yelp</div>
+            <div class="review-card__meta">Yelp Reviews</div>
           </div>
         </div>
         <p class="review-card__text">${escHtml(message)}</p>

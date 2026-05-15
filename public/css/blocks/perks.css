@@ -1,11 +1,11 @@
-/* ============================================================ MAILBOX FEATURES (mailboxes.html) */
+/* ============================================================ PERKS (mailboxes.html) */
 /* Desktop: 3-col grid (span-4 each) | Tablet: 2-col | Mobile: 1-col */
-.mailbox-features {
-  padding: var(--space-48) var(--space-24);
+.perks {
+  padding: var(--space-32);
   background: var(--off-white);
 }
 
-.mailbox-features__heading {
+.perks__heading {
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -17,21 +17,21 @@
   margin-bottom: var(--space-24);
 }
 
-.mailbox-features__heading--gradient {
+.perks__heading--gradient {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.mailbox-features__grid {
+.perks__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--space-16);
   align-items: stretch;
 }
 
-.mailbox-features__grid > * {
+.perks__grid > * {
   grid-column: span 4;
 }
 
@@ -68,15 +68,15 @@
   line-height: 1.62;
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 1080px) {
-  .mailbox-features__grid > * {
+  .perks__grid > * {
     grid-column: span 6;
   }
 }
 
 @media (max-width: 720px) {
-  .mailbox-features__grid > * {
+  .perks__grid > * {
     grid-column: span 12;
   }
 }

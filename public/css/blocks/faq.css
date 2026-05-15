@@ -6,7 +6,7 @@
 }
 
 .faq-section {
-  background: #fff;
+  background: var(--off-white);
   padding: 32px;
 }
 

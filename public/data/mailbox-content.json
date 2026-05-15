@@ -15,7 +15,7 @@
     "defaultSize": "Personal",
     "defaultTerm": "3-Month",
     "cardLabel": "Your Quote",
-    "reserveLabel": "Reserve Your Box ->",
+    "reserveLabel": "Reserve Your Box",
     "pricingTriggerLabel": "View full pricing breakdown",
     "labels": {
       "size": "Box Size",
