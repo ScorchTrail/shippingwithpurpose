@@ -1,6 +1,6 @@
 /* ============================================================ TESTIMONIALS (homepage) */
 .testimonials {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--section-pad-y) var(--section-pad-x) var(--section-pad-y);
   background: var(--off-white);
 }
 
@@ -49,19 +49,17 @@
   text-align: center;
 }
 
-/* Review gallery (horizontal scroll) */
-.review-gallery {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: var(--space-32);
+/* Swiper Container adjustments */
+#reviews-slider {
+  width: 100%;
+  padding-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
-.review-gallery__track {
+/* Individual Slide */
+.swiper-slide {
+  height: auto;
   display: flex;
-  align-items: stretch;
-  gap: var(--space-16);
-  width: max-content;
-  will-change: transform;
 }
 
 /* Review card */
@@ -71,8 +69,9 @@
   background: #fff;
   padding: var(--space-24);
   box-shadow: var(--shadow-sm);
-  width: clamp(280px, 31vw, 360px);
-  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .review-card--placeholder {
@@ -102,11 +101,6 @@
   flex-shrink: 0;
 }
 
-.review-card__meta {
-  color: #6b778c;
-  font-size: 0.8rem;
-}
-
 .review-card__identity {
   display: flex;
   flex-direction: column;
@@ -124,7 +118,7 @@
   background: #d32323;
   color: #fff;
   border-radius: 999px;
-  padding: var(--space-8) 12px;
+  padding: 4px 12px;
   font-size: 0.72rem;
   font-weight: 700;
 }
@@ -132,7 +126,7 @@
 .review-card__rating-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: var(--space-16);
   margin-bottom: var(--space-16);
 }
@@ -145,15 +139,15 @@
   line-height: 1;
 }
 
-.review-card__time {
-  color: #6b778c;
-  font-size: 0.8rem;
-}
-
 .review-card__text {
   color: var(--body-text);
   font-size: 0.98rem;
   line-height: 1.7;
+  margin-top: auto;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--navy);
 }
 
 /* SVG star icons (injected by JS) */
@@ -170,7 +164,6 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 720px) {
   .review-card {
-    width: min(86vw, 340px);
     padding: 20px;
   }
 }

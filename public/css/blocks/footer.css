@@ -2,7 +2,8 @@
 .footer {
   background: linear-gradient(180deg, #0f2340 0%, #0a1928 100%);
   color: rgba(255, 255, 255, 0.84);
-  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem);
+  margin-top: 0;
 }
 
 .footer__grid {
@@ -34,7 +35,7 @@
 
 .footer__brand-icon img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -82,7 +83,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: 6px;
 }
 
 .footer__link {
@@ -92,7 +93,8 @@
   font-size: 0.9rem;
   transition: all 200ms ease;
   position: relative;
-  padding-bottom: 2px;
+  padding: 2px 0 2px 8px;
+  border-left: 2px solid rgba(185, 142, 90, 0.18);
 }
 
 .footer__link:hover {
@@ -105,7 +107,9 @@
   align-items: center;
   gap: var(--space-8);
   margin-top: var(--space-12);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
+  padding-left: 0;
+  border-left: none;
 }
 
 .footer__link--contact img {
@@ -181,12 +185,12 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 32px;
+    padding: 24px 20px;
   }
 
   .footer__grid {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-20);
+    gap: var(--space-16);
     margin-bottom: var(--space-24);
   }
 
@@ -196,7 +200,7 @@
 
   .footer__col-heading {
     font-size: 0.85rem;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-8);
   }
 
   .footer__link {

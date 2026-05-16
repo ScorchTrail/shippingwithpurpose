@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+      "authorName": "Maya R.",
+      "rating": 5,
+      "relativeTime": "2 weeks ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Super friendly team and very fast service. They helped me compare carrier rates and saved me money."
+    },
+    {
+      "authorName": "Daniel K.",
+      "rating": 5,
+      "relativeTime": "1 month ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Mailbox setup was easy and professional. Having a real street address has made my business mail much easier."
+    },
+    {
+      "authorName": "Alicia T.",
+      "rating": 5,
+      "relativeTime": "3 weeks ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Print quality was excellent and turnaround was same day. Staff walked me through options and got it done quickly."
+    }
+  ]
+}

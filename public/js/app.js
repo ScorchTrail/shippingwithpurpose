@@ -472,6 +472,8 @@ function getByPath(source, path) {
     let selectedSize = PRICING[content.quote?.defaultSize] ? content.quote.defaultSize : 'Personal';
     let selectedTerm = content.quote?.defaultTerm || '3-Month';
     let notifications = true;
+    const sizeSelect = document.getElementById('quote-size-select');
+    const termSelect = document.getElementById('quote-term-select');
 
     // Parse URL parameters for pre-selection
     (function parseUrlParams() {
@@ -521,9 +523,13 @@ function getByPath(source, path) {
         btn.classList.toggle('quote__size-btn--active', btn.dataset.size === selectedSize);
       });
 
+      if (sizeSelect) sizeSelect.value = selectedSize;
+
       document.querySelectorAll('.quote__term-btn').forEach((btn) => {
         btn.classList.toggle('quote__term-btn--active', btn.dataset.term === selectedTerm);
       });
+
+      if (termSelect) termSelect.value = selectedTerm;
 
       const addonBadge = document.getElementById('addon-badge');
       if (addonBadge) addonBadge.textContent = '+$' + NOTIF[selectedTerm] + ' (' + selectedTerm + ')';
@@ -546,6 +552,22 @@ function getByPath(source, path) {
         updateQuote();
       });
     });
+
+    if (sizeSelect) {
+      sizeSelect.addEventListener('change', (e) => {
+        selectedSize = e.target.value;
+        if (!PRICING[selectedSize]?.[selectedTerm]) selectedTerm = '3-Month';
+        updateQuote();
+      });
+    }
+
+    if (termSelect) {
+      termSelect.addEventListener('change', (e) => {
+        selectedTerm = e.target.value;
+        if (!PRICING[selectedSize]?.[selectedTerm]) selectedTerm = '3-Month';
+        updateQuote();
+      });
+    }
 
     const addonBtn = document.getElementById('addon-btn');
     if (addonBtn) {
@@ -628,88 +650,99 @@ function getByPath(source, path) {
 /* ============================================================   LIVE REVIEWS GALLERY (index.html)
    ============================================================ */
 (function initLiveReviews() {
-  const gallery = document.getElementById('reviews-gallery');
+  const slider = document.getElementById('reviews-slider');
   const track = document.getElementById('reviews-track');
-  if (!gallery || !track) return;
+  if (!slider || !track) return;
 
-  fetch('/api/reviews', { headers: { Accept: 'application/json' } })
+  fetchReviewsData()
     .then((res) => {
-      if (!res.ok) throw new Error('Failed to fetch reviews');
-      return res.json();
+      if (!res || typeof res !== 'object') throw new Error('Invalid review payload');
+      return res;
     })
     .then((data) => {
       const reviews = Array.isArray(data?.reviews) ? data.reviews : [];
       if (!reviews.length) {
-        track.innerHTML = fallbackReviewMarkup('No live reviews available yet.');
+        track.innerHTML = fallbackSlideMarkup('No live reviews available yet.');
+        initializeSwiper();
         return;
       }
 
-      const baseReviews = reviews.slice(0, 10);
-      while (baseReviews.length > 0 && baseReviews.length < 3) {
-        baseReviews.push(...baseReviews.slice(0, 3 - baseReviews.length));
-      }
-      const loopReviews = baseReviews.concat(baseReviews);
-      track.innerHTML = loopReviews.map((review) => reviewCardMarkup(review)).join('');
-      startAutoScroll();
+      track.innerHTML = reviews.map((review) => reviewSlideMarkup(review)).join('');
+      initializeSwiper();
     })
-    .catch(() => {
-      track.innerHTML = fallbackReviewMarkup('Unable to load reviews right now.');
+    .catch((error) => {
+      const reason = error?.message ? ` (${error.message})` : '';
+      track.innerHTML = fallbackSlideMarkup(`Live Yelp feed unavailable${reason}.`);
+      initializeSwiper();
     });
 
-  function startAutoScroll() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  async function fetchReviewsData() {
+    const localDataPath = window.location.pathname.toLowerCase().includes('/public/')
+      ? 'data/reviews.json'
+      : 'public/data/reviews.json';
 
-    let rafId = null;
-    let paused = false;
-    const speed = 0.35;
+    const endpoints = ['/api/reviews', 'api/reviews', './api/reviews', localDataPath];
 
-    const animate = () => {
-      if (!paused) {
-        gallery.scrollLeft += speed;
-        const loopPoint = track.scrollWidth / 2;
-        if (gallery.scrollLeft >= loopPoint) {
-          gallery.scrollLeft = 0;
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+        if (!response.ok) {
+          const payload = await safeReadJson(response);
+          if (endpoint.includes('/api/reviews')) {
+            const detail = payload?.error || payload?.code || `HTTP ${response.status}`;
+            throw new Error(detail);
+          }
+          continue;
         }
+        const data = await response.json();
+        if (Array.isArray(data?.reviews) && data.reviews.length) {
+          return data;
+        }
+      } catch (err) {
+        if (endpoint.includes('/api/reviews')) {
+          const localFallback = await tryLocalData(localDataPath);
+          if (localFallback) return localFallback;
+          throw err;
+        }
+        continue;
       }
-      rafId = requestAnimationFrame(animate);
-    };
+    }
 
-    gallery.addEventListener('mouseenter', () => {
-      paused = true;
-    });
-    gallery.addEventListener('mouseleave', () => {
-      paused = false;
-    });
-    gallery.addEventListener('focusin', () => {
-      paused = true;
-    });
-    gallery.addEventListener('focusout', () => {
-      paused = false;
-    });
-
-    rafId = requestAnimationFrame(animate);
-
-    window.addEventListener(
-      'beforeunload',
-      () => {
-        if (rafId) cancelAnimationFrame(rafId);
-      },
-      { once: true }
-    );
+    throw new Error('No review source available');
   }
 
-  function fallbackReviewMarkup(message) {
+  async function tryLocalData(localPath) {
+    try {
+      const response = await fetch(localPath, { headers: { Accept: 'application/json' } });
+      if (!response.ok) return null;
+      const data = await response.json();
+      return Array.isArray(data?.reviews) && data.reviews.length ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function safeReadJson(response) {
+    try {
+      return await response.json();
+    } catch {
+      return null;
+    }
+  }
+
+  function fallbackSlideMarkup(message) {
     return `
-      <article class="review-card review-card--placeholder">
-        <div class="review-card__top">
-          <div class="review-card__avatar">i</div>
-          <div class="review-card__identity">
-            <div class="review-card__name">Live Reviews</div>
-            <div class="review-card__meta">Yelp Reviews</div>
+      <div class="swiper-slide">
+        <article class="review-card review-card--placeholder">
+          <div class="review-card__top">
+            <div class="review-card__avatar">i</div>
+            <div class="review-card__identity">
+              <div class="review-card__name">Live Reviews</div>
+            </div>
           </div>
-        </div>
-        <p class="review-card__text">${escHtml(message)}</p>
-      </article>
+          <p class="review-card__text">${escHtml(message)}</p>
+        </article>
+      </div>
     `;
   }
 
@@ -721,7 +754,7 @@ function getByPath(source, path) {
     }).join('');
   }
 
-  function reviewCardMarkup(review) {
+  function reviewSlideMarkup(review) {
     const name = review?.authorName || 'Guest';
     const initials = name
       .split(/\s+/)
@@ -733,24 +766,67 @@ function getByPath(source, path) {
     const rating = Math.max(1, Math.min(5, Number(review?.rating) || 5));
     const stars = renderStars(rating);
     const source = review?.source === 'google' ? 'Google' : 'Yelp';
+    const relativeTime = review?.relativeTime || '';
 
     return `
-      <article class="review-card" role="article">
-        <div class="review-card__top">
-          <div class="review-card__avatar">${escHtml(initials || 'G')}</div>
-          <div class="review-card__identity">
-            <div class="review-card__name">${escHtml(name)}</div>
-            <div class="review-card__meta">${escHtml(review?.relativeTime || 'Recent review')}</div>
+      <div class="swiper-slide">
+        <article class="review-card" role="article">
+          <div class="review-card__top">
+            <div class="review-card__avatar">${escHtml(initials || 'G')}</div>
+            <div class="review-card__identity">
+              <div class="review-card__name">${escHtml(name)}</div>
+              ${relativeTime ? `<div class="review-card__meta">${escHtml(relativeTime)}</div>` : ''}
+            </div>
+            <span class="review-card__source">${escHtml(source)}</span>
           </div>
-          <span class="review-card__source">${escHtml(source)}</span>
-        </div>
-        <div class="review-card__rating-row">
-          <div class="review-card__stars" aria-label="${rating} out of 5 stars">${stars}</div>
-          <span class="review-card__time">${escHtml(review?.publishedAt || '')}</span>
-        </div>
-        <p class="review-card__text">${escHtml(review?.text || '')}</p>
-      </article>
+          <div class="review-card__rating-row">
+            <div class="review-card__stars" aria-label="${rating} out of 5 stars">${stars}</div>
+          </div>
+          <p class="review-card__text">${escHtml(review?.text || '')}</p>
+        </article>
+      </div>
     `;
+  }
+
+  function initializeSwiper() {
+    if (typeof Swiper === 'undefined') return;
+
+    const existingSwiper = slider.swiper;
+    if (existingSwiper && typeof existingSwiper.destroy === 'function') {
+      existingSwiper.destroy(true, true);
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    new Swiper('#reviews-slider', {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 24,
+      autoplay: prefersReducedMotion
+        ? false
+        : {
+            delay: 5000,
+            disableOnInteraction: true,
+          },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.1,
+          centeredSlides: true,
+        },
+        768: {
+          slidesPerView: 2,
+          centeredSlides: false,
+        },
+        1024: {
+          slidesPerView: 3,
+          centeredSlides: false,
+        },
+      },
+    });
   }
 })();
 

@@ -1,6 +1,6 @@
 /* ============================================================ HERO (homepage) */
 .hero {
-  padding:  0 32px 32px;
+  padding: 0 var(--section-pad-x) 0;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -238,7 +238,7 @@
 /* Mobile: 4 Columns */
 @media (max-width: 685px) {
   .hero {
-    padding: 24px;
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .hero__badge {

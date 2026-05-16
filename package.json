@@ -6,7 +6,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "node server/index.js"
+    "dev": "node server/index.js",
+    "yelp:find": "node scripts/yelp-find-business.js"
   },
   "engines": {
     "node": ">=18"

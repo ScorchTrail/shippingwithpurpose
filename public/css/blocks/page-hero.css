@@ -1,6 +1,6 @@
 /* ============================================================ PAGE HERO (shared across inner pages) */
 .page-hero {
-  padding: 32px var(--space-24) var(--space-64);
+  padding: clamp(24px, 3vw, 32px) var(--section-pad-x) clamp(24px, 3vw, 32px);
   text-align: center;
   position: relative;
   overflow: hidden;

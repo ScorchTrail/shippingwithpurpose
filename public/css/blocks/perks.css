@@ -1,7 +1,7 @@
 /* ============================================================ PERKS (mailboxes.html) */
 /* Desktop: 3-col grid (span-4 each) | Tablet: 2-col | Mobile: 1-col */
 .perks {
-  padding: var(--space-32);
+  padding: var(--section-pad-y) var(--section-pad-x) 0;
   background: var(--off-white);
 }
 
@@ -39,7 +39,7 @@
 .feature-card {
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: var(--space-16);
+  padding: 14px var(--space-16) var(--space-16);
   background: #fff;
   box-shadow: var(--shadow-sm);
   height: 100%;

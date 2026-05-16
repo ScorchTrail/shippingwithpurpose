@@ -191,6 +191,7 @@
     padding: 0 var(--space-16);
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow-x: clip;
   }
 
   .nav__links {
@@ -207,8 +208,14 @@
   }
 
   .nav__menu {
-    margin: 0 calc(-1 * var(--space-16));
-    padding: var(--space-16) var(--space-16) var(--space-24);
+    margin: 0;
+    width: 100%;
+    padding: var(--space-16) 0 var(--space-24);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav__menu-link,
+  .nav__menu-cta {
+    width: 100%;
   }
 }

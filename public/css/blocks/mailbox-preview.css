@@ -1,7 +1,7 @@
 /* ============================================================ MAILBOX CTA — BENTO GRID (homepage) */
 /* Desktop: 4-col bento | Tablet: 2-col | Mobile: 1-col */
 .mailbox-cta {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--section-pad-y) var(--section-pad-x) 0;
   background: var(--off-white);
 }
 
@@ -248,7 +248,7 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
   .mailbox-cta {
-    padding: var(--section-pad-y) var(--section-pad-x);
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .mailbox-cta__grid {
@@ -283,7 +283,7 @@
 
 @media (max-width: 768px) {
   .mailbox-cta {
-    padding: var(--section-pad-y) var(--section-pad-x);
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .mailbox-cta__grid {

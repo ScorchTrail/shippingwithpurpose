@@ -77,6 +77,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: clip;
   overscroll-behavior-x: none;
+  background: var(--off-white);
 }
 body {
   font-family: "Inter", sans-serif;
@@ -87,6 +88,14 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   touch-action: pan-y pinch-zoom;
+}
+
+body,
+section,
+.container,
+.container-md,
+.container-sm {
+  min-width: 0;
 }
 
 section {
@@ -194,21 +203,13 @@ button {
   align-self: center;
 }
 
-/* ============================================================ SECTION SPACING FIX (prevent padding overlap) */
-/* Remove margins to prevent collapsing issues */
-main > * {
-  margin-top: 0;
-  margin-bottom: 0;
+/* ============================================================ SECTION SPACING FIX (top-level sections, no <main>) */
+body > section {
+  margin-inline: auto;
 }
 
-/* Only first section gets top padding; others start at 0 */
-main > :not(:first-child) {
-  padding-top: 0 !important;
-}
-
-/* All sections get bottom padding for consistent spacing */
-main > * {
-  padding-bottom: var(--section-pad-y) !important;
+body > section + section {
+  margin-top: clamp(40px, 5vw, 72px);
 }
 
 .services-preview + .mailbox-cta,
@@ -293,13 +294,19 @@ main > * {
 /* ============================================================ LAYOUT */
 .container {
   max-width: 1280px;
+  width: 100%;
+  margin-inline: auto;
 }
 .container-md {
   max-width: 1024px;
+  width: 100%;
+  margin-inline: auto;
 }
 
 .container-sm {
   max-width: 768px;
+  width: 100%;
+  margin-inline: auto;
 }
 
 /* ============================================================ FADE-IN */
@@ -333,7 +340,7 @@ main > * {
 
 /* Tag Sizing/Spacing (Section context) */
 .section-tag {
-  margin-bottom: var(--space-16, 16px); /* Tag to Title gap */
+  margin-bottom: var(--space-12, 12px); /* Tag to Title gap */
 }
 
 /* Tag Aesthetic (Reusable everywhere) */
@@ -359,7 +366,7 @@ main > * {
   font-size: var(--fs-h2-fluid);
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: var(--space-16, 16px); /* Title to Desc gap */
+  margin-bottom: var(--space-24, 24px); /* Title to Desc gap */
   letter-spacing: -0.02em;
 }
 .section-title--gradient {
@@ -385,7 +392,7 @@ main > * {
   }
 
   .section-tag {
-    margin-bottom: var(--space-12, 12px);
+    margin-bottom: var(--space-8, 8px);
     padding: 6px 12px;
     font-size: 0.66rem;
     letter-spacing: 0.05em;
@@ -393,7 +400,7 @@ main > * {
 
   .section-title {
     font-size: clamp(1.6rem, 1.35rem + 1.2vw, 2.15rem);
-    margin-bottom: var(--space-12, 12px);
+    margin-bottom: var(--space-16, 16px);
     line-height: 1.15;
   }
 
@@ -411,7 +418,7 @@ main > * {
 
   .section-title {
     font-size: clamp(1.35rem, 1.2rem + 0.9vw, 1.75rem);
-    margin-bottom: var(--space-8, 8px);
+    margin-bottom: var(--space-12, 12px);
     line-height: 1.18;
   }
 

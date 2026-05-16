@@ -13,7 +13,7 @@
   letter-spacing: -0.05em;
   color: var(--navy);
   margin-top: 0;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-12);
 }
 
 .mailbox-hero__sub {
@@ -25,7 +25,28 @@
 }
 
 .mailbox-hero__quote {
-  margin-top: var(--space-32);
+  margin-top: var(--space-24);
+}
+
+.mailbox-hero__badge .section-tag {
+  padding: 5px 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .mailbox-hero__title {
+    margin-bottom: var(--space-8);
+  }
+
+  .mailbox-hero__sub {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .mailbox-hero__quote {
+    margin-top: var(--space-16);
+  }
 }
 
 .mailbox-hero--alt {

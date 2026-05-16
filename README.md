@@ -94,3 +94,70 @@ npm start
 ```
 
 Then open http://localhost:3000.
+
+## Yelp API Setup
+
+Use this if you want live Yelp reviews instead of static fallback data.
+
+1. Create Yelp credentials
+- Go to Yelp Developers and create an app to get an API key.
+- Find your business ID using the helper script below.
+
+Business ID helper:
+
+```bash
+npm run yelp:find -- "Shipping with Purpose" "Scottsdale, AZ"
+```
+
+This prints the top Yelp matches and their IDs. Copy the correct ID into YELP_BUSINESS_ID.
+
+2. Create your local env file
+
+```bash
+cp .env.example .env
+```
+
+Then edit .env with your real values:
+
+```env
+PORT=3000
+YELP_API_KEY=YOUR_YELP_API_KEY
+YELP_BUSINESS_ID=YOUR_BUSINESS_ID
+```
+
+3. Install and start
+
+```bash
+npm install
+npm start
+```
+
+4. Verify backend endpoints
+- Health check: http://localhost:3000/health
+- Yelp reviews API: http://localhost:3000/api/reviews
+
+Expected /api/reviews response shape:
+
+```json
+{
+	"reviews": [
+		{
+			"authorName": "...",
+			"rating": 5,
+			"source": "yelp",
+			"text": "...",
+			"url": "..."
+		}
+	]
+}
+```
+
+5. Verify frontend
+- Open http://localhost:3000/
+- Go to the reviews section on the homepage.
+- Confirm cards show live Yelp content.
+
+Notes:
+- The server caches Yelp responses for 5 minutes to reduce API calls.
+- If Yelp env variables are missing or Yelp rejects the request, /api/reviews returns a detailed error code/message.
+- Frontend review loading automatically falls back to local JSON data when the API is unavailable.

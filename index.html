@@ -66,6 +66,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="public/css/main-home.css" />
   </head>
   <body>
@@ -98,12 +99,15 @@
       </nav>
       <div class="info-bar">
       <div class="info-bar__item"><img src="public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
-      <div class="info-bar__item">
-        <span class="info-bar__icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
-        <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
+      <div class="info-bar__item info-bar__item--hours">
+        <span class="info-bar__icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
+        <span class="info-bar__hours">
+          <span class="info-bar__hours-line">Mon-Fri 9 AM to 5 PM</span>
+          <span class="info-bar__hours-line">Sat 9 AM to 2:30 PM</span>
+        </span>
       </div>
       <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
-        ><img src="public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
+        ><img src="public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a
       >
       </div>
     </header>
@@ -653,39 +657,9 @@
               <p class="section-desc">Don't take our word for it — here's what our regulars say.</p>
             </div>
         </div>
-        <div class="review-gallery" id="reviews-gallery" aria-live="polite">
-          <div class="review-gallery__track" id="reviews-track">
-            <article class="review-card review-card--placeholder">
-              <div class="review-card__top">
-                <div class="review-card__avatar">…</div>
-                <div class="review-card__identity">
-                  <div class="review-card__name">Loading live reviews</div>
-                  <div class="review-card__meta">Google &amp; Yelp</div>
-                </div>
-              </div>
-              <p class="review-card__text">Fetching the latest community feedback.</p>
-            </article>
-            <article class="review-card review-card--placeholder" aria-hidden="true">
-              <div class="review-card__top">
-                <div class="review-card__avatar">…</div>
-                <div class="review-card__identity">
-                  <div class="review-card__name">Loading live reviews</div>
-                  <div class="review-card__meta">Google &amp; Yelp</div>
-                </div>
-              </div>
-              <p class="review-card__text">Fetching the latest community feedback.</p>
-            </article>
-            <article class="review-card review-card--placeholder" aria-hidden="true">
-              <div class="review-card__top">
-                <div class="review-card__avatar">…</div>
-                <div class="review-card__identity">
-                  <div class="review-card__name">Loading live reviews</div>
-                  <div class="review-card__meta">Google &amp; Yelp</div>
-                </div>
-              </div>
-              <p class="review-card__text">Fetching the latest community feedback.</p>
-            </article>
-          </div>
+        <div class="swiper" id="reviews-slider">
+          <div class="swiper-wrapper" id="reviews-track" aria-live="polite"></div>
+          <div class="swiper-pagination"></div>
         </div>
         <div class="testimonials__footer">
           <a
@@ -717,6 +691,7 @@
               class="footer__link footer__link--contact"
               ><img src="public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
             >
+            <a href="mailto:print@shippingwithpurpose.com" class="footer__link footer__link--contact"><img src="public/assets/icons/envelope.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> print@shippingwithpurpose.com</a>
           </div>
           <div class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
@@ -867,6 +842,7 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="public/js/app.js" defer></script>
   </body>
 </html>

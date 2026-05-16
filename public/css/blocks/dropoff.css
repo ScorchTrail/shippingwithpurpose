@@ -1,7 +1,7 @@
 /* ============================================================ DROPOFF GRID (homepage) */
 /* Desktop: 4-col carrier grid | Tablet: 2-col | Mobile: 1-col */
 .dropoff-grid {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--section-pad-y) var(--section-pad-x) 0;
   background: var(--off-white);
 }
 
@@ -124,7 +124,7 @@
 
 @media (max-width: 720px) {
   .dropoff-grid {
-    padding: var(--section-pad-y) var(--section-pad-x);
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .carrier-grid {

@@ -73,12 +73,15 @@
       </nav>
       <div class="info-bar">
       <div class="info-bar__item"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
-      <div class="info-bar__item">
-        <span class="info-bar__icon"><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span> Mon-Fri: 9:00 AM - 5:00 PM &nbsp;·&nbsp; Sat: 9:00 AM - 2:30 PM
-        <span class="info-bar__hours-sun">&nbsp;·&nbsp; Sun: Closed</span>
+      <div class="info-bar__item info-bar__item--hours">
+        <span class="info-bar__icon"><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
+        <span class="info-bar__hours">
+          <span class="info-bar__hours-line">Mon-Fri 9 AM to 5 PM</span>
+          <span class="info-bar__hours-line">Sat 9 AM to 2:30 PM</span>
+        </span>
       </div>
       <a href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ" target="_blank" rel="noopener" class="info-bar__action"
-        ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
+        ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a
       >
       </div>
     </header>
@@ -95,6 +98,15 @@
               <div class="quote-selectors">
                 <section class="quote-group">
                   <div class="quote-label" data-mailbox-field="quote.labels.size">Box Size</div>
+                  <div class="quote__mobile-select-wrap">
+                    <label class="quote__mobile-label" for="quote-size-select">Choose box size</label>
+                    <select id="quote-size-select" class="quote__mobile-select" aria-label="Mailbox box size">
+                      <option value="Mini">Mini</option>
+                      <option value="Personal" selected>Personal</option>
+                      <option value="Business">Business</option>
+                      <option value="Corporate">Corporate</option>
+                    </select>
+                  </div>
                   <div class="size-grid">
                     <button class="quote__size-btn" data-size="Mini">
                       <div class="quote__size-name" data-mailbox-plan-name="Mini">Mini</div>
@@ -120,6 +132,14 @@
                 </section>
                 <section class="quote-group">
                   <div class="quote-label" data-mailbox-field="quote.labels.term">Rental Term</div>
+                  <div class="quote__mobile-select-wrap">
+                    <label class="quote__mobile-label" for="quote-term-select">Choose rental term</label>
+                    <select id="quote-term-select" class="quote__mobile-select" aria-label="Mailbox rental term">
+                      <option value="3-Month" selected>3-Month</option>
+                      <option value="6-Month">6-Month</option>
+                      <option value="12-Month">12-Month</option>
+                    </select>
+                  </div>
                   <div class="term-row">
                     <button class="quote__term-btn quote__term-btn--active" data-term="3-Month">
                       <div class="quote__term-name">3-Month</div>
@@ -341,28 +361,29 @@
         <div class="footer__grid">
           <div class="footer__col">
             <div class="footer__brand">
-              <div class="footer__brand-icon"><img src="../public/assets/icons/swp-logo.svg" alt="" class="icon-img icon-img--lg" /></div>
+              <div class="footer__brand-icon"><img src="assets/icons/swp-logo.svg" alt="" class="icon-img icon-img--lg" /></div>
               <span class="footer__brand-name">Shipping with Purpose</span>
             </div>
             <p class="footer__tagline">
               Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
             </p>
-            <a href="tel:+16029604882" class="footer__link footer__link--contact"><img src="../public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> (602) 960-4882</a>
+            <a href="tel:+16029604882" class="footer__link footer__link--contact"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> (602) 960-4882</a>
             <a
               href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ"
               target="_blank"
               rel="noopener"
               class="footer__link footer__link--contact"
-              ><img src="../public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
+              ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
             >
+            <a href="mailto:print@shippingwithpurpose.com" class="footer__link footer__link--contact"><img src="assets/icons/envelope.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> print@shippingwithpurpose.com</a>
           </div>
           <div class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
             <ul class="footer__list">
-              <li class="footer__list-item"><a href="index.html" class="footer__link">Home</a></li>
-              <li class="footer__list-item"><a href="../public/services.html" class="footer__link">Services</a></li>
-              <li class="footer__list-item"><a href="../public/mailboxes.html" class="footer__link">Mailbox</a></li>
-              <li class="footer__list-item"><a href="../public/print.html" class="footer__link">Print</a></li>
+              <li class="footer__list-item"><a href="../index.html" class="footer__link">Home</a></li>
+              <li class="footer__list-item"><a href="services.html" class="footer__link">Services</a></li>
+              <li class="footer__list-item"><a href="mailboxes.html" class="footer__link">Mailbox</a></li>
+              <li class="footer__list-item"><a href="print.html" class="footer__link">Print</a></li>
             </ul>
           </div>
           <div class="footer__col footer__col--hours">
@@ -375,7 +396,7 @@
           <span class="footer__copy">© <span id="footer-year">2026</span> Shipping with Purpose. All rights reserved.</span>
           <span class="footer__local">Locally owned &amp; operated in Scottsdale, AZ.</span>
           <a href="https://srttrail.dev" class="footer__agency" aria-label="Website designed by SRTtrail" target="_blank" rel="noopener">
-            <img src="../public/assets/icons/srtlogo-kraft.svg" alt="SRT Agency Logo" class="footer__agency-logo" width="32" height="32" />
+            <img src="assets/icons/srtlogo-kraft.svg" alt="SRT Agency Logo" class="footer__agency-logo" width="32" height="32" />
           </a>
         </div>
       </div>
