@@ -3,7 +3,7 @@
   background: linear-gradient(180deg, #0f2340 0%, #0a1928 100%);
   color: rgba(255, 255, 255, 0.84);
   padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem);
-  margin-top: 0;
+  margin-top: var(--section-pad-y);
 }
 
 .footer__grid {

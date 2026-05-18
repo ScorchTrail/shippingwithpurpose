@@ -1,6 +1,7 @@
 /* ============================================================ PRINT PORTAL (homepage) */
 /* Desktop: 2-col bento | Mobile: 1-col */
 .print-portal {
+  margin-top: 0;
   padding: var(--section-pad-y) var(--section-pad-x) 0;
   background: var(--off-white);
 }

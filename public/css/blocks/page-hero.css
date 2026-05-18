@@ -12,9 +12,6 @@
   margin: 0 auto;
 }
 
-.page-hero__badge {
-  margin-bottom: var(--space-24);
-}
 
 .page-hero__title {
   font-family: "Inter", sans-serif;

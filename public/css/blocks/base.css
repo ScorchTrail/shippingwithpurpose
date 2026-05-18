@@ -61,7 +61,7 @@
   --fs-h3-fluid: clamp(1.563rem, 1.25rem + 1.2vw, 2.2rem);
   --fs-ui-fluid: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
 
-  --section-pad-y: clamp(24px, 1.8vw, 48px);
+  --section-pad-y: clamp(24px, 1.8vw, 32px);
   --section-pad-x: clamp(16px, 2.2vw, 32px);
 }
 
@@ -213,8 +213,7 @@ body > section + section {
 }
 
 .services-preview + .mailbox-cta,
-.mailbox-cta + .print-portal,
-.page-hero + .print-portal {
+.mailbox-cta  {
   padding-top: clamp(16px, 1.2vw, 24px);
 }
 
