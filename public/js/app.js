@@ -155,18 +155,6 @@
     const selectedPrintType =
       document.querySelector('input[name="portal-print-type"]:checked')?.value || 'Black & White';
 
-    const payload = {
-      name: nameValue,
-      printType: selectedPrintType,
-      copies: copiesInput?.value || '1',
-      instructions: document.getElementById('portal-instructions')?.value?.trim() || '',
-      files: uploadedFiles.map((f) => ({
-        name: f.name,
-        sizeBytes: f.size,
-        type: f.type || 'unknown',
-      })),
-    };
-
     feedback.textContent = 'Request captured. Next step is connecting this form to email delivery.';
     feedback.className = 'print-portal-form__feedback print-portal-form__feedback--success';
     dz.classList.remove('drop-zone--active');
@@ -841,11 +829,6 @@ function getByPath(source, path) {
 
   if (!modal || !closeBtn) return;
 
-  // Find all "Reserve Your Box" buttons/links and attach modal trigger
-  const reserveButtons = document.querySelectorAll(
-    '[onclick*="reservation-modal"], .quote-cta, [data-action="reserve"]'
-  );
-
   function openModal(e) {
     if (e) {
       e.preventDefault();
@@ -891,12 +874,6 @@ function getByPath(source, path) {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const formData = {
-        name: form.querySelector('input[name="name"]').value,
-        company: form.querySelector('input[name="company"]').value,
-        phone: form.querySelector('input[name="phone"]').value,
-        email: form.querySelector('input[name="email"]').value,
-      };
       alert('Thank you! We received your information. Please visit us in person to complete the mailbox setup.');
       closeModal();
     });

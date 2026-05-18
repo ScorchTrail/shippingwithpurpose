@@ -8,36 +8,8 @@
   padding: 0;
 }
 
-.quote-section--embedded .quote-section__header {
-  margin-bottom: var(--space-16);
-}
-
 .quote-section--embedded .quote-layout {
   margin-bottom: 0;
-}
-
-.quote-section__header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.quote-section__heading {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-family: "Inter", sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-  color: var(--navy);
-}
-
-.quote-section__heading--gradient {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Layout */
