@@ -1,43 +1,11 @@
 # Shipping with Purpose (SRT-SWP)
 
-Professional static-site structure with an Express server and page-specific CSS entrypoints.
+Static site for a local shipping center in Scottsdale, AZ.
 
-## Project Structure
+## TODO
 
-```text
-srt-swp/
-├─ index.html
-├─ public/
-│  ├─ services.html
-│  ├─ mailboxes.html
-│  ├─ print.html
-│  ├─ assets/
-│  │  ├─ fonts/
-│  │  ├─ icons/
-│  │  └─ images/
-│  ├─ css/
-│  │  ├─ main-home.css
-│  │  ├─ main-services.css
-│  │  ├─ main-mailboxes.css
-│  │  ├─ main-print.css
-│  │  └─ blocks/
-│  └─ js/
-│     ├─ app.js
-│     └─ modules/
-├─ server/
-│  └─ index.js
-├─ package.json
-└─ README.md
-```
-
-## CSS Loading Strategy
-
-Each HTML page loads only its own main CSS file:
-
-- / (root index.html) -> public/css/main-home.css
-- public/services.html -> css/main-services.css
-- public/mailboxes.html -> css/main-mailboxes.css
-- public/print.html -> css/main-print.css
+- Comment out all print-related links and sections in every HTML file
+- Rewrite README.md to only include basic site info and TODOs
 
 Each page entry imports only the required block styles from css/blocks.
 
