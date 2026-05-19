@@ -1,14 +1,17 @@
+
 const express = require("express");
 const dotenv = require("dotenv");
+// ✅ 1. Load the environment variables immediately
+dotenv.config();
+
 const path = require("path");
 const rateLimit = require('express-rate-limit');
 const validator = require('validator');
+// ✅ 2. Now it's safe to load files that need those variables
 const { sendMailboxLead } = require('./mailbox-lead');
 
-dotenv.config();
-
 const app = express();
-const port = Number(process.env.PORT) || 5500;
+const port = Number(process.env.PORT) || 3000;
 
 const rootDir = path.resolve(__dirname, "..");
 const publicDir = path.join(rootDir, "public");

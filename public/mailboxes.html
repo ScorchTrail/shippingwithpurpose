@@ -407,96 +407,89 @@
       <div class="reservation-modal__overlay"></div>
       <div class="reservation-modal__content">
         <button class="reservation-modal__close" aria-label="Close reservation form" type="button"><img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
-
-        <div class="reservation-modal__header">
-          <h2 class="reservation-modal__title" data-bind-reservation-title>Reserve Your Mailbox</h2>
-          <p class="reservation-modal__subtitle" data-bind-reservation-subtitle>Complete your info and we'll get you set up.</p>
-        </div>
-
-        <!-- CUSTOMER INFO FORM -->
-        <form class="reservation-form" id="reservation-form">
-          <div class="reservation-form__group">
-            <label class="reservation-form__label">
-              <span data-bind-form-name-label>Full Name</span>
-              <span class="reservation-form__required">*</span>
-            </label>
-            <input
-              type="text"
-              name="name"
-              class="reservation-form__input"
-              placeholder="John Smith"
-              required
-              aria-required="true"
-            />
+        <!-- Step 1: Lead Capture -->
+        <div class="reservation-modal__step reservation-modal__step--active" id="modal-step-1">
+          <div class="reservation-modal__header">
+            <h2 class="reservation-modal__title">Reserve Your Mailbox</h2>
+            <p class="reservation-modal__subtitle">Step 1: Contact Details</p>
           </div>
-
-          <div class="reservation-form__group">
-            <label class="reservation-form__label" data-bind-form-company-label>Company Name</label>
-            <span class="reservation-form__hint" data-bind-form-company-hint>(optional) Business or LLC name</span>
-            <input
-              type="text"
-              name="company"
-              class="reservation-form__input"
-              placeholder="Acme Inc."
-              aria-label="Company name (optional)"
-            />
+          <div class="reservation-modal__summary-card">
+            <div class="reservation-modal__summary-row">
+              <div class="reservation-form__group reservation-form__group--half">
+                <label class="reservation-form__label" for="modal-box-type">Mailbox Size</label>
+                <select id="modal-box-type" name="boxType" class="reservation-form__input reservation-form__select">
+                  <option value="Mini">Mini Box</option>
+                  <option value="Personal">Personal Box</option>
+                  <option value="Business">Business Box</option>
+                  <option value="Corporate">Corporate Box</option>
+                </select>
+              </div>
+              <div class="reservation-form__group reservation-form__group--half">
+                <label class="reservation-form__label" for="modal-term">Rental Term</label>
+                <select id="modal-term" name="termLength" class="reservation-form__input reservation-form__select">
+                  <option value="3-Month">3 Months</option>
+                  <option value="6-Month">6 Months</option>
+                  <option value="12-Month">12 Months</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation-modal__price-row">
+              <span class="reservation-modal__price-label">Estimated Total:</span>
+              <strong class="reservation-modal__price-value" id="modal-dynamic-price">$0</strong>
+            </div>
           </div>
-
-          <div class="reservation-form__group">
-            <label class="reservation-form__label">
-              <span data-bind-form-phone-label>Phone Number</span>
-              <span class="reservation-form__required">*</span>
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              class="reservation-form__input"
-              placeholder="(602) 555-1234"
-              required
-              aria-required="true"
-            />
-          </div>
-
-          <div class="reservation-form__group">
-            <label class="reservation-form__label">
-              <span data-bind-form-email-label>Email Address</span>
-              <span class="reservation-form__required">*</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              class="reservation-form__input"
-              placeholder="you@example.com"
-              required
-              aria-required="true"
-            />
-          </div>
-        </form>
-
-        <!-- USPS FORM 1583 SECTION -->
-        <div class="reservation-section">
-          <h3 class="reservation-section__heading" data-bind-form1583-heading>USPS Form 1583</h3>
-          <p class="reservation-section__description" data-bind-form1583-description>Required for all private mailbox rentals. You can fill it online or bring a printed copy.</p>
-          <div class="reservation-form1583__actions">
-            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link" data-bind-form1583-fill-online>↗ Fill Online</a>
-            <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download data-bind-form1583-download>⬇ Download</a>
+          <div class="reservation-modal__scroll-area">
+            <form class="reservation-form" id="reservation-form">
+              <div class="reservation-form__group">
+                <label class="reservation-form__label">Full Name <span class="reservation-form__required">*</span></label>
+                <input type="text" name="name" class="reservation-form__input" placeholder="John Smith" required aria-required="true" />
+              </div>
+              <div class="reservation-form__group">
+                <label class="reservation-form__label">Business / LLC Name</label>
+                <span class="reservation-form__hint">(optional) Business or LLC name</span>
+                <input type="text" name="company" class="reservation-form__input" placeholder="Acme Inc." aria-label="Company name (optional)" />
+              </div>
+              <div class="reservation-form__group">
+                <label class="reservation-form__label">Phone Number <span class="reservation-form__required">*</span></label>
+                <input type="tel" name="phone" class="reservation-form__input" placeholder="(602) 555-1234" required aria-required="true" />
+              </div>
+              <div class="reservation-form__group">
+                <label class="reservation-form__label">Email Address <span class="reservation-form__required">*</span></label>
+                <input type="email" name="email" class="reservation-form__input" placeholder="you@example.com" required aria-required="true" />
+              </div>
+              <input type="hidden" name="mailboxType" id="modal-mailbox-type" value="Personal" />
+              <button type="submit" class="reservation-modal__cta reservation-modal__cta--submit">Submit Request</button>
+            </form>
           </div>
         </div>
-
-        <!-- REQUIREMENTS SECTION -->
-        <div class="reservation-section">
-          <h3 class="reservation-section__heading" data-bind-requirements-heading>What to Bring In</h3>
-          <p class="reservation-section__description" data-bind-requirements-intro>Complete your online form above, then visit us to finish your mailbox rental. You'll need:</p>
-          <ul class="reservation-requirements__list" id="reservation-requirements-list">
-            <!-- Populated by JS from JSON -->
-          </ul>
+        <!-- Step 2: Success & USPS Onboarding -->
+        <div class="reservation-modal__step" id="modal-step-2">
+          <div class="reservation-modal__header">
+            <div class="reservation-modal__success-icon" id="modal-success-icon" aria-hidden="true"></div>
+            <h2 class="reservation-modal__title">Request Received!</h2>
+            <p class="reservation-modal__subtitle">You’re almost done. We’ve emailed you a copy of these next steps.</p>
+          </div>
+          <div class="reservation-modal__scroll-area">
+            <div class="reservation-modal__usps-nextsteps">
+              <h3 class="reservation-section__heading">1. Complete USPS Form 1583</h3>
+              <div class="reservation-form1583__actions">
+                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link">↗ Fill Online (PDF)</a>
+                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download>⬇ Download to Print</a>
+              </div>
+              <div class="reservation-modal__usps-note">You must sign this in front of our staff, or bring it pre-notarized if you aren’t coming in person.</div>
+              <h3 class="reservation-section__heading">2. Bring Two Forms of ID</h3>
+              <div class="reservation-modal__usps-id">
+                <div class="reservation-modal__usps-id-block">
+                  <strong>Primary (Photo):</strong> Valid Driver’s License, State non-driver ID, Passport, or University/Corporate ID.
+                </div>
+                <div class="reservation-modal__usps-id-block">
+                  <strong>Secondary (Address):</strong> Current lease, mortgage, home/vehicle insurance policy, or vehicle registration.<br><em>Note: Social Security cards, credit cards, and birth certificates are not accepted.</em>
+                </div>
+              </div>
+            </div>
+            <button class="reservation-modal__cta reservation-modal__cta--close" id="modal-close-btn">Close & Return to Website</button>
+          </div>
         </div>
-
-        <!-- LEGAL TEXT -->
-        <div class="reservation-modal__legal" data-bind-legal-text>Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card.</div>
-
-        <!-- SUBMIT BUTTON -->
-        <button type="submit" form="reservation-form" class="reservation-modal__cta" data-bind-reservation-cta>Complete Reservation</button>
       </div>
     </div>
 

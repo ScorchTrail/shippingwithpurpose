@@ -821,40 +821,85 @@ function getByPath(source, path) {
 /* ============================================================
    RESERVATION MODAL (mailboxes.html + homepage CTA)
    ============================================================ */
-(function initReservationModal() {
+
+// Multi-Step Reservation Modal
+(function initReservationModalMultiStep() {
   const modal = document.getElementById('reservation-modal');
   const closeBtn = document.querySelector('.reservation-modal__close');
+  const step1 = document.getElementById('modal-step-1');
+  const step2 = document.getElementById('modal-step-2');
   const form = document.getElementById('reservation-form');
-  const requirementsList = document.getElementById('reservation-requirements-list');
+  // Dynamic summary card elements
+  const boxSelect = document.getElementById('modal-box-type');
+  const termSelect = document.getElementById('modal-term');
+  const priceDisplay = document.getElementById('modal-dynamic-price');
+  const closeStep2Btn = document.getElementById('modal-close-btn');
+  const successIcon = document.getElementById('modal-success-icon');
 
-  if (!modal || !closeBtn) return;
+  if (!modal || !closeBtn || !step1 || !step2 || !form) return;
 
+
+  // Helper: Update price in summary card
+  function updateModalPrice() {
+    if (!boxSelect || !termSelect || !priceDisplay) return;
+    const selectedBox = boxSelect.value;
+    const selectedTerm = termSelect.value;
+    const content = window.mailboxContent || MAILBOX_FALLBACK_CONTENT;
+    const price = content?.plans?.[selectedBox]?.pricing?.[selectedTerm];
+    if (price) {
+      priceDisplay.textContent = '$' + price;
+    } else {
+      priceDisplay.textContent = '--';
+    }
+  }
+
+  // Modal open/close logic
   function openModal(e) {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
+      // Preselect from button if present
+      const btn = e.currentTarget;
+      const planFromBtn = btn.dataset.mailboxPlan;
+      if (planFromBtn && boxSelect) boxSelect.value = planFromBtn;
+      // Try to sync term from main quote calculator
+      const globalTermSelect = document.getElementById('quote-term-select');
+      if (globalTermSelect && termSelect) termSelect.value = globalTermSelect.value;
     }
+    updateModalPrice();
     modal.classList.add('reservation-modal--open');
     document.body.style.overflow = 'hidden';
-    // Focus on first form input for accessibility
-    const firstInput = form?.querySelector('input[type="text"]');
-    if (firstInput) setTimeout(() => firstInput.focus(), 100);
+    showStep(1);
+    setTimeout(() => {
+      const firstInput = form.querySelector('input[type="text"]');
+      if (firstInput) firstInput.focus();
+    }, 100);
   }
-
+    // Listen for changes on the dropdowns and update live
+    if (boxSelect) boxSelect.addEventListener('change', updateModalPrice);
+    if (termSelect) termSelect.addEventListener('change', updateModalPrice);
   function closeModal() {
     modal.classList.remove('reservation-modal--open');
     document.body.style.overflow = '';
-    // Reset form
-    if (form) form.reset();
+    form.reset();
+    showStep(1);
+  }
+  function showStep(n) {
+    if (n === 1) {
+      step1.classList.add('reservation-modal__step--active');
+      step2.classList.remove('reservation-modal__step--active');
+    } else {
+      step1.classList.remove('reservation-modal__step--active');
+      step2.classList.add('reservation-modal__step--active');
+    }
   }
 
   // Attach to all reserve buttons
   document.querySelectorAll('.mailbox-cta__tile--price, .quote-cta').forEach((btn) => {
     btn.addEventListener('click', openModal);
   });
-
-  // Close button
   closeBtn.addEventListener('click', closeModal);
+  if (closeStep2Btn) closeStep2Btn.addEventListener('click', closeModal);
 
   // ESC key
   document.addEventListener('keydown', (e) => {
@@ -862,7 +907,6 @@ function getByPath(source, path) {
       closeModal();
     }
   });
-
   // Overlay click
   modal.addEventListener('click', (e) => {
     if (e.target === modal || e.target === modal.querySelector('.reservation-modal__overlay')) {
@@ -870,115 +914,91 @@ function getByPath(source, path) {
     }
   });
 
-  /* ============================================================
-     UPDATED RESERVATION FORM SUBMISSION — CONNECTED TO BACKEND
-     ============================================================ */
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  // Form submit logic (Step 1)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+    // Gather values
+    const payload = {
+      name: form.name.value.trim(),
+      company: form.company.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      mailboxType: boxSelect ? boxSelect.value : 'Personal',
+      term: termSelect ? termSelect.value : '3-Month'
+    };
+    try {
+      const response = await fetch('https://swp-backend.p-vedant7878.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
 
-      // Gather form values based on standard naming conventions
-      // Double check that your HTML input fields match these IDs (e.g., id="res-name")
-      const nameEl = document.getElementById('res-name') || document.getElementById('name');
-      const companyEl = document.getElementById('res-company') || document.getElementById('company');
-      const phoneEl = document.getElementById('res-phone') || document.getElementById('phone');
-      const emailEl = document.getElementById('res-email') || document.getElementById('email');
-      // Grab the current size from your quote calculator state if available, or a fallback dropdown/input
-      const mailboxTypeSelect = document.getElementById('quote-size-select');
-      const mailboxType = mailboxTypeSelect ? mailboxTypeSelect.value : 'Personal';
+      // Safeguard: Check if the server actually returned JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        console.error("Expected JSON, got HTML. Is the Node server running?");
+        throw new Error("API endpoint not found. Make sure you are viewing via localhost:3000");
+      }
 
-      // Visual loading state
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        showStep(2);
+        triggerConfetti();
+      } else {
+        alert(`Submission error: ${result.error || 'Please check your information and try again.'}`);
+      }
+    } catch (err) {
+      console.error('Network submission failed:', err);
+      alert(err.message || 'Unable to connect to the server. Please try again later.');
+    } finally {
       if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
       }
+    }
+  });
 
-      const payload = {
-        name: nameEl?.value?.trim() || '',
-        company: companyEl?.value?.trim() || '',
-        phone: phoneEl?.value?.trim() || '',
-        email: emailEl?.value?.trim() || '',
-        mailboxType: mailboxType
-      };
-
-      try {
-        // Pointing directly to your local relative route since the server hosts both the files and API
-        const response = await fetch('/api/mailbox-lead', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          alert('Thank you! Your mailbox reservation lead has been submitted successfully.');
-          closeModal();
-        } else {
-          // Captures validation messages from rate-limiting or express-validator
-          alert(`Submission error: ${result.error || 'Please check your information and try again.'}`);
-        }
-      } catch (err) {
-        console.error('Network submission failed:', err);
-        alert('Unable to connect to the server. Please try again later.');
-      } finally {
-        // Restore button state
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalBtnText;
-        }
-      }
-    });
+  // Simple confetti animation (CSS/JS, no dependencies)
+  function triggerConfetti() {
+    if (!successIcon) return;
+    // Remove any existing confetti
+    let confetti = document.querySelector('.reservation-modal__confetti');
+    if (confetti) confetti.remove();
+    confetti = document.createElement('div');
+    confetti.className = 'reservation-modal__confetti';
+    for (let i = 0; i < 32; i++) {
+      const dot = document.createElement('div');
+      dot.style.position = 'absolute';
+      dot.style.left = (50 + Math.random() * 40 - 20) + '%';
+      dot.style.top = (30 + Math.random() * 30 - 15) + '%';
+      dot.style.width = dot.style.height = (8 + Math.random() * 8) + 'px';
+      dot.style.borderRadius = '50%';
+      dot.style.background = [
+        'var(--kraft)', 'var(--kraft-dark)', 'var(--navy)', '#fff', '#f7e6d0', '#b98e5a'
+      ][Math.floor(Math.random() * 6)];
+      dot.style.opacity = 0.7 + Math.random() * 0.3;
+      dot.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
+      dot.style.animation = `confetti-fall 1.2s cubic-bezier(.6,1.5,.6,1) ${Math.random() * 0.3}s both`;
+      confetti.appendChild(dot);
+    }
+    successIcon.appendChild(confetti);
+    setTimeout(() => { if (confetti) confetti.remove(); }, 1600);
   }
 
-  // Populate requirements list from JSON
-  function populateRequirements(requirementsData) {
-    if (!requirementsList || !requirementsData || !Array.isArray(requirementsData.items)) return;
-    requirementsList.innerHTML = requirementsData.items
-      .map((item) => `<li class="reservation-requirements__item">${escHtml(item)}</li>`)
-      .join('');
+  // Add confetti keyframes to document (if not present)
+  if (!document.getElementById('confetti-fall-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'confetti-fall-keyframes';
+    style.textContent = `@keyframes confetti-fall { 0% { opacity:1; transform:translateY(0) scale(1);} 100% { opacity:0; transform:translateY(60px) scale(0.7);} }`;
+    document.head.appendChild(style);
   }
-
-  // Load mailbox content JSON and bind everything
-  fetch('data/mailbox-content.json')
-    .then((res) => res.json())
-    .then((data) => {
-      window.mailboxContent = data;
-
-      // Bind reservation modal from JSON
-      if (data.reservation) {
-        const res = data.reservation;
-        const bindData = (selector, value) => {
-          const el = document.querySelector(selector);
-          if (el) el.textContent = value;
-        };
-
-        bindData('[data-bind-reservation-title]', res.title);
-        bindData('[data-bind-reservation-subtitle]', res.subtitle);
-        bindData('[data-bind-form-name-label]', res.formLabels.name);
-        bindData('[data-bind-form-company-label]', res.formLabels.company);
-        bindData('[data-bind-form-company-hint]', res.formLabels.companyHint);
-        bindData('[data-bind-form-phone-label]', res.formLabels.phone);
-        bindData('[data-bind-form-email-label]', res.formLabels.email);
-        bindData('[data-bind-form1583-heading]', res.form1583.heading);
-        bindData('[data-bind-form1583-description]', res.form1583.description);
-        bindData('[data-bind-form1583-fill-online]', res.form1583.fillOnline);
-        bindData('[data-bind-form1583-download]', res.form1583.download);
-        bindData('[data-bind-requirements-heading]', res.requirements.heading);
-        bindData('[data-bind-requirements-intro]', res.requirements.intro);
-        bindData('[data-bind-legal-text]', res.legalText);
-        bindData('[data-bind-reservation-cta]', res.cta);
-
-        // Populate requirements list
-        populateRequirements(res.requirements);
-      }
-    })
-    .catch((err) => console.error('Failed to load mailbox content:', err));
 })();
 
 /* ============================================================
