@@ -1,3 +1,7 @@
+# DISCLAIMER
+
+All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
+
 # Shipping with Purpose (SRT-SWP)
 
 Static site for a local shipping center in Scottsdale, AZ.
