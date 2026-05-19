@@ -82,7 +82,7 @@
       <div class="nav__links">
         <a href="index.html" class="nav__link nav__link--active">Home</a>
         <a href="public/mailboxes.html" class="nav__link">Mailbox</a>
-        <!-- <a href="public/print.html" class="nav__link">Print</a> -->
+        <a href="public/print.html" class="nav__link">Print</a>
         <a href="public/services.html" class="nav__link">Services</a>
       </div>
       <div class="nav__cta">
@@ -92,7 +92,7 @@
       <div class="nav__menu" id="mobile-menu">
         <a href="index.html" class="nav__menu-link nav__menu-link--active">Home</a>
         <a href="public/mailboxes.html" class="nav__menu-link">Mailbox</a>
-        <!-- <a href="public/print.html" class="nav__menu-link">Print</a> -->
+        <a href="public/print.html" class="nav__menu-link">Print</a>
         <a href="public/services.html" class="nav__menu-link">Services</a>
         <a href="public/mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
       </div>
@@ -120,7 +120,7 @@
             <h1 class="hero__title">Your neighborhood<br /><span class="hero__title-emphasis">shipping home.</span></h1>
             <p class="hero__body">
               A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
-              Full-service shipping and private mailboxes — all in one cozy spot.
+              Full-service shipping, printing, and private mailboxes — all in one cozy spot.
             </p>
             <div class="hero__actions">
               <a href="public/mailboxes.html" class="btn btn--navy">Get a Mailbox Quote →</a>
@@ -254,7 +254,6 @@
               </p>
             </div>
           </a>
-          <!--
           <a href="services.html#printing" class="service-card">
             <div class="service-card__image">
               <img
@@ -273,92 +272,89 @@
               </p>
             </div>
           </a>
-          -->
           <a href="services.html#business" class="service-card">
-            <!--
-            <section class="print-portal fade-section">
-              <div class="container">
-                <div class="print-portal__header">
-                    <div class="section-header section-header--center">
-                      <span class="section-tag tag">Print</span>
-                      <h2 class="section-title">Upload documents for printing.</h2>
-                      <p class="section-desc">Send us your print request and files. We handle the rest.</p>
-                    </div>
-                </div>
-                <form id="print-portal-form" class="print-portal-form">
-                  <div class="print-portal__bento">
-                    <!-- TILE: Upload + Files (left, tall) -->
-                    <div class="print-portal__tile print-portal__tile--upload">
-                      <div class="drop-zone" id="drop-zone">
-                        <div class="drop-zone__icon"><img src="public/assets/icons/upload.svg" alt="" class="icon-img icon-img--xl" /></div>
-                        <div class="drop-zone__title">Drag &amp; drop documents here</div>
-                        <p class="drop-zone__sub">PDF, DOC, DOCX, PNG, JPG accepted</p>
-                        <span class="btn btn--navy-sm drop-zone__fake-btn">Select Documents</span>
-                        <input
-                          type="file"
-                          id="file-input"
-                          accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                          class="print-portal__file-input"
-                          multiple
-                        />
-                      </div>
-                      <div class="print-portal-files" aria-live="polite">
-                        <div class="print-portal-files__title">Uploaded Documents</div>
-                        <p class="print-portal-files__empty" id="uploaded-doc-empty">No files uploaded yet.</p>
-                        <ul class="print-portal-files__list" id="uploaded-doc-list"></ul>
-                      </div>
-                    </div>
+            <div class="service-card__image">
+              <img
+                src="public/assets/images/service-business.svg"
+                alt="Business paperwork support including scan fax and notary"
+                loading="lazy"
+                width="640"
+                height="384"
+              />
+              <div class="service-card__icon"><img src="public/assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Business Services</div>
+              <p class="service-card__desc">Fax, notary, scanning — everything you need to handle your paperwork.</p>
+            </div>
+          </a>
+          <a href="public/mailboxes.html" class="service-card">
+            <div class="service-card__image">
+              <img
+                src="public/assets/images/service-mailbox.svg"
+                alt="Private mailbox wall with secure customer boxes"
+                loading="lazy"
+                width="640"
+                height="384"
+              />
+              <div class="service-card__icon"><img src="public/assets/icons/envelope.svg" alt="" class="icon-img icon-img--md" /></div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__title">Mailbox Rentals</div>
+              <p class="service-card__desc">
+                A real street address for your personal or business mail — not a P.O. Box.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="mailbox-cta fade-section">
+      <div class="container">
+        <div class="mailbox-cta__header">
+            <div class="section-header section-header--center">
+              <span class="section-tag tag">Private Mailboxes</span>
+              <h2 class="section-title">Plans built for personal and business mail.</h2>
+              <p class="section-desc">Compare pricing, choose the right box size, and reserve in minutes.</p>
+            </div>
+        </div>
+        <div class="mailbox-cta__grid">
+          <!-- HERO TILE (navy, spans 2 cols × 2 rows) -->
+          <div class="mailbox-cta__tile mailbox-cta__tile--hero">
+            <div class="mailbox-cta__hero-top">
+              <span class="mailbox-cta__hero-badge" data-mailbox-field="cta.badge">Most Popular Service</span>
+            </div>
+            <h2 class="mailbox-cta__hero-heading">
+              <span data-mailbox-field="cta.headingLine1">Get a real street address.</span><br />
+              <span class="mailbox-cta__hero-emphasis" data-mailbox-field="cta.headingEmphasis"
+                >Not a P.O.&nbsp;Box.</span
+              >
+            </h2>
+            <p class="mailbox-cta__hero-body" data-mailbox-field="cta.body">
+              A private mailbox with a real street address — perfect for small businesses, remote workers, and anyone
+              who values their privacy.
+            </p>
+            <ul class="mailbox-cta__hero-features">
+              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>24-Hour Access</span></li>
+              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon"><img src="public/assets/icons/lock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>Secure Locker Service</span></li>
+            </ul>
+            <div class="mailbox-cta__footer">
+              <a href="public/mailboxes.html?box=personal&term=3" class="btn btn--kraft mailbox-cta__hero-cta">
+                <span data-mailbox-field="cta.buttonLabel">See Pricing &amp; Rent Now &nbsp;→</span>
+              </a>
+            </div>
+          </div>
 
-                    <!-- TILE: Form fields (right) -->
-                    <div class="print-portal__tile print-portal__tile--fields">
-                      <div class="print-portal__field-grid">
-                        <div class="form-group print-portal__field print-portal__field--name">
-                          <label class="form-label" for="portal-name">Name</label>
-                          <input id="portal-name" type="text" class="form-input" placeholder="John Doe" required />
-                        </div>
-                        <div class="form-group print-portal__field print-portal__field--copies">
-                          <label class="form-label" for="portal-copies">Number of Copies</label>
-                          <input
-                            id="portal-copies"
-                            type="number"
-                            min="1"
-                            value="1"
-                            class="form-input print-portal__copies-input"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="form-group print-portal__print-type-group">
-                        <label class="form-label">Print Type</label>
-                        <div class="print-portal__print-types" role="radiogroup" aria-label="Print Type">
-                          <label class="print-portal__print-type-option">
-                            <input type="radio" name="portal-print-type" value="Black &amp; White" checked />
-                            <span>
-                              <strong>Black &amp; White</strong>
-                              <small>Fastest turnaround</small>
-                            </span>
-                          </label>
-                          <label class="print-portal__print-type-option">
-                            <input type="radio" name="portal-print-type" value="Color" />
-                            <span>
-                              <strong>Color</strong>
-                              <small>Vivid, professional color</small>
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="form-group print-portal__notes-group">
-                        <label class="form-label" for="portal-notes">Notes</label>
-                        <textarea id="portal-notes" class="form-input" placeholder="Any special instructions?"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn--navy print-portal__submit">Submit Print Request</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </section>
-            -->
+          <!-- PHOTO TILE -->
+          <div class="mailbox-cta__tile mailbox-cta__tile--photo">
+            <img
+              src="public/assets/images/service-mailbox.svg"
+              alt="Secure private mailbox wall with numbered lockboxes"
+              loading="lazy"
+              width="900"
+              height="506"
+            />
+          </div>
 
           <!-- PRICE TILE A -->
           <a
