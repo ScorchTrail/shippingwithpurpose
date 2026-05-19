@@ -402,40 +402,47 @@
       </div>
     </footer>
 
+
     <!-- RESERVATION MODAL -->
     <div class="reservation-modal" id="reservation-modal" aria-modal="true">
       <div class="reservation-modal__overlay"></div>
       <div class="reservation-modal__content">
+        <!-- Progress Bar -->
+        <div class="reservation-modal__progress-bar">
+          <div class="progress-bar__step" id="progress-step-1"><span class="progress-bar__label" id="progress-label-1">Contact Info</span></div>
+          <div class="progress-bar__divider"></div>
+          <div class="progress-bar__step" id="progress-step-2"><span class="progress-bar__label" id="progress-label-2">USPS Steps</span></div>
+        </div>
         <button class="reservation-modal__close" aria-label="Close reservation form" type="button"><img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
         <!-- Step 1: Lead Capture -->
         <div class="reservation-modal__step reservation-modal__step--active" id="modal-step-1">
           <div class="reservation-modal__header">
             <h2 class="reservation-modal__title">Reserve Your Mailbox</h2>
-            <p class="reservation-modal__subtitle">Step 1: Contact Details</p>
           </div>
           <div class="reservation-modal__summary-card">
-            <div class="reservation-modal__summary-row">
-              <div class="reservation-form__group reservation-form__group--half">
-                <label class="reservation-form__label" for="modal-box-type">Mailbox Size</label>
-                <select id="modal-box-type" name="boxType" class="reservation-form__input reservation-form__select">
-                  <option value="Mini">Mini Box</option>
-                  <option value="Personal">Personal Box</option>
-                  <option value="Business">Business Box</option>
-                  <option value="Corporate">Corporate Box</option>
-                </select>
+              <div class="reservation-modal__summary-row">
+                <div class="reservation-form__group reservation-form__group--third">
+                  <label class="reservation-form__label" for="modal-box-type">Mailbox Size</label>
+                  <select id="modal-box-type" name="boxType" class="reservation-form__input reservation-form__select">
+                    <option value="Mini">Mini Box</option>
+                    <option value="Personal">Personal Box</option>
+                    <option value="Business">Business Box</option>
+                    <option value="Corporate">Corporate Box</option>
+                  </select>
+                </div>
+                <div class="reservation-form__group reservation-form__group--third">
+                  <label class="reservation-form__label" for="modal-term">Rental Term</label>
+                  <select id="modal-term" name="termLength" class="reservation-form__input reservation-form__select">
+                    <option value="3-Month">3 Months</option>
+                    <option value="6-Month">6 Months</option>
+                    <option value="12-Month">12 Months</option>
+                  </select>
+                </div>
+                <div class="reservation-form__group reservation-form__group--third reservation-modal__price-group">
+                  <label class="reservation-form__label" for="modal-dynamic-price">Est. Cost</label>
+                  <strong class="reservation-modal__price-value" id="modal-dynamic-price">$0</strong>
+                </div>
               </div>
-              <div class="reservation-form__group reservation-form__group--half">
-                <label class="reservation-form__label" for="modal-term">Rental Term</label>
-                <select id="modal-term" name="termLength" class="reservation-form__input reservation-form__select">
-                  <option value="3-Month">3 Months</option>
-                  <option value="6-Month">6 Months</option>
-                  <option value="12-Month">12 Months</option>
-                </select>
-              </div>
-            </div>
-            <div class="reservation-modal__price-row">
-              <span class="reservation-modal__price-label">Estimated Total:</span>
-              <strong class="reservation-modal__price-value" id="modal-dynamic-price">$0</strong>
             </div>
           </div>
           <div class="reservation-modal__scroll-area">
@@ -455,10 +462,13 @@
               </div>
               <div class="reservation-form__group">
                 <label class="reservation-form__label">Email Address <span class="reservation-form__required">*</span></label>
-                <input type="email" name="email" class="reservation-form__input" placeholder="you@example.com" required aria-required="true" />
+                <input type="email" name="email" class="reservation-form__input" placeholder="you@example.com" aria-required="false" />
               </div>
               <input type="hidden" name="mailboxType" id="modal-mailbox-type" value="Personal" />
-              <button type="submit" class="reservation-modal__cta reservation-modal__cta--submit">Submit Request</button>
+              <button type="submit" class="reservation-modal__cta reservation-modal__cta--submit">
+                <span class="reservation-modal__cta-text">Submit Request</span>
+                <span class="reservation-modal__cta-spinner" style="display:none;"><img src="assets/icons/spinner.svg" alt="Processing..." class="icon-img icon-img--sm" /></span>
+              </button>
             </form>
           </div>
         </div>
@@ -467,18 +477,26 @@
           <div class="reservation-modal__header">
             <div class="reservation-modal__success-icon" id="modal-success-icon" aria-hidden="true"></div>
             <h2 class="reservation-modal__title">Request Received!</h2>
-            <p class="reservation-modal__subtitle">You’re almost done. We’ve emailed you a copy of these next steps.</p>
+            <p class="reservation-modal__subtitle">You’re almost done. Please review the next steps below.</p>
+          </div>
+          <!-- Summary Card (Echo) -->
+          <div class="reservation-modal__summary-card" id="modal-summary-confirm" style="display:none;">
+            <div class="reservation-modal__summary-row">
+              <div><strong>Mailbox Size:</strong> <span id="modal-summary-size"></span></div>
+              <div><strong>Term:</strong> <span id="modal-summary-term"></span></div>
+            </div>
           </div>
           <div class="reservation-modal__scroll-area">
             <div class="reservation-modal__usps-nextsteps">
               <h3 class="reservation-section__heading">1. Complete USPS Form 1583</h3>
               <div class="reservation-form1583__actions">
-                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link">↗ Fill Online (PDF)</a>
-                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download>⬇ Download to Print</a>
+                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__link"><img src="assets/icons/pencil.svg" alt="Fill Online" class="icon-img icon-img--sm" style="margin-right:6px;vertical-align:middle;"/>Fill Online (PDF)</a>
+                <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" rel="noopener" class="reservation-form1583__download" download><img src="assets/icons/download.svg" alt="Download" class="icon-img icon-img--sm" style="margin-right:6px;vertical-align:middle;"/>Download to Print</a>
               </div>
               <div class="reservation-modal__usps-note">You must sign this in front of our staff, or bring it pre-notarized if you aren’t coming in person.</div>
               <h3 class="reservation-section__heading">2. Bring Two Forms of ID</h3>
-              <div class="reservation-modal__usps-id">
+              <button class="reservation-modal__accordion-toggle" id="id-accordion-toggle" aria-expanded="false" aria-controls="id-accordion-content">View ID Requirements</button>
+              <div class="reservation-modal__usps-id" id="id-accordion-content" style="display:none;">
                 <div class="reservation-modal__usps-id-block">
                   <strong>Primary (Photo):</strong> Valid Driver’s License, State non-driver ID, Passport, or University/Corporate ID.
                 </div>

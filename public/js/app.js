@@ -835,6 +835,18 @@ function getByPath(source, path) {
   const priceDisplay = document.getElementById('modal-dynamic-price');
   const closeStep2Btn = document.getElementById('modal-close-btn');
   const successIcon = document.getElementById('modal-success-icon');
+  // Progress bar
+  const progressStep1 = document.getElementById('progress-step-1');
+  const progressStep2 = document.getElementById('progress-step-2');
+  const progressLabel1 = document.getElementById('progress-label-1');
+  const progressLabel2 = document.getElementById('progress-label-2');
+  // Summary echo in step 2
+  const summaryConfirm = document.getElementById('modal-summary-confirm');
+  const summarySize = document.getElementById('modal-summary-size');
+  const summaryTerm = document.getElementById('modal-summary-term');
+  // Accordion
+  const idAccordionToggle = document.getElementById('id-accordion-toggle');
+  const idAccordionContent = document.getElementById('id-accordion-content');
 
   if (!modal || !closeBtn || !step1 || !step2 || !form) return;
 
@@ -888,9 +900,27 @@ function getByPath(source, path) {
     if (n === 1) {
       step1.classList.add('reservation-modal__step--active');
       step2.classList.remove('reservation-modal__step--active');
+      // Progress bar
+      if (progressStep1) progressStep1.classList.add('progress-bar__step--active');
+      if (progressStep2) progressStep2.classList.remove('progress-bar__step--active', 'progress-bar__step--complete');
+      if (progressLabel1) progressLabel1.classList.add('progress-bar__label--active');
+      if (progressLabel2) progressLabel2.classList.remove('progress-bar__label--active');
+      if (summaryConfirm) summaryConfirm.style.display = 'none';
     } else {
       step1.classList.remove('reservation-modal__step--active');
       step2.classList.add('reservation-modal__step--active');
+      // Progress bar
+      if (progressStep1) progressStep1.classList.remove('progress-bar__step--active');
+      if (progressStep1) progressStep1.classList.add('progress-bar__step--complete');
+      if (progressStep2) progressStep2.classList.add('progress-bar__step--active');
+      if (progressLabel1) progressLabel1.classList.remove('progress-bar__label--active');
+      if (progressLabel2) progressLabel2.classList.add('progress-bar__label--active');
+      // Show summary card with user data
+      if (summaryConfirm && summarySize && summaryTerm && boxSelect && termSelect) {
+        summarySize.textContent = boxSelect.options[boxSelect.selectedIndex].text;
+        summaryTerm.textContent = termSelect.options[termSelect.selectedIndex].text;
+        summaryConfirm.style.display = '';
+      }
     }
   }
 
@@ -918,10 +948,12 @@ function getByPath(source, path) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
+    const btnText = submitBtn?.querySelector('.reservation-modal__cta-text');
+    const btnSpinner = submitBtn?.querySelector('.reservation-modal__cta-spinner');
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      if (btnText) btnText.textContent = 'Processing...';
+      if (btnSpinner) btnSpinner.style.display = 'inline-block';
     }
     // Gather values
     const payload = {
@@ -960,10 +992,20 @@ function getByPath(source, path) {
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
+        if (btnText) btnText.textContent = 'Submit Request';
+        if (btnSpinner) btnSpinner.style.display = 'none';
       }
     }
   });
+  // Accordion logic for ID requirements
+  if (idAccordionToggle && idAccordionContent) {
+    idAccordionToggle.addEventListener('click', function () {
+      const expanded = idAccordionToggle.getAttribute('aria-expanded') === 'true';
+      idAccordionToggle.setAttribute('aria-expanded', String(!expanded));
+      idAccordionContent.style.display = expanded ? 'none' : '';
+      idAccordionToggle.textContent = !expanded ? 'Hide ID Requirements' : 'View ID Requirements';
+    });
+  }
 
   // Simple confetti animation (CSS/JS, no dependencies)
   function triggerConfetti() {
