@@ -933,7 +933,7 @@ function getByPath(source, path) {
       term: termSelect ? termSelect.value : '3-Month'
     };
     try {
-      const response = await fetch('https://swp-backend.p-vedant7878.workers.dev', {
+      const response = await fetch('https://srt-swp.p-vedant7878.workers.dev/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
