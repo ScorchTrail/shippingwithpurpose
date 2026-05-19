@@ -120,8 +120,32 @@
 
 .footer__hours {
   color: var(--text-on-dark-muted);
-  line-height: 1.8;
   font-size: var(--fs-body-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+@media (min-width: 1024px) {
+  .footer__hours {
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    gap: 2.5em;
+    width: 100%;
+  }
+  .footer__col--hours {
+    align-items: stretch;
+  }
+}
+
+.footer__hours-day {
+  display: flex;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+.footer__hours-time {
+  font-weight: 600;
 }
 
 .footer__bottom {

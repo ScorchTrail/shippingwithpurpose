@@ -23,6 +23,38 @@
       "publishedAt": "Recent",
       "source": "yelp",
       "text": "Print quality was excellent and turnaround was same day. Staff walked me through options and got it done quickly."
+    },
+    {
+      "authorName": "Samir P.",
+      "rating": 4,
+      "relativeTime": "1 week ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Quick and easy shipping. Staff was helpful and the store was clean."
+    },
+    {
+      "authorName": "Linda S.",
+      "rating": 5,
+      "relativeTime": "5 days ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Great experience renting a mailbox. The process was smooth and the staff explained everything clearly."
+    },
+    {
+      "authorName": "Carlos M.",
+      "rating": 5,
+      "relativeTime": "4 days ago",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Needed last-minute printing and they delivered! Will use again."
+    },
+    {
+      "authorName": "Priya N.",
+      "rating": 5,
+      "relativeTime": "Today",
+      "publishedAt": "Recent",
+      "source": "yelp",
+      "text": "Friendly, fast, and reliable. Highly recommend for all shipping needs."
     }
   ]
 }

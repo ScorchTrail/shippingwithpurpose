@@ -7,6 +7,7 @@
   align-items: center;
   gap: var(--space-24);
   flex-wrap: wrap;
+  min-height: 40px;
 }
 
 .info-bar__item {
@@ -17,15 +18,23 @@
   font-size: 0.85rem;
 }
 
+/* Ensure relative positioning for our custom dividers */
+.info-bar__item + .info-bar__item,
 .info-bar__item--hours {
-  align-items: flex-start;
+  position: relative;
+}
+
+/* Stacked hours stay vertically centered, spread out horizontally */
+.info-bar__item--hours {
+  align-items: center;
 }
 
 .info-bar__hours {
   display: inline-flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.35;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-16);
+  line-height: 1;
 }
 
 .info-bar__hours-line {
@@ -35,6 +44,7 @@
 .info-bar__item .icon-img,
 .info-bar__action .icon-img {
   vertical-align: middle;
+  flex-shrink: 0; /* Prevents icons from squishing */
 }
 
 .info-bar__icon {
@@ -44,130 +54,166 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  flex-shrink: 0;
 }
 
+/* --- DIVIDERS --- */
+/* Left Divider (Between Phone and Hours) */
 .info-bar__item + .info-bar__item::before {
   content: "";
-  display: inline-block;
+  position: absolute;
+  left: calc(var(--space-24) * -0.5); /* Centers the line in the gap */
+  top: 50%;
+  transform: translateY(-50%);
   width: 1px;
   height: 18px;
   background: rgba(255, 255, 255, 0.2);
-  margin-right: var(--space-16);
 }
 
-.info-bar__item + .info-bar__item::after {
+/* Right Divider (Between Hours and Button) */
+.info-bar__item--hours::after {
   content: "";
-  display: inline-block;
+  position: absolute;
+  right: calc(var(--space-24) * -0.5); /* Centers the line in the gap */
+  top: 50%;
+  transform: translateY(-50%);
   width: 1px;
   height: 18px;
   background: rgba(255, 255, 255, 0.2);
-  margin-left: var(--space-16);
 }
 
+/* --- TEXT LINKS --- */
 .info-bar__item a {
   color: #fff;
   text-decoration: none;
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
-  transition: color 0.15s;
+  transition: color 0.15s ease;
 }
 
 .info-bar__item a:hover {
   color: var(--kraft-light);
 }
 
+/* --- DIRECTIONS BUTTON --- */
 .info-bar__action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-8);
   background: var(--kraft);
   color: #fff;
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 0.82rem;
-  padding: 4px var(--space-16);
+  padding: 6px var(--space-16);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: background 0.15s;
-  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
 }
 
 .info-bar__action:hover {
   background: var(--kraft-dark);
 }
 
+.info-bar__action:active {
+  transform: translateY(1px); /* Subtle click effect */
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
+  /* Keep the desktop single-line layout, but tighten the spacing slightly */
   .info-bar {
-    justify-content: space-between;
-    padding: var(--space-12) var(--space-24);
+    padding: var(--space-12) var(--space-16);
+    gap: var(--space-24);
   }
 
-  .info-bar__item {
-    font-size: var(--fs-ui-fluid);
-    line-height: 1.4;
-    min-width: 0;
-  }
-
-  .info-bar__item:first-child {
-    order: 1;
-  }
-
-  .info-bar__item:nth-child(2) {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  .info-bar__item--hours {
-    justify-content: center;
-    align-items: center;
-  }
-
+  /* Shrink the gap between Mon-Fri and Sat */
   .info-bar__hours {
-    align-items: center;
+    gap: var(--space-8);
   }
 
-  .info-bar__item a {
-    font-size: var(--fs-ui-fluid);
-  }
-
-  .info-bar__action {
-    order: 2;
-    font-size: var(--fs-ui-fluid);
-    padding: var(--space-8) var(--space-16);
-    min-height: 40px;
-  }
-
-  .info-bar__item + .info-bar__item::before,
-  .info-bar__item + .info-bar__item::after {
+  /* Hide 'Sun Closed' on tablet to ensure everything fits on one line */
+  .info-bar__hours-line:last-child {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .info-bar {
-    justify-content: center;
-    padding: var(--space-12) var(--space-16);
-    gap: var(--space-12);
-  }
+  /* On mobile phones, we have to stack the items */
+  @media (max-width: 768px) {
+    /* Hide the top info bar completely on mobile */
+    .info-bar {
+      display: none;
+    }
 
-  .info-bar__item:first-child,
-  .info-bar__action {
-    width: 100%;
-    justify-content: center;
-  }
+    /* Style the new contact block inside the mobile menu */
+    .nav__menu-contact {
+      margin-top: var(--space-24);
+      padding-top: var(--space-24);
+      border-top: 1px solid rgba(0, 0, 0, 0.08); /* Clean separator from the nav links */
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+    }
 
-  .info-bar__icon {
-    display: none;
-  }
+    /* Side-by-side [Phone] [Directions] Row */
+    .nav__menu-contact-row {
+      display: flex;
+      gap: var(--space-8);
+      width: 100%;
+    }
 
-  .info-bar__hours-line {
-    white-space: normal;
-    text-align: center;
+    .nav__menu-contact-action {
+      flex: 1; /* Forces both buttons to be exactly 50% width */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 8px;
+      border-radius: var(--radius-sm);
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav__menu-contact-action:active {
+      opacity: 0.8;
+    }
+
+    /* Specific styles for the two buttons */
+    .nav__menu-contact-action--phone {
+      background: rgba(26, 54, 93, 0.06);
+      color: var(--navy);
+    }
+
+    .nav__menu-contact-action--directions {
+      background: var(--kraft);
+      color: #fff;
+    }
+
+    /* Horizontal [Hours] [Hours] Row */
+    .nav__menu-contact-hours {
+      display: flex;
+      flex-wrap: wrap; /* Allows text to wrap nicely on very narrow screens */
+      justify-content: center;
+      gap: 4px 10px;
+      font-size: 0.8rem;
+      color: #4a5568;
+      line-height: 1.4;
+    }
+
+    .nav__menu-contact-hours span {
+      white-space: nowrap; /* Prevents awkward line breaks in the middle of a time */
+    }
+
+    .nav__menu-contact-hours .hours-divider {
+      color: #cbd5e0;
+    }
   }
 }

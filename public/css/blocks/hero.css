@@ -2,7 +2,7 @@
 .hero {
   padding: 0 var(--section-pad-x) 0;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; removed to fix sticky header */
   display: flex;
   align-items: stretch;
 }

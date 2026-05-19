@@ -1,3 +1,14 @@
+const { sendMailboxLead } = require('./mailbox-lead');
+// API endpoint to handle mailbox portal leads
+app.post('/api/mailbox-lead', async (req, res) => {
+  const { name, email, message } = req.body;
+  try {
+    await sendMailboxLead({ name, email, message });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to send lead' });
+  }
+});
 const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");

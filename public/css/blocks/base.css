@@ -87,7 +87,7 @@
 }
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
+  overflow-x: visible;
   overscroll-behavior-x: none;
   background: var(--off-white);
 }
@@ -98,7 +98,7 @@ body {
   color: var(--charcoal);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: visible;
   touch-action: pan-y pinch-zoom;
 }
 

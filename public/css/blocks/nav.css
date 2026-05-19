@@ -1,4 +1,33 @@
+/* Hover effect for dropdown menu links */
+.nav__menu-link:hover {
+  background: rgba(26, 54, 93, 0.10);
+  color: var(--navy);
+}
 /* ============================================================ SITE HEADER */
+/* Info Bar Hours Row Layout */
+.info-bar__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+@media (min-width: 1024px) {
+  .info-bar__hours {
+    flex-direction: row;
+    gap: 2.5em;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.info-bar__hours-line {
+  display: flex;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+.info-bar__hours-time {
+  font-weight: 600;
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -8,11 +37,11 @@
   flex-direction: column;
   background: var(--white);
   box-shadow: 0 8px 24px rgba(26, 54, 93, 0.08);
+  align-self: flex-start;
 }
 
 /* ============================================================ NAV */
 .nav {
-  position: relative;
   background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
@@ -21,7 +50,7 @@
   gap: var(--space-16);
   min-height: 64px;
   padding: 0 max(24px, calc((100vw - 1280px) / 2));
-  /* Removed sticky positioning; handled by .site-header */
+  /* Sticky positioning handled by .site-header */
 }
 
 .nav__brand {
@@ -210,12 +239,49 @@
   .nav__menu {
     margin: 0;
     width: 100%;
-    padding: var(--space-16) 0 var(--space-24);
+    padding: var(--space-16) 0 var(--space-16);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
   }
 
-  .nav__menu-link,
-  .nav__menu-cta {
-    width: 100%;
+  /* --- CLEAN MOBILE MENU LINKS --- */
+  .nav__menu-link {
+    display: block;
+    position: relative;
+    color: #4a5568; /* Slightly deeper gray for better contrast */
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    border: none; /* Removes the clunky box borders */
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 4px; /* Tighter spacing */
+    background: transparent;
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+
+  /* Subtle feedback when tapping an inactive link */
+  .nav__menu-link:active {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Stronger contrast for the active page */
+  .nav__menu-link--active {
+    color: var(--navy);
+    background: rgba(26, 54, 93, 0.06);
+    font-weight: 700; /* Bold the active text slightly more */
+  }
+
+  /* Adds a sleek vertical accent line to the active item */
+  .nav__menu-link--active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15%;
+    height: 70%;
+    width: 4px;
+    background: var(--navy);
+    border-radius: 0 4px 4px 0;
   }
 }
