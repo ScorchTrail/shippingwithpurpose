@@ -21,7 +21,7 @@
   background: var(--color-bg, #f7f6f3);
   color: var(--navy);
   font-weight: 600;
-  font-size: 1rem;
+  .reservation-modal__progress-bar {
   transition: background 0.2s, color 0.2s;
   z-index: 1;
 }
@@ -34,7 +34,7 @@
   background: var(--kraft-dark);
   color: #fff;
 }
-.progress-bar__divider {
+  .reservation-modal__accordion-toggle {
   width: 2.5rem;
   height: 0.25rem;
   background: var(--kraft-dark);
@@ -48,14 +48,14 @@
   font-size: 1rem;
   font-weight: 600;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  .reservation-modal__accordion-toggle[aria-expanded="true"] {
 }
 .progress-bar__label--active {
   opacity: 1;
 }
 
 /* =====================
-   Summary Echo (Step 2)
+  .reservation-modal__close {
    ===================== */
 #modal-summary-confirm {
   background: var(--color-bg, #f7f6f3);
@@ -66,14 +66,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 1rem;
+  .reservation-modal__content {
 }
 #modal-summary-confirm strong {
   font-weight: 600;
   color: var(--navy);
 }
 
-/* =====================
+  .reservation-modal__summary-card {
    Accordion for ID Requirements
    ===================== */
 .reservation-modal__accordion-toggle {
@@ -81,20 +81,20 @@
   background: var(--kraft-dark);
   color: #fff;
   border: none;
-  border-radius: 1.5rem;
+  .reservation-modal__summary-row {
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
   font-weight: 600;
   margin: 0.5rem 0 0.5rem 0;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  .reservation-modal__price-group {
 }
 .reservation-modal__accordion-toggle[aria-expanded="true"] {
   background: var(--navy);
 }
 #id-accordion-content {
   margin: 0.5rem 0 1rem 0;
-  padding: 0.75rem 1rem;
+  .reservation-modal__price-row {
   background: #f7f6f3;
   border-radius: 0.5rem;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
@@ -102,13 +102,13 @@
 
 /* =====================
    Action Blocks (USPS Steps)
-   ===================== */
+  .reservation-modal__price-label {
 .reservation-form1583__actions {
   display: flex;
   gap: 1rem;
   margin: 0.5rem 0 1rem 0;
 }
-.reservation-form1583__link,
+  .reservation-modal__price-value {
 .reservation-form1583__download {
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@
   background: var(--navy);
   color: #fff;
   border-radius: 1.5rem;
-  padding: 0.5rem 1.25rem;
+  .reservation-modal__step {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -124,19 +124,19 @@
 }
 .reservation-form1583__link:hover,
 .reservation-form1583__download:hover {
-  background: var(--kraft-dark);
+  .reservation-modal__step--active {
   color: #fff;
 }
 
 /* =====================
    Sticky Close Button (Mobile)
-   ===================== */
+  .reservation-modal__scroll-area {
 @media (max-width: 600px) {
   .reservation-modal__close {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
+  .reservation-modal__plan-receipt {
     border-radius: 50%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
     margin: 0 auto 0 0;
@@ -148,7 +148,7 @@
 }
 /* ============================================================
    MODAL SUMMARY CARD (Dynamic Dropdowns)
-   ============================================================ */
+  .reservation-modal__success-icon {
 .reservation-modal__summary-card {
   background: rgba(26, 54, 93, 0.03);
   border-radius: var(--radius-md);
@@ -160,7 +160,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 0;
-}
+  .reservation-modal__success-icon::before {
 .reservation-form__group--third {
   flex: 1 1 0;
   min-width: 0;
@@ -170,18 +170,18 @@
   justify-content: flex-end;
 }
 .reservation-modal__price-group {
-  align-items: flex-end;
+  .reservation-modal__confetti {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 .reservation-form__select {
   cursor: pointer;
-  appearance: none;
+  .reservation-modal__usps-nextsteps {
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a365d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  .reservation-modal__usps-note {
   background-size: 16px;
   padding-right: 40px;
 }
@@ -191,11 +191,11 @@
   align-items: center;
   padding-top: 12px;
   border-top: 1px dashed rgba(26, 54, 93, 0.15);
-}
+  .reservation-modal__usps-id {
 .reservation-modal__price-label {
   font-size: 0.88rem;
   color: var(--muted);
-  font-weight: 500;
+  .reservation-modal__usps-id-block {
 }
 .reservation-modal__price-value {
   font-size: 1.4rem;
@@ -203,16 +203,16 @@
   color: var(--kraft-dark);
   font-family: "Inter", sans-serif;
   letter-spacing: -0.02em;
-}
+  .reservation-modal__usps-id-block em {
 @media (max-width: 600px) {
   .reservation-modal__summary-row {
     flex-direction: column;
     gap: 12px;
-  }
+  .reservation-modal__cta--submit {
   .reservation-form__group--third {
     width: 100%;
     align-items: stretch;
-  }
+  .reservation-modal__cta--close {
   .reservation-modal__price-group {
     align-items: flex-start;
     margin-top: 0.5rem;

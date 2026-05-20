@@ -1,0 +1,309 @@
+/* ============================================================
+   RESERVATION DRAWER (Replaces old Modal)
+   ============================================================ */
+.reservation-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  justify-content: flex-end; /* Aligns panel to the right */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.reservation-drawer--open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.reservation-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 54, 93, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.reservation-drawer__panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 100dvh;
+  background: linear-gradient(120deg, #fff 80%, #f8f9fa 100%);
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 40px rgba(26, 54, 93, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide in animation */
+.reservation-drawer--open .reservation-drawer__panel {
+  transform: translateX(0);
+}
+
+/* Close Button */
+.reservation-drawer__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(26, 54, 93, 0.05);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.reservation-drawer__close:hover {
+  background: rgba(26, 54, 93, 0.1);
+}
+
+/* Steps Handling */
+.reservation-drawer__step {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  opacity: 0;
+}
+.reservation-drawer__step--active {
+  display: flex;
+  opacity: 1;
+  animation: fadeInStep 0.4s forwards 0.1s; /* Slight delay for slide-in */
+}
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Internal Drawer Layout (Header -> Scrollable Body -> Sticky Footer) */
+.reservation-drawer__header {
+  padding: 36px 36px 26px;
+  border-bottom: 1.5px solid var(--kraft-dark);
+  flex-shrink: 0;
+  background: linear-gradient(120deg, #fff 80%, #f8f9fa 100%);
+}
+.reservation-drawer__header--center {
+  text-align: center;
+}
+.reservation-drawer__title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 4px 0;
+}
+.reservation-drawer__subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.reservation-drawer__scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+.reservation-drawer__footer {
+  padding: 28px 36px;
+  border-top: 1.5px solid var(--kraft-dark);
+  background: linear-gradient(120deg, #fff 80%, #f8f9fa 100%);
+  flex-shrink: 0;
+}
+
+/* Receipt Card (Replaces awkward dropdown layout) */
+.reservation-receipt {
+  background: #f8f9fa;
+  border: 1px solid rgba(26, 54, 93, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+.reservation-receipt__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 500;
+}
+.reservation-receipt__select {
+  appearance: none;
+  background: #fff;
+  border: 1.5px solid var(--navy);
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  text-align: left;
+  cursor: pointer;
+  padding: 10px 36px 10px 14px;
+  box-shadow: 0 2px 8px rgba(26,54,93,0.06);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a365d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.reservation-receipt__select:focus {
+  border-color: var(--kraft-dark);
+  box-shadow: 0 0 0 2px var(--kraft-dark, #b98e5a33);
+}
+}
+.reservation-receipt__divider {
+  height: 1px;
+  background: rgba(26, 54, 93, 0.1);
+  margin: 16px 0;
+}
+.reservation-receipt__row--total {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+#modal-dynamic-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--kraft-dark);
+}
+
+/* Form Styles */
+.reservation-form__section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.reservation-form__group {
+  margin-bottom: 20px;
+}
+.reservation-form__label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.reservation-form__required { color: #c41e3a; }
+.reservation-form__hint { font-weight: 400; color: var(--muted); }
+.reservation-form__input {
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.reservation-form__input:focus {
+  background: #fff;
+  border-color: var(--navy);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+}
+
+/* Drawer CTA */
+.reservation-drawer__cta {
+  width: 100%;
+  padding: 16px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reservation-drawer__cta:hover { background: var(--kraft-dark); }
+.reservation-drawer__cta--outline {
+  background: transparent;
+  border: 2px solid rgba(26, 54, 93, 0.2);
+  color: var(--navy);
+}
+.reservation-drawer__cta--outline:hover {
+  border-color: var(--navy);
+  background: rgba(26, 54, 93, 0.05);
+}
+
+/* Step 2 Onboarding Cards */
+.reservation-drawer__success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--kraft), var(--kraft-dark));
+  border-radius: 50%;
+  position: relative;
+}
+.reservation-drawer__success-icon::after {
+  content: '\2714';
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 900;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.usps-step-card {
+  display: flex;
+  gap: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(26, 54, 93, 0.08);
+}
+.usps-step-card__number {
+  width: 32px;
+  height: 32px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.usps-step-card__title { margin: 0 0 8px 0; font-size: 1.05rem; color: var(--navy); }
+.usps-step-card__desc, .usps-step-card__note { font-size: 0.9rem; color: var(--muted); margin: 0 0 12px 0; line-height: 1.5; }
+.usps-step-card__list { padding-left: 16px; margin: 0 0 12px 0; font-size: 0.9rem; color: var(--body-text); }
+.usps-step-card__list li { margin-bottom: 6px; }
+.usps-step-card__actions { display: flex; gap: 10px; }
+.usps-step-card__btn {
+  padding: 8px 16px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.usps-step-card__btn--outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid rgba(26, 54, 93, 0.2);
+}
+
+@media (max-width: 600px) {
+  .reservation-drawer__panel { max-width: 100%; border-radius: 0; }
+  .reservation-drawer__header, .reservation-drawer__scroll, .reservation-drawer__footer { padding: 24px; }
+}

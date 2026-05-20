@@ -824,8 +824,10 @@ function getByPath(source, path) {
 
 // Multi-Step Reservation Modal
 (function initReservationModalMultiStep() {
-  const modal = document.getElementById('reservation-modal');
-  const closeBtn = document.querySelector('.reservation-modal__close');
+  // Update to new drawer id if needed
+  const modal = document.getElementById('reservation-drawer');
+  // Use new drawer close button class
+  const closeBtn = document.querySelector('.reservation-drawer__close');
   const step1 = document.getElementById('modal-step-1');
   const step2 = document.getElementById('modal-step-2');
   const form = document.getElementById('reservation-form');
@@ -879,7 +881,7 @@ function getByPath(source, path) {
       if (globalTermSelect && termSelect) termSelect.value = globalTermSelect.value;
     }
     updateModalPrice();
-    modal.classList.add('reservation-modal--open');
+    modal.classList.add('reservation-drawer--open');
     document.body.style.overflow = 'hidden';
     showStep(1);
     setTimeout(() => {
@@ -891,15 +893,15 @@ function getByPath(source, path) {
     if (boxSelect) boxSelect.addEventListener('change', updateModalPrice);
     if (termSelect) termSelect.addEventListener('change', updateModalPrice);
   function closeModal() {
-    modal.classList.remove('reservation-modal--open');
+    modal.classList.remove('reservation-drawer--open');
     document.body.style.overflow = '';
     form.reset();
     showStep(1);
   }
   function showStep(n) {
     if (n === 1) {
-      step1.classList.add('reservation-modal__step--active');
-      step2.classList.remove('reservation-modal__step--active');
+      step1.classList.add('reservation-drawer__step--active');
+      step2.classList.remove('reservation-drawer__step--active');
       // Progress bar
       if (progressStep1) progressStep1.classList.add('progress-bar__step--active');
       if (progressStep2) progressStep2.classList.remove('progress-bar__step--active', 'progress-bar__step--complete');
@@ -907,8 +909,8 @@ function getByPath(source, path) {
       if (progressLabel2) progressLabel2.classList.remove('progress-bar__label--active');
       if (summaryConfirm) summaryConfirm.style.display = 'none';
     } else {
-      step1.classList.remove('reservation-modal__step--active');
-      step2.classList.add('reservation-modal__step--active');
+      step1.classList.remove('reservation-drawer__step--active');
+      step2.classList.add('reservation-drawer__step--active');
       // Progress bar
       if (progressStep1) progressStep1.classList.remove('progress-bar__step--active');
       if (progressStep1) progressStep1.classList.add('progress-bar__step--complete');
@@ -933,13 +935,14 @@ function getByPath(source, path) {
 
   // ESC key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('reservation-modal--open')) {
+    if (e.key === 'Escape' && modal.classList.contains('reservation-drawer--open')) {
       closeModal();
     }
   });
   // Overlay click
+  // Update overlay click for new drawer overlay class
   modal.addEventListener('click', (e) => {
-    if (e.target === modal || e.target === modal.querySelector('.reservation-modal__overlay')) {
+    if (e.target === modal || e.target === modal.querySelector('.reservation-drawer__overlay')) {
       closeModal();
     }
   });
@@ -948,8 +951,8 @@ function getByPath(source, path) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText = submitBtn?.querySelector('.reservation-modal__cta-text');
-    const btnSpinner = submitBtn?.querySelector('.reservation-modal__cta-spinner');
+    const btnText = submitBtn?.querySelector('.reservation-drawer__cta-text');
+    const btnSpinner = submitBtn?.querySelector('.reservation-drawer__cta-spinner');
     if (submitBtn) {
       submitBtn.disabled = true;
       if (btnText) btnText.textContent = 'Processing...';
@@ -1011,10 +1014,10 @@ function getByPath(source, path) {
   function triggerConfetti() {
     if (!successIcon) return;
     // Remove any existing confetti
-    let confetti = document.querySelector('.reservation-modal__confetti');
+    let confetti = document.querySelector('.reservation-drawer__confetti');
     if (confetti) confetti.remove();
     confetti = document.createElement('div');
-    confetti.className = 'reservation-modal__confetti';
+    confetti.className = 'reservation-drawer__confetti';
     for (let i = 0; i < 32; i++) {
       const dot = document.createElement('div');
       dot.style.position = 'absolute';
