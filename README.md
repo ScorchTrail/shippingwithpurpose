@@ -4,152 +4,107 @@ All code in this repository is not for personal or unauthorized use. If you are 
 
 # Shipping with Purpose (SRT-SWP)
 
-Static site for a local shipping center in Scottsdale, AZ.
+Static site for a local shipping, printing, and mailbox center in Scottsdale, AZ.
+
+---
 
 ## TODO
-
 - Comment out all print-related links and sections in every HTML file
-- Rewrite README.md to only include basic site info and TODOs
+- Maintain this README with up-to-date directory and usage info
 
-Each page entry imports only the required block styles from css/blocks.
+---
 
-## Conventions
+## Directory Structure & Purpose
 
-- Single web root: all client-facing files live under public.
-- Relative links inside public pages use same-root paths (for example: index.html, services.html, css/..., js/...).
-- BEM naming is used for class architecture in block CSS.
+**Root**
+- `index.html` — Main landing page (home)
+- `README.md` — Project documentation (this file)
+- `CNAME` — Custom domain config for deployment
 
-### BEM Naming Guide
+**public/** — All client-facing files
+- `mailboxes.html` — Mailbox rental info, pricing, and reservation modal
+- `services.html` — All business services, FAQ, and contact info
+- `css/` — Main CSS entrypoints and BEM block styles
+  - `main-home.css`, `main-mailboxes.css`, `main-services.css`, `main-print.css` — Page-specific CSS
+  - `blocks/` — Modular BEM CSS for each UI block (e.g. `nav.css`, `footer.css`, `hero.css`, etc.)
+- `js/app.js` — Main frontend JS (modal logic, dynamic UI)
+- `assets/` — Images, icons, fonts
+- `data/` — Static JSON data (mailbox plans, reviews)
 
-Use this format consistently:
+**server/** — Node.js backend (API, Yelp proxy, not for client)
+  - `index.js` — Main server entry
+  - `mailbox-lead.js` — Handles mailbox reservation POSTs
 
-- Block: `.block`
-- Element: `.block__element`
-- Modifier: `.block--modifier` or `.block__element--modifier`
+**scripts/** — Utility scripts (e.g. Yelp business finder)
+  - `yelp-find-business.js`
 
-Rules:
+---
 
-- Use only one `__` boundary per class name. Do not nest elements like `.block__element__icon`.
-- If you need a sub-part of an element, use a hyphen suffix: `.block__element-icon`.
-- Keep modifiers state-like and explicit: `.faq-item--open`, `.btn--navy`.
-- Avoid orphan classes in HTML. Every semantic class should have a CSS selector (or be an intentional utility class).
-
-Examples:
-
-- Good: `.nav__brand-icon`, `.quote__pricing-trigger-icon`, `.faq-item__answer-inner`
-- Avoid: `.nav__brand__icon`, `.quote__trigger__icon`
-
-## Architecture Notes
-
-Shared block CSS (imported across multiple pages):
-
-- blocks/base.css
-- blocks/nav.css
-- blocks/info-bar.css
-- blocks/footer.css
-- blocks/forms.css
-- blocks/page-hero.css
-
-Homepage-focused blocks (main-home.css):
-
-- blocks/hero.css
-- blocks/services-preview.css
-- blocks/mailbox-cta.css
-- blocks/print-portal.css
-- blocks/dropoff-grid.css
-- blocks/testimonials.css
-- blocks/pricing-modal.css
-- blocks/pricing-table.css
-- blocks/reservation-modal.css
-
-Mailbox-focused blocks (main-mailboxes.css):
-
-- blocks/mailbox-hero.css
-- blocks/mailbox-features.css
-- blocks/quote.css
-- blocks/reservation-modal.css
-
-Services-focused blocks (main-services.css):
-
-- blocks/service.css
-
-Maintenance rule:
-
-- If a block is used by only one page, import it only in that page entry file.
-- If a block becomes shared by 2+ pages, move its import to each consuming page entry (do not reintroduce a global main.css).
-
-## Run
-
+## Quick Start
 ```bash
 npm install
 npm start
+# Then open http://localhost:3000
 ```
 
-Then open http://localhost:3000.
+---
 
-## Yelp API Setup
+## Copy-Paste Text for Client Updates
+Use the following text blocks to send to the client for review or updates:
 
-Use this if you want live Yelp reviews instead of static fallback data.
+**Homepage (index.html):**
+- “Your neighborhood shipping home.”
+- “A place where regulars come to chat, packages get handled with care, and everyone is treated like family. Full-service shipping, printing, and private mailboxes — all in one cozy spot.”
+- “Get a Mailbox Quote →”
+- “Call Us Now”
+- “Secure & Private”
+- “Community First”
+- “Locally Owned”
+- “All the services you need, in one friendly stop.”
+- “From packages to paperwork — we've got you covered, with a smile.”
 
-1. Create Yelp credentials
-- Go to Yelp Developers and create an app to get an API key.
-- Find your business ID using the helper script below.
+**Mailbox Rentals (mailboxes.html):**
+- “Mailbox Rentals”
+- “Your personal or business address - secure, private, and professional.”
+- “Box Size: Mini, Personal, Business, Corporate”
+- “Rental Term: 3-Month, 6-Month, 12-Month”
+- “Mail Notifications: Get notified when mail or packages arrive — via email or phone. $1/month added to your rental.”
+- “Full Pricing Breakdown”
+- “Everything included with your mailbox.”
+- “Business Address, Not Your Home: Use our street address for business registration, banking, and professional mail while keeping your home address private.”
+- “All Carriers Welcome: Accept packages from USPS, UPS, FedEx, DHL, Amazon, and any other courier service.”
+- “Mail Notifications: Get notified by text or email when mail or packages arrive — optional add-on for $1/month.”
+- “Secure & Private: Keep your home address off public records. Your mail is locked and only accessible to you.”
+- “No Hidden or Sign-Up Fees: Straightforward pricing with clear terms. Choose 3, 6, or 12-month plans with no surprise onboarding charges.”
+- “Business Ready: Perfect for LLC registration, business banking, and keeping your home address private.”
+- “Reserve Your Mailbox”
+- “Complete your info and we'll get you set up.”
+- “USPS Form 1583: Required for all private mailbox rentals. You can fill it online or bring a printed copy.”
+- “What to Bring In: Complete your online form above, then visit us to finish your mailbox rental. You'll need:”
+- “Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card.”
+- “Complete Reservation”
 
-Business ID helper:
+**Services (services.html):**
+- “Our Services”
+- “Reliable, in-store support for shipping, printing, business paperwork, and private mailbox service.”
+- “Shipping: Compare rates across top carriers and get your packages delivered safely and on time. Domestic & International, Certified Mail, Custom Packaging. Drop-offs: Free.”
+- “Printing: Fast everyday printing for forms, photos, and documents with clear pickup timelines. Black & White, Full-Color, Lamination. Starting at $0.50.”
+- “Business: Essential paperwork services in one stop for small business and everyday admin needs. Fax, Notary Public, Shred. Notary from $10.”
+- “Mailbox Services: Get a real street address with secure mail handling and optional forwarding. Package Storage, Mail Forwarding, Magazine/Newspaper Storage. Plans from $57.”
+- “Need supplies? We carry boxes, stamps, tape, envelopes, bubble wrap, and more — available in store.”
+- “FAQ”
+- “Common questions”
+- “What do I need to rent a mailbox? You'll need two forms of ID and a completed USPS Form 1583. You can download and fill out Form 1583 ahead of time to make your visit faster. We'll handle the rest when you come in.”
+- “Can I receive packages from any carrier with a mailbox rental? Yes! Unlike a P.O. Box, our private mailboxes accept packages from all carriers — USPS, UPS, FedEx, DHL, and any other courier or delivery service.”
+- “How will I know when I have mail or a package? All plans include mail notification. We'll let you know by text or email when something arrives for you — so you only make the trip when you need to.”
+- “What shipping carriers do you work with? We're authorized to ship with USPS, UPS, FedEx, and DHL. We can help you compare rates and packaging options to get the best deal for your shipment.”
+- “Do you offer same-day printing? Yes! For most standard print jobs, we can have it ready the same day. Larger or specialty orders may take longer — give us a call or submit a printing request and we'll give you a realistic timeline.”
+- “Is a Notary Public available without an appointment? Walk-ins are welcome! Our notary is generally available during business hours. For time-sensitive documents, you can call ahead to confirm availability.”
+- “Can I use my mailbox address for my business? Absolutely. Our mailboxes come with a real street address — perfect for business registration, receiving packages, and keeping your home address private.”
+- “Local shipping, printing, and mailbox services with friendly, accurate, and fast support.”
+- “Locally owned & operated in Scottsdale, AZ.”
 
-```bash
-npm run yelp:find -- "Shipping with Purpose" "Scottsdale, AZ"
-```
+---
 
-This prints the top Yelp matches and their IDs. Copy the correct ID into YELP_BUSINESS_ID.
-
-2. Create your local env file
-
-```bash
-cp .env.example .env
-```
-
-Then edit .env with your real values:
-
-```env
-PORT=3000
-YELP_API_KEY=YOUR_YELP_API_KEY
-YELP_BUSINESS_ID=YOUR_BUSINESS_ID
-```
-
-3. Install and start
-
-```bash
-npm install
-npm start
-```
-
-4. Verify backend endpoints
-- Health check: http://localhost:3000/health
-- Yelp reviews API: http://localhost:3000/api/reviews
-
-Expected /api/reviews response shape:
-
-```json
-{
-	"reviews": [
-		{
-			"authorName": "...",
-			"rating": 5,
-			"source": "yelp",
-			"text": "...",
-			"url": "..."
-		}
-	]
-}
-```
-
-5. Verify frontend
-- Open http://localhost:3000/
-- Go to the reviews section on the homepage.
-- Confirm cards show live Yelp content.
-
-Notes:
-- The server caches Yelp responses for 5 minutes to reduce API calls.
-- If Yelp env variables are missing or Yelp rejects the request, /api/reviews returns a detailed error code/message.
-- Frontend review loading automatically falls back to local JSON data when the API is unavailable.
+## Legal Disclaimer
+All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
