@@ -71,21 +71,21 @@
         <div class="nav__links">
           <a href="../index.html" class="nav__link">Home</a>
           <a href="mailboxes.html" class="nav__link">Mailbox</a>
-0          <!-- <a href="print.html" class="nav__link">Print</a> -->
+          <!-- <a href="print.html" class="nav__link">Print</a> -->
           <a href="services.html" class="nav__link nav__link--active">Services</a>
         </div>
         <div class="nav__cta">
           <a href="mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
         </div>
-        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <button class="nav__hamburger js-mobile-menu-toggle" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <img src="assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" />
         </button>
-        <div class="nav__menu" id="mobile-menu">
+        <div class="nav__menu js-mobile-menu" id="mobile-menu">
           <a href="../index.html" class="nav__menu-link">Home</a>
           <a href="mailboxes.html" class="nav__menu-link">Mailbox</a>
           <!-- <a href="print.html" class="nav__menu-link">Print</a> -->
           <a href="services.html" class="nav__menu-link nav__menu-link--active">Services</a>
-          <a href="mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+          <a href="mailboxes.html" class="btn btn--navy nav__menu-cta js-menu-cta">Rent a Mailbox</a>
         </div>
       </nav>
       <div class="info-bar">
@@ -124,8 +124,8 @@
         </div>
 
         <!-- Desktop: 4 cards x span 3 / Tablet: 2 cards x span 4 / Mobile: 1 card x span 4 -->
-        <div class="service__grid">
-          <article class="detailed-service-card" data-service-card="shipping">
+        <div class="service__grid js-services-overview">
+          <article class="detailed-service-card js-service-card" data-service-card="shipping">
             <figure class="detailed-service-card__media">
               <img
                 class="detailed-service-card__media-image"
@@ -156,7 +156,7 @@
             </div>
           </article>
 
-          <article class="detailed-service-card" data-service-card="printing">
+          <article class="detailed-service-card js-service-card" data-service-card="printing">
             <figure class="detailed-service-card__media">
               <img
                 class="detailed-service-card__media-image"
@@ -187,7 +187,7 @@
             </div>
           </article>
 
-          <article class="detailed-service-card" data-service-card="business">
+          <article class="detailed-service-card js-service-card" data-service-card="business">
             <figure class="detailed-service-card__media">
               <img
                 class="detailed-service-card__media-image"
@@ -218,7 +218,7 @@
             </div>
           </article>
 
-          <article class="detailed-service-card" data-service-card="mailbox">
+          <article class="detailed-service-card js-service-card" data-service-card="mailbox">
             <figure class="detailed-service-card__media">
               <img
                 class="detailed-service-card__media-image"
@@ -261,12 +261,12 @@
     </section>
     <section class="faq-section fade-section">
       <div class="container-sm">
-        <div class="faq-section__header">
+        <div class="faq-section__header js-faq-header">
           <span class="section-tag faq-section__tag">FAQ</span>
           <h2 class="font-display gradient-text faq-section__title">Common questions</h2>
         </div>
 
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">What do I need to rent a mailbox?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -280,7 +280,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">Can I receive packages from any carrier with a mailbox rental?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -294,7 +294,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">How will I know when I have mail or a package?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -308,7 +308,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">What shipping carriers do you work with?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -322,7 +322,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">Do you offer same-day printing?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -336,7 +336,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">Is a Notary Public available without an appointment?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
@@ -350,7 +350,7 @@
             </div>
           </div>
         </article>
-        <article class="faq-item">
+        <article class="faq-item js-faq-item">
           <button class="faq-item__btn">
             <span class="faq-item__question">Can I use my mailbox address for my business?</span>
             <div class="faq-item__chevron"><img src="assets/icons/dropdown.svg" alt="" class="icon-img icon-img--sm" /></div>
