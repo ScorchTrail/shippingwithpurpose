@@ -10,179 +10,230 @@ TODO for 404.html (Site Lockout Page):
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Not Found | Shipping with Purpose</title>
+    <title>Shipping with Purpose | Home</title>
+    <meta
+      name="description"
+      content="Your neighborhood shipping home in Scottsdale, AZ. Full-service shipping (UPS, FedEx, USPS, DHL), printing, and private mailbox rentals. Walk-ins welcome!"
+    />
+    <meta name="keywords" content="shipping center Scottsdale, FedEx drop off, UPS drop off, private mailboxes AZ, printing services Scottsdale, local shipping store, notary public Scottsdale" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://scorchtrail.github.io/shippingwithpurpose/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scorchtrail.github.io/shippingwithpurpose/index.html" />
+    <meta property="og:title" content="Shipping with Purpose | Scottsdale Local Shipping & Print Center" />
+    <meta property="og:description" content="Your neighborhood shipping home in Scottsdale. Compare shipping rates, rent a real street address mailbox, and print documents locally." />
+    <meta property="og:image" content="https://scorchtrail.github.io/shippingwithpurpose/assets/images/hero-social.jpg" />
+    <meta property="og:site_name" content="Shipping with Purpose" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Shipping with Purpose",
+      "image": "https://scorchtrail.github.io/shippingwithpurpose/assets/images/hero-social.jpg",
+      "@id": "https://scorchtrail.github.io/shippingwithpurpose/#business",
+      "url": "https://scorchtrail.github.io/shippingwithpurpose/",
+      "telephone": "+16029604882",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10105 E Via Linda Ste 103",
+        "addressLocality": "Scottsdale",
+        "addressRegion": "AZ",
+        "postalCode": "85258",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.5806,
+        "longitude": -111.8617
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:30"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/shippingwithpurpose",
+        "https://www.instagram.com/shippingwithpurpose"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="public/css/main-home.css" />
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        margin: 0;
-        background: #f7f9fb;
-      }
-      .error-wrapper {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-40, 40px) 20px;
-      }
-      .hero__title-emphasis {
-        color: var(--color-primary, #1a237e);
-      }
-      .hero__badge {
-        background: #e3e8f0;
-        border-radius: 16px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 4px 16px;
-        font-weight: 600;
-        font-size: 1rem;
-      }
-    </style>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" id="nav">
-        <a href="index.html" class="nav__brand">
-          <img src="public/assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
-          <div class="nav__brand-text">
-            <div class="nav__brand-name">Shipping with Purpose</div>
-            <div class="nav__brand-sub">Shipping Center</div>
-          </div>
-        </a>
-        <div class="nav__links">
-          <a href="index.html" class="nav__link">Home</a>
-          <a href="public/mailboxes.html" class="nav__link">Mailbox</a>
-          <a href="public/print.html" class="nav__link">Print</a>
-          <a href="public/services.html" class="nav__link">Services</a>
+      <a href="index.html" class="nav__brand">
+        <img src="public/assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
+        <div class="nav__brand-text">
+          <div class="nav__brand-name">Shipping with Purpose</div>
+          <div class="nav__brand-sub">Shipping Center</div>
         </div>
-        <div class="nav__cta">
-          <a href="public/mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
-        </div>
-          <button class="nav__hamburger js-mobile-menu-toggle" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><img src="public/assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" /></button>
-          <div class="nav__menu js-mobile-menu" id="mobile-menu">
-          <a href="index.html" class="nav__menu-link">Home</a>
-          <a href="public/mailboxes.html" class="nav__menu-link">Mailbox</a>
-          <a href="public/print.html" class="nav__menu-link">Print</a>
-          <a href="public/services.html" class="nav__menu-link">Services</a>
-           <a href="public/mailboxes.html" class="btn btn--navy nav__menu-cta js-menu-cta">Rent a Mailbox</a>
-        </div>
+      </a>
+      <div class="nav__links">
+        <a href="#" class="nav__link nav__link--active" rel="noopener">Home</a>
+        <a href="#" class="nav__link" rel="noopener">Mailbox</a>
+        <!-- <a href="#" class="nav__link" rel="noopener">Print</a> -->
+        <a href="#" class="nav__link" rel="noopener">Services</a>
+      </div>
+      <div class="nav__cta">
+        <a href="public/mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><img src="public/assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" /></button>
+      <div class="nav__menu" id="mobile-menu">
+        <a href="#" class="nav__menu-link nav__menu-link--active" rel="noopener">Home</a>
+        <a href="#" class="nav__menu-link" rel="noopener">Mailbox</a>
+        <!-- <a href="#" class="nav__menu-link" rel="noopener">Print</a> -->
+        <a href="#" class="nav__menu-link" rel="noopener">Services</a>
+        <a href="#" class="btn btn--navy nav__menu-cta" rel="noopener">Rent a Mailbox</a>
+      </div>
       </nav>
       <div class="info-bar">
-        <div class="info-bar__item"><img src="public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
-        <div class="info-bar__item info-bar__item--hours">
-          <span class="info-bar__icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
-          <span class="info-bar__hours">
-            <span class="info-bar__hours-line">Mon-Fri <span class="info-bar__hours-time">9:00 AM - 5:00 PM</span></span>
-            <span class="info-bar__hours-line">Sat <span class="info-bar__hours-time">9:00 AM - 2:30 PM</span></span>
-            <span class="info-bar__hours-line">Sun <span class="info-bar__hours-time">Closed</span></span>
-          </span>
-        </div>
-        <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"><img src="public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a>
+      <div class="info-bar__item"><img src="public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
+      <div class="info-bar__item info-bar__item--hours">
+        <span class="info-bar__icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
+        <span class="info-bar__hours">
+          <span class="info-bar__hours-line">Mon-Fri <span class="info-bar__hours-time">9:00 AM - 5:00 PM</span></span>
+          <span class="info-bar__hours-line">Sat <span class="info-bar__hours-time">9:00 AM - 2:30 PM</span></span>
+          <span class="info-bar__hours-line">Sun <span class="info-bar__hours-time">Closed</span></span>
+        </span>
+      </div>
+      <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
+        ><img src="public/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a
+      >
       </div>
     </header>
-
-    <main class="error-wrapper">
-      <section class="hero fade-section visible" style="width: 100%;">
-        <div class="hero__inner">
-          <div class="hero__grid">
-            <div class="hero__content">
-              <div class="hero__badge"><img src="public/assets/icons/community.svg" alt="" class="icon-img icon-img--sm" /> Under New Ownership · Serving Our Community</div>
-              <h1 class="hero__title">Your neighborhood<br /><span class="hero__title-emphasis">shipping home.</span></h1>
-              <p class="hero__body">
-                A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
-                Full-service shipping, printing, and private mailboxes — all in one cozy spot.
-              </p>
-              <div class="hero__actions">
-                <a href="public/mailboxes.html" class="btn btn--navy">Get a Mailbox Quote →</a>
-                <a href="tel:+16029604882" class="btn btn--ghost"><img src="public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm" /> Call Us Now</a>
+    <section class="hero fade-section">
+      <div class="hero__inner">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <div class="hero__badge"><img src="public/assets/icons/community.svg" alt="" class="icon-img icon-img--sm" /> Under New Ownership · Serving Our Community</div>
+            <h1 class="hero__title">Your neighborhood<br /><span class="hero__title-emphasis">shipping home.</span></h1>
+            <p class="hero__body">
+              A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
+              Full-service shipping, printing, and private mailboxes — all in one cozy spot.
+            </p>
+            <div class="hero__actions">
+              <a href="public/mailboxes.html" class="btn btn--navy">Get a Mailbox Quote →</a>
+              <a href="tel:+16029604882" class="btn btn--ghost"><img src="public/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm" /> Call Us Now</a>
+            </div>
+            <div class="hero__trust">
+              <div class="hero__trust-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="hero__trust-icon"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Secure &amp; Private
               </div>
-              <div class="hero__trust">
-                <div class="hero__trust-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__trust-icon" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                  Secure &amp; Private
-                </div>
-                <div class="hero__trust-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__trust-icon" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  Community First
-                </div>
-                <div class="hero__trust-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__trust-icon" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  Locally Owned
-                </div>
+              <div class="hero__trust-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="hero__trust-icon"
+                  aria-hidden="true"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Community First
+              </div>
+              <div class="hero__trust-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="hero__trust-icon"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Locally Owned
               </div>
             </div>
-            <div class="hero__visual">
-              <div class="hero__image-wrap">
-                <img src="https://images.unsplash.com/photo-1556742205-e10c9486e506?w=700&q=80" alt="Friendly staff helping a customer at a local shipping counter" width="700" height="525" />
-                <div class="hero__new-owner-badge">✧ New Ownership</div>
-                <div class="hero__hours-chip">
-                  <strong>Open Today</strong>
-                  <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
-                </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1556742205-e10c9486e506?w=700&q=80"
+                alt="Friendly staff helping a customer at a local shipping counter"
+                width="700"
+                height="525"
+              />
+              <div class="hero__new-owner-badge">✧ New Ownership</div>
+              <div class="hero__hours-chip">
+                <strong>Open Today</strong>
+                <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
               </div>
-              <div class="hero__carriers-card">
-                <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
-                <div class="hero__carriers-row">
-                  <div class="hero__carrier-tile hero__carrier-tile--usps">
-                    <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" width="60" height="40" />
-                  </div>
-                  <div class="hero__carrier-tile hero__carrier-tile--ups">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg" alt="UPS" loading="lazy" width="60" height="40" />
-                  </div>
-                  <div class="hero__carrier-tile hero__carrier-tile--fedex">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg" alt="FedEx" loading="lazy" width="60" height="40" />
-                  </div>
-                  <div class="hero__carrier-tile hero__carrier-tile--dhl">
-                    <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" width="60" height="40" />
-                  </div>
+            </div>
+            <div class="hero__carriers-card">
+              <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
+              <div class="hero__carriers-row">
+                <div class="hero__carrier-tile hero__carrier-tile--usps">
+                  <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" width="60" height="40" />
+                </div>
+                <div class="hero__carrier-tile hero__carrier-tile--ups">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
+                    alt="UPS"
+                    loading="lazy"
+                    width="60"
+                    height="40"
+                  />
+                </div>
+                <div class="hero__carrier-tile hero__carrier-tile--fedex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
+                    alt="FedEx"
+                    loading="lazy"
+                    width="60"
+                    height="40"
+                  />
+                </div>
+                <div class="hero__carrier-tile hero__carrier-tile--dhl">
+                  <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" width="60" height="40" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <div class="srt-error-tag" title="Ask the owner">SRTtxt.error</div>
-    </main>
-
-    <style>
-      .srt-error-tag {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        background: var(--kraft, #b98e5a);
-        color: #fff;
-        font-family: "Inter", sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        padding: 8px 20px;
-        border-radius: 100px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        letter-spacing: 0.04em;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .srt-error-tag:hover {
-        background: var(--kraft-dark, #8b6914);
-      }
-    </style>
-    <script>
-      // Global click trap for 404 page
-      document.addEventListener('click', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        alert('Error Please reach out to the business with issues');
-      }, true);
-      // TEMP: Log to console for local preview
-      console.log('404.html loaded: You are viewing the custom 404 page.');
-    </script>
-    <footer class="footer">
+      </div>
+    </section>
+        <footer class="footer">
       <div class="container">
         <div class="footer__grid">
           <div class="footer__col">
@@ -206,15 +257,21 @@ TODO for 404.html (Site Lockout Page):
           <div class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
             <ul class="footer__list">
-              <li class="footer__list-item"><a href="../index.html" class="footer__link">Home</a></li>
-              <li class="footer__list-item"><a href="public/services.html" class="footer__link">Services</a></li>
-              <li class="footer__list-item"><a href="public/mailboxes.html" class="footer__link">Mailbox</a></li>
-              <!-- <li class="footer__list-item"><a href="public/print.html" class="footer__link">Print</a></li> -->
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Home</a></li>
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Services</a></li>
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Mailbox</a></li>
+              <!-- <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Print</a></li> -->
+              <li class="footer__list-item"><span class="footer__link footer__link--disabled">Print</span></li>
             </ul>
           </div>
           <div class="footer__col footer__col--hours">
             <h3 class="footer__col-heading">Hours</h3>
-            <div class="footer__hours">Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed</div>
+            <div class="footer__hours">
+              <span class="footer__hours-day">Mon-Fri: <span class="footer__hours-time">9:00 AM - 5:00 PM</span></span>
+              <span class="footer__hours-day">Sat: <span class="footer__hours-time">9:00 AM - 2:30 PM</span></span>
+              <span class="footer__hours-day">Sun: <span class="footer__hours-time">Closed</span></span>
+            </div>
+            <!-- Agency logo moved to footer__bottom -->
           </div>
         </div>
         <div class="footer__bottom">
@@ -226,5 +283,20 @@ TODO for 404.html (Site Lockout Page):
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="public/js/app.js" defer></script>
+    <script>
+      // Show lockout/error message on disabled nav/footer links
+      document.addEventListener('DOMContentLoaded', function () {
+        function showError(e) {
+          e.preventDefault();
+          alert('There is an error. Please contact the site admins.');
+        }
+        var links = document.querySelectorAll('.nav__link[rel="noopener"], .nav__menu-link[rel="noopener"], .footer__link[rel="noopener"], .btn--navy[rel="noopener"], .btn--navy-sm[rel="noopener"]');
+        links.forEach(function(link) {
+          link.addEventListener('click', showError);
+        });
+      });
+    </script>
   </body>
 </html>
