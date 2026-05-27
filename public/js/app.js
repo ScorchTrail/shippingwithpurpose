@@ -151,25 +151,98 @@
       feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
       return;
     }
+    const totalSize = uploadedFiles.reduce((sum, f) => sum + f.size, 0);
+    if (totalSize > 25 * 1024 * 1024) {
+      feedback.textContent = 'Total upload size exceeds 25MB.';
+      feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+      return;
+    }
 
     const selectedPrintType =
       document.querySelector('input[name="portal-print-type"]:checked')?.value || 'Black & White';
 
-    feedback.textContent = 'Request captured. Next step is connecting this form to email delivery.';
-    feedback.className = 'print-portal-form__feedback print-portal-form__feedback--success';
+    feedback.textContent = 'Sending...';
+    feedback.className = 'print-portal-form__feedback';
     dz.classList.remove('drop-zone--active');
+
+    // Read all files as base64 and send to backend
+    Promise.all(
+      uploadedFiles.map(
+        (file) =>
+          new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () =>
+              resolve({
+                filename: file.name,
+                mimeType: file.type,
+                base64: reader.result.split(',')[1],
+              });
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          })
+      )
+    )
+      .then((files) => {
+        return fetch('/api/print-request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: nameValue,
+            email: '', // Optionally add email field if present
+            phone: '', // Optionally add phone field if present
+            printType: selectedPrintType,
+            copies: copiesValue,
+            files,
+          }),
+        });
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          feedback.textContent = 'Request sent! You will receive a confirmation soon.';
+          feedback.className = 'print-portal-form__feedback print-portal-form__feedback--success';
+          // Optionally reset form and uploadedFiles
+          form.reset();
+          uploadedFiles.length = 0;
+          renderFileList();
+        } else {
+          feedback.textContent = result.error || 'There was a problem sending your request.';
+          feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+        }
+      })
+      .catch((err) => {
+        feedback.textContent = 'There was a problem sending your request.';
+        feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+      });
   });
 
   function addFiles(fileCollection) {
+    const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB
     if (!fileCollection || !fileCollection.length) return;
-
+    let totalSize = uploadedFiles.reduce((sum, f) => sum + f.size, 0);
+    let error = '';
     Array.from(fileCollection).forEach((file) => {
+      if (file.size > MAX_FILE_SIZE) {
+        error = `File "${file.name}" is too large (max 25MB).`;
+        return;
+      }
+      if (totalSize + file.size > MAX_FILE_SIZE) {
+        error = 'Total upload size exceeds 25MB.';
+        return;
+      }
       const exists = uploadedFiles.some(
         (f) => f.name === file.name && f.size === file.size && f.lastModified === file.lastModified
       );
-      if (!exists) uploadedFiles.push(file);
+      if (!exists) {
+        uploadedFiles.push(file);
+        totalSize += file.size;
+      }
     });
-
+    if (error) {
+      feedback.textContent = error;
+      feedback.className = 'print-portal-form__feedback print-portal-form__feedback--error';
+      return;
+    }
     fileInput.value = '';
     renderFileList();
   }
