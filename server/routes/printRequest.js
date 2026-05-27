@@ -10,7 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 router.post('/api/print-request', async (req, res) => {
   try {
     const { name, email, phone, printType, copies, files = [] } = req.body;
-    if (!name || !email || !files.length) {
+    if (!name || !files.length) {
       return res.status(400).json({ success: false, error: 'Missing required fields.' });
     }
     // Validate file sizes (max 25MB each, total)
