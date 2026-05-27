@@ -72,17 +72,16 @@
       </div>
       </nav>
       <div class="info-bar">
-      <div class="info-bar__item"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
-      <div class="info-bar__item info-bar__item--hours">
-        <span class="info-bar__icon"><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
-        <span class="info-bar__hours">
-          <span class="info-bar__hours-line">Mon-Fri 9 AM to 5 PM</span>
-          <span class="info-bar__hours-line">Sat 9 AM to 2:30 PM</span>
-        </span>
-      </div>
-      <a href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ" target="_blank" rel="noopener" class="info-bar__action"
-        ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a
-      >
+        <div class="info-bar__item"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
+        <div class="info-bar__item info-bar__item--hours">
+          <span class="info-bar__icon"><img src="assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
+          <span class="info-bar__hours">
+            <span class="info-bar__hours-line">Mon-Fri: <span class="info-bar__hours-time">9:00 AM - 5:00 PM</span></span>
+            <span class="info-bar__hours-line">Sat: <span class="info-bar__hours-time">9:00 AM - 2:30 PM</span></span>
+            <span class="info-bar__hours-line">Sun: <span class="info-bar__hours-time">Closed</span></span>
+          </span>
+        </div>
+        <a href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ" target="_blank" rel="noopener" class="info-bar__action"><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a>
       </div>
     </header>
     <section class="page-hero fade-section mailbox-hero mailbox-hero--alt">
@@ -424,7 +423,7 @@
             <!-- Order Summary Receipt -->
             <div class="reservation-receipt">
               <div class="reservation-receipt__row">
-                <label for="modal-box-type">Mailbox Size</label>
+                <span style="min-width:120px;text-align:left;">Mailbox Size</span>
                 <select id="modal-box-type" name="boxType" class="reservation-receipt__select">
                   <option value="Mini">Mini Box</option>
                   <option value="Personal">Personal Box</option>
@@ -433,12 +432,43 @@
                 </select>
               </div>
               <div class="reservation-receipt__row">
-                <label for="modal-term">Rental Term</label>
+                <span style="min-width:120px;text-align:left;">Rental Term</span>
                 <select id="modal-term" name="termLength" class="reservation-receipt__select">
                   <option value="3-Month">3 Months</option>
                   <option value="6-Month">6 Months</option>
                   <option value="12-Month">12 Months</option>
                 </select>
+              </div>
+              <div class="reservation-receipt__checkbox-row" id="modal-addon-row">
+                <span style="min-width:120px;text-align:left;">Add-on</span>
+                <label for="modal-addon-notif" style="display:flex;align-items:center;gap:10px;cursor:pointer;margin:0;">
+                  <input type="checkbox" id="modal-addon-notif" name="mailNotification" checked style="accent-color:var(--navy);width:18px;height:18px;" />
+                  <span style="display:flex;align-items:center;gap:6px;">
+                    Mailbox notification
+                    </span>
+                  </span>
+                </label>
+                <script>
+                  // Tooltip hover for info icon
+                  document.addEventListener('DOMContentLoaded', function () {
+                    var infoIcon = document.querySelector('#modal-addon-row svg');
+                    var tooltip = document.querySelector('#modal-addon-row .modal-addon-tooltip');
+                    if (infoIcon && tooltip) {
+                      infoIcon.addEventListener('mouseenter', function () {
+                        tooltip.style.display = 'block';
+                      });
+                      infoIcon.addEventListener('mouseleave', function () {
+                        tooltip.style.display = 'none';
+                      });
+                      infoIcon.addEventListener('focus', function () {
+                        tooltip.style.display = 'block';
+                      });
+                      infoIcon.addEventListener('blur', function () {
+                        tooltip.style.display = 'none';
+                      });
+                    }
+                  });
+                </script>
               </div>
               <div class="reservation-receipt__divider"></div>
               <div class="reservation-receipt__row reservation-receipt__row--total">
@@ -518,5 +548,70 @@
     </div>
 
     <script src="js/app.js" defer></script>
+      <script>
+        // Reservation Drawer: Use dynamic pricing from mailbox-content.json (matches main quote logic)
+        document.addEventListener('DOMContentLoaded', function () {
+          var openers = document.querySelectorAll('.mailbox-cta__tile--price, .quote-cta');
+          var boxSelect = document.getElementById('modal-box-type');
+          var termSelect = document.getElementById('modal-term');
+          var notifCheckbox = document.getElementById('modal-addon-notif');
+          var badge = document.getElementById('modal-addon-badge');
+          var priceDisplay = document.getElementById('modal-dynamic-price');
+          var quoteSize = document.getElementById('quote-size-select');
+          var quoteTerm = document.getElementById('quote-term-select');
+          var quoteAddonBtn = document.getElementById('addon-btn');
+          var quoteAddonBadge = document.getElementById('addon-badge');
+
+          function loadMailboxContent() {
+            return fetch('data/mailbox-content.json').then(r => r.json());
+          }
+
+          loadMailboxContent().then(function(content) {
+            var PRICING = Object.fromEntries(
+              Object.entries(content.plans || {}).map(([name, plan]) => [name, plan.pricing || {}])
+            );
+            var perMonthAddon = Number(content.quote?.addon?.pricePerMonth || 1);
+            var NOTIF = {
+              '3-Month': 3 * perMonthAddon,
+              '6-Month': 6 * perMonthAddon,
+              '12-Month': 12 * perMonthAddon
+            };
+
+            function updateDrawerTotalAndBadge() {
+              var size = boxSelect ? boxSelect.value : 'Personal';
+              var term = termSelect ? termSelect.value : '3-Month';
+              var notif = notifCheckbox ? notifCheckbox.checked : true;
+              var base = PRICING[size] && PRICING[size][term] ? PRICING[size][term] : 0;
+              var notifCost = notif ? NOTIF[term] : 0;
+              var total = base + notifCost;
+              if (priceDisplay) priceDisplay.textContent = '$' + total.toFixed(2);
+              if (badge) badge.textContent = '+$' + NOTIF[term] + ' (' + term + ')';
+            }
+
+            function syncFromQuote() {
+              if (quoteSize && boxSelect) boxSelect.value = quoteSize.value;
+              if (quoteTerm && termSelect) termSelect.value = quoteTerm.value;
+              if (quoteAddonBtn && notifCheckbox) notifCheckbox.checked = quoteAddonBtn.classList.contains('quote__addon-btn--active');
+              if (quoteAddonBadge && badge) badge.textContent = quoteAddonBadge.textContent;
+              updateDrawerTotalAndBadge();
+            }
+
+            openers.forEach(function (btn) {
+              btn.addEventListener('click', syncFromQuote);
+            });
+            if (boxSelect) boxSelect.addEventListener('change', updateDrawerTotalAndBadge);
+            if (termSelect) termSelect.addEventListener('change', updateDrawerTotalAndBadge);
+            if (notifCheckbox) notifCheckbox.addEventListener('change', updateDrawerTotalAndBadge);
+            // Also update badge on term change from quote
+            if (termSelect && badge && quoteAddonBadge) {
+              termSelect.addEventListener('change', function () {
+                badge.textContent = quoteAddonBadge.textContent;
+              });
+            }
+            // Initial update
+            updateDrawerTotalAndBadge();
+          });
+        });
+      </script>
   </body>
 </html>

@@ -127,17 +127,27 @@
   background: #f8f9fa;
   border: 1px solid rgba(26, 54, 93, 0.1);
   border-radius: 12px;
-  padding: 20px;
+  padding: 24px;
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .reservation-receipt__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  margin-bottom: 8px;
+  font-size: 1rem;
   color: var(--navy);
   font-weight: 500;
+  gap: 16px;
+  padding: 8px 0;
+  transition: background 0.18s;
+}
+.reservation-receipt__row:hover {
+  background: #f4f6fa;
+  border-radius: 8px;
 }
 .reservation-receipt__select {
   appearance: none;
@@ -150,33 +160,113 @@
   color: var(--navy);
   text-align: left;
   cursor: pointer;
-  padding: 10px 36px 10px 14px;
+  padding: 12px 36px 12px 16px;
   box-shadow: 0 2px 8px rgba(26,54,93,0.06);
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a365d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 18px;
   outline: none;
-  transition: border 0.2s, box-shadow 0.2s;
+  transition: border 0.2s, box-shadow 0.2s, background 0.18s;
+  min-width: 160px;
 }
 .reservation-receipt__select:focus {
   border-color: var(--kraft-dark);
   box-shadow: 0 0 0 2px var(--kraft-dark, #b98e5a33);
+  background: #f9f6f2;
 }
 }
 .reservation-receipt__divider {
   height: 1px;
-  background: rgba(26, 54, 93, 0.1);
-  margin: 16px 0;
+  background: rgba(26, 54, 93, 0.13);
+  margin: 16px 0 0 0;
+  border: none;
 }
 .reservation-receipt__row--total {
   margin-bottom: 0;
-  font-size: 1.1rem;
+  font-size: 1.18rem;
+  font-weight: 700;
+  border-top: 1.5px solid var(--kraft-dark);
+  padding-top: 16px;
+  letter-spacing: -0.01em;
+  background: #fffbe9;
+  border-radius: 0 0 12px 12px;
 }
 #modal-dynamic-price {
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: 1.6rem;
+  font-weight: 900;
   color: var(--kraft-dark);
+  letter-spacing: -0.01em;
+}
+
+/* Custom Checkbox */
+.reservation-receipt__checkbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: background 0.18s;
+  border-radius: 8px;
+}
+.reservation-receipt__checkbox-row:hover {
+  background: #f4f6fa;
+}
+.custom-checkbox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.custom-checkbox input[type="checkbox"] {
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.custom-checkbox__box {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--kraft-dark);
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.18s, background 0.18s;
+  box-shadow: 0 1px 4px rgba(26,54,93,0.04);
+}
+.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox__box {
+  background: var(--kraft-dark);
+  border-color: var(--kraft-dark);
+}
+.custom-checkbox__check {
+  display: block;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox__box .custom-checkbox__check {
+  opacity: 1;
+}
+.custom-checkbox__box svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 /* Form Styles */
