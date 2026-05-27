@@ -1,0 +1,8 @@
+name = "print-portal-worker"
+type = "javascript"
+compatibility_date = "2026-05-27"
+
+[vars]
+RESEND_API_KEY = ""
+RESEND_TO_EMAIL = ""
+RESEND_FROM_EMAIL = ""

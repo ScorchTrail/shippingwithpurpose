@@ -183,13 +183,12 @@
       )
     )
       .then((files) => {
-        return fetch('/api/print-request', {
+        // Use the same Worker endpoint as mailbox registration
+        return fetch('https://srt-swp.p-vedant7878.workers.dev/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             name: nameValue,
-            email: '', // Optionally add email field if present
-            phone: '', // Optionally add phone field if present
             printType: selectedPrintType,
             copies: copiesValue,
             files,
