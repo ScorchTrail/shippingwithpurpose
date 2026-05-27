@@ -1,3 +1,10 @@
+  <!--
+TODO for 404.html (Site Lockout Page):
+1. Replace index.html and other main pages with this file if payment is overdue.
+2. Optionally update messaging to indicate payment is required to restore service.
+3. Restore original files when payment is made.
+4. Consider automating this process with a backend or deployment script in the future.
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -80,21 +87,21 @@
         </div>
       </a>
       <div class="nav__links">
-        <a href="index.html" class="nav__link nav__link--active">Home</a>
-        <a href="public/mailboxes.html" class="nav__link">Mailbox</a>
-        <!-- <a href="public/print.html" class="nav__link">Print</a> -->
-        <a href="public/services.html" class="nav__link">Services</a>
+        <a href="#" class="nav__link nav__link--active" rel="noopener">Home</a>
+        <a href="#" class="nav__link" rel="noopener">Mailbox</a>
+        <!-- <a href="#" class="nav__link" rel="noopener">Print</a> -->
+        <a href="#" class="nav__link" rel="noopener">Services</a>
       </div>
       <div class="nav__cta">
         <a href="public/mailboxes.html" class="btn btn--navy-sm">Rent a Mailbox</a>
       </div>
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><img src="public/assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" /></button>
       <div class="nav__menu" id="mobile-menu">
-        <a href="index.html" class="nav__menu-link nav__menu-link--active">Home</a>
-        <a href="public/mailboxes.html" class="nav__menu-link">Mailbox</a>
-        <!-- <a href="public/print.html" class="nav__menu-link">Print</a> -->
-        <a href="public/services.html" class="nav__menu-link">Services</a>
-        <a href="public/mailboxes.html" class="btn btn--navy nav__menu-cta">Rent a Mailbox</a>
+        <a href="#" class="nav__menu-link nav__menu-link--active" rel="noopener">Home</a>
+        <a href="#" class="nav__menu-link" rel="noopener">Mailbox</a>
+        <!-- <a href="#" class="nav__menu-link" rel="noopener">Print</a> -->
+        <a href="#" class="nav__menu-link" rel="noopener">Services</a>
+        <a href="#" class="btn btn--navy nav__menu-cta" rel="noopener">Rent a Mailbox</a>
       </div>
       </nav>
       <div class="info-bar">
@@ -226,428 +233,7 @@
         </div>
       </div>
     </section>
-    <section class="services-preview fade-section">
-      <div class="container">
-        <div class="services-preview__header">
-            <div class="section-header section-header--center">
-              <span class="section-tag tag">What We Offer</span>
-              <h2 class="section-title section-title--gradient">All the services you need,<br />in one friendly stop.</h2>
-              <p class="section-desc">From packages to paperwork — we've got you covered, with a smile.</p>
-            </div>
-        </div>
-        <div class="services-grid">
-          <a href="./public/services.html" class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?auto=format&fit=crop&w=1200&q=80"
-                alt="Cardboard shipping boxes on a counter ready for drop-off"
-                loading="lazy"
-                width="640"
-                height="384"
-              />
-              <div class="service-card__icon"><img src="public/assets/icons/box.svg" alt="" class="icon-img icon-img--md" /></div>
-            </div>
-            <div class="service-card__body">
-              <div class="service-card__title">Shipping</div>
-              <p class="service-card__desc">
-                Ship with USPS, UPS, FedEx, or DHL. We compare rates and handle everything.
-              </p>
-            </div>
-          </a>
-          <a href="./public/services.html" class="service-card">
-            <div class="service-card__image">
-              <img
-                src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1200&q=80"
-                alt="Commercial printer producing a vivid printed document"
-                loading="lazy"
-                width="640"
-                height="384"
-              />
-              <div class="service-card__icon"><img src="public/assets/icons/print.svg" alt="" class="icon-img icon-img--md" /></div>
-            </div>
-            <div class="service-card__body">
-              <div class="service-card__title">Printing</div>
-              <p class="service-card__desc">
-                Color &amp; B&amp;W printing, photo prints, binding — same-day for most jobs.
-              </p>
-            </div>
-          </a>
-          <a href="./public/services.html" class="service-card">
-            <div class="service-card__image">
-              <img
-                src="public/assets/images/service-business.svg"
-                alt="Business paperwork support including scan fax and notary"
-                loading="lazy"
-                width="640"
-                height="384"
-              />
-              <div class="service-card__icon"><img src="public/assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
-            </div>
-            <div class="service-card__body">
-              <div class="service-card__title">Business Services</div>
-              <p class="service-card__desc">Fax, notary, scanning — everything you need to handle your paperwork.</p>
-            </div>
-          </a>
-          <a href="./public/mailboxes.html" class="service-card">
-            <div class="service-card__image">
-              <img
-                src="public/assets/images/service-mailbox.svg"
-                alt="Private mailbox wall with secure customer boxes"
-                loading="lazy"
-                width="640"
-                height="384"
-              />
-              <div class="service-card__icon"><img src="public/assets/icons/envelope.svg" alt="" class="icon-img icon-img--md" /></div>
-            </div>
-            <div class="service-card__body">
-              <div class="service-card__title">Mailbox Rentals</div>
-              <p class="service-card__desc">
-                A real street address for your personal or business mail — not a P.O. Box.
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="mailbox-cta fade-section">
-      <div class="container">
-        <div class="mailbox-cta__header">
-            <div class="section-header section-header--center">
-              <span class="section-tag tag">Private Mailboxes</span>
-              <h2 class="section-title">Plans built for personal and business mail.</h2>
-              <p class="section-desc">Compare pricing, choose the right box size, and reserve in minutes.</p>
-            </div>
-        </div>
-        <div class="mailbox-cta__grid">
-          <!-- HERO TILE (navy, spans 2 cols × 2 rows) -->
-          <div class="mailbox-cta__tile mailbox-cta__tile--hero">
-            <div class="mailbox-cta__hero-top">
-              <span class="mailbox-cta__hero-badge" data-mailbox-field="cta.badge">Most Popular Service</span>
-            </div>
-            <h2 class="mailbox-cta__hero-heading">
-              <span data-mailbox-field="cta.headingLine1">Get a real street address.</span><br />
-              <span class="mailbox-cta__hero-emphasis" data-mailbox-field="cta.headingEmphasis"
-                >Not a P.O.&nbsp;Box.</span
-              >
-            </h2>
-            <p class="mailbox-cta__hero-body" data-mailbox-field="cta.body">
-              A private mailbox with a real street address — perfect for small businesses, remote workers, and anyone
-              who values their privacy.
-            </p>
-            <ul class="mailbox-cta__hero-features">
-              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon"><img src="public/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>24-Hour Access</span></li>
-              <li><span class="badge badge--on-navy mailbox-cta__hero-feature-badge"><span class="mailbox-cta__hero-icon"><img src="public/assets/icons/lock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>Secure Locker Service</span></li>
-            </ul>
-            <div class="mailbox-cta__footer">
-              <a href="public/mailboxes.html?box=personal&term=3" class="btn btn--kraft mailbox-cta__hero-cta">
-                <span data-mailbox-field="cta.buttonLabel">See Pricing &amp; Rent Now &nbsp;→</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- PHOTO TILE -->
-          <div class="mailbox-cta__tile mailbox-cta__tile--photo">
-            <img
-              src="./public/assets/images/service-mailbox.svg"
-              alt="Secure private mailbox wall with numbered lockboxes"
-              loading="lazy"
-              width="900"
-              height="506"
-            />
-          </div>
-
-          <!-- PRICE TILE A -->
-          <a
-            href="public/mailboxes.html?box=mini&term=3"
-            data-mailbox-plan="Mini"
-            class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-a mailbox-cta__tile--link"
-          >
-            <div class="mailbox-cta__price-header">
-              <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Mini Box</span>
-              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">Budget-Friendly</span>
-            </div>
-            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
-              >$57</span
-            >
-            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption"
-              >Minimal volume, maximum savings</span
-            >
-          </a>
-
-          <!-- PRICE TILE B -->
-          <a
-            href="public/mailboxes.html?box=personal&term=3"
-            data-mailbox-plan="Personal"
-            class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-b mailbox-cta__tile--link"
-          >
-            <div class="mailbox-cta__price-header">
-              <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Personal</span>
-              <span class="badge badge--mailbox mailbox-cta__badge mailbox-cta__badge--popular" data-mailbox-plan-field="tag">Most Popular</span>
-            </div>
-            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
-              >$72</span
-            >
-            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption"
-              >Perfect for remote workers & vacations</span
-            >
-          </a>
-
-          <!-- PRICE TILE C -->
-          <a
-            href="public/mailboxes.html?box=business&term=3"
-            data-mailbox-plan="Business"
-            class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-c mailbox-cta__tile--link"
-          >
-            <div class="mailbox-cta__price-header">
-              <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Business</span>
-              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">10+ Members</span>
-            </div>
-            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
-              >$78</span
-            >
-            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption"
-              >Team-friendly with ample storage</span
-            >
-          </a>
-
-          <!-- PRICE TILE D -->
-          <a
-            href="public/mailboxes.html?box=corporate&term=3"
-            data-mailbox-plan="Corporate"
-            class="mailbox-cta__tile mailbox-cta__tile--price mailbox-cta__tile--price-d mailbox-cta__tile--link"
-          >
-            <div class="mailbox-cta__price-header">
-              <span class="mailbox-cta__price-label" data-mailbox-plan-field="label">Corporate</span>
-              <span class="badge badge--mailbox mailbox-cta__badge" data-mailbox-plan-field="tag">Max Storage</span>
-            </div>
-            <span class="mailbox-cta__price-value mailbox-cta__price-value--accent" data-mailbox-plan-field="price"
-              >$123</span
-            >
-            <span class="mailbox-cta__price-caption" data-mailbox-plan-field="caption"
-              >Enterprise capacity, maximum flexibility</span
-            >
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- Removed duplicate footer -->
-   <!--<section class="print-portal fade-section">
-      <div class="container">
-        <div class="print-portal__header">
-            <div class="section-header section-header--center">
-              <span class="section-tag tag">Print</span>
-              <h2 class="section-title">Upload documents for printing.</h2>
-              <p class="section-desc">Send us your print request and files. We handle the rest.</p>
-            </div>
-        </div>
-        <form id="print-portal-form" class="print-portal-form">
-          <div class="print-portal__bento">
-            <div class="print-portal__tile print-portal__tile--upload">
-              <div class="drop-zone" id="drop-zone">
-                <div class="drop-zone__icon"><img src="public/assets/icons/upload.svg" alt="" class="icon-img icon-img--xl" /></div>
-                <div class="drop-zone__title">Drag &amp; drop documents here</div>
-                <p class="drop-zone__sub">PDF, DOC, DOCX, PNG, JPG accepted</p>
-                <span class="btn btn--navy-sm drop-zone__fake-btn">Select Documents</span>
-                <input
-                  type="file"
-                  id="file-input"
-                  accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                  class="print-portal__file-input"
-                  multiple
-                />
-              </div>
-              <div class="print-portal-files" aria-live="polite">
-                <div class="print-portal-files__title">Uploaded Documents</div>
-                <p class="print-portal-files__empty" id="uploaded-doc-empty">No files uploaded yet.</p>
-                <ul class="print-portal-files__list" id="uploaded-doc-list"></ul>
-              </div>
-            </div>
-            <div class="print-portal__tile print-portal__tile--fields">
-              <div class="print-portal__field-grid">
-                <div class="form-group print-portal__field print-portal__field--name">
-                  <label class="form-label" for="portal-name">Name</label>
-                  <input id="portal-name" type="text" class="form-input" placeholder="John Doe" required />
-                </div>
-                <div class="form-group print-portal__field print-portal__field--copies">
-                  <label class="form-label" for="portal-copies">Number of Copies</label>
-                  <input
-                    id="portal-copies"
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="form-input print-portal__copies-input"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="form-group print-portal__print-type-group">
-                <label class="form-label">Print Type</label>
-                <div class="print-portal__print-types" role="radiogroup" aria-label="Print Type">
-                  <label class="print-portal__print-type-option">
-                    <input type="radio" name="portal-print-type" value="Black &amp; White" checked />
-                    <span>
-                      <strong>Black &amp; White</strong>
-                      <small>Fastest turnaround</small>
-                    </span>
-                  </label>
-                  <label class="print-portal__print-type-option">
-                    <input type="radio" name="portal-print-type" value="Color" />
-                    <span>
-                      <strong>Color</strong>
-                      <small>Vibrant documents</small>
-                    </span>
-                  </label>
-                  <label class="print-portal__print-type-option">
-                    <input type="radio" name="portal-print-type" value="Photo Copy" />
-                    <span>
-                      <strong>Photo Copy</strong>
-                      <small>High quality image prints</small>
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group print-portal__instructions-group">
-                <label class="form-label" for="portal-instructions">Print Instructions (Optional)</label>
-                <textarea
-                  id="portal-instructions"
-                  class="form-input print-portal__instructions"
-                  rows="4"
-                  placeholder="Example: Print only page 1, double-sided, staple top-left, black and white."
-                ></textarea>
-                <p class="print-portal__instructions-help">
-                  Add any page ranges, color preference, or finishing notes.
-                </p>
-              </div>
-              <button type="submit" class="btn btn--navy print-portal-form__submit">Send Print Request &nbsp;→</button>
-              <div class="print-portal-form__feedback" id="print-portal-feedback"></div>
-              <p class="print-portal__privacy-inline">
-                <strong class="print-portal__privacy-strong">Privacy protected.</strong> Request details stay secure.
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section> -->
-    <section class="dropoff-grid fade-section">
-      <div class="container">
-        <div>
-            <div class="section-header section-header--center">
-              <span class="section-tag tag">Carrier Drop-Off Hub</span>
-              <h2 class="section-title">Drop off fast. <span>Ship with confidence.</span></h2>
-              <p class="section-desc">One clean counter for USPS, UPS, FedEx, and DHL. We can create labels for USPS, UPS, and FedEx. DHL is drop-off only for pre-labeled shipments.</p>
-            </div>
-        </div>
-        <div class="carrier-grid">
-          <div class="carrier-card">
-            <div class="carrier-card__header carrier-card__header--usps">
-              <img src="public/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
-            </div>
-            <div class="carrier-card__body">
-              <div class="carrier-card__name">USPS</div>
-              <p class="carrier-card__desc">Priority, First-Class, Express, and flat-rate boxes.</p>
-              <div class="carrier-card__badges">
-                <span class="badge badge--label">Certified Mail</span>
-                <span class="badge badge--label">QR Label Print</span>
-              </div>
-            </div>
-          </div>
-          <div class="carrier-card">
-            <div class="carrier-card__header carrier-card__header--ups">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg"
-                alt="UPS"
-                loading="lazy"
-              />
-            </div>
-            <div class="carrier-card__body">
-              <div class="carrier-card__name">UPS</div>
-              <p class="carrier-card__desc">Ground, 2-Day, Next Day Air, and returns.</p>
-              <div class="carrier-card__badges">
-                <span class="badge badge--label">Drop-Off Location</span>
-              </div>
-            </div>
-          </div>
-          <div class="carrier-card">
-            <div class="carrier-card__header carrier-card__header--fedex">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/FedEx_Corporation_-_2016_Logo.svg"
-                alt="FedEx"
-                loading="lazy"
-              />
-            </div>
-            <div class="carrier-card__body">
-              <div class="carrier-card__name">FedEx</div>
-              <p class="carrier-card__desc">Overnight, Home Delivery, and Express services.</p>
-              <div class="carrier-card__badges">
-                <span class="badge badge--label">Waybill Form</span>
-              </div>
-            </div>
-          </div>
-          <div class="carrier-card carrier-card--droponly">
-            <div class="carrier-card__header carrier-card__header--dhl">
-              <img src="public/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
-            </div>
-            <div class="carrier-card__body">
-              <div class="carrier-card__name">DHL</div>
-              <p class="carrier-card__desc">International express drop-off for pre-labeled shipments.</p>
-              <div class="carrier-card__badges">
-                <span class="badge badge--drop">Drop-Off Only</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="packing-note">
-          <span class="packing-note__icon"><img src="public/assets/icons/info.svg" alt="" class="icon-img icon-img--sm" /></span>
-          <p>
-            <strong class="packing-note__strong">Need a box or some tape for your return?</strong> We've got you
-            covered! We'll pack and tape your package securely. No more hunting down supplies.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="testimonials fade-section">
-      <div class="container">
-        <div class="testimonials__header">
-            <div class="section-header section-header--center">
-              <span class="section-tag tag">Customer Reviews</span>
-              <div class="testimonials__stars" aria-label="5 out of 5 stars">
-                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-              <h2 class="section-title">Loved by our community.</h2>
-              <p class="section-desc">Don't take our word for it — here's what our regulars say.</p>
-            </div>
-        </div>
-        <div class="swiper" id="reviews-slider">
-          <div class="swiper-wrapper" id="reviews-track" aria-live="polite"></div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="testimonials__footer">
-          <a
-            href="https://www.yelp.com/biz/shipping-with-purpose-scottsdale-2"
-            target="_blank"
-            rel="noopener"
-            class="btn btn--outline-navy"
-            >Read More on Yelp</a>
-        </div>
-      </div>
-    </section>
-    <footer class="footer">
+        <footer class="footer">
       <div class="container">
         <div class="footer__grid">
           <div class="footer__col">
@@ -671,10 +257,10 @@
           <div class="footer__col">
             <h3 class="footer__col-heading">Quick Links</h3>
             <ul class="footer__list">
-              <li class="footer__list-item"><a href="index.html" class="footer__link">Home</a></li>
-              <li class="footer__list-item"><a href="public/services.html" class="footer__link">Services</a></li>
-              <li class="footer__list-item"><a href="public/mailboxes.html" class="footer__link">Mailbox</a></li>
-              <!-- <li class="footer__list-item"><a href="public/print.html" class="footer__link">Print</a></li> -->
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Home</a></li>
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Services</a></li>
+              <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Mailbox</a></li>
+              <!-- <li class="footer__list-item"><a href="#" class="footer__link" rel="noopener">Print</a></li> -->
               <li class="footer__list-item"><span class="footer__link footer__link--disabled">Print</span></li>
             </ul>
           </div>
@@ -699,5 +285,18 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="public/js/app.js" defer></script>
+    <script>
+      // Show lockout/error message on disabled nav/footer links
+      document.addEventListener('DOMContentLoaded', function () {
+        function showError(e) {
+          e.preventDefault();
+          alert('There is an error. Please contact the site admins.');
+        }
+        var links = document.querySelectorAll('.nav__link[rel="noopener"], .nav__menu-link[rel="noopener"], .footer__link[rel="noopener"], .btn--navy[rel="noopener"], .btn--navy-sm[rel="noopener"]');
+        links.forEach(function(link) {
+          link.addEventListener('click', showError);
+        });
+      });
+    </script>
   </body>
 </html>
