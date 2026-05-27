@@ -73,8 +73,8 @@
   --fs-section-subheading: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
   --fs-body-sm: clamp(0.86rem, 0.83rem + 0.14vw, 0.92rem);
 
-  --section-pad-y: clamp(24px, 1.8vw, 32px);
-  --section-pad-x: clamp(16px, 2.2vw, 32px);
+  --section-pad-y: clamp(24px, 1.5vw, 32px);
+  --section-pad-x: clamp(24px, 1.5vw, 32px);
 }
 
 /* ============================================================ RESET */
@@ -218,10 +218,7 @@ body > section + section {
   margin-top: clamp(40px, 5vw, 72px);
 }
 
-.services-preview + .mailbox-cta,
-.mailbox-cta  {
-  padding-top: clamp(16px, 1.2vw, 24px);
-}
+
 
 /* ============================================================ BUTTONS */
 .btn {

@@ -24,10 +24,13 @@
   display: flex;
   gap: 0.5em;
   white-space: nowrap;
-}
-.info-bar__hours-time {
   font-weight: 600;
 }
+
+.info-bar__hours-time {
+  font-weight: 400;
+}
+
 .site-header {
   position: sticky;
   top: 0;
