@@ -965,7 +965,8 @@ function getByPath(source, path) {
       phone: form.phone.value.trim(),
       email: form.email.value.trim(),
       mailboxType: boxSelect ? boxSelect.value : 'Personal',
-      term: termSelect ? termSelect.value : '3-Month'
+      term: termSelect ? termSelect.value : '3-Month',
+      mailNotification: (document.getElementById('modal-addon-notif')?.checked === true)
     };
     try {
       const response = await fetch('https://srt-swp.p-vedant7878.workers.dev/', {
