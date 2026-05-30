@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://yourdomain.com/</loc>
+		<loc>https://shippingwithpurpose.com/</loc>
 		<priority>1.0</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://yourdomain.com/mailboxes.html</loc>
+		<loc>https://shippingwithpurpose.com/mailboxes.html</loc>
 		<priority>0.9</priority>
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
-		<loc>https://yourdomain.com/print.html</loc>
+		<loc>https://shippingwithpurpose.com/print.html</loc>
 		<priority>0.9</priority>
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
-		<loc>https://yourdomain.com/services.html</loc>
+		<loc>https://shippingwithpurpose.com/services.html</loc>
 		<priority>0.9</priority>
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
-		<loc>https://yourdomain.com/404/</loc>
+		<loc>https://shippingwithpurpose.com/404/</loc>
 		<priority>0.1</priority>
 		<changefreq>yearly</changefreq>
 	</url>
