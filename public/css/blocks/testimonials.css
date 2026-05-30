@@ -1,3 +1,11 @@
+/* Add spacing between Swiper wrapper and pagination */
+.swiper-wrapper {
+  margin-bottom: 16px; /* Adjust as needed for desired spacing */
+}
+
+.swiper-pagination {
+  margin-top: 0;
+}
 /* ============================================================ TESTIMONIALS (homepage) */
 .testimonials {
   padding: var(--section-pad-y) var(--section-pad-x) var(--section-pad-y);
