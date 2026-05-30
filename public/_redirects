@@ -1,0 +1,5 @@
+/mailbox    /mailboxes.html   200
+/print      /print.html       200
+/service    /services.html    200
+/*         /404/index.html   404
+/           /index.html      200
