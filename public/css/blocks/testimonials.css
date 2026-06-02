@@ -58,10 +58,18 @@
 }
 
 .reviews-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   margin-bottom: var(--space-24);
+}
+
+.reviews-container::-webkit-scrollbar {
+  display: none;
 }
 
 /* Swiper Container adjustments */
@@ -84,7 +92,9 @@
   background: #fff;
   padding: var(--space-24);
   box-shadow: var(--shadow-sm);
-  width: 100%;
+  width: 85%;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
 }
@@ -188,11 +198,19 @@
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 720px) {
-  .reviews-container {
-    grid-template-columns: 1fr;
-  }
-
   .review-card {
     padding: 20px;
+  }
+}
+
+@media (min-width: 721px) {
+  .review-card {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-card {
+    width: 30%;
   }
 }
