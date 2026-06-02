@@ -716,6 +716,57 @@ function loadLiveReviews() {
 
   container.innerHTML = fallbackMarkup('Loading latest customer reviews...');
 
+  let autoScrollTimer = null;
+  let isAutoScrollPaused = false;
+
+  const stopAutoScroll = () => {
+    if (autoScrollTimer) {
+      window.clearInterval(autoScrollTimer);
+      autoScrollTimer = null;
+    }
+  };
+
+  const startAutoScroll = () => {
+    stopAutoScroll();
+
+    if (container.scrollWidth <= container.clientWidth) return;
+
+    autoScrollTimer = window.setInterval(() => {
+      if (isAutoScrollPaused || container.scrollWidth <= container.clientWidth) return;
+
+      const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 2;
+      if (atEnd) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const cards = Array.from(container.querySelectorAll('.review-card'));
+      if (!cards.length) return;
+
+      const visibleEdge = container.scrollLeft + container.clientWidth - 2;
+      const nextCard = cards.find((card) => card.offsetLeft >= visibleEdge) || cards[0];
+
+      if (nextCard) {
+        container.scrollTo({ left: nextCard.offsetLeft, behavior: 'smooth' });
+      }
+    }, 3500);
+  };
+
+  const pauseAutoScroll = () => {
+    isAutoScrollPaused = true;
+    stopAutoScroll();
+  };
+
+  const resumeAutoScroll = () => {
+    isAutoScrollPaused = false;
+    startAutoScroll();
+  };
+
+  container.addEventListener('mouseenter', pauseAutoScroll);
+  container.addEventListener('mouseleave', resumeAutoScroll);
+  container.addEventListener('touchstart', pauseAutoScroll, { passive: true });
+  container.addEventListener('touchend', resumeAutoScroll, { passive: true });
+
   fetch('/reviews.json', {
     headers: { Accept: 'application/json' },
     cache: 'no-store',
@@ -729,13 +780,16 @@ function loadLiveReviews() {
     .then((reviews) => {
       if (!Array.isArray(reviews) || !reviews.length) {
         container.innerHTML = fallbackMarkup('No live reviews available right now.');
+        startAutoScroll();
         return;
       }
 
       container.innerHTML = reviews.map((review) => buildReviewCard(review)).join('');
+      startAutoScroll();
     })
     .catch(() => {
       container.innerHTML = fallbackMarkup('Live review feed is temporarily unavailable.');
+      startAutoScroll();
     });
 
   function buildReviewCard(review) {
