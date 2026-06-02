@@ -707,102 +707,79 @@ function getByPath(source, path) {
   });
 })();
 
-/* ============================================================   LIVE REVIEWS GALLERY (index.html)
+/* ============================================================
+   LIVE REVIEWS (LOCAL JSON)
    ============================================================ */
-(function initLiveReviews() {
-  const slider = document.getElementById('reviews-slider');
-  const track = document.getElementById('reviews-track');
-  if (!slider || !track) return;
+function loadLiveReviews() {
+  const container = document.getElementById('reviews-container');
+  if (!container) return;
 
-  fetchReviewsData()
-    .then((res) => {
-      if (!res || typeof res !== 'object') throw new Error('Invalid review payload');
-      return res;
+  container.innerHTML = fallbackMarkup('Loading latest customer reviews...');
+
+  fetch('/reviews.json', {
+    headers: { Accept: 'application/json' },
+    cache: 'no-store',
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
     })
-    .then((data) => {
-      const reviews = Array.isArray(data?.reviews) ? data.reviews : [];
-      if (!reviews.length) {
-        track.innerHTML = fallbackSlideMarkup('No live reviews available yet.');
-        initializeSwiper();
+    .then((reviews) => {
+      if (!Array.isArray(reviews) || !reviews.length) {
+        container.innerHTML = fallbackMarkup('No live reviews available right now.');
         return;
       }
 
-      track.innerHTML = reviews.map((review) => reviewSlideMarkup(review)).join('');
-      initializeSwiper();
+      container.innerHTML = reviews.map((review) => buildReviewCard(review)).join('');
     })
-    .catch((error) => {
-      const reason = error?.message ? ` (${error.message})` : '';
-      track.innerHTML = fallbackSlideMarkup(`Live Yelp feed unavailable${reason}.`);
-      initializeSwiper();
+    .catch(() => {
+      container.innerHTML = fallbackMarkup('Live review feed is temporarily unavailable.');
     });
 
-  async function fetchReviewsData() {
-    const localDataPath = window.location.pathname.toLowerCase().includes('/public/')
-      ? 'data/reviews.json'
-      : 'public/data/reviews.json';
+  function buildReviewCard(review) {
+    const author = sanitizeText(review?.author || 'Guest');
+    const source = sanitizeText(review?.source || 'Google');
+    const rating = clampRating(review?.rating);
+    const text = sanitizeText(review?.text || '');
+    const daysAgo = clampDaysAgo(review?.daysAgo);
+    const publishedDate = new Date();
+    publishedDate.setDate(publishedDate.getDate() - daysAgo);
 
-    const endpoints = ['/api/reviews', 'api/reviews', './api/reviews', localDataPath];
+    const displayDate = publishedDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
 
-    for (const endpoint of endpoints) {
-      try {
-        const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
-        if (!response.ok) {
-          const payload = await safeReadJson(response);
-          if (endpoint.includes('/api/reviews')) {
-            const detail = payload?.error || payload?.code || `HTTP ${response.status}`;
-            throw new Error(detail);
-          }
-          continue;
-        }
-        const data = await response.json();
-        if (Array.isArray(data?.reviews) && data.reviews.length) {
-          return data;
-        }
-      } catch (err) {
-        if (endpoint.includes('/api/reviews')) {
-          const localFallback = await tryLocalData(localDataPath);
-          if (localFallback) return localFallback;
-          throw err;
-        }
-        continue;
-      }
-    }
+    const isoDate = publishedDate.toISOString().split('T')[0];
+    const initials = author
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join('');
 
-    throw new Error('No review source available');
-  }
+    const sourceClass = source.toLowerCase() === 'google'
+      ? 'review-card__source review-card__source--google'
+      : 'review-card__source';
 
-  async function tryLocalData(localPath) {
-    try {
-      const response = await fetch(localPath, { headers: { Accept: 'application/json' } });
-      if (!response.ok) return null;
-      const data = await response.json();
-      return Array.isArray(data?.reviews) && data.reviews.length ? data : null;
-    } catch {
-      return null;
-    }
-  }
-
-  async function safeReadJson(response) {
-    try {
-      return await response.json();
-    } catch {
-      return null;
-    }
-  }
-
-  function fallbackSlideMarkup(message) {
     return `
-      <div class="swiper-slide">
-        <article class="review-card review-card--placeholder">
-          <div class="review-card__top">
-            <div class="review-card__avatar">i</div>
-            <div class="review-card__identity">
-              <div class="review-card__name">Live Reviews</div>
-            </div>
+      <article class="review-card" role="article">
+        <header class="review-card__top">
+          <div class="review-card__avatar">${sanitizeText(initials || 'G')}</div>
+          <div class="review-card__identity">
+            <h3 class="review-card__name">${author}</h3>
+            <time class="review-card__meta" datetime="${isoDate}">${displayDate}</time>
           </div>
-          <p class="review-card__text">${escHtml(message)}</p>
-        </article>
-      </div>
+          <span class="${sourceClass}">${source}</span>
+        </header>
+        <div class="review-card__rating-row">
+          <div class="review-card__stars" aria-label="${rating} out of 5 stars">${renderStars(rating)}</div>
+        </div>
+        <p class="review-card__text">${text}</p>
+      </article>
     `;
   }
 
@@ -814,81 +791,43 @@ function getByPath(source, path) {
     }).join('');
   }
 
-  function reviewSlideMarkup(review) {
-    const name = review?.authorName || 'Guest';
-    const initials = name
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0]?.toUpperCase())
-      .join('');
-
-    const rating = Math.max(1, Math.min(5, Number(review?.rating) || 5));
-    const stars = renderStars(rating);
-    const source = review?.source === 'google' ? 'Google' : 'Yelp';
-    const relativeTime = review?.relativeTime || '';
-
+  function fallbackMarkup(message) {
     return `
-      <div class="swiper-slide">
-        <article class="review-card" role="article">
-          <div class="review-card__top">
-            <div class="review-card__avatar">${escHtml(initials || 'G')}</div>
-            <div class="review-card__identity">
-              <div class="review-card__name">${escHtml(name)}</div>
-              ${relativeTime ? `<div class="review-card__meta">${escHtml(relativeTime)}</div>` : ''}
-            </div>
-            <span class="review-card__source">${escHtml(source)}</span>
+      <article class="review-card review-card--placeholder" role="article">
+        <header class="review-card__top">
+          <div class="review-card__avatar">i</div>
+          <div class="review-card__identity">
+            <h3 class="review-card__name">Live Reviews</h3>
           </div>
-          <div class="review-card__rating-row">
-            <div class="review-card__stars" aria-label="${rating} out of 5 stars">${stars}</div>
-          </div>
-          <p class="review-card__text">${escHtml(review?.text || '')}</p>
-        </article>
-      </div>
+        </header>
+        <p class="review-card__text">${sanitizeText(message)}</p>
+      </article>
     `;
   }
 
-  function initializeSwiper() {
-    if (typeof Swiper === 'undefined') return;
-
-    const existingSwiper = slider.swiper;
-    if (existingSwiper && typeof existingSwiper.destroy === 'function') {
-      existingSwiper.destroy(true, true);
-    }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    new Swiper('#reviews-slider', {
-      loop: true,
-      grabCursor: true,
-      spaceBetween: 24,
-      autoplay: prefersReducedMotion
-        ? false
-        : {
-            delay: 5000,
-            disableOnInteraction: true,
-          },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1.1,
-          centeredSlides: true,
-        },
-        768: {
-          slidesPerView: 2,
-          centeredSlides: false,
-        },
-        1024: {
-          slidesPerView: 3,
-          centeredSlides: false,
-        },
-      },
-    });
+  function clampRating(value) {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) return 5;
+    return Math.max(1, Math.min(5, Math.round(numeric)));
   }
-})();
+
+  function clampDaysAgo(value) {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) return 1;
+    return Math.max(0, Math.min(365, Math.round(numeric)));
+  }
+
+  function sanitizeText(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadLiveReviews);
 
 /* ============================================================
    RESERVATION MODAL (mailboxes.html + homepage CTA)

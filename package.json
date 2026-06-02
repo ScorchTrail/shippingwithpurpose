@@ -1,0 +1,24 @@
+{
+  "name": "srt-swp",
+  "version": "1.0.0",
+  "description": "All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.",
+  "main": "find-yelp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScorchTrail/srt-swp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ScorchTrail/srt-swp/issues"
+  },
+  "homepage": "https://github.com/ScorchTrail/srt-swp#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
