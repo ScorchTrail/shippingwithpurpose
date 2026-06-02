@@ -2,28 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://shippingwithpurpose.com/</loc>
-		<priority>1.0</priority>
-		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://shippingwithpurpose.com/mailboxes.html</loc>
-		<priority>0.9</priority>
-		<changefreq>monthly</changefreq>
+		<loc>https://shippingwithpurpose.com/mailboxes</loc>
 	</url>
 	<url>
-		<loc>https://shippingwithpurpose.com/print.html</loc>
-		<priority>0.9</priority>
-		<changefreq>monthly</changefreq>
+		<loc>https://shippingwithpurpose.com/print</loc>
 	</url>
 	<url>
-		<loc>https://shippingwithpurpose.com/services.html</loc>
-		<priority>0.9</priority>
-		<changefreq>monthly</changefreq>
+		<loc>https://shippingwithpurpose.com/services</loc>
 	</url>
-	<url>
-		<loc>https://shippingwithpurpose.com/404/</loc>
-		<priority>0.1</priority>
-		<changefreq>yearly</changefreq>
-	</url>
-	<!-- Add more URLs below as you add new pages -->
 </urlset>

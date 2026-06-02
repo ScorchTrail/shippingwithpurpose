@@ -29,13 +29,17 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Ensure CNAME and homepage are in public
+      - name: Ensure deployment files are in public
         shell: bash
         run: |
           mkdir -p public
 
           if [[ -f CNAME ]]; then
             cp CNAME public/CNAME
+          fi
+
+          if [[ -f sitemap.xml ]]; then
+            cp sitemap.xml public/sitemap.xml
           fi
 
           if [[ -f index.html ]]; then
