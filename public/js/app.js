@@ -714,8 +714,6 @@ function loadLiveReviews() {
   const container = document.getElementById('reviews-container');
   if (!container) return;
 
-  let autoScrollInterval = null;
-
   container.innerHTML = fallbackMarkup('Loading latest customer reviews...');
 
   fetch('/reviews.json', {
@@ -735,51 +733,10 @@ function loadLiveReviews() {
       }
 
       container.innerHTML = reviews.map((review) => buildReviewCard(review)).join('');
-      initializeAutoScroll();
     })
     .catch(() => {
       container.innerHTML = fallbackMarkup('Live review feed is temporarily unavailable.');
     });
-
-  function initializeAutoScroll() {
-    stopAutoScroll();
-    startAutoScroll();
-
-    if (container.dataset.autoscrollBound === 'true') return;
-
-    container.addEventListener('mouseenter', stopAutoScroll);
-    container.addEventListener('mouseleave', startAutoScroll);
-    container.addEventListener('touchstart', stopAutoScroll, { passive: true });
-    container.addEventListener('touchend', startAutoScroll, { passive: true });
-    container.dataset.autoscrollBound = 'true';
-  }
-
-  function startAutoScroll() {
-    if (autoScrollInterval) return;
-
-    autoScrollInterval = window.setInterval(() => {
-      const cards = container.querySelectorAll('.review-card');
-      const firstCard = cards[0];
-      const step = firstCard ? firstCard.offsetWidth + 24 : Math.floor(container.clientWidth * 0.85);
-      const reachedEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 2;
-
-      if (reachedEnd) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-        return;
-      }
-
-      container.scrollTo({
-        left: container.scrollLeft + step,
-        behavior: 'smooth',
-      });
-    }, 3500);
-  }
-
-  function stopAutoScroll() {
-    if (!autoScrollInterval) return;
-    window.clearInterval(autoScrollInterval);
-    autoScrollInterval = null;
-  }
 
   function buildReviewCard(review) {
     const author = sanitizeText(review?.author || 'Guest');
