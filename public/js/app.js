@@ -743,8 +743,9 @@ function loadLiveReviews() {
       const cards = Array.from(container.querySelectorAll('.review-card'));
       if (!cards.length) return;
 
-      const visibleEdge = container.scrollLeft + container.clientWidth - 2;
-      const nextCard = cards.find((card) => card.offsetLeft >= visibleEdge) || cards[0];
+      const currentIndex = cards.findIndex((card) => card.offsetLeft > container.scrollLeft + 2);
+      const nextIndex = currentIndex === -1 ? 0 : currentIndex;
+      const nextCard = cards[nextIndex];
 
       if (nextCard) {
         container.scrollTo({ left: nextCard.offsetLeft, behavior: 'smooth' });
