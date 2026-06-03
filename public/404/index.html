@@ -77,48 +77,7 @@ TODO for 404.html (Site Lockout Page):
     <link rel="stylesheet" href="/css/main-home.css" />
   </head>
   <body>
-    <header class="site-header">
-      <nav class="nav" id="nav">
-      <a href="/" class="nav__brand">
-        <img src="/assets/icons/swp-logo.svg" alt="Shipping with Purpose Logo" class="nav__brand-icon" />
-        <div class="nav__brand-text">
-          <div class="nav__brand-name">Shipping with Purpose</div>
-          <div class="nav__brand-sub">Shipping Center</div>
-        </div>
-      </a>
-      <div class="nav__links">
-        <a href="#" class="nav__link nav__link--active" rel="noopener">Home</a>
-        <a href="#" class="nav__link" rel="noopener">Mailbox</a>
-        <a href="#" class="nav__link" rel="noopener">Print</a>
-        <a href="#" class="nav__link" rel="noopener">Services</a>
-      </div>
-      <div class="nav__cta">
-        <a href="/mailboxes" class="btn btn--navy-sm">Rent a Mailbox</a>
-      </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><img src="/assets/icons/menu.svg" alt="" class="icon-img icon-img--lg" /></button>
-      <div class="nav__menu" id="mobile-menu">
-        <a href="#" class="nav__menu-link nav__menu-link--active" rel="noopener">Home</a>
-        <a href="#" class="nav__menu-link" rel="noopener">Mailbox</a>
-        <a href="#" class="nav__menu-link" rel="noopener">Print</a>
-        <a href="#" class="nav__menu-link" rel="noopener">Services</a>
-        <a href="#" class="btn btn--navy nav__menu-cta" rel="noopener">Rent a Mailbox</a>
-      </div>
-      </nav>
-      <div class="info-bar">
-      <div class="info-bar__item"><img src="/assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /><a href="tel:+16029604882">(602) 960-4882</a></div>
-      <div class="info-bar__item info-bar__item--hours">
-        <span class="info-bar__icon"><img src="/assets/icons/clock.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /></span>
-        <span class="info-bar__hours">
-          <span class="info-bar__hours-line">Mon-Fri <span class="info-bar__hours-time">9:00 AM - 5:00 PM</span></span>
-          <span class="info-bar__hours-line">Sat <span class="info-bar__hours-time">9:00 AM - 2:30 PM</span></span>
-          <span class="info-bar__hours-line">Sun <span class="info-bar__hours-time">Closed</span></span>
-        </span>
-      </div>
-      <a href="https://maps.google.com/?q=Shipping+with+Purpose" target="_blank" rel="noopener" class="info-bar__action"
-        ><img src="/assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> Directions</a
-      >
-      </div>
-    </header>
+    <div data-include="/header.html"></div>
     <section class="hero fade-section">
       <div class="hero__inner">
         <div class="hero__grid">
@@ -233,52 +192,9 @@ TODO for 404.html (Site Lockout Page):
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__col">
-            <div class="footer__brand">
-              <div class="footer__brand-icon"><img src="assets/icons/swp-logo.svg" alt="" class="icon-img icon-img--lg" /></div>
-              <span class="footer__brand-name">Shipping with Purpose</span>
-            </div>
-            <p class="footer__tagline">
-              Local shipping, printing, and mailbox services with friendly, accurate, and fast support.
-            </p>
-            <a href="tel:+16029604882" class="footer__link footer__link--contact"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> (602) 960-4882</a>
-            <a
-              href="https://maps.google.com/?q=10105+E+Via+Linda+Ste+103,+Scottsdale,+AZ"
-              target="_blank"
-              rel="noopener"
-              class="footer__link footer__link--contact"
-              ><img src="assets/icons/marker.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> 10105 E Via Linda Ste 103, Scottsdale, AZ</a
-            >
-            <a href="mailto:store@shippingwithpurpose.com" class="footer__link footer__link--contact"><img src="assets/icons/envelope.svg" alt="" class="icon-img icon-img--sm icon-img--invert" /> store@shippingwithpurpose.com</a>
-          </div>
-          <div class="footer__col">
-            <h3 class="footer__col-heading">Quick Links</h3>
-            <ul class="footer__list">
-              <li class="footer__list-item"><a href="/" class="footer__link">Home</a></li>
-              <li class="footer__list-item"><a href="/services" class="footer__link">Services</a></li>
-              <li class="footer__list-item"><a href="/mailboxes" class="footer__link">Mailbox</a></li>
-              <!-- <li class="footer__list-item"><a href="/print" class="footer__link">Print</a></li> -->
-            </ul>
-          </div>
-          <div class="footer__col footer__col--hours">
-            <h3 class="footer__col-heading">Hours</h3>
-            <div class="footer__hours">Mon-Fri: 9:00 AM - 5:00 PM<br />Sat: 9:00 AM - 2:30 PM<br />Sun: Closed</div>
-            <!-- Agency logo moved to footer__bottom -->
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <span class="footer__copy">© <span id="footer-year">2026</span> Shipping with Purpose. All rights reserved.</span>
-          <span class="footer__local">Locally owned &amp; operated in Scottsdale, AZ.</span>
-          <a href="https://srttrail.dev" class="footer__agency" aria-label="Website designed by SRTtrail" target="_blank" rel="noopener">
-            <img src="assets/icons/srtlogo-kraft.svg" alt="SRT Agency Logo" class="footer__agency-logo" width="32" height="32" />
-          </a>
-        </div>
-      </div>
-    </footer>
+    <div data-include="/footer.html"></div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="/js/components.js" defer></script>
     <script src="/js/app.js" defer></script>
     <script>
       // Show lockout/error message on disabled nav/footer links

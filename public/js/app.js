@@ -7,12 +7,14 @@
 */
 
 /* ============================================================
-   NAV HAMBURGER TOGGLE
-   ============================================================ */
-(function initNav() {
+  NAV HAMBURGER TOGGLE
+  ============================================================ */
+function initNav() {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   if (!hamburger || !mobileMenu) return;
+  if (hamburger.dataset.navInitialized === 'true') return;
+  hamburger.dataset.navInitialized = 'true';
 
   let menuOpen = false;
 
@@ -45,7 +47,10 @@
   });
 
   syncMenuUi();
-})();
+}
+
+initNav();
+document.addEventListener('components:loaded', initNav);
 
 /* ============================================================
    SCROLL FADE-IN (IntersectionObserver)
@@ -1127,9 +1132,12 @@ function escHtml(str) {
 /* ============================================================
    UTILITY: Update footer year dynamically
    ============================================================ */
-(function updateFooterYear() {
+function updateFooterYear() {
   const footerYearEl = document.getElementById('footer-year');
   if (footerYearEl) {
     footerYearEl.textContent = new Date().getFullYear();
   }
-})();
+}
+
+updateFooterYear();
+document.addEventListener('components:loaded', updateFooterYear);
