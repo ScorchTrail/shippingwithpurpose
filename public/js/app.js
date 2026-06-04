@@ -6,6 +6,16 @@
 ================================================================================
 */
 
+const SYSTEM_LOCKOUT = false;
+
+function isLockoutPagePath(pathname) {
+  return /^\/404(?:\/|\/index\.html|\.html)?$/i.test(pathname);
+}
+
+if (SYSTEM_LOCKOUT && !isLockoutPagePath(window.location.pathname)) {
+  window.location.replace('/404/');
+}
+
 /* ============================================================
   NAV HAMBURGER TOGGLE
   ============================================================ */
