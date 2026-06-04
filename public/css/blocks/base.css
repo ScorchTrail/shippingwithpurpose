@@ -75,6 +75,7 @@
 
   --section-pad-y: clamp(24px, 1.5vw, 32px);
   --section-pad-x: clamp(24px, 1.5vw, 32px);
+  --site-header-height: 104px;
 }
 
 /* ============================================================ RESET */
@@ -100,6 +101,13 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: visible;
   touch-action: pan-y pinch-zoom;
+  padding-top: var(--site-header-height);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --site-header-height: 64px;
+  }
 }
 
 body,
