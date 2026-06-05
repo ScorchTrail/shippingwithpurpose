@@ -813,15 +813,13 @@ function loadLiveReviews() {
     const source = sanitizeText(review?.source || 'Google');
     const rating = clampRating(review?.rating);
     const text = sanitizeText(review?.text || '');
-    const daysAgo = clampDaysAgo(review?.daysAgo);
+    const parsedRelativeDays = parseRelativeTimeToDays(review?.relativeTime);
+    const hasExplicitDaysAgo = Number.isFinite(Number(review?.daysAgo));
+    const daysAgo = clampDaysAgo(hasExplicitDaysAgo ? review?.daysAgo : parsedRelativeDays);
     const publishedDate = new Date();
     publishedDate.setDate(publishedDate.getDate() - daysAgo);
 
-    const displayDate = publishedDate.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
+    const displayDate = sanitizeText(review?.relativeTime || formatRelativeDays(daysAgo));
 
     const isoDate = publishedDate.toISOString().split('T')[0];
     const initials = author
@@ -884,7 +882,45 @@ function loadLiveReviews() {
   function clampDaysAgo(value) {
     const numeric = Number(value);
     if (!Number.isFinite(numeric)) return 1;
-    return Math.max(0, Math.min(365, Math.round(numeric)));
+    return Math.max(0, Math.min(3650, Math.round(numeric)));
+  }
+
+  function parseRelativeTimeToDays(value) {
+    if (typeof value !== 'string') return 1;
+
+    const normalized = value.trim().toLowerCase();
+    if (!normalized) return 1;
+    if (normalized === 'today' || normalized === 'just now') return 0;
+
+    const match = normalized.match(/^(\d+)\s+(day|days|week|weeks|month|months|year|years)\s+ago$/);
+    if (!match) return 1;
+
+    const amount = Number(match[1]);
+    const unit = match[2];
+    if (!Number.isFinite(amount)) return 1;
+
+    if (unit === 'day' || unit === 'days') return amount;
+    if (unit === 'week' || unit === 'weeks') return amount * 7;
+    if (unit === 'month' || unit === 'months') return amount * 30;
+    if (unit === 'year' || unit === 'years') return amount * 365;
+
+    return 1;
+  }
+
+  function formatRelativeDays(daysAgo) {
+    const safeDays = clampDaysAgo(daysAgo);
+    if (safeDays <= 0) return 'Today';
+    if (safeDays === 1) return '1 day ago';
+    if (safeDays < 7) return `${safeDays} days ago`;
+
+    const weeks = Math.round(safeDays / 7);
+    if (safeDays < 30) return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+
+    const months = Math.round(safeDays / 30);
+    if (safeDays < 365) return months === 1 ? '1 month ago' : `${months} months ago`;
+
+    const years = Math.round(safeDays / 365);
+    return years === 1 ? '1 year ago' : `${years} years ago`;
   }
 
   function sanitizeText(value) {
