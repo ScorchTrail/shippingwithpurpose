@@ -1,6 +1,11 @@
 /* ============================================================ PRINT PORTAL (homepage) */
 /* Desktop: 2-col bento | Mobile: 1-col */
 
+.print-portal {
+  padding: var(--section-pad-y) var(--section-pad-x) 0;
+  background: var(--off-white);
+}
+
 
 
 
@@ -366,7 +371,7 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 1024px) {
   .print-portal {
-    padding: 0 var(--section-pad-x) 0;
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .print-portal__field-grid {
@@ -376,7 +381,7 @@
 
 @media (max-width: 768px) {
   .print-portal {
-    padding: 0 var(--section-pad-x) 0;
+    padding: var(--section-pad-y) var(--section-pad-x) 0;
   }
 
   .print-portal__bento {

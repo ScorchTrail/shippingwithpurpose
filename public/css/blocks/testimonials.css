@@ -8,13 +8,13 @@
 }
 /* ============================================================ TESTIMONIALS (homepage) */
 .testimonials {
-  padding: var(--section-pad-y) var(--section-pad-x) var(--section-pad-y);
+  padding: var(--section-pad-y) var(--section-pad-x) 0;
   background: var(--off-white);
 }
 
 .testimonials__header {
   text-align: center;
-  margin-bottom: var(--space-24);
+  margin-bottom: 0;
 }
 
 .testimonials__tag {
