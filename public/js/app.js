@@ -728,6 +728,8 @@ function getByPath(source, path) {
 function loadLiveReviews() {
   const container = document.getElementById('reviews-container');
   if (!container) return;
+  const prevButton = document.getElementById('reviews-prev');
+  const nextButton = document.getElementById('reviews-next');
 
   container.innerHTML = fallbackMarkup('Loading latest customer reviews...');
 
@@ -743,6 +745,8 @@ function loadLiveReviews() {
 
   const startAutoScroll = () => {
     stopAutoScroll();
+
+    updateSliderControls();
 
     if (container.scrollWidth <= container.clientWidth) return;
 
@@ -768,6 +772,32 @@ function loadLiveReviews() {
     }, 3500);
   };
 
+  const updateSliderControls = () => {
+    if (!prevButton || !nextButton) return;
+
+    const canScroll = container.scrollWidth > container.clientWidth + 1;
+    const atStart = container.scrollLeft <= 1;
+    const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+
+    prevButton.disabled = !canScroll || atStart;
+    nextButton.disabled = !canScroll || atEnd;
+  };
+
+  const scrollReviews = (direction) => {
+    pauseAutoScroll();
+
+    const firstCard = container.querySelector('.review-card');
+    const styles = window.getComputedStyle(container);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap || '0') || 0;
+    const step = firstCard
+      ? firstCard.getBoundingClientRect().width + gap
+      : container.clientWidth * 0.9;
+    const distance = Math.max(step, container.clientWidth * 0.75);
+
+    container.scrollBy({ left: direction * distance, behavior: 'smooth' });
+    window.setTimeout(updateSliderControls, 320);
+  };
+
   const pauseAutoScroll = () => {
     isAutoScrollPaused = true;
     stopAutoScroll();
@@ -782,6 +812,12 @@ function loadLiveReviews() {
   container.addEventListener('mouseleave', resumeAutoScroll);
   container.addEventListener('touchstart', pauseAutoScroll, { passive: true });
   container.addEventListener('touchend', resumeAutoScroll, { passive: true });
+  container.addEventListener('scroll', updateSliderControls, { passive: true });
+
+  if (prevButton && nextButton) {
+    prevButton.addEventListener('click', () => scrollReviews(-1));
+    nextButton.addEventListener('click', () => scrollReviews(1));
+  }
 
   fetch('/reviews.json', {
     headers: { Accept: 'application/json' },
@@ -796,15 +832,18 @@ function loadLiveReviews() {
     .then((reviews) => {
       if (!Array.isArray(reviews) || !reviews.length) {
         container.innerHTML = fallbackMarkup('No live reviews available right now.');
+        updateSliderControls();
         startAutoScroll();
         return;
       }
 
       container.innerHTML = reviews.map((review) => buildReviewCard(review)).join('');
+      updateSliderControls();
       startAutoScroll();
     })
     .catch(() => {
       container.innerHTML = fallbackMarkup('Live review feed is temporarily unavailable.');
+      updateSliderControls();
       startAutoScroll();
     });
 
