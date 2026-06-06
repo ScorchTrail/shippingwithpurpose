@@ -83,7 +83,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
     <link rel="stylesheet" href="css/main-home.css" />
   </head>
   <body>
@@ -159,7 +160,7 @@
           <div class="hero__visual">
             <div class="hero__image-wrap">
               <img
-                src="https://images.unsplash.com/photo-1556742205-e10c9486e506?w=700&q=80"
+                src="https://images.unsplash.com/photo-1556742205-e10c9486e506?w=650&auto=format&q=80"
                 alt="Friendly staff helping a customer at a local shipping counter"
                 width="700"
                 height="525"
@@ -216,7 +217,7 @@
           <a href="/services" class="service-card">
             <div class="service-card__image">
               <img
-                src="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1607166452427-7e4477079cb9?auto=format&fit=crop&w=400&q=80"
                 alt="Cardboard shipping boxes on a counter ready for drop-off"
                 loading="lazy"
                 width="640"
@@ -234,7 +235,7 @@
           <a href="/services" class="service-card">
             <div class="service-card__image">
               <img
-                src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=400&q=80"
                 alt="Commercial printer producing a vivid printed document"
                 loading="lazy"
                 width="640"
@@ -518,7 +519,7 @@
         <div class="carrier-grid">
           <div class="carrier-card">
             <div class="carrier-card__header carrier-card__header--usps">
-              <img src="assets/icons/usps-logo.svg" alt="USPS" loading="lazy" />
+              <img src="assets/icons/usps-logo.svg" alt="USPS" loading="lazy" width="80" height="40" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">USPS</div>
@@ -535,6 +536,8 @@
                 src="assets/icons/ups-logo.svg"
                 alt="UPS"
                 loading="lazy"
+                width="80"
+                height="40"
               />
             </div>
             <div class="carrier-card__body">
@@ -551,6 +554,8 @@
                 src="assets/icons/fedex-logo.svg"
                 alt="FedEx"
                 loading="lazy"
+                width="80"
+                height="40"
               />
             </div>
             <div class="carrier-card__body">
@@ -563,7 +568,7 @@
           </div>
           <div class="carrier-card carrier-card--droponly">
             <div class="carrier-card__header carrier-card__header--dhl">
-              <img src="assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" />
+              <img src="assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" width="80" height="40" />
             </div>
             <div class="carrier-card__body">
               <div class="carrier-card__name">DHL</div>

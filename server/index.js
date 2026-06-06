@@ -12,14 +12,11 @@ const securityHeaders = {
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+    "img-src 'self' data: https://images.unsplash.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
-    "img-src 'self' data: blob: https://images.unsplash.com",
-    "font-src 'self' https://fonts.gstatic.com data:",
-    "connect-src 'self' http://localhost:3000 https://srt-swp.p-vedant7878.workers.dev",
-    "object-src 'none'",
-    "base-uri 'self'",
-    "frame-ancestors 'none'",
+    "font-src 'self' https://fonts.gstatic.com",
+    "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
+    "require-trusted-types-for 'script'",
   ].join('; '),
 };
 
