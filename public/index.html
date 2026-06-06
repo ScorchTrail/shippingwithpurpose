@@ -88,6 +88,7 @@
   </head>
   <body>
     <div data-include="header.html"></div>
+    <main id="main-content">
     <section class="hero fade-section">
       <div class="hero__inner">
         <div class="hero__grid">
@@ -99,7 +100,7 @@
               Full-service shipping, printing, and private mailboxes — all in one cozy spot.
             </p>
             <div class="hero__actions">
-              <a href="/mailboxes" class="btn btn--navy">Get a Mailbox Quote →</a>
+              <a href="/mailboxes" class="btn btn--navy">Get a Mailbox Quote</a>
               <a href="tel:+16029604882" class="btn btn--ghost"><img src="assets/icons/phone.svg" alt="" class="icon-img icon-img--sm" /> Call Us Now</a>
             </div>
             <div class="hero__trust">
@@ -587,7 +588,7 @@
         <div class="testimonials__header">
             <div class="section-header section-header--center">
               <span class="section-tag tag">Customer Reviews</span>
-              <div class="testimonials__stars" aria-label="5 out of 5 stars">
+              <div class="testimonials__stars" role="img" aria-label="5 out of 5 stars">
                 <svg class="star-svg star-svg--full" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
@@ -609,7 +610,7 @@
             </div>
         </div>
         <div id="reviews-container" class="reviews-container" aria-live="polite"></div>
-        <div class="reviews-controls" aria-label="Testimonial slider controls">
+        <div class="reviews-controls" role="group" aria-label="Testimonial slider controls">
           <button type="button" id="reviews-prev" class="reviews-control" aria-label="Show previous testimonials">&lt;</button>
           <button type="button" id="reviews-next" class="reviews-control" aria-label="Show next testimonials">&gt;</button>
         </div>
@@ -623,6 +624,7 @@
         </div>
       </div>
     </section>
+    </main>
     <div data-include="footer.html"></div>
     <script src="js/app.js" defer></script>
     <script src="js/components.js" defer></script>

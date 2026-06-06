@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-8);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.85rem;
 }
 
@@ -102,8 +102,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
-  background: var(--kraft);
-  color: #fff;
+  background: var(--kraft-dark);
+  color: #ffffff;
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 0.82rem;
@@ -115,7 +115,7 @@
 }
 
 .info-bar__action:hover {
-  background: var(--kraft-dark);
+  background: #6c4f11;
 }
 
 .info-bar__action:active {

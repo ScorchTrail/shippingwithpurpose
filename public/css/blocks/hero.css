@@ -133,13 +133,14 @@
   position: absolute;
   top: var(--space-16);
   right: var(--space-16);
-  background: var(--kraft);
-  color: #fff;
+  background: #f3d9ab;
+  color: #1a365d;
+  border: 1px solid rgba(26, 54, 93, 0.22);
   border-radius: 100px;
   padding: var(--space-8) var(--space-16);
   font-size: 0.8rem;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(185, 142, 90, 0.5);
+  box-shadow: 0 4px 16px rgba(26, 54, 93, 0.2);
 }
 
 .hero__hours-chip {

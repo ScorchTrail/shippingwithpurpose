@@ -435,7 +435,6 @@ let mailboxContentPromise = null;
 const MAILBOX_CONTENT_PATHS = [
   'data/mailbox-content.json',
   '/data/mailbox-content.json',
-  'public/data/mailbox-content.json',
 ];
 
 function loadMailboxContent() {
@@ -849,16 +848,30 @@ function loadLiveReviews() {
     nextButton.addEventListener('click', () => scrollReviews(1));
   }
 
-  fetch('/reviews.json', {
-    headers: { Accept: 'application/json' },
-    cache: 'no-store',
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+  const reviewPaths = ['reviews.json', '/reviews.json'];
+
+  const fetchReviews = async () => {
+    for (const path of reviewPaths) {
+      try {
+        const response = await fetch(path, {
+          headers: { Accept: 'application/json' },
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          continue;
+        }
+
+        return await response.json();
+      } catch {
+        // Continue trying alternate paths.
       }
-      return response.json();
-    })
+    }
+
+    throw new Error('Unable to load reviews JSON');
+  };
+
+  fetchReviews()
     .then((reviews) => {
       if (!Array.isArray(reviews) || !reviews.length) {
         container.innerHTML = fallbackMarkup('No live reviews available right now.');
@@ -913,7 +926,7 @@ function loadLiveReviews() {
           <span class="${sourceClass}">${source}</span>
         </header>
         <div class="review-card__rating-row">
-          <div class="review-card__stars" aria-label="${rating} out of 5 stars">${renderStars(rating)}</div>
+          <div class="review-card__stars" role="img" aria-label="${rating} out of 5 stars">${renderStars(rating)}</div>
         </div>
         <p class="review-card__text">${text}</p>
       </article>
