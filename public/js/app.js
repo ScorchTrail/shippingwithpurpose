@@ -432,20 +432,29 @@ const MAILBOX_FALLBACK_CONTENT = {
 
 let mailboxContentPromise = null;
 
-function getMailboxContentPath() {
-  return window.location.pathname.toLowerCase().includes('/public/')
-    ? 'data/mailbox-content.json'
-    : 'public/data/mailbox-content.json';
-}
+const MAILBOX_CONTENT_PATHS = [
+  'data/mailbox-content.json',
+  '/data/mailbox-content.json',
+  'public/data/mailbox-content.json',
+];
 
 function loadMailboxContent() {
   if (mailboxContentPromise) return mailboxContentPromise;
 
-  mailboxContentPromise = fetch(getMailboxContentPath(), { headers: { Accept: 'application/json' } })
-    .then((res) => {
-      if (!res.ok) throw new Error('Failed to load mailbox content');
-      return res.json();
-    })
+  const fetchFromPaths = async () => {
+    for (const path of MAILBOX_CONTENT_PATHS) {
+      try {
+        const res = await fetch(path, { headers: { Accept: 'application/json' } });
+        if (!res.ok) continue;
+        return await res.json();
+      } catch (_) {
+        // Try the next candidate path.
+      }
+    }
+    throw new Error('Failed to load mailbox content');
+  };
+
+  mailboxContentPromise = fetchFromPaths()
     .then((data) => ({ ...MAILBOX_FALLBACK_CONTENT, ...data }))
     .catch(() => MAILBOX_FALLBACK_CONTENT);
 

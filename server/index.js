@@ -5,6 +5,24 @@ const cors = require('cors');
 
 const app = express();
 
+const securityHeaders = {
+  'X-Frame-Options': 'DENY',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+    "img-src 'self' data: blob: https://images.unsplash.com",
+    "font-src 'self' https://fonts.gstatic.com data:",
+    "connect-src 'self' http://localhost:3000 https://srt-swp.p-vedant7878.workers.dev",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "frame-ancestors 'none'",
+  ].join('; '),
+};
+
 function logConfigWarnings() {
   const requiredVars = ['RESEND_API_KEY', 'RESEND_FROM_EMAIL'];
   const optionalVars = ['RESERVATION_TO_EMAIL', 'PRINT_PORTAL_TO_EMAIL'];
@@ -35,6 +53,19 @@ app.use(
     allowedHeaders: ['Content-Type', 'Accept'],
   })
 );
+
+app.use((req, res, next) => {
+  for (const [key, value] of Object.entries(securityHeaders)) {
+    res.setHeader(key, value);
+  }
+
+  const forwardedProto = req.headers['x-forwarded-proto'];
+  if (req.secure || forwardedProto === 'https') {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  }
+
+  next();
+});
 
 // Serve static files (your frontend)
 app.use(express.static(path.join(__dirname, '../public')));
