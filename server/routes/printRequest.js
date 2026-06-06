@@ -1,48 +1,118 @@
-// Express route for print portal requests with Resend integration
 const express = require('express');
 const router = express.Router();
 const { Resend } = require('resend');
+const multer = require('multer');
+const rateLimit = require('express-rate-limit');
+const validator = require('validator');
 
-// Configure Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
+const MAX_TOTAL_UPLOAD_BYTES = 25 * 1024 * 1024;
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: MAX_TOTAL_UPLOAD_BYTES,
+    files: 10,
+  },
+});
+
+const printRateLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const allowedMimeTypes = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'image/png',
+  'image/jpeg',
+]);
 
 // POST /api/print-request
-router.post('/api/print-request', async (req, res) => {
+router.post('/api/print-request', printRateLimiter, upload.array('files', 10), async (req, res) => {
   try {
-    const { name, email, phone, printType, copies, files = [] } = req.body;
-    if (!name || !files.length) {
-      return res.status(400).json({ success: false, error: 'Missing required fields.' });
+    if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
+      return res.status(500).json({ success: false, error: 'Email service is not configured.' });
     }
-    // Validate file sizes (max 25MB each, total)
-    const MAX_SIZE = 25 * 1024 * 1024;
-    let totalSize = 0;
-    for (const f of files) {
-      const size = Buffer.from(f.base64, 'base64').length;
-      if (size > MAX_SIZE) return res.status(400).json({ success: false, error: `File ${f.filename} too large.` });
-      totalSize += size;
+
+    const name = (req.body.name || '').trim();
+    const printType = (req.body.printType || 'Black & White').trim();
+    const instructions = (req.body.instructions || '').trim();
+    const copies = Number(req.body.copies || 0);
+    const files = Array.isArray(req.files) ? req.files : [];
+
+    if (!name) {
+      return res.status(400).json({ success: false, error: 'Name is required.' });
     }
-    if (totalSize > MAX_SIZE) return res.status(400).json({ success: false, error: 'Total upload size exceeds 25MB.' });
+    if (!Number.isFinite(copies) || copies < 1 || copies > 10000) {
+      return res.status(400).json({ success: false, error: 'Copies must be a valid number.' });
+    }
+    if (!files.length) {
+      return res.status(400).json({ success: false, error: 'Please upload at least one file.' });
+    }
 
+    let totalUploadBytes = 0;
+    for (const file of files) {
+      totalUploadBytes += file.size;
+      if (!allowedMimeTypes.has(file.mimetype)) {
+        return res.status(400).json({ success: false, error: `Unsupported file type: ${file.originalname}` });
+      }
+    }
 
-    // Prepare Resend email
-    const attachments = files.map(f => ({
-      filename: f.filename,
-      content: f.base64,
-      type: f.mimeType
+    if (totalUploadBytes > MAX_TOTAL_UPLOAD_BYTES) {
+      return res.status(400).json({ success: false, error: 'Total upload size exceeds 25MB.' });
+    }
+
+    const safeName = validator.escape(name).slice(0, 100);
+    const safePrintType = validator.escape(printType).slice(0, 50);
+    const safeInstructions = validator.escape(instructions).slice(0, 2000);
+
+    const attachments = files.map((file) => ({
+      filename: file.originalname,
+      content: file.buffer,
     }));
-    const emailBody = `New print request:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPrint Type: ${printType}\nCopies: ${copies}\nFiles: ${files.map(f => f.filename).join(', ')}`;
+
+    const emailBody = [
+      'New print request:',
+      '',
+      `Name: ${safeName}`,
+      `Print Type: ${safePrintType}`,
+      `Copies: ${copies}`,
+      safeInstructions ? `Instructions: ${safeInstructions}` : null,
+      `Files: ${files.map((file) => file.originalname).join(', ')}`,
+      `Total Upload Size: ${(totalUploadBytes / (1024 * 1024)).toFixed(2)} MB`,
+    ].filter(Boolean).join('\n');
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     await resend.emails.send({
-      from: 'no-reply@shippingwithpurpose.com',
-      to: 'print@shippingwithpurpose.com',
+      from: process.env.RESEND_FROM_EMAIL,
+      to: process.env.PRINT_PORTAL_TO_EMAIL || 'print@shippingwithpurpose.com',
       subject: 'New Print Portal Request',
       text: emailBody,
-      attachments
+      attachments,
     });
-    res.json({ success: true });
+
+    return res.json({ success: true });
   } catch (err) {
     console.error('Print portal error:', err);
-    res.status(500).json({ success: false, error: 'Server error.' });
+    return res.status(500).json({ success: false, error: 'Server error.' });
   }
+});
+
+router.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({ success: false, error: 'A file exceeds the 25MB maximum size.' });
+    }
+    if (err.code === 'LIMIT_FILE_COUNT') {
+      return res.status(400).json({ success: false, error: 'Too many files uploaded.' });
+    }
+    return res.status(400).json({ success: false, error: 'Invalid file upload.' });
+  }
+
+  return next(err);
 });
 
 module.exports = router;

@@ -16,6 +16,39 @@ if (SYSTEM_LOCKOUT && !isLockoutPagePath(window.location.pathname)) {
   window.location.replace('/404/');
 }
 
+const API_TARGETS = [
+  '/api',
+  'http://localhost:3000/api',
+  'https://srt-swp.p-vedant7878.workers.dev/api',
+];
+
+async function apiRequest(path, options) {
+  let lastError = null;
+
+  for (const base of API_TARGETS) {
+    const url = `${base}${path}`;
+    try {
+      const response = await fetch(url, options);
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error(`Unexpected response format from ${url}`);
+      }
+
+      const result = await response.json();
+      if (!response.ok) {
+        const message = result?.error || `Request failed (${response.status})`;
+        throw new Error(message);
+      }
+
+      return result;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError || new Error('API request failed.');
+}
+
 /* ============================================================
   NAV HAMBURGER TOGGLE
   ============================================================ */
@@ -180,37 +213,25 @@ document.addEventListener('components:loaded', initNav);
     feedback.className = 'print-portal-form__feedback';
     dz.classList.remove('drop-zone--active');
 
-    // Read all files as base64 and send to backend
-    Promise.all(
-      uploadedFiles.map(
-        (file) =>
-          new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () =>
-              resolve({
-                filename: file.name,
-                mimeType: file.type,
-                base64: reader.result.split(',')[1],
-              });
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-          })
-      )
-    )
-      .then((files) => {
-        // Use the same Worker endpoint as mailbox registration
-        return fetch('https://srt-swp.p-vedant7878.workers.dev/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            name: nameValue,
-            printType: selectedPrintType,
-            copies: copiesValue,
-            files,
-          }),
-        });
-      })
-      .then((response) => response.json())
+    const formData = new FormData();
+    formData.append('name', nameValue);
+    formData.append('printType', selectedPrintType);
+    formData.append('copies', String(copiesValue));
+
+    const instructionsValue = (document.getElementById('portal-instructions')?.value || '').trim();
+    if (instructionsValue) {
+      formData.append('instructions', instructionsValue);
+    }
+
+    uploadedFiles.forEach((file) => {
+      formData.append('files', file, file.name);
+    });
+
+    apiRequest('/print-request', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: formData,
+    })
       .then((result) => {
         if (result.success) {
           feedback.textContent = 'Request sent! You will receive a confirmation soon.';
@@ -1125,22 +1146,13 @@ document.addEventListener('DOMContentLoaded', loadLiveReviews);
       mailNotification: (document.getElementById('modal-addon-notif')?.checked === true)
     };
     try {
-      const response = await fetch('https://srt-swp.p-vedant7878.workers.dev/', {
+      const result = await apiRequest('/reservation-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
       });
 
-      // Safeguard: Check if the server actually returned JSON
-      const contentType = response.headers.get("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        console.error("Expected JSON, got HTML. Is the Node server running?");
-        throw new Error("API endpoint not found. Make sure you are viewing via localhost:3000");
-      }
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
+      if (result.success) {
         showStep(2);
         triggerConfetti();
       } else {
