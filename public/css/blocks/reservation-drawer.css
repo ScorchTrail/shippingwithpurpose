@@ -322,6 +322,13 @@
   align-items: center;
 }
 .reservation-drawer__cta:hover { background: var(--kraft-dark); }
+.reservation-drawer__cta:disabled {
+  background: #9ea7b3;
+  color: #eef1f4;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
 .reservation-drawer__cta--outline {
   background: transparent;
   border: 2px solid rgba(26, 54, 93, 0.2);

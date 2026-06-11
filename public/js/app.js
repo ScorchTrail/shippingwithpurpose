@@ -1048,6 +1048,7 @@ document.addEventListener('DOMContentLoaded', loadLiveReviews);
   // Accordion
   const idAccordionToggle = document.getElementById('id-accordion-toggle');
   const idAccordionContent = document.getElementById('id-accordion-content');
+  let isSubmitting = false;
 
   if (!modal || !closeBtn || !step1 || !step2 || !form) return;
 
@@ -1149,6 +1150,9 @@ document.addEventListener('DOMContentLoaded', loadLiveReviews);
   // Form submit logic (Step 1)
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    isSubmitting = true;
     const submitBtn = form.querySelector('button[type="submit"]');
     const btnText = submitBtn?.querySelector('.reservation-drawer__cta-text');
     const btnSpinner = submitBtn?.querySelector('.reservation-drawer__cta-spinner');
@@ -1189,6 +1193,7 @@ document.addEventListener('DOMContentLoaded', loadLiveReviews);
         if (btnText) btnText.textContent = 'Submit Request';
         if (btnSpinner) btnSpinner.style.display = 'none';
       }
+      isSubmitting = false;
     }
   });
   // Accordion logic for ID requirements
