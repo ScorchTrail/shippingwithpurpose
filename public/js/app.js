@@ -386,7 +386,7 @@ const MAILBOX_FALLBACK_CONTENT = {
         id: 'shipping',
         title: 'Shipping',
         image: {
-          src: 'assets/images/service-shipping.svg',
+          src: 'assets/images/shipping.webp',
           alt: 'Shipping counter and package processing illustration',
         },
         description: 'Compare rates across top carriers and get your packages delivered safely and on time.',
@@ -397,7 +397,7 @@ const MAILBOX_FALLBACK_CONTENT = {
         id: 'printing',
         title: 'Printing',
         image: {
-          src: 'assets/images/service-printing.svg',
+          src: 'assets/images/print.webp',
           alt: 'Document printing and finishing services illustration',
         },
         description: 'Fast everyday printing for forms, photos, and documents with clear pickup timelines.',
@@ -408,7 +408,7 @@ const MAILBOX_FALLBACK_CONTENT = {
         id: 'business',
         title: 'Business',
         image: {
-          src: 'assets/images/service-business.svg',
+          src: 'assets/images/office.webp',
           alt: 'Business desk with fax, notary, and scan support illustration',
         },
         description: 'Essential paperwork services in one stop for small business and everyday admin needs.',
@@ -419,7 +419,7 @@ const MAILBOX_FALLBACK_CONTENT = {
         id: 'mailbox',
         title: 'Mailbox Services',
         image: {
-          src: 'assets/images/service-mailbox.svg',
+          src: 'assets/images/mailboxes.webp',
           alt: 'Private mailbox wall and mail access illustration',
         },
         description: 'Get a real street address with secure mail handling and optional forwarding.',

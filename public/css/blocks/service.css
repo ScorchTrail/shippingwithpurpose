@@ -34,8 +34,8 @@
 }
 
 .service__grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px;
   margin-bottom: var(--space-32);
   align-items: stretch;
@@ -43,8 +43,6 @@
 
 /* ============================================================ DETAILED SERVICE CARDS */
 .detailed-service-card {
-  flex: 1 1 calc((100% - (32px * 3)) / 4);
-  max-width: calc((100% - (32px * 3)) / 4);
   background: #fff;
   border: 1px solid rgba(26, 54, 93, 0.08);
   border-radius: var(--space-16);
@@ -68,16 +66,23 @@
 .detailed-service-card__media {
   position: relative;
   background: var(--light-bg);
-  padding: var(--space-16);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
   border-bottom: 1px solid rgba(26, 54, 93, 0.05);
   margin: 0;
 }
 
 .detailed-service-card__media img {
   width: 100%;
-  height: auto;
-  border-radius: var(--space-8);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
+  transition: transform 320ms ease;
+}
+
+.detailed-service-card:hover .detailed-service-card__media img {
+  transform: scale(1.04);
 }
 
 .detailed-service-card__body {
@@ -216,14 +221,12 @@
   }
 
   .service__grid {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-24);
   }
 
   .detailed-service-card {
-    flex: initial;
-    max-width: none;
+    height: 100%;
   }
 }
 
@@ -233,17 +236,14 @@
   }
 
   .service__grid {
-    display: grid;
     grid-template-columns: 1fr;
     padding: 0;
     gap: var(--space-16);
     margin-bottom: var(--space-16);
   }
 
-  .detailed-service-card {
-    flex: initial;
-    max-width: none;
-    height: auto;
+  .detailed-service-card__media {
+    aspect-ratio: 21 / 9;
   }
 
   .supplies-banner {
