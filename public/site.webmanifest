@@ -1,0 +1,24 @@
+{
+  "name": "Shipping with Purpose",
+  "short_name": "SWP",
+  "description": "Local shipping, printing, and mailbox services in Scottsdale, Arizona.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#254D74",
+  "theme_color": "#254D74",
+  "icons": [
+    {
+      "src": "/assets/icons/swp-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico?v=20260612",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ]
+}
