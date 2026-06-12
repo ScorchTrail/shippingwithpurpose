@@ -527,7 +527,6 @@ body > section + section {
   gap: var(--space-16);
   min-height: 64px;
   padding: 0 max(24px, calc((100vw - 1280px) / 2));
-  /* Sticky positioning handled by .site-header */
 }
 
 .nav__brand {
