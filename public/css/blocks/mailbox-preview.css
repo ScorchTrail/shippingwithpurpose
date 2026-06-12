@@ -72,7 +72,7 @@
 .mailbox-cta__hero-heading {
   font-family: "Inter", sans-serif;
   font-size: var(--fs-h3-fluid);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: #fff;
@@ -221,7 +221,7 @@
 
 .mailbox-cta__price-value {
   font-family: "Inter", sans-serif;
-  font-weight: 900;
+  font-weight: 800;
   font-size: var(--fs-3);
   line-height: 1.1;
   display: block;
@@ -238,7 +238,7 @@
   font-size: var(--fs--1);
   line-height: 1.5;
   color: var(--navy);
-  font-weight: 500;
+  font-weight: 400;
   margin-top: auto;
   padding-top: var(--space-16);
   border-top: 1px solid rgba(26, 54, 93, 0.08);

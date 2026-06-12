@@ -27,14 +27,15 @@
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  will-change: transform, opacity;
   transition:
     transform 220ms ease,
-    box-shadow 220ms ease;
+    opacity 220ms ease;
 }
 
 .carrier-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(26, 54, 93, 0.1);
+  opacity: 0.98;
 }
 
 .carrier-card--droponly {

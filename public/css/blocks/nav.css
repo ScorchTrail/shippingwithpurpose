@@ -24,7 +24,7 @@
   display: flex;
   gap: 0.5em;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .info-bar__hours-time {
@@ -112,7 +112,7 @@
   position: relative;
   color: #334155;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
   text-decoration: none;
   cursor: pointer;
@@ -178,7 +178,7 @@
   display: block;
   color: #444;
   font-size: var(--fs-0);
-  font-weight: 600;
+  font-weight: 700;
   padding: var(--space-16);
   min-height: 48px;
   border-radius: var(--radius-sm);
@@ -255,7 +255,7 @@
     position: relative;
     color: #4a5568; /* Slightly deeper gray for better contrast */
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 14px 20px;
     border-radius: var(--radius-sm);
     border: none; /* Removes the clunky box borders */

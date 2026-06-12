@@ -494,7 +494,7 @@ body > section + section {
   display: flex;
   gap: 0.5em;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .info-bar__hours-time {
@@ -582,7 +582,7 @@ body > section + section {
   position: relative;
   color: #334155;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
   text-decoration: none;
   cursor: pointer;
@@ -648,7 +648,7 @@ body > section + section {
   display: block;
   color: #444;
   font-size: var(--fs-0);
-  font-weight: 600;
+  font-weight: 700;
   padding: var(--space-16);
   min-height: 48px;
   border-radius: var(--radius-sm);
@@ -725,7 +725,7 @@ body > section + section {
     position: relative;
     color: #4a5568; /* Slightly deeper gray for better contrast */
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 14px 20px;
     border-radius: var(--radius-sm);
     border: none; /* Removes the clunky box borders */
@@ -1158,7 +1158,7 @@ body > section + section {
   white-space: nowrap;
 }
 .footer__hours-time {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer__bottom {
@@ -1287,7 +1287,7 @@ body > section + section {
 .mailbox-hero__title {
   font-family: "Inter", sans-serif;
   font-size: clamp(2.25rem, 5vw, 4.1rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.05em;
   color: var(--text-heading);
@@ -1350,7 +1350,7 @@ body > section + section {
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: var(--fs-section-heading);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -1501,7 +1501,7 @@ body > section + section {
   background: #fff;
   color: var(--navy);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 10px 12px;
 }
 
@@ -1728,7 +1728,7 @@ body > section + section {
 .quote-card__price {
   font-family: "Inter", sans-serif;
   font-size: clamp(2rem, 4vw, 2.6rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.1;
 }
 
@@ -2139,7 +2139,7 @@ body > section + section {
   display: block;
   color: var(--muted);
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 4px;
 }
 
@@ -2248,7 +2248,7 @@ body > section + section {
 .pricing-table__price-monthly {
   font-size: 0.85rem;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 400;
   display: block;
   margin-top: 4px;
 }
@@ -2302,7 +2302,7 @@ body > section + section {
   border-radius: 1.25rem;
   background: var(--color-bg, #f7f6f3);
   color: var(--navy);
-  font-weight: 600;
+  font-weight: 700;
   z-index: 1;
 }
 
@@ -2321,7 +2321,7 @@ body > section + section {
   position: relative;
   z-index: 2;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   opacity: 0.7;
 }
 
@@ -2344,7 +2344,7 @@ body > section + section {
 }
 
 #modal-summary-confirm strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--navy);
 }
 
@@ -2415,7 +2415,7 @@ body > section + section {
   border: none;
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0.5rem 0;
   cursor: pointer;
 }
@@ -2448,7 +2448,7 @@ body > section + section {
   color: #fff;
   border-radius: 1.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -2543,7 +2543,7 @@ body > section + section {
   content: '\2714';
   color: #fff;
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 800;
   display: block;
   text-align: center;
   line-height: 56px;
@@ -2736,7 +2736,7 @@ body > section + section {
   margin-bottom: 2px;
   color: var(--navy);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "Inter", sans-serif;
 }
 
@@ -2815,7 +2815,7 @@ body > section + section {
   background: rgba(185, 142, 90, 0.08);
   color: var(--kraft-dark);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   cursor: pointer;

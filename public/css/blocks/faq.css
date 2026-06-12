@@ -18,7 +18,7 @@
 .faq-section__title {
   font-family: "Inter", sans-serif;
   font-size: var(--fs-section-heading);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -49,7 +49,7 @@
 
 .faq-item__question {
   color: var(--text-heading);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--fs-body);
   text-align: left;
   line-height: 1.4;

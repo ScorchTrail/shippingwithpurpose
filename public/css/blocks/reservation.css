@@ -21,7 +21,7 @@
   border-radius: 1.25rem;
   background: var(--color-bg, #f7f6f3);
   color: var(--navy);
-  font-weight: 600;
+  font-weight: 700;
   z-index: 1;
 }
 
@@ -40,7 +40,7 @@
   position: relative;
   z-index: 2;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   opacity: 0.7;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #modal-summary-confirm strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--navy);
 }
 
@@ -134,7 +134,7 @@
   border: none;
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0.5rem 0;
   cursor: pointer;
 }
@@ -167,7 +167,7 @@
   color: #fff;
   border-radius: 1.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -262,7 +262,7 @@
   content: '\2714';
   color: #fff;
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 800;
   display: block;
   text-align: center;
   line-height: 56px;
@@ -455,7 +455,7 @@
   margin-bottom: 2px;
   color: var(--navy);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "Inter", sans-serif;
 }
 
@@ -534,7 +534,7 @@
   background: rgba(185, 142, 90, 0.08);
   color: var(--kraft-dark);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   cursor: pointer;

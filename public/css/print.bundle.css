@@ -494,7 +494,7 @@ body > section + section {
   display: flex;
   gap: 0.5em;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .info-bar__hours-time {
@@ -582,7 +582,7 @@ body > section + section {
   position: relative;
   color: #334155;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
   text-decoration: none;
   cursor: pointer;
@@ -648,7 +648,7 @@ body > section + section {
   display: block;
   color: #444;
   font-size: var(--fs-0);
-  font-weight: 600;
+  font-weight: 700;
   padding: var(--space-16);
   min-height: 48px;
   border-radius: var(--radius-sm);
@@ -725,7 +725,7 @@ body > section + section {
     position: relative;
     color: #4a5568; /* Slightly deeper gray for better contrast */
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 14px 20px;
     border-radius: var(--radius-sm);
     border: none; /* Removes the clunky box borders */
@@ -1126,7 +1126,7 @@ body > section + section {
   white-space: nowrap;
 }
 .footer__hours-time {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer__bottom {
@@ -1256,7 +1256,7 @@ body > section + section {
   margin: 0 0 4px 16px;
   color: var(--navy);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .form-input {
@@ -1515,11 +1515,10 @@ body > section + section {
   padding: var(--space-48) var(--space-24);
   text-align: center;
   cursor: pointer;
+  will-change: transform, opacity;
   transition:
-    border-color 0.24s ease,
-    background 0.24s ease,
     transform 0.24s ease,
-    box-shadow 0.24s ease;
+    opacity 0.24s ease;
   background:
     radial-gradient(circle at 10% 10%, rgba(26, 54, 93, 0.04) 0%, rgba(26, 54, 93, 0) 46%),
     linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
@@ -1537,19 +1536,13 @@ body > section + section {
 .drop-zone:hover,
 .drop-zone--dragging,
 .drop-zone--active {
-  border-color: var(--navy);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(26, 54, 93, 0.08) 0%, rgba(26, 54, 93, 0) 48%),
-    linear-gradient(180deg, #ffffff 0%, #eff5ff 100%);
-  box-shadow: 0 12px 28px rgba(26, 54, 93, 0.11);
+  transform: translateY(-2px);
+  opacity: 0.98;
 }
 
 .drop-zone--has-file {
-  border-color: var(--kraft);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(185, 142, 90, 0.12) 0%, rgba(185, 142, 90, 0) 52%),
-    linear-gradient(180deg, #fffefb 0%, #fbf5ec 100%);
-  box-shadow: 0 10px 24px rgba(185, 142, 90, 0.14);
+  transform: translateY(-1px);
+  opacity: 0.97;
 }
 
 .drop-zone__icon {
@@ -1635,7 +1628,7 @@ body > section + section {
 .print-portal-files__name {
   color: var(--navy);
   font-size: var(--fs-ui-fluid);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -1651,7 +1644,7 @@ body > section + section {
   border-radius: var(--radius-sm);
   padding: var(--space-8) var(--space-16);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 

@@ -1,6 +1,6 @@
-/* Self-hosted Inter font faces - optimized loading strategy */
+/* Self-hosted Inter font faces - streamlined to three weights */
 
-/* Critical weights (400, 500, 600, 700) load with swap */
+/* Core weights load with swap */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -12,40 +12,16 @@
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/assets/fonts/inter-500.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/assets/fonts/inter-600.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url('/assets/fonts/inter-700.ttf') format('truetype');
 }
 
-/* Non-critical weights (800, 900) load with optional for faster rendering */
+/* Display-heavy weight loads with optional for faster rendering */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
   font-display: optional;
   src: url('/assets/fonts/inter-800.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 900;
-  font-display: optional;
-  src: url('/assets/fonts/inter-900.ttf') format('truetype');
 }

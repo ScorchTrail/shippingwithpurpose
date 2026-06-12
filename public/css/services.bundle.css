@@ -494,7 +494,7 @@ body > section + section {
   display: flex;
   gap: 0.5em;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .info-bar__hours-time {
@@ -582,7 +582,7 @@ body > section + section {
   position: relative;
   color: #334155;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
   text-decoration: none;
   cursor: pointer;
@@ -648,7 +648,7 @@ body > section + section {
   display: block;
   color: #444;
   font-size: var(--fs-0);
-  font-weight: 600;
+  font-weight: 700;
   padding: var(--space-16);
   min-height: 48px;
   border-radius: var(--radius-sm);
@@ -725,7 +725,7 @@ body > section + section {
     position: relative;
     color: #4a5568; /* Slightly deeper gray for better contrast */
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 14px 20px;
     border-radius: var(--radius-sm);
     border: none; /* Removes the clunky box borders */
@@ -1126,7 +1126,7 @@ body > section + section {
   white-space: nowrap;
 }
 .footer__hours-time {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer__bottom {
@@ -1260,7 +1260,7 @@ body > section + section {
   margin: var(--space-8) 0 0;
   font-family: "Inter", sans-serif;
   font-size: var(--fs-section-heading);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -1423,7 +1423,7 @@ body > section + section {
 .detailed-service-card__price {
   font-size: 1.35rem;
   color: var(--text-heading);
-  font-weight: 900;
+  font-weight: 800;
   font-family: "Inter", sans-serif;
   line-height: 1;
 }
@@ -1439,7 +1439,7 @@ body > section + section {
   justify-content: center;
   gap: var(--space-16);
   color: var(--navy);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .service__supplies-text {
@@ -1519,7 +1519,7 @@ body > section + section {
 .faq-section__title {
   font-family: "Inter", sans-serif;
   font-size: var(--fs-section-heading);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -1550,7 +1550,7 @@ body > section + section {
 
 .faq-item__question {
   color: var(--text-heading);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--fs-body);
   text-align: left;
   line-height: 1.4;

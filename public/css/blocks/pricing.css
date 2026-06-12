@@ -267,7 +267,7 @@
   display: block;
   color: var(--muted);
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 4px;
 }
 
@@ -376,7 +376,7 @@
 .pricing-table__price-monthly {
   font-size: 0.85rem;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 400;
   display: block;
   margin-top: 4px;
 }
