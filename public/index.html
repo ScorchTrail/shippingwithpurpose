@@ -83,15 +83,10 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
-    <link rel="stylesheet" href="css/main-home.css" />
+    <link rel="stylesheet" href="css/styles.bundle.css" />
   </head>
   <body>
     <div data-include="header.html"></div>
@@ -167,9 +162,13 @@
             <div class="hero__image-wrap">
               <img
                 src="assets/images/hero.webp"
+                srcset="assets/images/hero.webp 700w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
                 alt="Friendly staff helping a customer at a local shipping counter"
                 width="700"
                 height="525"
+                decoding="async"
+                fetchpriority="high"
               />
               <div class="hero__new-owner-badge">✧ New Ownership</div>
               <div class="hero__hours-chip">
@@ -224,10 +223,13 @@
             <div class="service-card__image">
               <img
                 src="assets/images/shipping.webp"
+                srcset="assets/images/shipping.webp 640w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Cardboard shipping boxes on a counter ready for drop-off"
                 loading="lazy"
                 width="640"
                 height="384"
+                decoding="async"
               />
               <div class="service-card__icon"><img src="assets/icons/box.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
@@ -242,10 +244,13 @@
             <div class="service-card__image">
               <img
                 src="assets/images/print.webp"
+                srcset="assets/images/print.webp 640w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Commercial printer producing a vivid printed document"
                 loading="lazy"
                 width="640"
                 height="384"
+                decoding="async"
               />
               <div class="service-card__icon"><img src="assets/icons/print.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
@@ -260,10 +265,13 @@
             <div class="service-card__image">
               <img
                 src="assets/images/office.webp"
+                srcset="assets/images/office.webp 640w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Business paperwork support including scan fax and notary"
                 loading="lazy"
                 width="640"
                 height="384"
+                decoding="async"
               />
               <div class="service-card__icon"><img src="assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
@@ -276,10 +284,13 @@
             <div class="service-card__image">
               <img
                 src="assets/images/mailboxes.webp"
+                srcset="assets/images/mailboxes.webp 640w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Private mailbox wall with secure customer boxes"
                 loading="lazy"
                 width="640"
                 height="384"
+                decoding="async"
               />
               <div class="service-card__icon"><img src="assets/icons/envelope.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
@@ -333,10 +344,13 @@
           <div class="mailbox-cta__tile mailbox-cta__tile--photo">
             <img
               src="assets/images/mailboxes.webp"
+              srcset="assets/images/mailboxes.webp 900w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
               alt="Secure private mailbox wall with numbered lockboxes"
               loading="lazy"
               width="900"
               height="506"
+              decoding="async"
             />
           </div>
 
