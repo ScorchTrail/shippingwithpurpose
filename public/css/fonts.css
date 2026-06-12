@@ -6,7 +6,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/assets/fonts/inter-400.ttf') format('truetype');
+  src: url('/assets/fonts/inter-400.woff2') format('woff2');
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/assets/fonts/inter-700.ttf') format('truetype');
+  src: url('/assets/fonts/inter-700.woff2') format('woff2');
 }
 
 /* Display-heavy weight loads with optional for faster rendering */
@@ -23,5 +23,5 @@
   font-style: normal;
   font-weight: 800;
   font-display: optional;
-  src: url('/assets/fonts/inter-800.ttf') format('truetype');
+  src: url('/assets/fonts/inter-800.woff2') format('woff2');
 }
