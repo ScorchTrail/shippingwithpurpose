@@ -1,4 +1,6 @@
-/* Self-hosted Inter font faces - eliminates Google Fonts CDN latency */
+/* Self-hosted Inter font faces - optimized loading strategy */
+
+/* Critical weights (400, 500, 600, 700) load with swap */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -31,11 +33,12 @@
   src: url('/assets/fonts/inter-700.ttf') format('truetype');
 }
 
+/* Non-critical weights (800, 900) load with optional for faster rendering */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
-  font-display: swap;
+  font-display: optional;
   src: url('/assets/fonts/inter-800.ttf') format('truetype');
 }
 
@@ -43,6 +46,6 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 900;
-  font-display: swap;
+  font-display: optional;
   src: url('/assets/fonts/inter-900.ttf') format('truetype');
 }
