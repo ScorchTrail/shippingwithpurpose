@@ -1,5 +1,7 @@
-/mailbox    /mailboxes.html   200
-/print      /print.html       200
-/service    /services.html    200
-/*         /404/index.html   404
-/           /index.html      200
+/mailbox            /mailboxes         301
+/product-services   /services          301
+/contact            /services          301
+/print              /print             301
+/service            /services          301
+/                   /index.html        200
+/*                  /404               404
