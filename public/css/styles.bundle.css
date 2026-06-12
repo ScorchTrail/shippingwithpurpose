@@ -135,6 +135,7 @@ img {
 .icon-img--sm {
   width: 16px;
   height: 16px;
+  aspect-ratio: 1 / 1;
 }
 
 .icon-img--md {
@@ -239,10 +240,7 @@ body > section + section {
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  transition:
-    transform 0.15s,
-    box-shadow 0.15s,
-    background 0.15s;
+  transition: transform 0.15s, opacity 0.15s;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -525,8 +523,9 @@ body > section + section {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-16);
-  min-height: 64px;
+  min-height: 48px;
   padding: 0 max(24px, calc((100vw - 1280px) / 2));
+  /* Sticky positioning handled by .site-header */
 }
 
 .nav__brand {
@@ -584,7 +583,6 @@ body > section + section {
   color: #334155;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: color 0.2s;
   padding: 0;
   text-decoration: none;
   cursor: pointer;
@@ -735,7 +733,6 @@ body > section + section {
     cursor: pointer;
     margin-bottom: 4px; /* Tighter spacing */
     background: transparent;
-    transition: all 0.2s ease;
     overflow: hidden;
   }
 
@@ -1075,7 +1072,7 @@ body > section + section {
   color: var(--text-on-dark-muted);
   text-decoration: none;
   font-size: var(--fs-body-sm);
-  transition: all 200ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
   position: relative;
   padding: 2px 0 2px 8px;
   border-left: 2px solid rgba(185, 142, 90, 0.18);
@@ -1271,9 +1268,6 @@ body > section + section {
   color: var(--charcoal);
   font-size: 0.92rem;
   font-family: "Inter", sans-serif;
-  transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease;
 }
 
 .form-input:focus {
@@ -1686,7 +1680,6 @@ body > section + section {
   height: 100%;
   display: block;
   object-fit: contain;
-  vertical-align: middle;
 }
 
 /* ── Card Body & Typography ── */
@@ -1939,7 +1932,7 @@ body > section + section {
 .mailbox-cta__tile--link {
   text-decoration: none;
   color: inherit;
-  transition: all 220ms ease;
+  transition: transform 220ms ease, opacity 220ms ease;
 }
 
 .mailbox-cta__tile--link:hover {
@@ -2768,7 +2761,7 @@ body > section + section {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
 .reviews-control:hover {
@@ -2977,7 +2970,7 @@ body > section + section {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .pricing-modal__close:hover {
@@ -2992,7 +2985,6 @@ body > section + section {
 .pricing-modal__close .icon-img {
   width: 18px;
   height: 18px;
-  vertical-align: middle;
 }
 
 /* ============================================================ PRICING TABLE (CORE) */
@@ -3331,6 +3323,7 @@ body > section + section {
   padding: 0 1.5rem;
   user-select: none;
 }
+
 .progress-bar__step {
   flex: 1 1 0;
   display: flex;
@@ -3342,134 +3335,51 @@ body > section + section {
   background: var(--color-bg, #f7f6f3);
   color: var(--navy);
   font-weight: 600;
-  .reservation-modal__progress-bar {
-  transition: background 0.2s, color 0.2s;
   z-index: 1;
 }
+
 .progress-bar__step--active {
   background: var(--navy);
   color: #fff;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.07);
 }
+
 .progress-bar__step--complete {
   background: var(--kraft-dark);
   color: #fff;
 }
-  .reservation-modal__accordion-toggle {
-  width: 2.5rem;
-  height: 0.25rem;
-  background: var(--kraft-dark);
-  border-radius: 2px;
-  margin: 0 0.25rem;
-  flex: none;
-}
+
 .progress-bar__label {
   position: relative;
   z-index: 2;
   font-size: 1rem;
   font-weight: 600;
   opacity: 0.7;
-  .reservation-modal__accordion-toggle[aria-expanded="true"] {
 }
+
 .progress-bar__label--active {
   opacity: 1;
 }
 
 /* =====================
-  .reservation-modal__close {
+   Modal Summary + Accordion
    ===================== */
 #modal-summary-confirm {
   background: var(--color-bg, #f7f6f3);
   border-radius: 0.75rem;
   margin: 0 0 1.25rem 0;
   padding: 1rem 1.25rem;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  .reservation-modal__content {
 }
+
 #modal-summary-confirm strong {
   font-weight: 600;
   color: var(--navy);
 }
 
-  .reservation-modal__summary-card {
-   Accordion for ID Requirements
-   ===================== */
-.reservation-modal__accordion-toggle {
-  display: inline-block;
-  background: var(--kraft-dark);
-  color: #fff;
-  border: none;
-  .reservation-modal__summary-row {
-  padding: 0.5rem 1.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0.5rem 0 0.5rem 0;
-  cursor: pointer;
-  .reservation-modal__price-group {
-}
-.reservation-modal__accordion-toggle[aria-expanded="true"] {
-  background: var(--navy);
-}
-#id-accordion-content {
-  margin: 0.5rem 0 1rem 0;
-  .reservation-modal__price-row {
-  background: #f7f6f3;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
-}
-
-/* =====================
-   Action Blocks (USPS Steps)
-  .reservation-modal__price-label {
-.reservation-form1583__actions {
-  display: flex;
-  gap: 1rem;
-  margin: 0.5rem 0 1rem 0;
-}
-  .reservation-modal__price-value {
-.reservation-form1583__download {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: var(--navy);
-  color: #fff;
-  border-radius: 1.5rem;
-  .reservation-modal__step {
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-.reservation-form1583__link:hover,
-.reservation-form1583__download:hover {
-  .reservation-modal__step--active {
-  color: #fff;
-}
-
-/* =====================
-   Sticky Close Button (Mobile)
-  .reservation-modal__scroll-area {
-@media (max-width: 600px) {
-  .reservation-modal__close {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  .reservation-modal__plan-receipt {
-    border-radius: 50%;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
-    margin: 0 auto 0 0;
-    display: block;
-  }
-  .reservation-modal__content {
-    padding-top: 0.5rem;
-  }
-}
-/* ============================================================
-   MODAL SUMMARY CARD (Dynamic Dropdowns)
-  .reservation-modal__success-icon {
 .reservation-modal__summary-card {
   background: rgba(26, 54, 93, 0.03);
   border-radius: var(--radius-md);
@@ -3477,11 +3387,13 @@ body > section + section {
   margin-bottom: var(--space-24);
   border: 1px solid rgba(26, 54, 93, 0.08);
 }
+
 .reservation-modal__summary-row {
   display: flex;
   gap: 16px;
   margin-bottom: 0;
-  .reservation-modal__success-icon::before {
+}
+
 .reservation-form__group--third {
   flex: 1 1 0;
   min-width: 0;
@@ -3490,50 +3402,121 @@ body > section + section {
   flex-direction: column;
   justify-content: flex-end;
 }
+
+.reservation-form__select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a365d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
 .reservation-modal__price-group {
-  .reservation-modal__confetti {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.reservation-form__select {
-  cursor: pointer;
-  .reservation-modal__usps-nextsteps {
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a365d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  .reservation-modal__usps-note {
-  background-size: 16px;
-  padding-right: 40px;
-}
+
 .reservation-modal__price-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
   border-top: 1px dashed rgba(26, 54, 93, 0.15);
-  .reservation-modal__usps-id {
+}
+
 .reservation-modal__price-label {
   font-size: 0.88rem;
   color: var(--muted);
-  .reservation-modal__usps-id-block {
 }
+
 .reservation-modal__price-value {
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--kraft-dark);
   font-family: "Inter", sans-serif;
   letter-spacing: -0.02em;
-  .reservation-modal__usps-id-block em {
+}
+
+.reservation-modal__accordion-toggle {
+  display: inline-block;
+  background: var(--kraft-dark);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.reservation-modal__accordion-toggle[aria-expanded="true"] {
+  background: var(--navy);
+}
+
+#id-accordion-content {
+  margin: 0.5rem 0 1rem 0;
+  background: #f7f6f3;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* =====================
+   Action Blocks (USPS Steps)
+   ===================== */
+.reservation-form1583__actions {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.reservation-form1583__download {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reservation-form1583__link:hover,
+.reservation-form1583__download:hover {
+  color: #fff;
+}
+
+/* =====================
+   Sticky Close Button (Mobile)
+   ===================== */
 @media (max-width: 600px) {
+  .reservation-modal__close {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.07);
+    margin: 0 auto 0 0;
+    display: block;
+  }
+
+  .reservation-modal__content {
+    padding-top: 0.5rem;
+  }
+
   .reservation-modal__summary-row {
     flex-direction: column;
     gap: 12px;
-  .reservation-modal__cta--submit {
+  }
+
   .reservation-form__group--third {
     width: 100%;
     align-items: stretch;
-  .reservation-modal__cta--close {
+  }
+
   .reservation-modal__price-group {
     align-items: flex-start;
     margin-top: 0.5rem;
@@ -3740,7 +3723,7 @@ body > section + section {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .reservation-modal__close:hover {
@@ -3755,7 +3738,6 @@ body > section + section {
 .reservation-modal__close .icon-img {
   width: 18px;
   height: 18px;
-  vertical-align: middle;
 }
 
 .reservation-modal__header {
@@ -3806,9 +3788,6 @@ body > section + section {
   color: var(--charcoal);
   font-size: 0.92rem;
   font-family: "Inter", sans-serif;
-  transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease;
 }
 
 .reservation-form__input:focus {

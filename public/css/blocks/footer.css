@@ -91,7 +91,7 @@
   color: var(--text-on-dark-muted);
   text-decoration: none;
   font-size: var(--fs-body-sm);
-  transition: all 200ms ease;
+  transition: transform 200ms ease, opacity 200ms ease;
   position: relative;
   padding: 2px 0 2px 8px;
   border-left: 2px solid rgba(185, 142, 90, 0.18);

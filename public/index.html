@@ -83,8 +83,7 @@
       ]
     }
     </script>
-    <style>:root{--bp-desktop:1280px;--bp-tablet:1024px;--bp-mobile:768px;--grid-cols-desktop:12;--grid-cols-tablet:8;--grid-cols-mobile:4;--grid-gap:32px;--navy:#1a365d;--navy-dark:#0f2340;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-0:0;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-2:1.563rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
-    <link rel="stylesheet" href="css/fonts.css" />
+    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.ttf') format('truetype')}@font-face{font-family:Inter;font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/inter-500.ttf') format('truetype')}@font-face{font-family:Inter;font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/inter-600.ttf') format('truetype')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.ttf') format('truetype')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.ttf') format('truetype')}@font-face{font-family:Inter;font-style:normal;font-weight:900;font-display:optional;src:url('/assets/fonts/inter-900.ttf') format('truetype')}:root{--bp-desktop:1280px;--bp-tablet:1024px;--bp-mobile:768px;--grid-cols-desktop:12;--grid-cols-tablet:8;--grid-cols-mobile:4;--grid-gap:32px;--navy:#1a365d;--navy-dark:#0f2340;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-0:0;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-2:1.563rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
     <link rel="preload" href="css/styles.bundle.css" as="style" />
     <link rel="stylesheet" href="css/styles.bundle.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="css/styles.bundle.css" /></noscript>
@@ -98,7 +97,7 @@
       <div class="hero__inner">
         <div class="hero__grid">
           <div class="hero__content">
-            <div class="hero__badge"><img src="assets/icons/community.svg" alt="" class="icon-img icon-img--sm" /> Under New Ownership · Serving Our Community</div>
+            <div class="hero__badge"><img src="assets/icons/community.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Under New Ownership · Serving Our Community</div>
             <h1 class="hero__title">Scottsdale's trusted<br />pack &amp; ship center.</h1>
             <p class="hero__body">
               A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
@@ -106,7 +105,7 @@
             </p>
             <div class="hero__actions">
               <a href="/mailboxes" class="btn btn--navy">Get a Mailbox Quote</a>
-              <a href="https://g.page/r/CYJmi1HS2dX_EBM/review" class="btn btn--ghost"><img src="assets/icons/feedback.svg" alt="" class="icon-img icon-img--sm" /> Leave Us a Review</a>
+              <a href="https://g.page/r/CYJmi1HS2dX_EBM/review" class="btn btn--ghost"><img src="assets/icons/feedback.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Leave Us a Review</a>
             </div>
             <div class="hero__trust">
               <div class="hero__trust-item">

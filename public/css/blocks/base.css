@@ -135,6 +135,7 @@ img {
 .icon-img--sm {
   width: 16px;
   height: 16px;
+  aspect-ratio: 1 / 1;
 }
 
 .icon-img--md {
@@ -239,10 +240,7 @@ body > section + section {
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  transition:
-    transform 0.15s,
-    box-shadow 0.15s,
-    background 0.15s;
+  transition: transform 0.15s, opacity 0.15s;
   text-decoration: none;
   white-space: nowrap;
 }

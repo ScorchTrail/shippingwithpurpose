@@ -21,9 +21,6 @@
   color: var(--charcoal);
   font-size: 0.92rem;
   font-family: "Inter", sans-serif;
-  transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease;
 }
 
 .form-input:focus {

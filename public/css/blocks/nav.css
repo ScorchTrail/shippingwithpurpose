@@ -263,7 +263,6 @@
     cursor: pointer;
     margin-bottom: 4px; /* Tighter spacing */
     background: transparent;
-    transition: all 0.2s ease;
     overflow: hidden;
   }
 
