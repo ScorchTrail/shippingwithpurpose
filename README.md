@@ -55,7 +55,7 @@ Use the following text blocks to send to the client for review or updates:
 **Homepage (index.html):**
 - “Your neighborhood shipping home.”
 - “A place where regulars come to chat, packages get handled with care, and everyone is treated like family. Full-service shipping, printing, and private mailboxes — all in one cozy spot.”
-- “Get a Mailbox Quote →”
+- “Get a Mailbox Quote”
 - “Call Us Now”
 - “Secure & Private”
 - “Community First”

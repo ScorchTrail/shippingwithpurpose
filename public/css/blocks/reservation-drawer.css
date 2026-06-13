@@ -85,7 +85,7 @@
   to { opacity: 1; transform: none; }
 }
 
-/* Internal Drawer Layout (Header -> Scrollable Body -> Sticky Footer) */
+/* Internal Drawer Layout (Header  Scrollable Body  Sticky Footer) */
 .reservation-drawer__header {
   padding: 36px 36px 26px;
   border-bottom: 1.5px solid var(--kraft-dark);
