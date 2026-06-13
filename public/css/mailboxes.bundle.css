@@ -245,14 +245,14 @@ body > section + section {
   white-space: nowrap;
 }
 .btn--navy {
-  background: var(--navy);
+  background: var(--kraft);
   color: #fff;
   padding: 16px 32px;
   font-size: 1rem;
   box-shadow: 0 4px 20px rgba(26, 54, 93, 0.25);
 }
 .btn--navy:hover {
-  background: var(--navy-mid);
+  background: var(--kraft-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(26, 54, 93, 0.35);
 }
