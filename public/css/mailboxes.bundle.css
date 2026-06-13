@@ -864,7 +864,7 @@ body > section + section {
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
-  background: var(--kraft-dark);
+  background: var(--kraft);
   color: #ffffff;
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -877,7 +877,7 @@ body > section + section {
 }
 
 .info-bar__action:hover {
-  background: #6c4f11;
+  background: var(--kraft-dark);
 }
 
 .info-bar__action:active {
@@ -957,6 +957,10 @@ body > section + section {
     .nav__menu-contact-action--directions {
       background: var(--kraft);
       color: #fff;
+    }
+
+    .nav__menu-contact-action--directions:hover {
+      background: var(--kraft-dark);
     }
 
     /* Horizontal [Hours] [Hours] Row */
