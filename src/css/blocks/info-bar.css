@@ -100,26 +100,20 @@
 .info-bar__action {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-8);
-  background: var(--kraft);
-  color: #ffffff;
+  color: #fff;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 0.82rem;
-  padding: 6px var(--space-16);
-  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: background 0.15s ease, transform 0.1s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
   white-space: nowrap;
 }
 
 .info-bar__action:hover {
-  background: var(--kraft-dark);
-}
-
-.info-bar__action:active {
-  transform: translateY(1px); /* Subtle click effect */
+  color: var(--kraft-light);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */

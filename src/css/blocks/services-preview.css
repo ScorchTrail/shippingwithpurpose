@@ -2,7 +2,6 @@
 /* Desktop: 2x2 premium grid | Mobile: 1-col stack */
 .services-preview {
   padding: var(--section-pad-y) var(--section-pad-x) 0;
-  background: var(--off-white);
 }
 
 
