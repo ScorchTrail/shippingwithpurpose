@@ -12,3 +12,8 @@
 @import url("blocks/testimonials.css");
 @import url("blocks/pricing.css");
 @import url("blocks/reservation.css");
+
+/* Home-only override: keep header below the reservation drawer/overlay (preserves prior live stacking) */
+.site-header {
+  z-index: 5;
+}

@@ -60,3 +60,11 @@
   display: block;
   text-align: center;
 }
+
+/* Mailboxes page theme: navy CTA uses the kraft accent (page-specific override of base .btn--navy) */
+.btn--navy {
+  background: var(--kraft);
+}
+.btn--navy:hover {
+  background: var(--kraft-dark);
+}

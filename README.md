@@ -17,26 +17,38 @@ Static site for a local shipping, printing, and mailbox center in Scottsdale, AZ
 ## Directory Structure & Purpose
 
 **Root**
-- `index.html` — Main landing page (home)
 - `README.md` — Project documentation (this file)
 - `CNAME` — Custom domain config for deployment
+- `package.json` — Root scripts (e.g. `npm run build:css`)
 
-**public/** — All client-facing files
+**src/** — CSS source-of-truth (NOT deployed — kept out of the published artifact)
+- `css/main-home.css`, `main-mailboxes.css`, `main-services.css`, `main-print.css` — Page-specific entrypoints
+- `css/blocks/` — Modular BEM CSS for each UI block (e.g. `nav.css`, `footer.css`, `hero.css`, etc.), inlined into bundles at build time
+- `css/critical.css` — Canonical source for the inlined critical CSS
+
+**public/** — Deploy output / all client-facing files (this folder is what ships to the CDN)
+- `index.html` — Main landing page (home)
 - `mailboxes.html` — Mailbox rental info, pricing, and reservation modal
 - `services.html` — All business services, FAQ, and contact info
-- `css/` — Main CSS entrypoints and BEM block styles
-  - `main-home.css`, `main-mailboxes.css`, `main-services.css`, `main-print.css` — Page-specific CSS
-  - `blocks/` — Modular BEM CSS for each UI block (e.g. `nav.css`, `footer.css`, `hero.css`, etc.)
-- `js/app.js` — Main frontend JS (modal logic, dynamic UI)
-- `assets/` — Images, icons, fonts
-- `data/` — Static JSON data (mailbox plans, reviews)
+- `print.html` — Print portal page
+- `partials/` — Shared HTML fragments injected via `data-include` (`header.html`, `footer.html`)
+- `css/` — Built, committed, served stylesheets
+  - `*.bundle.css` — Generated from `src/css/main-*.css` by `npm run build:css` (do not edit by hand)
+  - `reservation-drawer.css` — Standalone served stylesheet (linked directly, not bundled)
+  - `vendor/` — Third-party CSS (e.g. `swiper-bundle.min.css`)
+- `js/` — `app.js`, `components.js`, and `vendor/` for third-party scripts
+- `assets/` — Images, icons, fonts, files
+- `data/` — Static JSON data (mailbox content)
+- `_headers`, `_redirects`, `sitemap.xml`, `site.webmanifest` — CDN/routing config
 
 **server/** — Node.js backend (API, Yelp proxy, not for client)
-  - `index.js` — Main server entry
-  - `mailbox-lead.js` — Handles mailbox reservation POSTs
+  - `index.js` — Main server entry (serves `public/` locally on :3000)
 
-**scripts/** — Utility scripts (e.g. Yelp business finder)
+**scripts/** — Utility scripts
+  - `build-css.js` — Bundles `src/css/main-*.css` into `public/css/*.bundle.css`
   - `yelp-find-business.js`
+
+> **CSS workflow:** edit files under `src/css/`, then run `npm run build:css` to regenerate the bundles in `public/css/`. Only `public/` is deployed, so `src/` is never shipped.
 
 ---
 

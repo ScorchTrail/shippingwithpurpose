@@ -1,6 +1,6 @@
 /* ============================================================ HERO (homepage) */
 .hero {
-  padding: 0 var(--section-pad-x) 0;
+  padding: var(--section-pad-y) var(--section-pad-x);
   position: relative;
   /* overflow: hidden; removed to fix sticky header */
   display: flex;
@@ -54,13 +54,6 @@
   letter-spacing: -0.04em;
   color: var(--text-heading);
   margin-bottom: var(--space-24);
-}
-
-.hero__title-emphasis {
-  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .hero__body {

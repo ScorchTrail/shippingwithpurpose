@@ -41,13 +41,13 @@
       }
     }
     </script>
-    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--bp-desktop:1280px;--bp-tablet:1024px;--bp-mobile:768px;--grid-cols-desktop:12;--grid-cols-tablet:8;--grid-cols-mobile:4;--grid-gap:32px;--navy:#1a365d;--navy-dark:#0f2340;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-0:0;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-2:1.563rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
+    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--navy:#1a365d;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
     <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="css/mailboxes.bundle.css" />
+    <link rel="stylesheet" href="/css/mailboxes.bundle.css" />
   </head>
   <body>
-    <div data-include="header.html"></div>
+    <div data-include="/partials/header.html"></div>
     <section class="page-hero fade-section mailbox-hero mailbox-hero--alt">
       <div class="page-hero__inner mailbox-hero__inner">
         <div class="mailbox-hero__badge"><span class="section-tag" data-mailbox-field="hero.badge">Most Popular</span></div>
@@ -182,7 +182,7 @@
     <div class="pricing-modal js-pricing-modal" id="pricing-modal" aria-modal="true" aria-labelledby="pricing-modal-title">
       <div class="pricing-modal__overlay js-pricing-modal-overlay"></div>
       <div class="pricing-modal__content js-pricing-modal-content">
-        <button class="pricing-modal__close js-pricing-modal-close" aria-label="Close pricing table" type="button"><img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
+        <button class="pricing-modal__close js-pricing-modal-close" aria-label="Close pricing table" type="button"><img src="/assets/icons/close.svg" alt="" class="icon-img icon-img--md" /></button>
         <div class="pricing-table">
           <div class="pricing-table__header">
             <div class="pricing-table__header-text">
@@ -273,7 +273,7 @@
         <h2 class="perks__heading perks__heading--gradient">Everything included with your mailbox.</h2>
         <div class="perks__grid">
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/home.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/home.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Business Address, Not Your Home</div>
             <p class="feature-card__desc">
               Use our street address for business registration, banking, and professional mail while keeping your home
@@ -281,28 +281,28 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/carrier.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/carrier.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">All Carriers Welcome</div>
             <p class="feature-card__desc">
               Accept packages from USPS, UPS, FedEx, DHL, Amazon, and any other courier service.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/notification.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/notification.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Mail Notifications</div>
             <p class="feature-card__desc">
               Get notified by text or email when mail or packages arrive — optional add-on for $1/month.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/lock.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/lock.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Secure &amp; Private</div>
             <p class="feature-card__desc">
               Keep your home address off public records. Your mail is locked and only accessible to you.
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/coins.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/coins.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">No Hidden or Sign-Up Fees</div>
             <p class="feature-card__desc">
               Straightforward pricing with clear terms. Choose 3, 6, or 12-month plans with no surprise onboarding
@@ -310,7 +310,7 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-card__icon"><img src="assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
+            <div class="feature-card__icon"><img src="/assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
             <div class="feature-card__title">Business Ready</div>
             <p class="feature-card__desc">
               Perfect for LLC registration, business banking, and keeping your home address private.
@@ -319,18 +319,18 @@
         </div>
       </div>
     </section>
-    <div data-include="footer.html"></div>
+    <div data-include="/partials/footer.html"></div>
 
 
     <!-- RESERVATION MODAL -->
 
     <!-- RESERVATION DRAWER -->
-    <link rel="stylesheet" href="css/blocks/reservation-drawer.css">
+    <link rel="stylesheet" href="/css/reservation-drawer.css">
     <div class="reservation-drawer js-reservation-modal" id="reservation-drawer" aria-modal="true">
       <div class="reservation-drawer__overlay js-reservation-modal-overlay"></div>
       <div class="reservation-drawer__panel js-reservation-modal-panel">
         <button class="reservation-drawer__close js-reservation-modal-close" aria-label="Close reservation form" type="button">
-          <img src="assets/icons/close.svg" alt="" class="icon-img icon-img--md" />
+          <img src="/assets/icons/close.svg" alt="" class="icon-img icon-img--md" />
         </button>
 
         <!-- STEP 1: Capture -->
@@ -422,7 +422,7 @@
             <button type="submit" form="reservation-form" class="reservation-drawer__cta js-reservation-submit">
               <span class="reservation-drawer__cta-text">Submit Request</span>
               <span class="reservation-drawer__cta-spinner" style="display:none;">
-                  <img src="assets/icons/spinner.svg" alt="Processing..." class="icon-img icon-img--sm" width="16" height="16" />
+                  <img src="/assets/icons/spinner.svg" alt="Processing..." class="icon-img icon-img--sm" width="16" height="16" />
               </span>
             </button>
           </div>
@@ -443,7 +443,7 @@
                 <h3 class="usps-step-card__title">Complete USPS Form 1583</h3>
                 <p class="usps-step-card__desc">Required by federal law. Sign this in our store, or bring it pre-notarized.</p>
                 <div class="usps-step-card__actions">
-                  <a href="assets/files/1583-fillable.pdf" target="_blank" class="usps-step-card__btn">Fill Online</a>
+                  <a href="/assets/files/1583-fillable.pdf" target="_blank" class="usps-step-card__btn">Fill Online</a>
                   <a href="https://about.usps.com/forms/ps1583.pdf" target="_blank" download class="usps-step-card__btn usps-step-card__btn--outline">Download</a>
                 </div>
               </div>
@@ -467,8 +467,8 @@
       </div>
     </div>
 
-    <script src="js/app.js" defer></script>
-    <script src="js/components.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/components.js" defer></script>
       <script>
         // Reservation Drawer: Use dynamic pricing from mailbox-content.json (matches main quote logic)
         document.addEventListener('DOMContentLoaded', function () {
@@ -484,7 +484,7 @@
           var quoteAddonBadge = document.getElementById('addon-badge');
 
           function loadMailboxContent() {
-            return fetch('data/mailbox-content.json').then(r => r.json());
+            return fetch('/data/mailbox-content.json').then(r => r.json());
           }
 
           loadMailboxContent().then(function(content) {

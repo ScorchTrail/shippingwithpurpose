@@ -83,20 +83,20 @@
       ]
     }
     </script>
-    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--bp-desktop:1280px;--bp-tablet:1024px;--bp-mobile:768px;--grid-cols-desktop:12;--grid-cols-tablet:8;--grid-cols-mobile:4;--grid-gap:32px;--navy:#1a365d;--navy-dark:#0f2340;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-0:0;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-2:1.563rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
+    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--navy:#1a365d;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
     <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="css/styles.bundle.css" />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/styles.bundle.css" />
+    <link rel="stylesheet" href="/css/vendor/swiper-bundle.min.css" />
   </head>
   <body>
-    <div data-include="header.html"></div>
+    <div data-include="/partials/header.html"></div>
     <main id="main-content">
     <section class="hero fade-section">
       <div class="hero__inner">
         <div class="hero__grid">
           <div class="hero__content">
-            <div class="hero__badge"><img src="assets/icons/community.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Under New Ownership · Serving Our Community</div>
+            <div class="hero__badge"><img src="/assets/icons/community.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Under New Ownership · Serving Our Community</div>
             <h1 class="hero__title">Scottsdale's trusted<br />pack &amp; ship center.</h1>
             <p class="hero__body">
               A place where regulars come to chat, packages get handled with care, and everyone is treated like family.
@@ -104,7 +104,7 @@
             </p>
             <div class="hero__actions">
               <a href="/mailboxes" class="btn btn--navy">Get a Mailbox Quote</a>
-              <a href="https://g.page/r/CYJmi1HS2dX_EBM/review" class="btn btn--ghost"><img src="assets/icons/feedback.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Leave Us a Review</a>
+              <a href="https://g.page/r/CYJmi1HS2dX_EBM/review" class="btn btn--ghost"><img src="/assets/icons/feedback.svg" alt="" class="icon-img icon-img--sm" width="16" height="16" /> Leave Us a Review</a>
             </div>
             <div class="hero__trust">
               <div class="hero__trust-item">
@@ -162,8 +162,8 @@
           <div class="hero__visual">
             <div class="hero__image-wrap">
               <img
-                src="assets/images/hero.webp"
-                srcset="assets/images/hero.webp 700w"
+                src="/assets/images/hero.webp"
+                srcset="/assets/images/hero.webp 700w"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
                 alt="Friendly staff helping a customer at a local shipping counter"
                 width="700"
@@ -181,11 +181,11 @@
               <div class="hero__carriers-label">Authorized Carriers &amp; Drop-Offs</div>
               <div class="hero__carriers-row">
                 <div class="hero__carrier-tile hero__carrier-tile--usps">
-                  <img src="assets/icons/usps-logo.svg" alt="USPS" loading="lazy" width="60" height="40" />
+                  <img src="/assets/icons/usps-logo.svg" alt="USPS" loading="lazy" width="60" height="40" />
                 </div>
                 <div class="hero__carrier-tile hero__carrier-tile--ups">
                   <img
-                    src="assets/icons/ups-logo.svg"
+                    src="/assets/icons/ups-logo.svg"
                     alt="UPS"
                     loading="lazy"
                     width="60"
@@ -194,7 +194,7 @@
                 </div>
                 <div class="hero__carrier-tile hero__carrier-tile--fedex">
                   <img
-                    src="assets/icons/fedex-logo.svg"
+                    src="/assets/icons/fedex-logo.svg"
                     alt="FedEx"
                     loading="lazy"
                     width="60"
@@ -202,7 +202,7 @@
                   />
                 </div>
                 <div class="hero__carrier-tile hero__carrier-tile--dhl">
-                  <img src="assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" width="60" height="40" />
+                  <img src="/assets/icons/dhl-logo.svg" alt="DHL" loading="lazy" width="60" height="40" />
                 </div>
               </div>
             </div>
@@ -223,8 +223,8 @@
           <a href="/services" class="service-card">
             <div class="service-card__image">
               <img
-                src="assets/images/shipping.webp"
-                srcset="assets/images/shipping.webp 640w"
+                src="/assets/images/shipping.webp"
+                srcset="/assets/images/shipping.webp 640w"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Cardboard shipping boxes on a counter ready for drop-off"
                 loading="lazy"
@@ -232,7 +232,7 @@
                 height="384"
                 decoding="async"
               />
-              <div class="service-card__icon"><img src="assets/icons/box.svg" alt="" class="icon-img icon-img--md" /></div>
+              <div class="service-card__icon"><img src="/assets/icons/box.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
             <div class="service-card__body">
               <div class="service-card__title">Shipping</div>
@@ -244,8 +244,8 @@
           <a href="/services" class="service-card">
             <div class="service-card__image">
               <img
-                src="assets/images/print.webp"
-                srcset="assets/images/print.webp 640w"
+                src="/assets/images/print.webp"
+                srcset="/assets/images/print.webp 640w"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Commercial printer producing a vivid printed document"
                 loading="lazy"
@@ -253,7 +253,7 @@
                 height="384"
                 decoding="async"
               />
-              <div class="service-card__icon"><img src="assets/icons/print.svg" alt="" class="icon-img icon-img--md" /></div>
+              <div class="service-card__icon"><img src="/assets/icons/print.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
             <div class="service-card__body">
               <div class="service-card__title">Printing</div>
@@ -265,8 +265,8 @@
           <a href="/services" class="service-card">
             <div class="service-card__image">
               <img
-                src="assets/images/office.webp"
-                srcset="assets/images/office.webp 640w"
+                src="/assets/images/office.webp"
+                srcset="/assets/images/office.webp 640w"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Business paperwork support including scan fax and notary"
                 loading="lazy"
@@ -274,7 +274,7 @@
                 height="384"
                 decoding="async"
               />
-              <div class="service-card__icon"><img src="assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
+              <div class="service-card__icon"><img src="/assets/icons/building.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
             <div class="service-card__body">
               <div class="service-card__title">Business Services</div>
@@ -284,8 +284,8 @@
           <a href="/mailboxes" class="service-card">
             <div class="service-card__image">
               <img
-                src="assets/images/mailboxes.webp"
-                srcset="assets/images/mailboxes.webp 640w"
+                src="/assets/images/mailboxes.webp"
+                srcset="/assets/images/mailboxes.webp 640w"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 alt="Private mailbox wall with secure customer boxes"
                 loading="lazy"
@@ -293,7 +293,7 @@
                 height="384"
                 decoding="async"
               />
-              <div class="service-card__icon"><img src="assets/icons/envelope.svg" alt="" class="icon-img icon-img--md" /></div>
+              <div class="service-card__icon"><img src="/assets/icons/envelope.svg" alt="" class="icon-img icon-img--md" /></div>
             </div>
             <div class="service-card__body">
               <div class="service-card__title">Mailbox Rentals</div>
@@ -651,8 +651,8 @@
       </div>
     </section>
     </main>
-    <div data-include="footer.html"></div>
-    <script src="js/app.js" defer></script>
-    <script src="js/components.js" defer></script>
+    <div data-include="/partials/footer.html"></div>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/components.js" defer></script>
   </body>
 </html>

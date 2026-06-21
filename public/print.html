@@ -64,13 +64,13 @@
       ]
     }
     </script>
-    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--bp-desktop:1280px;--bp-tablet:1024px;--bp-mobile:768px;--grid-cols-desktop:12;--grid-cols-tablet:8;--grid-cols-mobile:4;--grid-gap:32px;--navy:#1a365d;--navy-dark:#0f2340;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-0:0;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-2:1.563rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
+    <style>@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-400.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-700.woff2') format('woff2')}@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:optional;src:url('/assets/fonts/inter-800.woff2') format('woff2')}:root{--navy:#1a365d;--kraft:#b98e5a;--kraft-dark:#8b6914;--kraft-light:#f6d89a;--white:#fff;--off-white:#f8f6f2;--light-bg:#f0f4f8;--charcoal:#2d3748;--body-text:#4a5568;--muted:#718096;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--fs-0:1rem;--fs-1:1.25rem;--fs-3:1.953rem;--section-pad-y:clamp(24px,1.5vw,32px);--section-pad-x:clamp(24px,1.5vw,32px);--site-header-height:104px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;font-size:var(--fs-0);background:var(--off-white);color:var(--charcoal);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3,h4,h5,h6{color:var(--navy);font-weight:700}img{max-width:100%;height:auto;display:block}a{color:var(--navy);text-decoration:none}.container{width:100%;padding:0 var(--section-pad-x);margin:0 auto;max-width:1400px}@media (max-width:768px){.container{padding:0 var(--space-16)}}header{position:sticky;top:0;z-index:1;background:var(--white);border-bottom:1px solid #e2e8f0}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-16) 0;min-height:48px}</style>
     <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="css/print.bundle.css" />
+    <link rel="stylesheet" href="/css/print.bundle.css" />
   </head>
   <body>
-    <div data-include="header.html"></div>
+    <div data-include="/partials/header.html"></div>
 
     <section class="page-hero fade-section">
       <div class="page-hero__inner">
@@ -89,7 +89,7 @@
             <div class="print-portal__tile print-portal__tile--upload">
               <div class="drop-zone" id="drop-zone">
                 <div class="drop-zone__icon">
-                  <img src="assets/icons/upload.svg" alt="" class="icon-img icon-img--xl" />
+                  <img src="/assets/icons/upload.svg" alt="" class="icon-img icon-img--xl" />
                 </div>
                 <div class="drop-zone__title">Drag &amp; drop documents here</div>
                 <p class="drop-zone__sub">PDF, DOC, DOCX, PNG, JPG accepted</p>
@@ -178,8 +178,8 @@
       </div>
     </div>
 
-    <div data-include="footer.html"></div>
-    <script src="js/app.js" defer></script>
-    <script src="js/components.js" defer></script>
+    <div data-include="/partials/footer.html"></div>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/components.js" defer></script>
   </body>
 </html>

@@ -142,82 +142,8 @@
 }
 
 @media (max-width: 768px) {
-  /* On mobile phones, we have to stack the items */
-  @media (max-width: 768px) {
-    /* Hide the top info bar completely on mobile */
-    .info-bar {
-      display: none;
-    }
-
-    /* Style the new contact block inside the mobile menu */
-    .nav__menu-contact {
-      margin-top: var(--space-24);
-      padding-top: var(--space-24);
-      border-top: 1px solid rgba(0, 0, 0, 0.08); /* Clean separator from the nav links */
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-16);
-    }
-
-    /* Side-by-side [Phone] [Directions] Row */
-    .nav__menu-contact-row {
-      display: flex;
-      gap: var(--space-8);
-      width: 100%;
-    }
-
-    .nav__menu-contact-action {
-      flex: 1; /* Forces both buttons to be exactly 50% width */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px 8px;
-      border-radius: var(--radius-sm);
-      font-family: "Inter", sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-decoration: none;
-      text-align: center;
-      transition: opacity 0.2s ease;
-    }
-
-    .nav__menu-contact-action:active {
-      opacity: 0.8;
-    }
-
-    /* Specific styles for the two buttons */
-    .nav__menu-contact-action--phone {
-      background: rgba(26, 54, 93, 0.06);
-      color: var(--navy);
-    }
-
-    .nav__menu-contact-action--directions {
-      background: var(--kraft);
-      color: #fff;
-    }
-
-    .nav__menu-contact-action--directions:hover {
-      background: var(--kraft-dark);
-    }
-
-    /* Horizontal [Hours] [Hours] Row */
-    .nav__menu-contact-hours {
-      display: flex;
-      flex-wrap: wrap; /* Allows text to wrap nicely on very narrow screens */
-      justify-content: center;
-      gap: 4px 10px;
-      font-size: 0.8rem;
-      color: #4a5568;
-      line-height: 1.4;
-    }
-
-    .nav__menu-contact-hours span {
-      white-space: nowrap; /* Prevents awkward line breaks in the middle of a time */
-    }
-
-    .nav__menu-contact-hours .hours-divider {
-      color: #cbd5e0;
-    }
+  /* Hide the top info bar completely on mobile */
+  .info-bar {
+    display: none;
   }
 }

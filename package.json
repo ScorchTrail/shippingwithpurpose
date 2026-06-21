@@ -4,6 +4,7 @@
   "description": "All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.",
   "main": "find-yelp.js",
   "scripts": {
+    "build:css": "node scripts/build-css.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
