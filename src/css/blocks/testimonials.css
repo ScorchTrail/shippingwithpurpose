@@ -107,6 +107,7 @@
 /* Review card */
 .review-card {
   border: 1px solid var(--border);
+  border-bottom: 1px solid #e2e8f0;
   border-radius: 20px;
   background: #fff;
   padding: var(--space-24);
