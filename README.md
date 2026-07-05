@@ -55,9 +55,25 @@ Static site for a local shipping, printing, and mailbox center in Scottsdale, AZ
 ## Quick Start
 ```bash
 npm install
-npm start
-# Then open http://localhost:3000
+npm run preview
+# Then open http://localhost:5500
 ```
+
+## Local Live Preview (Before Deploy)
+Use these commands to test changes locally with auto-refresh:
+
+```bash
+npm run build:css
+npm run dev:live
+```
+
+- Serves the deployed site folder: `public/`
+- Live URL: `http://localhost:5500`
+- Auto-reloads when files in `public/` change
+
+If using the VS Code **Live Server** extension, this workspace is configured to serve `/public` as the root in [ .vscode/settings.json ] so `/css/*.bundle.css` and `/assets/*` resolve correctly.
+
+Note: API form routes in `server/` are not included in `live-server`. Use `cd server && npm install && npm run dev` if you need backend route testing.
 
 ---
 

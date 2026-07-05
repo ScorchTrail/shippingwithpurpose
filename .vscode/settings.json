@@ -14,5 +14,7 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "liveServer.settings.root": "/public",
+  "liveServer.settings.port": 5500
 }
