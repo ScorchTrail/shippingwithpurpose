@@ -1,138 +1,678 @@
-# DISCLAIMER
+# Shipping with Purpose (SRT-SWP)
+
+Transfer-of-ownership reference guide for the Shipping with Purpose website and form backends.
+
+## Legal Notice
 
 All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
 
-# Shipping with Purpose (SRT-SWP)
+---
 
-Static site for a local shipping, printing, and mailbox center in Scottsdale, AZ.
+## 1) What This Project Is
+
+This project is a marketing and lead-capture site for a local shipping center.
+
+It has three runtime parts:
+
+1. Static frontend (HTML/CSS/JS) served from `public/`.
+2. Optional Node backend in `server/` for form submission APIs.
+3. Cloudflare Worker fallback in `worker-print/` for the same APIs.
+
+The frontend is designed so form submissions can try multiple API targets in order:
+
+1. Relative path `/api` (same host as site)
+2. Local backend `http://localhost:3000/api`
+3. Worker URL `https://srt-swp.p-vedant7878.workers.dev/api`
+
+This means the site still works if one backend target is down, as long as another target responds with JSON.
 
 ---
 
-## TODO
-- Comment out all print-related links and sections in every HTML file
-- Maintain this README with up-to-date directory and usage info
+## 2) High-Level Architecture
 
----
+```mermaid
+flowchart LR
+  U[Browser User] --> S[Static Site public/]
+  S --> J[public/js/app.js]
+  J -->|POST /api/print-request| A1[Primary API on same host]
+  J -->|fallback| A2[Local Node API :3000]
+  J -->|fallback| A3[Cloudflare Worker API]
 
-## Directory Structure & Purpose
+  A2 --> R1[Resend Email API]
+  A3 --> R1
 
-**Root**
-- `README.md` — Project documentation (this file)
-- `CNAME` — Custom domain config for deployment
-- `package.json` — Root scripts (e.g. `npm run build:css`)
-
-**src/** — CSS source-of-truth (NOT deployed — kept out of the published artifact)
-- `css/main-home.css`, `main-mailboxes.css`, `main-services.css`, `main-print.css` — Page-specific entrypoints
-- `css/blocks/` — Modular BEM CSS for each UI block (e.g. `nav.css`, `footer.css`, `hero.css`, etc.), inlined into bundles at build time
-- `css/critical.css` — Canonical source for the inlined critical CSS
-
-**public/** — Deploy output / all client-facing files (this folder is what ships to the CDN)
-- `index.html` — Main landing page (home)
-- `mailboxes.html` — Mailbox rental info, pricing, and reservation modal
-- `services.html` — All business services, FAQ, and contact info
-- `print.html` — Print portal page
-- `partials/` — Shared HTML fragments injected via `data-include` (`header.html`, `footer.html`)
-- `css/` — Built, committed, served stylesheets
-  - `*.bundle.css` — Generated from `src/css/main-*.css` by `npm run build:css` (do not edit by hand)
-  - `reservation-drawer.css` — Standalone served stylesheet (linked directly, not bundled)
-  - `vendor/` — Third-party CSS (e.g. `swiper-bundle.min.css`)
-- `js/` — `app.js`, `components.js`, and `vendor/` for third-party scripts
-- `assets/` — Images, icons, fonts, files
-- `data/` — Static JSON data (mailbox content)
-- `_headers`, `_redirects`, `sitemap.xml`, `site.webmanifest` — CDN/routing config
-
-**server/** — Node.js backend (API, Yelp proxy, not for client)
-  - `index.js` — Main server entry (serves `public/` locally on :3000)
-
-**scripts/** — Utility scripts
-  - `build-css.js` — Bundles `src/css/main-*.css` into `public/css/*.bundle.css`
-  - `yelp-find-business.js`
-
-> **CSS workflow:** edit files under `src/css/`, then run `npm run build:css` to regenerate the bundles in `public/css/`. Only `public/` is deployed, so `src/` is never shipped.
-
----
-
-## Quick Start
-```bash
-npm install
-npm run preview
-# Then open http://localhost:5500
+  J --> D1[public/reviews.json]
+  J --> D2[public/data/mailbox-content.json]
 ```
 
-## Local Live Preview (Before Deploy)
-Use these commands to test changes locally with auto-refresh:
+Ownership-critical detail: frontend behavior is dependency-light and mostly data-driven from JSON. Content updates usually do not require JS edits.
+
+---
+
+## 3) Repository Map (What Owns What)
+
+### Root
+
+- `README.md`: this handoff document.
+- `CNAME`: custom domain (`shippingwithpurpose.com`).
+- `package.json`: root scripts for CSS bundling + live static preview.
+
+### Source CSS (authoring only)
+
+- `src/css/main-home.css`
+- `src/css/main-services.css`
+- `src/css/main-mailboxes.css`
+- `src/css/main-print.css`
+- `src/css/blocks/*.css`
+
+Do edits here, not in bundles.
+
+### Deployed frontend
+
+- `public/*.html`: pages.
+- `public/partials/header.html`, `public/partials/footer.html`: reusable HTML loaded at runtime.
+- `public/css/*.bundle.css`: generated CSS bundles (committed artifacts).
+- `public/js/app.js`: primary frontend logic (currently minified/packed style).
+- `public/js/components.js`: partial include loader + nav active-state logic.
+- `public/reviews.json`: review feed data.
+- `public/data/mailbox-content.json`: mailbox pricing/content data source.
+- `public/_headers`, `public/_redirects`: host routing/security/cache directives.
+
+### Node backend
+
+- `server/index.js`: Express app + middleware + static serving + route registration.
+- `server/routes/printRequest.js`: multipart print request route.
+- `server/routes/reservationRequest.js`: mailbox reservation route.
+
+### Worker backend
+
+- `worker-print/index.js`: Cloudflare Worker equivalent API endpoints.
+- `worker-print/wrangler.toml`: worker configuration.
+
+### Utility scripts
+
+- `scripts/build-css.js`: CSS inliner/minifier/bundle writer.
+- `scripts/find-yelp.js`, `scripts/yelp-find-business.js`: Yelp lookup helper scripts.
+
+---
+
+## 4) Page-Level Asset Loading
+
+Every page loads:
+
+- Shared header via `<div data-include="/partials/header.html"></div>`
+- Shared footer via `<div data-include="/partials/footer.html"></div>` (where present)
+- `public/js/components.js`
+- `public/js/app.js`
+
+The page then pulls the page-specific CSS bundle:
+
+- Home: `/css/styles.bundle.css`
+- Services: `/css/services.bundle.css`
+- Mailboxes: `/css/mailboxes.bundle.css`
+- Print: `/css/print.bundle.css`
+
+Also in production pages:
+
+- Inline critical CSS is embedded in `<style>` in each HTML head for early rendering.
+- Font files are preloaded.
+
+---
+
+## 5) CSS Bundle System (How It Works)
+
+### Why this exists
+
+Authoring CSS is modular (`src/css/blocks/*`) but runtime CSS is a single bundle per page to avoid many render-blocking `@import` requests.
+
+### Build process
+
+`npm run build:css` runs `scripts/build-css.js` which:
+
+1. Reads each `src/css/main-*.css` entry file.
+2. Inlines every `@import url("...")` in place.
+3. Applies conservative minification (comments/whitespace punctuation cleanup).
+4. Writes generated file to `public/css/*.bundle.css` with a warning banner.
+
+### Entry -> output mapping
+
+- `main-home.css` -> `styles.bundle.css`
+- `main-services.css` -> `services.bundle.css`
+- `main-mailboxes.css` -> `mailboxes.bundle.css`
+- `main-print.css` -> `print.bundle.css`
+
+### Import order matters
+
+The order in each `main-*.css` is the cascade contract. For example, `main-home.css` imports:
+
+1. `base.css`
+2. `nav.css`
+3. `info-bar.css`
+4. `footer.css`
+5. `forms.css`
+6. `hero.css`
+7. `services-preview.css`
+8. `mailbox-preview.css`
+9. `print.css`
+10. `dropoff.css`
+11. `testimonials.css`
+12. `pricing.css`
+13. `reservation.css`
+
+If ownership changes this order, visual regressions can happen.
+
+### Golden rule for ownership transfer
+
+Do not hand-edit `public/css/*.bundle.css`. Always edit `src/css/*` and rebuild.
+
+---
+
+## 6) Frontend JavaScript Runtime (Detailed)
+
+Main logic lives in `public/js/app.js`.
+
+### 6.1 API failover client
+
+`apiRequest(path, options)` loops through API targets in this sequence:
+
+1. `/api`
+2. `http://localhost:3000/api`
+3. `https://srt-swp.p-vedant7878.workers.dev/api`
+
+For each target, it:
+
+- calls `fetch`
+- requires `content-type` including `application/json`
+- parses JSON
+- throws on non-2xx, using `error` field when present
+
+If all fail, it throws the last error.
+
+### 6.2 Header/mobile nav
+
+`initNav()`:
+
+- binds hamburger menu toggle
+- flips icon menu/close
+- updates `aria-expanded`
+- closes mobile menu on nav link click
+- guards against duplicate initialization with `data-nav-initialized`
+
+It runs immediately and again after components are loaded.
+
+### 6.3 Fade-in sections
+
+IntersectionObserver watches `.fade-section` and adds `.visible` once each section intersects.
+
+### 6.4 Print portal behavior (`print.html`)
+
+When `#print-portal-form` exists, script enables:
+
+- drag/drop upload zone
+- click-to-select files
+- duplicate file protection
+- per-file and aggregate size guard (25 MB total)
+- per-field validation for name/copies
+- remove uploaded file by index
+- submit as multipart `FormData` to `/print-request`
+
+Sent fields:
+
+- `name`
+- `printType`
+- `copies`
+- optional `instructions`
+- repeated `files`
+
+On success:
+
+- success message shown
+- form reset
+- local uploaded file state cleared
+
+On error:
+
+- error message shown in feedback region
+
+### 6.5 Mailbox content loader (data-driven pages)
+
+`loadMailboxContent()` tries to fetch in order:
+
+1. `data/mailbox-content.json`
+2. `/data/mailbox-content.json`
+
+If fetch fails, it uses embedded fallback content object in JS.
+
+The loaded content populates elements using data attributes:
+
+- `data-mailbox-field`
+- `data-mailbox-plan-name`
+- `data-mailbox-plan-desc`
+- card/service fields on services page
+
+### 6.6 Quote calculator (`mailboxes.html`)
+
+When `#quote-calculator` exists, script:
+
+- reads plan pricing from mailbox content JSON
+- tracks selected size/term/add-on
+- applies add-on price (`pricePerMonth`) multiplied by selected term length
+- updates quote card (`q-price`, `q-monthly`, `q-config`, `q-items`)
+- syncs button groups and mobile selects
+- supports URL prefills via `?box=<mini|personal|business|corporate>&term=<3|6|12>`
+
+### 6.7 Pricing modal (`mailboxes.html`)
+
+Modal opens from `#pricing-table-trigger` and closes by:
+
+- close button
+- overlay click
+- Escape key
+
+Also toggles body scroll lock.
+
+### 6.8 FAQ accordion (`services.html`)
+
+One-open-at-a-time behavior for `.faq-item` blocks.
+
+### 6.9 Reviews feed (`index.html`)
+
+`loadLiveReviews()`:
+
+- targets `#reviews-container`
+- fetches from `reviews.json` then `/reviews.json`
+- sanitizes text before render
+- builds review cards with initials avatar and SVG stars
+- computes/falls back relative time
+- supports horizontal prev/next controls
+- includes auto-scroll carousel timer (~3.5s) with pause on hover/touch
+- shows placeholder messages for loading/empty/error states
+
+### 6.10 Reservation drawer (`mailboxes.html`)
+
+Drawer opens from `.mailbox-cta__tile--price` and `.quote-cta`.
+
+Features:
+
+- step UI with progress indicators
+- dynamic price display from selected mailbox type + term
+- `POST /reservation-request` JSON submission
+- loading spinner/button state control
+- success transition + confetti effect
+- close by overlay, close button, or Escape
+
+Request payload:
+
+- `name`
+- `company`
+- `phone`
+- `email`
+- `mailboxType`
+- `term`
+- `mailNotification`
+
+### 6.11 Footer year
+
+`updateFooterYear()` writes current year into `#footer-year`.
+
+### 6.12 Important implementation note
+
+Reservation drawer price reads from `window.mailboxContent || MAILBOX_FALLBACK_CONTENT`. Current script does not assign `window.mailboxContent` during load, so drawer price can rely on fallback values even when JSON loads newer values. This is not a crash issue, but ownership team should keep this behavior in mind when validating pricing changes.
+
+---
+
+## 7) `components.js` Behavior
+
+`includeComponents()`:
+
+1. Finds every `[data-include]` node.
+2. Fetches the include path.
+3. Injects fetched HTML into node.
+4. Calls nav link highlighting and emits `components:loaded` custom event.
+
+`highlightActiveNavLink()` maps routes:
+
+- `/` and `/index.html` -> home
+- `/mailboxes` and `/mailboxes.html` -> mailbox
+- `/print` and `/print.html` -> print
+- `/services` and `/services.html` -> services
+
+This is why nav active state still works with extensionless routes.
+
+---
+
+## 8) Data Contracts
+
+### 8.1 Reviews data file
+
+Path: `public/reviews.json`
+
+Expected shape: array of review objects.
+
+Fields used by UI:
+
+- `author` (string)
+- `source` (string, usually `Google`)
+- `rating` (number 1-5)
+- `text` (string)
+- `daysAgo` (number, optional)
+- `relativeTime` (string, optional, like `2 weeks ago`)
+
+If `daysAgo` is absent, script parses `relativeTime`. If both are weak/missing, defaults are applied.
+
+### 8.2 Mailbox content file
+
+Path: `public/data/mailbox-content.json`
+
+Top-level keys currently include:
+
+- `hero`
+- `cta`
+- `quote`
+- `plans`
+- `reservation`
+- `servicesOverview`
+
+Critical pricing contract:
+
+- `plans.<PlanName>.pricing["3-Month"|"6-Month"|"12-Month"]`
+- `quote.addon.pricePerMonth`
+
+If ownership edits plan names, update both JSON keys and HTML data attributes that reference names.
+
+---
+
+## 9) Backend (Node Express)
+
+Location: `server/`
+
+### 9.1 Startup and middleware
+
+`server/index.js`:
+
+- loads env via `dotenv`
+- parses JSON/urlencoded bodies (25 MB limits)
+- enables CORS (GET/POST/OPTIONS)
+- injects security headers
+- serves static `public/`
+- mounts route files
+- exposes `/api/health`
+
+Security headers include:
+
+- `X-Frame-Options: DENY`
+- `Cross-Origin-Opener-Policy: same-origin`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- CSP policy string
+- HSTS when request indicates HTTPS
+
+### 9.2 Reservation route
+
+`POST /api/reservation-request`
+
+File: `server/routes/reservationRequest.js`
+
+- rate limit: 60 requests / 10 minutes
+- validates required fields and email format
+- sanitizes/normalizes values (`validator`)
+- sends plain-text email using Resend SDK
+- recipient defaults to `mail@shippingwithpurpose.com` if env missing
+
+### 9.3 Print route
+
+`POST /api/print-request`
+
+File: `server/routes/printRequest.js`
+
+- rate limit: 30 requests / 10 minutes
+- multipart upload via `multer.memoryStorage`
+- file count max: 10
+- total upload max: 25 MB
+- MIME allowlist:
+  - PDF
+  - DOC
+  - DOCX
+  - PNG
+  - JPEG
+- sanitizes text fields
+- sends email with attachments via Resend SDK
+- recipient defaults to `print@shippingwithpurpose.com` if env missing
+
+### 9.4 Required environment variables
+
+For both Node and Worker APIs:
+
+- `RESEND_API_KEY` (required)
+- `RESEND_FROM_EMAIL` (required)
+- `RESERVATION_TO_EMAIL` (optional)
+- `PRINT_PORTAL_TO_EMAIL` (optional)
+
+---
+
+## 10) Backend (Cloudflare Worker)
+
+Location: `worker-print/`
+
+### 10.1 Endpoints
+
+- `GET /api/health`
+- `POST /api/reservation-request` (JSON)
+- `POST /api/print-request` (multipart/form-data)
+
+### 10.2 Behavior details
+
+The Worker mirrors Node route intent:
+
+- CORS headers for cross-origin form posts
+- required field checks
+- 25 MB print upload cap
+- attachment conversion to base64 for Resend HTTP API
+
+### 10.3 Secrets/config
+
+`wrangler.toml` comments define expected secrets:
+
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- optional destination emails
+
+---
+
+## 11) Local Development and Testing Runbook
+
+## 11.1 Frontend static preview
+
+At repo root:
 
 ```bash
+npm install
 npm run build:css
 npm run dev:live
 ```
 
-- Serves the deployed site folder: `public/`
-- Live URL: `http://localhost:5500`
-- Auto-reloads when files in `public/` change
+Preview URL: `http://localhost:5500`
 
-If using the VS Code **Live Server** extension, this workspace is configured to serve `/public` as the root in [ .vscode/settings.json ] so `/css/*.bundle.css` and `/assets/*` resolve correctly.
+`npm run preview` does build + live-server in one command.
 
-Note: API form routes in `server/` are not included in `live-server`. Use `cd server && npm install && npm run dev` if you need backend route testing.
+## 11.2 Node API local run
 
----
+In `server/`:
 
-## Copy-Paste Text for Client Updates
-Use the following text blocks to send to the client for review or updates:
+```bash
+npm install
+npm run dev
+```
 
-**Homepage (index.html):**
-- “Your neighborhood shipping home.”
-- “A place where regulars come to chat, packages get handled with care, and everyone is treated like family. Full-service shipping, printing, and private mailboxes — all in one cozy spot.”
-- “Get a Mailbox Quote”
-- “Call Us Now”
-- “Secure & Private”
-- “Community First”
-- “Locally Owned”
-- “All the services you need, in one friendly stop.”
-- “From packages to paperwork — we've got you covered, with a smile.”
+API URL: `http://localhost:3000/api`
 
-**Mailbox Rentals (mailboxes.html):**
-- “Mailbox Rentals”
-- “Your personal or business address - secure, private, and professional.”
-- “Box Size: Mini, Personal, Business, Corporate”
-- “Rental Term: 3-Month, 6-Month, 12-Month”
-- “Mail Notifications: Get notified when mail or packages arrive — via email or phone. $1/month added to your rental.”
-- “Full Pricing Breakdown”
-- “Everything included with your mailbox.”
-- “Business Address, Not Your Home: Use our street address for business registration, banking, and professional mail while keeping your home address private.”
-- “All Carriers Welcome: Accept packages from USPS, UPS, FedEx, DHL, Amazon, and any other courier service.”
-- “Mail Notifications: Get notified by text or email when mail or packages arrive — optional add-on for $1/month.”
-- “Secure & Private: Keep your home address off public records. Your mail is locked and only accessible to you.”
-- “No Hidden or Sign-Up Fees: Straightforward pricing with clear terms. Choose 3, 6, or 12-month plans with no surprise onboarding charges.”
-- “Business Ready: Perfect for LLC registration, business banking, and keeping your home address private.”
-- “Reserve Your Mailbox”
-- “Complete your info and we'll get you set up.”
-- “USPS Form 1583: Required for all private mailbox rentals. You can fill it online or bring a printed copy.”
-- “What to Bring In: Complete your online form above, then visit us to finish your mailbox rental. You'll need:”
-- “Private mailbox rentals require identity verification per USPS regulations. Accepted payment methods: Cash, Check, Credit Card, Debit Card.”
-- “Complete Reservation”
+Health check:
 
-**Services (services.html):**
-- “Our Services”
-- “Reliable, in-store support for shipping, printing, business paperwork, and private mailbox service.”
-- “Shipping: Compare rates across top carriers and get your packages delivered safely and on time. Domestic & International, Certified Mail, Custom Packaging. Drop-offs: Free.”
-- “Printing: Fast everyday printing for forms, photos, and documents with clear pickup timelines. Black & White, Full-Color, Lamination. Starting at $0.50.”
-- “Business: Essential paperwork services in one stop for small business and everyday admin needs. Fax, Notary Public, Shred. Notary from $10.”
-- “Mailbox Services: Get a real street address with secure mail handling and optional forwarding. Package Storage, Mail Forwarding, Magazine/Newspaper Storage. Plans from $57.”
-- “Need supplies? We carry boxes, stamps, tape, envelopes, bubble wrap, and more — available in store.”
-- “FAQ”
-- “Common questions”
-- “What do I need to rent a mailbox? You'll need two forms of ID and a completed USPS Form 1583. You can download and fill out Form 1583 ahead of time to make your visit faster. We'll handle the rest when you come in.”
-- “Can I receive packages from any carrier with a mailbox rental? Yes! Unlike a P.O. Box, our private mailboxes accept packages from all carriers — USPS, UPS, FedEx, DHL, and any other courier or delivery service.”
-- “How will I know when I have mail or a package? All plans include mail notification. We'll let you know by text or email when something arrives for you — so you only make the trip when you need to.”
-- “What shipping carriers do you work with? We're authorized to ship with USPS, UPS, FedEx, and DHL. We can help you compare rates and packaging options to get the best deal for your shipment.”
-- “Do you offer same-day printing? Yes! For most standard print jobs, we can have it ready the same day. Larger or specialty orders may take longer — give us a call or submit a printing request and we'll give you a realistic timeline.”
-- “Is a Notary Public available without an appointment? Walk-ins are welcome! Our notary is generally available during business hours. For time-sensitive documents, you can call ahead to confirm availability.”
-- “Can I use my mailbox address for my business? Absolutely. Our mailboxes come with a real street address — perfect for business registration, receiving packages, and keeping your home address private.”
-- “Local shipping, printing, and mailbox services with friendly, accurate, and fast support.”
-- “Locally owned & operated in Scottsdale, AZ.”
+```bash
+curl http://localhost:3000/api/health
+```
+
+## 11.3 Worker local run
+
+In `worker-print/` (with Wrangler installed):
+
+```bash
+wrangler dev
+```
+
+Worker local endpoint usually runs on `http://localhost:8787`.
+
+Because frontend `API_TARGETS` already includes local Node and worker fallback URL, local tests should verify which target responded.
+
+## 11.4 Ownership smoke test checklist
+
+1. Home page loads header/footer includes.
+2. Mobile nav opens/closes and active nav state is correct.
+3. Reviews carousel loads from JSON and scroll controls work.
+4. Services FAQ accordion toggles one item at a time.
+5. Mailbox quote updates on size/term/add-on changes.
+6. Pricing modal opens/closes via all close paths.
+7. Reservation drawer submits successfully and shows step 2 success.
+8. Print portal validates file limits and submits attachments.
+9. Footer year reflects current year.
+10. `/api/health` responds on whichever backend is live.
 
 ---
 
-## Legal Disclaimer
+## 12) Deployment and Ownership Transfer Checklist
+
+This is the minimum handoff sequence for a new owner/team.
+
+1. Source control transfer
+   - transfer repository admin rights
+   - confirm branch protections and deploy branch
+2. Domain transfer
+   - verify registrar ownership and DNS access
+   - preserve `CNAME` target behavior
+3. Hosting/CDN transfer
+   - transfer account for platform consuming `public/`
+   - verify `_headers` and `_redirects` are applied in production
+4. Email infrastructure transfer
+   - transfer Resend account/project and API key ownership
+   - validate sender domain and `RESEND_FROM_EMAIL`
+5. Secrets migration
+   - set all required env vars in Node host and/or Worker
+6. Form delivery verification
+   - confirm both reservation and print emails arrive at new inboxes
+7. Worker ownership
+   - transfer Cloudflare account/project + Wrangler access if worker remains active
+8. Monitoring/log access
+   - ensure new owner can inspect runtime errors and delivery failures
+9. Final acceptance
+   - run full smoke test checklist from section 11.4
+
+---
+
+## 13) Content Update Playbooks
+
+### 13.1 Update reviews shown on home page
+
+1. Edit `public/reviews.json`.
+2. Keep valid JSON array.
+3. Include at least `author`, `rating`, `text` per item.
+4. Deploy.
+
+No rebuild needed for reviews-only updates.
+
+### 13.2 Update mailbox pricing/content
+
+1. Edit `public/data/mailbox-content.json`.
+2. Update `plans` pricing and any labels/descriptions.
+3. Validate quote calculator and reservation drawer values.
+4. Deploy.
+
+No CSS rebuild needed for JSON-only content updates.
+
+### 13.3 Update page styling
+
+1. Edit `src/css/blocks/*` and/or `src/css/main-*.css`.
+2. Run `npm run build:css`.
+3. Verify changed bundle file(s) in `public/css/`.
+4. Deploy.
+
+---
+
+## 14) Known Constraints and Risks
+
+1. `public/js/app.js` is committed minified-like output with no JS build pipeline in root scripts; debugging is harder.
+2. Reservation drawer dynamic price path currently can rely on JS fallback content instead of loaded JSON (see section 6.12).
+3. Worker README in `worker-print/README.md` is outdated relative to current endpoint payload expectations (current worker supports reservation JSON and print multipart).
+4. Security and cache policy correctness depends on host support for `_headers` and `_redirects` semantics.
+
+---
+
+## 15) Commands Reference
+
+### Root
+
+```bash
+npm install
+npm run build:css
+npm run dev:live
+npm run preview
+```
+
+### Server
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+### Worker
+
+```bash
+cd worker-print
+wrangler secret put RESEND_API_KEY
+wrangler secret put RESEND_FROM_EMAIL
+wrangler secret put RESERVATION_TO_EMAIL
+wrangler secret put PRINT_PORTAL_TO_EMAIL
+wrangler dev
+wrangler publish
+```
+
+### Yelp utility scripts
+
+From repo root (requires `.env` with `YELP_API_KEY`):
+
+```bash
+node scripts/find-yelp.js "Business Name" "City, ST"
+node scripts/yelp-find-business.js "Business Name" "City, ST"
+```
+
+---
+
+## 16) If You Need to Rebuild Trust in Production Quickly
+
+Fast diagnostic order during incidents:
+
+1. Open `/api/health` on primary backend.
+2. Submit test reservation with obvious marker text.
+3. Submit tiny print request file (<1 MB).
+4. Check email inboxes for both routes.
+5. Check browser console for include/load failures.
+6. Confirm `reviews.json` and `mailbox-content.json` are reachable.
+7. Confirm `_redirects` route behavior and custom domain DNS.
+
+---
+
+## 17) Preservation Rule for Future Teams
+
+For safe continuity, preserve this principle:
+
+- author from `src/`
+- ship from `public/`
+- treat JSON files as business-content control plane
+- keep both backend paths (Node + Worker) documented even if only one is active
+
+---
+
+## Legal Notice (Repeated)
+
 All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
