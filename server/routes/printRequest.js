@@ -1,3 +1,52 @@
+/**
+ * server/routes/printRequest.js
+ * ==============================
+ * API endpoint for print job submissions.
+ *
+ * PURPOSE:
+ * - Handles POST /api/print-request from frontend
+ * - Accepts file uploads (up to 25MB total)
+ * - Validates form inputs (name, copies, file types)
+ * - Sends confirmation email with attachments via Resend API
+ * - Rate-limited to prevent abuse
+ *
+ * ENDPOINT:
+ * - POST /api/print-request
+ *   Accepts: multipart/form-data
+ *   - files: up to 10 files (PDF, DOC, DOCX, PNG, JPEG)
+ *   - name: required string
+ *   - printType: "Black & White" or "Color" (optional, default: "Black & White")
+ *   - copies: 1-10000 (required)
+ *   - instructions: optional string
+ *   Returns: { success: true/false, error?: string }
+ *
+ * REQUIREMENTS:
+ * - express, multer (file uploads)
+ * - express-rate-limit (spam protection)
+ * - validator (input sanitization)
+ * - Resend API (email service)
+ *
+ * ENV VARIABLES REQUIRED:
+ * - RESEND_API_KEY:           Email service API key
+ * - RESEND_FROM_EMAIL:        Sender email address
+ *
+ * ENV VARIABLES OPTIONAL:
+ * - PRINT_PORTAL_TO_EMAIL:    Recipient email (default: mail@shippingwithpurpose.com)
+ *
+ * RATE LIMITING:
+ * - Max 30 requests per 10 minutes per IP
+ * - Returns 429 (Too Many Requests) if exceeded
+ *
+ * FILE VALIDATION:
+ * - Max file size: 25MB total
+ * - Max files: 10
+ * - Allowed types: PDF, DOCX, DOC, PNG, JPEG
+ *
+ * INPUT VALIDATION:
+ * - Name: required, non-empty
+ * - Copies: 1-10000 (numeric)
+ * - Files: at least 1 required
+ */
 const express = require('express');
 const router = express.Router();
 const { Resend } = require('resend');

@@ -1,3 +1,64 @@
+<!--
+  public/partials/footer.html
+  ============================
+  FOOTER PARTIAL - Reusable footer component
+  
+  PURPOSE:
+  - Site footer shown on all pages
+  - Injected via data-include="/partials/footer.html" in HTML pages
+  - Loaded by public/js/components.js
+  - Contains contact info, hours, links, social, copyright
+  
+  STRUCTURE:
+  - footer.footer - Main footer container
+  - footer__grid - Responsive column layout
+  - footer__col - Individual footer column:
+    * Column 1: Brand, tagline, contact info (phone, address, email)
+    * Column 2: Quick links (Home, Mailbox, Print, Services)
+    * Column 3: Hours of operation
+    * Column 4: Social media links
+  - footer__brand - Logo and name
+  - footer__list - Navigation lists
+  - footer__link - Interactive links with icons
+  - footer__copyright - Copyright and legal text
+  
+  CONTACT INFORMATION:
+  - Phone: (602) 960-4882
+  - Address: 10105 E Via Linda Ste 103, Scottsdale, AZ
+  - Email: store@shippingwithpurpose.com
+  - Map link uses Google Maps for directions
+  
+  HOURS:
+  - Monday-Friday: 9:00 AM - 5:00 PM
+  - Saturday: 9:00 AM - 2:30 PM
+  - Sunday: Closed
+  
+  SOCIAL LINKS:
+  - Facebook: https://www.facebook.com/shippingwithpurpose
+  - Instagram: https://www.instagram.com/shippingwithpurpose
+  - Opens in new tab (target="_blank", rel="noopener")
+  
+  STYLING:
+  - CSS: src/css/blocks/footer.css
+  - Variables: --navy, --kraft, --space-*, --muted
+  - BEM classes: footer__*
+  - Responsive grid: 1 col mobile, 2-4 cols desktop
+  
+  ICONS:
+  - phone.svg, marker.svg, envelope.svg - SVG icons from assets/icons/
+  - Icons have class icon-img--invert for dark bg contrast
+  
+  LINKS:
+  - All nav links use relative paths (/, /mailboxes, /print, /services)
+  - External links have rel="noopener" for security
+  - Tel and mailto links for direct contact
+  
+  NOTE:
+  - This footer is included on all pages, update here affects everywhere
+  - Contact info should match server/routes for consistency
+  - Hours also shown elsewhere (check schema.org in HTML head)
+  - Update social links if profiles change
+-->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

@@ -1,3 +1,44 @@
+/**
+ * scripts/yelp-find-business.js
+ * ==============================
+ * Helper script to find a business on Yelp and get its ID.
+ *
+ * PURPOSE:
+ * - Query Yelp API for businesses matching a search term + location
+ * - Display top 5 results with IDs, ratings, review counts, addresses
+ * - Help you identify the correct business for review fetching
+ *
+ * USAGE:
+ * - node scripts/yelp-find-business.js "Shipping with Purpose" "Scottsdale, AZ"
+ * - Or set YELP_SEARCH_TERM and YELP_SEARCH_LOCATION in .env and run without args
+ *
+ * REQUIREMENTS:
+ * - dotenv (load .env variables)
+ * - YELP_API_KEY must be set in .env (get from https://www.yelp.com/developers)
+ * - Node.js fetch API (built-in in Node 18+)
+ *
+ * OUTPUT FORMAT:
+ * 1. Business Name
+ *    ID: business-id-slug
+ *    Rating: 4.9 | Reviews: 42
+ *    Address: Street, City, State ZIP
+ *
+ * WORKFLOW:
+ * 1. First, run find-yelp.js to search for the business
+ * 2. Find the correct ID from the results
+ * 3. Set YELP_BUSINESS_ID in .env
+ * 4. Then run yelp-find-business.js to fetch recent reviews
+ *
+ * ERROR HANDLING:
+ * - Missing YELP_API_KEY: throws error with setup instructions
+ * - No results found: suggests trying different search parameters
+ * - API errors: shows Yelp API error message and HTTP status
+ *
+ * NEXT STEPS:
+ * - Copy the correct business ID to .env
+ * - Use that ID to fetch reviews via Yelp Reviews API
+ * - Output reviews to public/reviews.json for homepage display
+ */
 const dotenv = require("dotenv");
 
 dotenv.config();

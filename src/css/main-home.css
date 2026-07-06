@@ -1,3 +1,70 @@
+/**
+ * src/css/main-home.css
+ * ======================
+ * Homepage stylesheet entry point
+ *
+ * PURPOSE:
+ * - Source of truth for homepage styling
+ * - This file is compiled by scripts/build-css.js
+ * - Output: public/css/styles.bundle.css (do NOT edit)
+ *
+ * BUILD PROCESS:
+ * 1. This file imports block components
+ * 2. build-css.js inlines all @import statements
+ * 3. Minifies CSS (removes comments, whitespace)
+ * 4. Writes output to public/css/styles.bundle.css
+ * 5. Run: npm run build:css
+ *
+ * STRUCTURE:
+ * - @import base.css: Design tokens, resets, global styles
+ * - @import blocks/*: Modular component styles
+ * - Local overrides: z-index stacking context, page-specific tweaks
+ *
+ * DESIGN TOKENS (from blocks/base.css):
+ * - Colors: --navy, --kraft, --white, --charcoal, --body-text, --muted
+ * - Spacing: --space-4, --space-8, --space-16, --space-24, --space-32, etc.
+ * - Typography: --fs-0, --fs-1, --fs-3, --fs-h1-fluid, --fs-section-heading
+ * - Shadows, borders, border-radius via CSS variables
+ *
+ * COMPONENT BLOCKS (ordered by appearance on page):
+ * - base.css: Resets, tokens, font-face, html/body styles
+ * - nav.css: Header, navigation, hamburger menu
+ * - info-bar.css: Promotional banner/info bar
+ * - hero.css: Main hero section with CTA
+ * - services-preview.css: Service cards carousel
+ * - mailbox-preview.css: Mailbox overview section
+ * - print.css: Print service preview
+ * - dropoff.css: Drop-off instructions
+ * - testimonials.css: Customer reviews carousel (Swiper)
+ * - pricing.css: Pricing comparison cards
+ * - reservation.css: Reservation modal/drawer overlay
+ * - forms.css: Form inputs, buttons, validation states
+ * - footer.css: Site footer
+ *
+ * LOCAL OVERRIDES:
+ * - .site-header { z-index: 5; } - Header stays above reservation modal (z-index: 1000)
+ *
+ * MOBILE-FIRST APPROACH:
+ * - Base styles for mobile
+ * - Media queries in blocks for tablet/desktop
+ * - Breakpoints: 640px, 768px, 1024px, 1200px, 1400px, 1920px
+ *
+ * EDITING:
+ * - Edit this file to change import order or add overrides
+ * - NEVER edit public/css/styles.bundle.css
+ * - After any changes: npm run build:css
+ * - Test: npm run preview (serves on :5500)
+ *
+ * DEPENDENCIES:
+ * - blocks/base.css is imported first (must be before all components)
+ * - BEM naming convention across all blocks
+ * - CSS custom properties (variables) used throughout
+ *
+ * SEE ALSO:
+ * - FILE_GUIDE.md: Architecture overview
+ * - scripts/build-css.js: Build process details
+ * - All blocks in src/css/blocks/: Individual component documentation
+ */
 /* Home page CSS entry */
 @import url("blocks/base.css");
 @import url("blocks/nav.css");

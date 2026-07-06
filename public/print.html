@@ -1,3 +1,65 @@
+<!--
+  public/print.html
+  ==================
+  PRINT PORTAL - Online document printing service page
+  
+  PURPOSE:
+  - Dedicated page for print job submissions
+  - Allow users to upload documents for printing
+  - Select print options (color, B&W, copies)
+  - View uploaded files before submission
+  - Submit print jobs and get confirmation
+  
+  KEY SECTIONS:
+  - data-include="/partials/header.html" - Navigation (injected by components.js)
+  - page-hero - Interior page hero for "Print Services"
+  - print-portal-form - Main upload form:
+    * File upload zone (drag & drop, file picker)
+    * Name field (required)
+    * Print type selector (Black & White, Color)
+    * Copies input (1-10000)
+    * Special instructions textarea
+    * Submit button
+  - upload-doc-list - Display uploaded files with preview
+  - print-portal-feedback - Status messages/errors
+  - data-include="/partials/footer.html" - Footer (injected by components.js)
+  
+  FILE UPLOAD:
+  - Supported formats: PDF, DOC, DOCX, PNG, JPEG
+  - Max file size: 25MB total
+  - Max files: 10 files
+  - Uploaded as multipart/form-data to POST /api/print-request
+  
+  STYLING:
+  - CSS: public/css/print.bundle.css (generated from src/css/main-print.css)
+  - Components: page-hero.css, forms.css, print.css
+  
+  SCRIPTS:
+  - public/js/components.js - Loads partials
+  - public/js/app.js - Print form handler:
+    * Drag & drop file handling
+    * File validation (type, size)
+    * Display uploaded files in list
+    * Form validation
+    * Submit to POST /api/print-request
+    * Handle API fallback chain (local → worker)
+  
+  FORM SUBMISSION:
+  - Endpoint: POST /api/print-request
+  - Fields:
+    * files: multipart file upload (10 max)
+    * name: required string
+    * printType: "Black & White" or "Color"
+    * copies: number (1-10000)
+    * instructions: optional string
+  - Response: { success: true/false, error?: string }
+  - Email sent with file attachments via Resend API
+  - Rate limited: 30 requests per 10 minutes
+  
+  SEO:
+  - Canonical URL: /print
+  - Keywords: print services, document printing, local print shop
+-->
 
 <!doctype html>
 <html lang="en">

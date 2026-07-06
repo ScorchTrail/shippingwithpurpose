@@ -1,3 +1,35 @@
+/**
+ * src/css/main-mailboxes.css
+ * ===========================
+ * Mailbox Rentals page stylesheet entry point
+ *
+ * PURPOSE:
+ * - Styles for /mailboxes.html page
+ * - Compiled by scripts/build-css.js → public/css/mailboxes.bundle.css
+ * - Do NOT edit the generated .bundle.css file
+ *
+ * PAGE STRUCTURE:
+ * - Header (nav.css)
+ * - Info bar (info-bar.css)
+ * - Page hero (page-hero.css)
+ * - Mailbox cards (mailbox.css)
+ * - Features/perks (perks.css)
+ * - Quote builder (quote.css)
+ * - Pricing tiers (pricing.css)
+ * - Footer (footer.css)
+ *
+ * KEY COMPONENTS:
+ * - Quote builder: Interactive pricing calculator
+ * - Mailbox cards: Different sizes (Personal, Standard, Large, Extra Large)
+ * - Pricing table: Rental terms (1, 3, 6, 12 months)
+ * - Reservation form: Collects user info for booking
+ *
+ * RUNNING:
+ * - npm run build:css - After any changes, rebuild
+ * - npm run preview - View on localhost:5500/mailboxes.html
+ *
+ * SEE ALSO: FILE_GUIDE.md for full documentation
+ */
 /* Mailboxes page CSS entry */
 @import url("blocks/base.css");
 @import url("blocks/nav.css");

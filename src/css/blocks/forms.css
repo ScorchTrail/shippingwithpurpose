@@ -1,4 +1,26 @@
-/* ============================================================ FORMS (shared controls) */
+/**
+ * src/css/blocks/forms.css
+ * =========================
+ * Form controls: inputs, buttons, labels, validation states
+ *
+ * PURPOSE:
+ * - Reusable form component styles
+ * - Used on: print portal, reservation drawer, mailbox pages
+ * - Consistent validation feedback (error, success, focus states)
+ * - Accessible form controls (proper labels, focus indicators)
+ *
+ * COMPONENTS:
+ * .form-group: Container for label + input (margin: --space-16)
+ * .form-label: Label text (--navy color, bold)
+ * .form-input: Text input, textarea, select
+ * .form-input:focus: Blue focus ring (--navy with 0.1 opacity)
+ * .form-input.error: Red border (--error-color)
+ * .form-input.success: Green border (--success-color)
+ * .btn: Primary button styles
+ * .btn--navy: Navy/brand color button
+ * .btn--outline: Outline button variant
+ *
+ * BUTTON STATES:\n * - .btn:hover: Darker background\n * - .btn:focus: Focus ring\n * - .btn:disabled: Grayed out, cursor: not-allowed\n * - .btn.loading: Show spinner or loading state\n *\n * FORM GROUPS:\n * - flex column layout\n * - label above input\n * - margin below for spacing\n *\n * ACCESSIBILITY:\n * - Labels always paired with inputs (for=id)\n * - Focus indicators visible (min 3px ring)\n * - Color alone doesn't convey meaning\n * - WCAG AA compliant color contrast\n *\n * USAGE:\n * Print form (public/print.html):\n * - .form-input for name, copies, instructions\n * - .btn for submit\n *\n * Reservation form (mailboxes.html):\n * - .form-input for name, company, email, phone\n * - .btn for submit\n *\n * SEE ALSO:\n * - base.css: Design tokens (colors, spacing)\n * - public/partials/header.html: Nav button styles\n * - server/routes/: Form validation (server-side)\n */\n\n/* ============================================================ FORMS (shared controls) */
 
 .form-group {
   margin-bottom: var(--space-16);

@@ -2,9 +2,63 @@
 
 Transfer-of-ownership reference guide for the Shipping with Purpose website and form backends.
 
+---
+
+## 📚 Documentation Index (START HERE)
+
+**New to this project?** Read these in order:
+
+1. **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** ← **Start here** (5 min read)
+   - Local setup instructions
+   - Environment variable guide
+   - Common tasks & troubleshooting
+
+2. **[docs/FILE_GUIDE.md](docs/FILE_GUIDE.md)** (20 min read)
+   - Complete file-by-file reference
+   - Architecture overview
+   - All endpoints documented
+
+3. **[docs/CODEBASE.md](docs/CODEBASE.md)** (reference)
+   - File annotation index
+   - Quick navigation by use case
+   - Links to all documented files
+
+---
+
+## Legal Notice
+
 ## Legal Notice
 
 All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
+
+---
+
+## 🚀 Quick Start (Frontend Only)
+
+```bash
+npm install
+npm run build:css
+npm run preview
+# Opens http://localhost:5500
+```
+
+**Want to run with backend?** → See [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
+
+---
+
+## ⚙️ Environment Variables - `.env` vs `.env.example`
+
+| File | Commit? | Purpose |
+|------|---------|---------|
+| `.env.example` | ✅ YES | Template - safe to commit |
+| `.env` | ❌ NO | Secrets - never commit (in .gitignore) |
+
+**Do you need `.env`?**
+- **Frontend only**: No
+- **Running backend locally**: Yes (copy `.env.example` → `.env`)
+- **Production**: Set variables in Netlify/Vercel dashboard
+
+→ Full setup guide: [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md#-environment-variables-env)
 
 ---
 
@@ -676,3 +730,22 @@ For safe continuity, preserve this principle:
 ## Legal Notice (Repeated)
 
 All code in this repository is not for personal or unauthorized use. If you are caught using any part of this source code without explicit permission, legal action will be taken to protect the owner. This is a public repository, but usage is restricted.
+
+---
+
+## 📖 Complete Documentation
+
+This README is an overview. For detailed information, see:
+
+| Document | Purpose |
+|----------|---------|
+| **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** | Setup, environment variables, local development, common tasks |
+| **[docs/FILE_GUIDE.md](docs/FILE_GUIDE.md)** | Complete file-by-file reference with architecture details |
+| **[docs/CODEBASE.md](docs/CODEBASE.md)** | File annotation index & quick navigation by use case |
+| **[docs/PROJECT_ORGANIZATION.md](docs/PROJECT_ORGANIZATION.md)** | Project organization & documentation structure |
+| **Individual file headers** | Specific implementation details in source files |
+
+---
+
+**Last Updated**: 2026-07-06  
+**Status**: Fully annotated & professionally organized

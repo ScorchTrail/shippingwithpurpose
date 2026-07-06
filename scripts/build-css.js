@@ -1,13 +1,40 @@
 #!/usr/bin/env node
 /**
- * build-css.js — concatenates each page's modular CSS source into a single
- * minified bundle, eliminating render-blocking sequential @import requests.
+ * scripts/build-css.js
+ * ====================
+ * CSS bundler: concatenates modular CSS source into production bundles.
  *
- * Source of truth:  src/css/main-<page>.css  (+ src/css/blocks/*.css)  — not deployed
- * Output (generated): public/css/<bundle>.css  — committed + served
+ * PURPOSE:
+ * - Reads source CSS from src/css/main-*.css files
+ * - Inlines all @import url("blocks/*.css") references
+ * - Minifies output (removes comments, collapses whitespace)
+ * - Writes bundled CSS to public/css/*.bundle.css
+ * - Idempotent: safe to run multiple times
  *
- * Run:  npm run build:css
- * Never hand-edit the generated *.bundle.css files — edit the source and rebuild.
+ * BUILD FLOW:
+ * 1. Read main-home.css → inline blocks/ imports → minify → write styles.bundle.css
+ * 2. Read main-services.css → inline blocks/ imports → minify → write services.bundle.css
+ * 3. Read main-mailboxes.css → inline blocks/ imports → minify → write mailboxes.bundle.css
+ * 4. Read main-print.css → inline blocks/ imports → minify → write print.bundle.css
+ *
+ * WHY THIS APPROACH?
+ * - Eliminates render-blocking @import chains (performance win)
+ * - Keeps source files modular (maintainability)
+ * - Bundles are generated, not committed (single source of truth)
+ * - Minification reduces file size
+ *
+ * RUNNING:
+ * - npm run build:css
+ * - Run this whenever you edit files in src/css/
+ *
+ * IMPORTANT:
+ * - NEVER edit public/css/*.bundle.css directly
+ * - Always edit source files in src/css/ and rebuild
+ * - If imports are missing, the build will throw an error
+ *
+ * DEPENDENCIES:
+ * - fs (Node built-in)
+ * - path (Node built-in)
  */
 'use strict';
 

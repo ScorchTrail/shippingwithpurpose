@@ -1,3 +1,51 @@
+/**
+ * server/index.js
+ * ================
+ * Express server for Shipping with Purpose API.
+ *
+ * PURPOSE:
+ * - Serves static frontend from ../public/
+ * - Provides API endpoints for form submissions (print requests, reservations)
+ * - Handles email sending via Resend API
+ * - Implements security headers (CSP, HSTS, etc.)
+ * - Optional: Frontend can fallback to this if Cloudflare Worker is down
+ *
+ * ENDPOINTS:
+ * - POST /api/print-request       → routes/printRequest.js
+ * - POST /api/reservation-request → routes/reservationRequest.js
+ * - GET  /api/health              → Health check (JSON response)
+ * - GET  *                         → SPA fallback (serves index.html)
+ *
+ * REQUIREMENTS:
+ * - dotenv (load .env variables)
+ * - express (server framework)
+ * - cors (cross-origin requests)
+ * - Other: multer, express-rate-limit, validator, resend (see routes/)
+ *
+ * ENV VARIABLES REQUIRED:
+ * - RESEND_API_KEY:           Email service API key
+ * - RESEND_FROM_EMAIL:        Email sender address
+ * - PORT (optional):          Server port (default: 3000)
+ *
+ * ENV VARIABLES OPTIONAL:
+ * - RESERVATION_TO_EMAIL:     Recipient for reservation forms (default: mail@shippingwithpurpose.com)
+ * - PRINT_PORTAL_TO_EMAIL:    Recipient for print forms (default: mail@shippingwithpurpose.com)
+ *
+ * RUNNING:
+ * - cd server && npm install
+ * - Copy .env.example → .env and fill in values
+ * - npm start (or node index.js)
+ * - Server runs on http://localhost:3000
+ *
+ * SECURITY:
+ * - All responses include CSP, X-Frame-Options, HSTS headers
+ * - JSON/URL body parsing limited to 25MB
+ * - CORS enabled for cross-origin requests
+ *
+ * RATE LIMITING:
+ * - Print requests: 30 per 10 minutes
+ * - Reservations: 60 per 10 minutes
+ */
 require('dotenv').config();
 const express = require('express');
 const path = require('path');

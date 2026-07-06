@@ -1,3 +1,65 @@
+/**
+ * src/css/blocks/nav.css
+ * =======================
+ * Navigation header and mobile menu styles
+ *
+ * PURPOSE:
+ * - Sticky site header with logo and navigation links
+ * - Mobile hamburger menu toggle
+ * - Active link highlighting
+ * - BEM classes for maintainability
+ *
+ * STRUCTURE:
+ * .site-header (sticky container)
+ *   .nav (flex row: logo | links | cta | hamburger)
+ *     .nav__brand (logo + company name)
+ *     .nav__links (desktop nav links)
+ *     .nav__cta (primary button)
+ *     .nav__hamburger (mobile menu toggle)
+ *   .nav__menu (mobile menu, hidden by default)
+ *     .nav__menu-link (mobile nav links)
+ *
+ * CLASSES & MODIFIERS:
+ * - .nav__brand--active: Active nav link in desktop menu
+ * - .nav__menu-link--active: Active nav link in mobile menu
+ * - .nav__menu--open: Applied when hamburger clicked
+ * - .site-header.sticky: Applied when scrolling
+ * - aria-expanded="true/false": Hamburger accessibility
+ *
+ * MOBILE BEHAVIOR:
+ * - On small screens (<768px):
+ *   * .nav__links hidden (display: none)
+ *   * Hamburger button visible
+ *   * Click toggles .nav__menu--open
+ * - On large screens (>=768px):
+ *   * .nav__links displayed as flex row
+ *   * Hamburger button hidden
+ *
+ * JAVASCRIPT INTERACTION:
+ * - public/js/app.js initNav():
+ *   * Sets up hamburger click listener
+ *   * Toggles nav__menu--open class
+ *   * Swaps icon (menu.svg <-> close.svg)
+ * - public/js/components.js highlightActiveNavLink():
+ *   * Compares current pathname to nav link hrefs
+ *   * Adds --active class to matching link
+ *
+ * STYLING:
+ * - Uses --navy for brand color
+ * - Uses --space-* for consistent spacing
+ * - Uses --fs-* for responsive typography
+ * - BEM naming: .nav__element--modifier
+ * - Z-index: sticky header above content
+ *
+ * RESPONSIVE BREAKPOINTS:
+ * - 768px: Switch between mobile hamburger and desktop nav
+ *
+ * SEE ALSO:
+ * - public/partials/header.html (HTML structure)
+ * - public/js/components.js (active link highlighting)
+ * - public/js/app.js (hamburger interaction)
+ */
+
 /* Hover effect for dropdown menu links */
 .nav__menu-link:hover {
   background: rgba(26, 54, 93, 0.10);

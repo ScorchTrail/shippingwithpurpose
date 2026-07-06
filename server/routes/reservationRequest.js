@@ -1,3 +1,60 @@
+/**
+ * server/routes/reservationRequest.js
+ * ====================================
+ * API endpoint for mailbox reservation requests.
+ *
+ * PURPOSE:
+ * - Handles POST /api/reservation-request from frontend
+ * - Accepts mailbox rental reservation form data
+ * - Validates all required fields
+ * - Sanitizes inputs against XSS/injection attacks
+ * - Sends confirmation email via Resend API
+ * - Rate-limited to prevent abuse
+ *
+ * ENDPOINT:
+ * - POST /api/reservation-request
+ *   Accepts: application/json
+ *   - name: required string
+ *   - email: required, valid email
+ *   - phone: required string
+ *   - company: optional string (business name)
+ *   - mailboxType: required string (size)
+ *   - term: required string (rental period)
+ *   - mailNotification: optional boolean (subscribe to mail alerts)
+ *   Returns: { success: true/false, error?: string }
+ *
+ * REQUIREMENTS:
+ * - express
+ * - express-rate-limit (spam protection)
+ * - validator (input validation + sanitization)
+ * - Resend API (email service)
+ *
+ * ENV VARIABLES REQUIRED:
+ * - RESEND_API_KEY:            Email service API key
+ * - RESEND_FROM_EMAIL:         Sender email address
+ *
+ * ENV VARIABLES OPTIONAL:
+ * - RESERVATION_TO_EMAIL:      Recipient email (default: mail@shippingwithpurpose.com)
+ *
+ * RATE LIMITING:
+ * - Max 60 requests per 10 minutes per IP
+ * - Returns 429 (Too Many Requests) if exceeded
+ *
+ * VALIDATION:
+ * - All required fields checked
+ * - Email format validated via validator.isEmail()
+ * - All inputs escaped/sanitized to prevent XSS
+ * - Length limits enforced on all fields
+ *
+ * FLOW:
+ * 1. Rate limit check
+ * 2. Required field validation
+ * 3. Email format validation
+ * 4. Input sanitization (escape, normalize)
+ * 5. Build plain text email
+ * 6. Send via Resend API
+ * 7. Return JSON response
+ */
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const validator = require('validator');

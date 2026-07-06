@@ -1,3 +1,32 @@
+/**
+ * src/css/main-services.css
+ * ==========================
+ * Services page stylesheet entry point
+ *
+ * PURPOSE:
+ * - Styles for /services.html page
+ * - Compiled by scripts/build-css.js → public/css/services.bundle.css
+ * - Do NOT edit the generated .bundle.css file
+ *
+ * PAGE STRUCTURE:
+ * - Header (nav.css)
+ * - Info bar (info-bar.css)
+ * - Page hero (page-hero.css)
+ * - Service cards (service.css)
+ * - FAQ accordion (faq.css)
+ * - Footer (footer.css)
+ *
+ * KEY COMPONENTS:
+ * - Service cards: Grid layout showing all services
+ * - Each card: icon, title, description, link
+ * - FAQ: Common questions with expandable answers
+ *
+ * RUNNING:
+ * - npm run build:css - After any changes, rebuild
+ * - npm run preview - View on localhost:5500/services.html
+ *
+ * SEE ALSO: FILE_GUIDE.md for full documentation
+ */
 /* Services page CSS entry */
 @import url("blocks/base.css");
 @import url("blocks/nav.css");

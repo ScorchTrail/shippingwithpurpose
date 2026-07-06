@@ -1,4 +1,40 @@
-/* ============================================================ TOKENS */
+/**
+ * src/css/blocks/base.css
+ * =======================
+ * Design system tokens and global resets
+ *
+ * PURPOSE:
+ * - Define all CSS custom properties (variables)
+ * - Global element resets (*, html, body, headings, links, etc.)
+ * - Font-face declarations
+ * - Must be imported FIRST before all other blocks
+ *
+ * SECTIONS:
+ * 1. CSS CUSTOM PROPERTIES (--navy, --kraft, --space-*, --fs-*, etc.)
+ * 2. GLOBAL RESETS (*, html, body element defaults)
+ * 3. TYPOGRAPHY (headings, links, text elements)
+ * 4. UTILITIES (.container, responsive utilities)
+ *
+ * DESIGN SYSTEM:
+ *
+ * Colors:
+ * - --navy: #1a365d (primary brand color)
+ * - --kraft: #b98e5a (accent/secondary)
+ * - --white: #ffffff
+ * - --charcoal: #2d3748 (main text)
+ * - --body-text: #4a5568 (body copy)
+ * - --muted: #718096 (muted text)
+ *
+ * Spacing (8px scale):
+ * - --space-4: 4px
+ * - --space-8: 8px\n * - --space-16: 16px
+ * - --space-24: 24px\n * - --space-32: 32px\n * - --space-48: 48px\n *
+ * Typography:
+ * - --fs-0: 1rem (base body font size)
+ * - --fs-1: 1.25rem (large)
+ * - --fs-3: 1.953rem (extra large)
+ * - --fs-h1-fluid: clamp(2.441rem, 1.8rem + 2.5vw, 4rem) (responsive h1)
+ *\n * Shadows & Radius:\n * - --shadow-sm: subtle shadow\n * - --shadow-md: medium shadow\n * - --radius-sm/md/lg/xl: border-radius values\n *\n * TYPOGRAPHY FONTS:\n * - Body: Inter (400, 700, 800 weights)\n * - Display: Quantico (implied in design system)\n *\n * BOX MODEL:\n * - All elements: box-sizing: border-box\n * - Default margin: 0\n * - Default padding: 0\n *\n * IMPORT ORDER:\n * - This file MUST be imported first in all main-*.css entry points\n * - All blocks depend on these tokens\n *\n * MAINTAINING:\n * - Add new color/spacing needs here\n * - Keep scale consistent (multiples of 4px or 8px)\n * - Test contrast ratios (WCAG AA minimum)\n * - Document any new tokens\n */\n/* ============================================================ TOKENS */
 :root {
   --navy: #1a365d;
   --navy-mid: #2a4a7f;
