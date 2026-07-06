@@ -2,14 +2,14 @@
   public/mailboxes.html
   ======================
   MAILBOX RENTALS PAGE - Private mailbox rental service showcase
-  
+
   PURPOSE:
   - Dedicated page for mailbox rental service
   - Interactive pricing tiers with different box sizes
   - Quote builder with customizable options
   - Reservation request form
   - Features and benefits section
-  
+
   KEY SECTIONS:
   - data-include="/partials/header.html" - Navigation (injected by components.js)
   - page-hero - Smaller hero for interior pages
@@ -23,22 +23,22 @@
   - reservation - Modal/drawer for booking reservation
   - perks - Features benefits (24/7 access, mail forwarding, etc.)
   - data-include="/partials/footer.html" - Footer (injected by components.js)
-  
+
   DATA SOURCE:
   - Pricing and options from public/data/mailbox-content.json
   - Never hardcode prices in HTML - fetch from JSON
-  
+
   STYLING:
   - CSS: public/css/mailboxes.bundle.css (generated from src/css/main-mailboxes.css)
   - Components: page-hero.css, pricing.css, quote.css, reservation.css, perks.css
-  
+
   SCRIPTS:
   - public/js/components.js - Loads partials
   - public/js/app.js - Quote builder logic, reservation form handler
     * Fetches mailbox-content.json for pricing
     * Calculates quotes dynamically
     * Submits reservation to POST /api/reservation-request
-  
+
   FORMS:
   - Reservation form fields:
     * name (required)
@@ -50,7 +50,7 @@
     * mailNotification (optional checkbox)
   - Submits to: POST /api/reservation-request (server or worker)
   - Email sent via Resend API
-  
+
   SEO:
   - Canonical URL: /mailboxes
   - Schema.org Product type JSON-LD

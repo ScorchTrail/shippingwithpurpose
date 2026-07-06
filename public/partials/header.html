@@ -2,13 +2,13 @@
   public/partials/header.html
   ============================
   NAVIGATION HEADER PARTIAL - Reusable header component
-  
+
   PURPOSE:
   - Sticky navigation bar shown on all pages
   - Injected via data-include="/partials/header.html" in HTML pages
   - Loaded by public/js/components.js
   - Mobile-responsive with hamburger menu
-  
+
   STRUCTURE:
   - nav.site-header - Sticky container
   - nav.nav - Main nav wrapper (id="nav")
@@ -17,19 +17,19 @@
   - nav__cta - Primary CTA button "Rent a Mailbox"
   - nav__hamburger - Mobile menu toggle button (id="hamburger")
   - nav__menu - Mobile menu container (toggled by initNav in app.js)
-  
+
   MOBILE BEHAVIOR:
   - On small screens: hamburger menu appears, nav__links hidden
   - Clicking hamburger toggles nav__menu--open class
   - Icon swaps between menu.svg and close.svg
   - Links have nav__menu-link class, click closes menu
-  
+
   STYLING:
   - CSS: src/css/blocks/nav.css
   - Variables: --navy (brand color), --space-* (spacing)
   - BEM classes: nav__*, hamburger--*
   - Sticky positioning keeps header at top on scroll
-  
+
   JAVASCRIPT:
   - initNav() in public/js/app.js:
     * Sets up hamburger click listener
@@ -40,12 +40,12 @@
     * Compares current route to nav links
     * Adds nav__link--active or nav__menu-link--active class
     * Updates on each page load
-  
+
   ACCESSIBILITY:
   - Hamburger button has aria-label and aria-expanded
   - Semantic HTML with proper heading structure
   - Keyboard navigable links
-  
+
   NOTE:
   - This file is included on every page, not standalone
   - Update nav links here, affects all pages automatically

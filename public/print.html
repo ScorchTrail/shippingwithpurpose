@@ -2,14 +2,14 @@
   public/print.html
   ==================
   PRINT PORTAL - Online document printing service page
-  
+
   PURPOSE:
   - Dedicated page for print job submissions
   - Allow users to upload documents for printing
   - Select print options (color, B&W, copies)
   - View uploaded files before submission
   - Submit print jobs and get confirmation
-  
+
   KEY SECTIONS:
   - data-include="/partials/header.html" - Navigation (injected by components.js)
   - page-hero - Interior page hero for "Print Services"
@@ -23,17 +23,17 @@
   - upload-doc-list - Display uploaded files with preview
   - print-portal-feedback - Status messages/errors
   - data-include="/partials/footer.html" - Footer (injected by components.js)
-  
+
   FILE UPLOAD:
   - Supported formats: PDF, DOC, DOCX, PNG, JPEG
   - Max file size: 25MB total
   - Max files: 10 files
   - Uploaded as multipart/form-data to POST /api/print-request
-  
+
   STYLING:
   - CSS: public/css/print.bundle.css (generated from src/css/main-print.css)
   - Components: page-hero.css, forms.css, print.css
-  
+
   SCRIPTS:
   - public/js/components.js - Loads partials
   - public/js/app.js - Print form handler:
@@ -43,7 +43,7 @@
     * Form validation
     * Submit to POST /api/print-request
     * Handle API fallback chain (local → worker)
-  
+
   FORM SUBMISSION:
   - Endpoint: POST /api/print-request
   - Fields:
@@ -55,7 +55,7 @@
   - Response: { success: true/false, error?: string }
   - Email sent with file attachments via Resend API
   - Rate limited: 30 requests per 10 minutes
-  
+
   SEO:
   - Canonical URL: /print
   - Keywords: print services, document printing, local print shop
