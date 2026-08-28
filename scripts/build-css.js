@@ -44,6 +44,10 @@ const path = require('path');
 const srcDir = path.join(__dirname, '..', 'src', 'css');
 const outDir = path.join(__dirname, '..', 'public', 'css');
 
+function readCssFile(filePath) {
+  return fs.readFileSync(filePath, 'utf8').replace(/\*\/\\n(?=\/\*)/g, '*/\n');
+}
+
 /** entry source -> generated bundle */
 const PAGES = {
   'main-home.css': 'styles.bundle.css',
@@ -55,7 +59,7 @@ const PAGES = {
 /** Inline @import url("blocks/x.css") with the referenced file's contents. */
 function inlineImports(entryPath) {
   const dir = path.dirname(entryPath);
-  const text = fs.readFileSync(entryPath, 'utf8');
+  const text = readCssFile(entryPath);
   return text.replace(
     /@import\s+url\(\s*["']?([^"')]+)["']?\s*\)\s*;?/g,
     (_match, ref) => {
@@ -63,7 +67,7 @@ function inlineImports(entryPath) {
       if (!fs.existsSync(target)) {
         throw new Error(`Missing @import target: ${ref} (in ${path.basename(entryPath)})`);
       }
-      return `\n/* ${ref} */\n${fs.readFileSync(target, 'utf8')}\n`;
+      return `\n/* ${ref} */\n${readCssFile(target)}\n`;
     }
   );
 }

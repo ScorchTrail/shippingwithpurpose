@@ -1,3 +1,51 @@
+/* ============================================================ PROMOTION TICKER */
+.promotion-ticker {
+  display: block;
+  overflow: hidden;
+  background: #b42318;
+  color: var(--white);
+  font-size: var(--fs--1);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 40px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.promotion-ticker__track {
+  display: inline-flex;
+  min-width: max-content;
+  animation: promotion-ticker-scroll 26s linear infinite;
+}
+
+.promotion-ticker__sequence {
+  display: inline-flex;
+  gap: var(--space-64);
+  padding-right: var(--space-64);
+}
+
+.promotion-ticker:hover .promotion-ticker__track,
+.promotion-ticker:focus-visible .promotion-ticker__track {
+  animation-play-state: paused;
+}
+
+.promotion-ticker:focus-visible {
+  outline-color: var(--white);
+  outline-offset: -4px;
+}
+
+@keyframes promotion-ticker-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 /* ============================================================ INFO BAR */
 .info-bar {
   background: var(--navy);

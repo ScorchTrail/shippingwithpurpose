@@ -1,6 +1,6 @@
 /* ============================================================ HERO (homepage) */
 .hero {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: calc(var(--section-pad-y) + var(--space-16)) var(--section-pad-x) var(--section-pad-y);
   position: relative;
   /* overflow: hidden; removed to fix sticky header */
   display: flex;
